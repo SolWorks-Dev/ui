@@ -1,0 +1,51 @@
+:root {
+    --background: #140F1A;
+    --status-bar-background: #1D1326;
+    --grey: #797F91;
+    --primary: #E42575;
+    --border: #261D2B;
+    font-family: Roboto;
+}
+
+.inline-contents {
+    display: flex;
+}
+
+.status-bar {
+    height: 32px;
+    min-width: 100%;
+    background-color: var(--status-bar-background);
+}
+.status-bar-title {
+    color: var(--grey);
+    font-weight: bold;
+    font-size: 14px;
+    padding-right: 10px;
+}
+.status-bar-value {
+    color: var(--primary);
+    font-size: 14px;
+}
+.status-bar-content {
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 100%;
+    justify-content: center;
+}
+.status-bar-item {
+    display: flex;
+    padding-top: 8px;
+} 
+.status-bar-item.center {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.no-link-hover:hover {
+    text-decoration: none;
+    -webkit-transform: translate(0,-1px);
+    -ms-transform: translate(0,-1px);
+    transform: translate(0,-1px);
+}
+body.sb-show-main {
+    background: transparent !important;
+  }

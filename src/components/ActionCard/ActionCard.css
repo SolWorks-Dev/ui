@@ -1,0 +1,38 @@
+.action-card {
+    border: 1px solid grey;
+    min-height: 100px;
+    height: 100%;
+    min-width: 240px;
+    width: 100%;
+    background-color: var(--background);
+    color: white;
+    font-family: 'Roboto';
+    display: flex;
+    justify-content: center;
+    border-radius: 32px;
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.action-card-title {
+    font-size: 24px;
+    color: white;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.action-card-text {
+    color: #797F91;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.action-card-button {
+    margin-bottom: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}

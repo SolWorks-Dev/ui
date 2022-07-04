@@ -15,7 +15,7 @@ export const ActionButton: FC<ActionButtonProps> = ({
     onClick = () => {}
 }) => {
     return (
-        <div className="action-button" onClick={onClick}>
+        <div className="action-button glow-on-hover" onClick={onClick}>
             <div className="action-button-text">
                 {isLoading  ? <PulseLoader loading={isLoading} size={8} color="white" /> : text}
             </div>
@@ -37,7 +37,7 @@ export const ActionButtonWithLink: FC<ActionButtonWithLinkProps> = ({
     classname = ""
 }) => {
     return (
-        <a className={"action-button " + classname} target='_blank' rel="noreferrer" href={url}>
+        <a className={"action-button glow-on-hover " + classname} target='_blank' rel="noreferrer" href={url}>
             <div className="action-button-text">
                 {isLoading  ? <PulseLoader loading={isLoading} size={8} color="white" /> : text}
             </div>

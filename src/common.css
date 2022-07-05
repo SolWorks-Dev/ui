@@ -95,6 +95,9 @@ body.sb-show-main {
     top: 0;
     border-radius: 10px;
 }
+.glow-on-hover.no-bg:after {
+    background: transparent;
+}
 
 @keyframes glowing {
     0% { background-position: 0 0; }
@@ -134,4 +137,41 @@ body.sb-show-main {
     text-decoration: none;
     -webkit-transition: 150ms ease-in-out;
     transition: 150ms ease-in-out;
+}
+
+.secondary-button {
+    -webkit-transition: 150ms ease-in-out;
+    transition: 150ms ease-in-out;
+    width: 158px;
+    min-width: 60px;
+    height: 48px;
+    min-height: 48px;
+    border: solid 1px #24182f;
+    background-color: none;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.secondary-button-text {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #eae4e4;
+}
+
+.secondary-button:hover {
+    -webkit-transform: translate(0,-2px);
+    -ms-transform: translate(0,-2px);
+    transform: translate(0,-2px);
+    cursor: pointer;
+    background-color: rgba(29, 19, 38, 0.6);
 }

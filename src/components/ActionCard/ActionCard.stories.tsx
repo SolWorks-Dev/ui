@@ -1,13 +1,14 @@
 import React from "react";
 import { ActionCard } from "./index";
 import "../../common.css";
+import { BlackBackground } from "../../BlackBackground";
 
 export default {
   title: "Action card",
   component: ActionCard,
 };
 
-export const FirstTime = () => <ActionCard 
+const FirstTimeCard = <ActionCard 
     title="First time here? gm 👋"
     text={<>SolApps is a directory of the best Solana protocols and communities.
     <br/><br/>
@@ -16,7 +17,9 @@ export const FirstTime = () => <ActionCard
     actionButtonText="Learn more"
 />;
 
-export const MissingProtocol = () => <ActionCard 
+export const FirstTime = () => <BlackBackground child={FirstTimeCard} />;
+
+const MissingProtocolCard = <ActionCard 
     title="Are we missing a protocol? 🕵️‍♀️"
     text={<>Contact us if you want to see a protocol or community on SolApps ✉️
     <br/><br/>
@@ -24,3 +27,5 @@ export const MissingProtocol = () => <ActionCard
     actionLink=""
     actionButtonText="Apply now"
 />;
+
+export const MissingProtocol = () => <BlackBackground child={MissingProtocolCard} />;

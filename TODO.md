@@ -6,7 +6,7 @@ REMEMBER: push your changes daily
 # TODO
 - [ ] Add socials component to design
 
-- [ ] Create header text
+- [x] Create header text
 - [ ] Create header "see more" button
 - [ ] Create tag
 - [ ] Create application card - mini

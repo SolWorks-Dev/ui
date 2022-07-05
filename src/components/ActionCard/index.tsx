@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import "../../common.css";
-import { ActionButtonWithLink } from "../ActionButton";
+import { ActionButtonWithLink } from "../ActionButtonWithLink";
 import "./ActionCard.css";
 
-interface ActionCardProps {
+export interface ActionCardProps {
     title: string;
     text: string | JSX.Element;
     actionLink: string;

@@ -1,6 +1,5 @@
 import React from "react";
 import { ActionButton } from "./index";
-import "../../common.css";
 
 export default {
   title: "Action button",

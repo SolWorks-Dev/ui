@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import "../../common.css";
 import PacmanLoader from "react-spinners/PacmanLoader";
 
-interface NetworkStatusBarProps {
+export interface NetworkStatusBarProps {
   // Solana TPS
   transactionsPerSecond?: number;
 

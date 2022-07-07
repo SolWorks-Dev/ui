@@ -1,0 +1,81 @@
+.mac-outline {
+  border: solid 1px #261d2b;
+  border-radius: 18px;
+  width: 256px;
+  min-width: 200px;
+  /* height: 280px; */
+  min-height: 280px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+
+.mac-outline:hover {
+  -webkit-transform: translate(0,-2px);
+  -ms-transform: translate(0,-2px);
+  transform: translate(0,-2px);
+}
+
+.mac-title {
+  font-family: Roboto;
+  font-size: 25px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+  margin-top: 19px;
+}
+
+.mac-logo {
+  margin-top: 34px;
+}
+
+.mac-tag {
+  margin-top: 20px;
+  color: white;
+  min-width: 40px;
+  padding: 8px 12px 8px 12px;
+  border-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-flex;
+}
+
+.mac-tag-text {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+
+}
+
+.mac-divider {
+  margin-top: 37px;
+  width: 100%;
+  height: 1px;
+  background-color: #261d2b;
+}
+
+.mac-tap-text {
+  padding-top: 12px;
+  padding-bottom: 10px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #261d2b;
+}

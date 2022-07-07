@@ -56,7 +56,7 @@ body.sb-show-main {
     cursor: pointer;
     position: relative;
     z-index: 0;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 .glow-on-hover:before {
@@ -68,12 +68,12 @@ body.sb-show-main {
     background-size: 400%;
     z-index: -1;
     filter: blur(5px);
-    width: calc(100% + 6px);
-    height: calc(100% + 6px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
     animation: glowing 15s linear infinite;
     opacity: 0;
     transition: opacity .3s ease-in-out;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 .glow-on-hover:active {
@@ -90,13 +90,17 @@ body.sb-show-main {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: var(--primary);
+    background: transparent;
     left: 0;
     top: 0;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 .glow-on-hover.no-bg:after {
     background: transparent;
+}
+
+.glow-on-hover.pink-bg:after {
+    background: var(--primary);
 }
 
 .glow-on-hover.bg:after {
@@ -178,4 +182,26 @@ body.sb-show-main {
     transform: translate(0,-2px);
     cursor: pointer;
     background-color: rgba(29, 19, 38, 0.6);
+}
+
+.rise-on-hover-150 {
+    -webkit-transition: 150ms ease-in-out;
+    transition: 150ms ease-in-out;
+}
+
+.rise-on-hover-300 {
+    -webkit-transition: 300ms ease-in-out;
+    transition: 300ms ease-in-out;
+}
+
+.rise-on-hover-150:hover {
+    -webkit-transform: translate(0,-2px);
+    -ms-transform: translate(0,-2px);
+    transform: translate(0,-2px);
+}
+
+.rise-on-hover-300:hover {
+    -webkit-transform: translate(0,-2px);
+    -ms-transform: translate(0,-2px);
+    transform: translate(0,-2px);
 }

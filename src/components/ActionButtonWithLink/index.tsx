@@ -13,7 +13,7 @@ export const ActionButtonWithLink: FC<ActionButtonWithLinkProps> = ({
     isLoading = false, text = "", url = "", classname = ""
 }) => {
     return (
-        <a className={"action-button glow-on-hover " + classname} target='_blank' rel="noreferrer" href={url}>
+        <a className={"action-button glow-on-hover pink-bg " + classname} target='_blank' rel="noreferrer" href={url}>
             <div className="action-button-text">
                 {isLoading ? <PulseLoader loading={isLoading} size={8} color="white" /> : text}
             </div>

@@ -2,19 +2,16 @@ REMEMBER: push your changes daily
 
 # DONE
 - [x] Add adding gradient glow effect on hover
+- [x] Create header text
+- [x] Create header "see more" button
+- [x] Create tag
+- [x] Create application card - mini
+- [x] Create application card - main
 
 # TODO
-- [ ] Add socials component to design
-
-- [x] Create header text
-- [ ] Create header "see more" button
-- [ ] Create tag
-- [ ] Create application card - mini
-- [ ] Create application card - main
 - [ ] Create application card - v2
-
 - [ ] Create application details components
-    - [ ] Application details component
+    - [ ] Application component
     - [ ] Socials component
     - [ ] Links component
     - [ ] Related component
@@ -24,7 +21,8 @@ REMEMBER: push your changes daily
 - [ ] Create menu 
 - [ ] Create pages
 
-- [ ] Add mobile support
 - [ ] Create web page project with scaffolding
 - [ ] Import UI library into new project
 - [ ] Set up importing of local data (.toml files in directory)
+- [ ] Add mobile support
+- [ ] Add socials component to design

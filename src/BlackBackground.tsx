@@ -3,7 +3,7 @@ import React from "react";
 export const BlackBackground = ({child = <></>}) => 
     <div style={{
         backgroundColor: 'var(--background)', 
-        width: '600px', 
+        width: '800px', 
         height: '800px', 
         display: 'flex', 
         textAlign: 'center',

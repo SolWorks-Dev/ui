@@ -12,10 +12,20 @@
 }
 
 .mac-outline:hover {
+  border: 0px;
   -webkit-transform: translate(0,-2px);
   -ms-transform: translate(0,-2px);
   transform: translate(0,-2px);
 }
+
+.mac-outline:hover:before {
+  border: 0px;
+}
+
+.mac-outline:hover:after {
+  border: 0px;
+}
+
 
 .mac-title {
   font-family: Roboto;

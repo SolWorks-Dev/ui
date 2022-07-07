@@ -33,16 +33,18 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
     }
 
     return (
-        <div className="mac-outline">
-            <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
-            <div className="mac-title">{appName}</div>
-            <div className="mac-tag" style={{backgroundColor: tagColorHex}}>
-                <div className="mac-tag-text">
-                    {tag.toUpperCase()}
+        <div className="glow-on-hover bg" style={{display: 'flex'}}>
+            <div className="mac-outline">
+                <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
+                <div className="mac-title">{appName}</div>
+                <div className="mac-tag" style={{backgroundColor: tagColorHex}}>
+                    <div className="mac-tag-text">
+                        {tag.toUpperCase()}
+                    </div>
                 </div>
+                <div className="mac-divider" />
+                <div className="mac-tap-text">Tap to open</div>
             </div>
-            <div className="mac-divider" />
-            <div className="mac-tap-text">Tap to open</div>
         </div>
     );
 };

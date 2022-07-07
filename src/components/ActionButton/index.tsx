@@ -14,9 +14,11 @@ export const ActionButton: FC<ActionButtonProps> = ({
     onClick = () => {}
 }) => {
     return (
-        <div className="action-button glow-on-hover" onClick={onClick}>
+        <div className="action-button glow-on-hover pink-bg" onClick={onClick}>
             <div className="action-button-text">
-                {isLoading  ? <PulseLoader loading={isLoading} size={8} color="white" /> : text}
+                {isLoading  
+                    ? <PulseLoader loading={isLoading} size={8} color="white" /> 
+                    : text}
             </div>
         </div>
     );

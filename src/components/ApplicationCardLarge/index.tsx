@@ -2,26 +2,35 @@ import React, { FC } from "react";
 import "../../common.css";
 import './ApplicationCardLarge.css';
 import { Logo } from "../Logo";
+import { ActionButton } from "../ActionButton";
 
 
 export interface ApplicationCardLargeProps {
     logoUrl: string;
     appName: string;
     description: string;
+    onClick?: () => {};
 };
 
 export const ApplicationCardLarge: FC<ApplicationCardLargeProps> = ({
     logoUrl,
     appName,
-    description
+    description,
+    onClick
 }) => {
 
     return (
         <div className="lac-outline">
-            <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
-            <div className="lac-title">{appName}</div>
-            <div className="lac-divider" />
-            <div className="lac-tap-text">Tap to open</div>
+            <div className="lac-logo">
+                <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
+            </div>
+            <div className="lac-title-desc-wrapper">
+                <div className="lac-title">{appName}</div>
+                <div className="lac-desc">{description}</div>
+            </div>
+            <div className="lac-button">
+                <ActionButton text="Open" onClick={onClick} />
+            </div>
         </div>
     );
 };

@@ -1,7 +1,9 @@
 .lac-outline {
     border: solid 1px #261d2b;
     border-radius: 18px;
-    min-width: 660px;
+    min-width: 500px;
+    width: 100%;
+    max-width: 840px;
     min-height: 185px;
     text-align: center;
     display: flex;
@@ -11,7 +13,7 @@
 
 .lac-title {
     font-family: Roboto;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bold;
     font-stretch: normal;
     font-style: normal;
@@ -30,13 +32,14 @@
 .lac-desc {
     text-align: left;
     font-family: Roboto;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
     text-align: left;
+    margin-top: 6px;
     color: #fff;
 }
 

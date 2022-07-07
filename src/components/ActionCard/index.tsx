@@ -21,7 +21,7 @@ export const ActionCard: FC<ActionCardProps> = ({
             <div>
                 <div className="action-card-title">{title}</div>
                 <div className="action-card-text">{text}</div>
-                <ActionButtonWithLink text={actionButtonText} url={actionLink} classname="action-card-button" />
+                <ActionButtonWithLink text={actionButtonText} url={actionLink} classname="action-card-button" width={140} />
             </div>
         </div>
     );

@@ -119,7 +119,7 @@ body.sb-show-main {
     background-color: var(--primary);
     min-height: 52px;
     height: 52px;
-    width: 180px;
+    width: 100%;
     min-width: 150px;
     color: white;
     text-align: center;
@@ -204,4 +204,10 @@ body.sb-show-main {
     -webkit-transform: translate(0,-2px);
     -ms-transform: translate(0,-2px);
     transform: translate(0,-2px);
+}
+
+.body-wrapper {
+    padding-top: 34px;
+    padding-left: 72px;
+    padding-right: 72px;
 }

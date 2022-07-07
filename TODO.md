@@ -9,7 +9,8 @@ REMEMBER: push your changes daily
 - [x] Create application card - main
 
 # TODO
-- [ ] Create application card - v2
+- [x] Create application card - v2
+
 - [ ] Create application details components
     - [ ] Application component
     - [ ] Socials component

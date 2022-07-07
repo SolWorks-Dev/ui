@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mantine/core": "^4.2.12",
+    "@mantine/hooks": "^4.2.12",
     "@storybook/addon-backgrounds": "^6.5.9",
     "@types/node": "^16.11.43",
     "@types/react": "^18.0.14",

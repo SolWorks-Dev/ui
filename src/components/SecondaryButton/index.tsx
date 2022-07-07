@@ -6,13 +6,15 @@ export interface SecondaryButtonProps {
     classname?: string;
     onClick?: () => void;
     url?: string;
+    additionalStyles?: any;
 }
 
 export const SecondaryButton: FC<SecondaryButtonProps> = ({
     text = "", 
     classname = undefined,
     onClick = undefined,
-    url = undefined
+    url = undefined,
+    additionalStyles = undefined
 }) => {
 
     if (url !== undefined) {
@@ -22,6 +24,7 @@ export const SecondaryButton: FC<SecondaryButtonProps> = ({
                 target='_blank' 
                 rel="noreferrer" 
                 href={url}
+                style={additionalStyles}
             >
                 <div className="secondary-button-text">
                     {text.toUpperCase()}
@@ -30,7 +33,7 @@ export const SecondaryButton: FC<SecondaryButtonProps> = ({
         );
     } else if (onClick) {
         return (
-            <div className={"secondary-button " + classname} onClick={onClick}>
+            <div className={"secondary-button " + classname} onClick={onClick} style={additionalStyles}>
                 <div className="secondary-button-text">
                     {text.toUpperCase()}
                 </div>
@@ -38,7 +41,7 @@ export const SecondaryButton: FC<SecondaryButtonProps> = ({
         );
     } else {
         return (
-            <div className={"secondary-button " + classname}>
+            <div className={"secondary-button " + classname} style={additionalStyles}>
                 <div className="secondary-button-text">
                     {text.toUpperCase()}
                 </div>

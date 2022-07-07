@@ -10,17 +10,19 @@ export interface ApplicationCardLargeProps {
     appName: string;
     description: string;
     onClick?: () => {};
+    additionalStyles?: any;
 };
 
 export const ApplicationCardLarge: FC<ApplicationCardLargeProps> = ({
     logoUrl,
     appName,
     description,
-    onClick
+    onClick,
+    additionalStyles = undefined
 }) => {
 
     return (
-        <div className="lac-outline">
+        <div className="lac-outline" style={additionalStyles}>
             <div className="lac-logo">
                 <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
             </div>

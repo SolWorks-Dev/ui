@@ -3,7 +3,7 @@
     max-height: 400px;
     min-width: 240px;
     width: 100%;
-    max-width: 480px;
+    /* max-width: 480px; */
     color: white;
     font-family: 'Roboto';
     display: flex;

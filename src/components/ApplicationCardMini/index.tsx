@@ -10,13 +10,15 @@ export interface ApplicationCardMiniProps {
     appName: string;
     tag: string;
     tagColor: TagColor;
+    additionalStyles?: any;
 };
 
 export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
     logoUrl,
     appName,
     tag,
-    tagColor
+    tagColor,
+    additionalStyles = undefined
 }) => {
 
     let tagColorHex = '';
@@ -33,7 +35,7 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
     }
 
     return (
-        <div className="glow-on-hover bg" style={{display: 'flex'}}>
+        <div className="glow-on-hover bg" style={{...additionalStyles, display: 'inline-flex'}}>
             <div className="mac-outline">
                 <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
                 <div className="mac-title">{appName}</div>

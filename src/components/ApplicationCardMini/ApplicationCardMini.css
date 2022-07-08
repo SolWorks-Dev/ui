@@ -1,21 +1,11 @@
 .mac-outline {
   border: solid 1px #261d2b;
   border-radius: 18px;
-  width: 256px;
+  width: 100%;
   min-width: 200px;
-  /* height: 280px; */
-  min-height: 280px;
+  min-height: 300px;
   text-align: center;
   cursor: pointer;
-  -webkit-transition: 300ms ease-in-out;
-  transition: 300ms ease-in-out;
-}
-
-.mac-outline:hover {
-  border: 0px;
-  -webkit-transform: translate(0,-2px);
-  -ms-transform: translate(0,-2px);
-  transform: translate(0,-2px);
 }
 
 .mac-outline:hover:before {

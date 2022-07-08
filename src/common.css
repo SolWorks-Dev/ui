@@ -59,6 +59,10 @@ body.sb-show-main {
     border-radius: 8px;
 }
 
+.glow-on-hover.px18 {
+    border-radius: 18px;
+}
+
 .glow-on-hover:before {
     content: '';
     background: linear-gradient(45deg, var(--background), #ff00c8, #ff0000, var(--primary));
@@ -74,6 +78,10 @@ body.sb-show-main {
     opacity: 0;
     transition: opacity .3s ease-in-out;
     border-radius: 8px;
+}
+
+.glow-on-hover.px18:before {
+    border-radius: 18px;
 }
 
 .glow-on-hover:active {
@@ -95,6 +103,11 @@ body.sb-show-main {
     top: 0;
     border-radius: 8px;
 }
+
+.glow-on-hover.px18:after {
+    border-radius: 18px;
+}
+
 .glow-on-hover.no-bg:after {
     background: transparent;
 }
@@ -211,3 +224,17 @@ body.sb-show-main {
     padding-left: 72px;
     padding-right: 72px;
 }
+
+@media (max-width: 640px) {
+    .body-wrapper {
+        padding-top: 34px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .secondary-button {
+        width: 100%;
+    }
+  }

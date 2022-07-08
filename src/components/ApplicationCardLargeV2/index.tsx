@@ -2,25 +2,25 @@ import React, { FC } from "react";
 import "../../common.css";
 import './ApplicationCardLargeV2.css';
 import { Logo } from "../Logo";
-import { ActionButton } from "../ActionButton";
-
 
 export interface ApplicationCardLargeV2Props {
     logoUrl: string;
     appName: string;
     description: string;
     onClick?: () => {};
+    additionalStyles?: any;
 };
 
 export const ApplicationCardLargeV2: FC<ApplicationCardLargeV2Props> = ({
     logoUrl,
     appName,
     description,
-    onClick
+    onClick,
+    additionalStyles = undefined
 }) => {
 
     return (
-        <div className="lac-v2-outline glow-on-hover bg rise-on-hover-300">
+        <div className="lac-v2-outline glow-on-hover bg px18 rise-on-hover-300" onClick={onClick} style={additionalStyles}>
             <div style={{display: 'flex'}}>
                 <div className="lac-v2-logo">
                     <Logo logoUrl={logoUrl} altText={`${appName} logo`} />

@@ -9,7 +9,7 @@ import { SecondaryButton } from "../SecondaryButton";
 import { ApplicationCardMini } from "../ApplicationCardMini";
 import { ApplicationCardLargeV2 } from "../ApplicationCardLargeV2";
 
-export const ExamplePage = () => {
+export const ExampleHomePage = () => {
 
     return (
         <div style={{backgroundColor: 'var(--background)', height: '100%', width: '100%'}}>

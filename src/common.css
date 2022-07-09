@@ -65,7 +65,24 @@ body.sb-show-main {
 
 .glow-on-hover:before {
     content: '';
-    background: linear-gradient(45deg, var(--background), #ff00c8, #ff0000, var(--primary));
+    background: linear-gradient(45deg, var(--background), #ff00c8, #ff0000, #EB6841, var(--primary));
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 8px;
+}
+
+.glow-on-hover.colors-only:before {
+    content: '';
+    background: linear-gradient(45deg, #ff00c8, #ff0000, var(--primary), #E34A27);
     position: absolute;
     top: -2px;
     left:-2px;
@@ -78,6 +95,7 @@ body.sb-show-main {
     opacity: 0;
     transition: opacity .3s ease-in-out;
     border-radius: 8px;
+
 }
 
 .glow-on-hover.px18:before {

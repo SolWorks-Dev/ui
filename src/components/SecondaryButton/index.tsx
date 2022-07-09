@@ -20,7 +20,7 @@ export const SecondaryButton: FC<SecondaryButtonProps> = ({
     if (url !== undefined) {
         return (
             <a 
-                className={"secondary-button " + classname}
+                className={"secondary-button glow-on-hover bg colors-only " + classname}
                 target='_blank' 
                 rel="noreferrer" 
                 href={url}
@@ -33,7 +33,7 @@ export const SecondaryButton: FC<SecondaryButtonProps> = ({
         );
     } else if (onClick) {
         return (
-            <div className={"secondary-button " + classname} onClick={onClick} style={additionalStyles}>
+            <div className={"secondary-button glow-on-hover bg colors-only " + classname} onClick={onClick} style={additionalStyles}>
                 <div className="secondary-button-text">
                     {text.toUpperCase()}
                 </div>
@@ -41,7 +41,7 @@ export const SecondaryButton: FC<SecondaryButtonProps> = ({
         );
     } else {
         return (
-            <div className={"secondary-button " + classname} style={additionalStyles}>
+            <div className={"secondary-button glow-on-hover bg colors-only " + classname} style={additionalStyles}>
                 <div className="secondary-button-text">
                     {text.toUpperCase()}
                 </div>

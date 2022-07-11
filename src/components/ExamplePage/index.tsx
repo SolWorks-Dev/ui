@@ -44,7 +44,7 @@ export const ExampleHomePage = () => {
                 </Grid>
 
 
-                <Grid gutter="xl" style={{marginTop: '20px'}}>
+                <Grid gutter="xl" style={{marginTop: '30px'}}>
                     <Grid.Col xs={8} md={8} lg={10}>
                         <Heading text="Curated" />
                     </Grid.Col>
@@ -88,7 +88,7 @@ export const ExampleHomePage = () => {
                 </Grid>
 
 
-                <Grid gutter="xl" style={{marginTop: '20px'}}>
+                <Grid gutter="xl" style={{marginTop: '30px'}}>
                     <Grid.Col xs={9} md={9} lg={10}>
                         <Heading text="AMMs" />
                     </Grid.Col>
@@ -102,6 +102,7 @@ export const ExampleHomePage = () => {
                             logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
                             appName="Raydium"
                             description="Automated market maker (AMM) utilising Serum’s on-chain central order book for trading."
+                            height={250}
                         />
                     </Grid.Col>
                     <Grid.Col xs={12} md={6} lg={6}>
@@ -110,6 +111,7 @@ export const ExampleHomePage = () => {
                             appName="Orca"
                             description="Automated market maker (AMM) enabling low-fee, near-instant token swaps. Tackling UX for the masses."
                             additionalStyles={{marginLeft: 'auto', marginRight: 0}}
+                            height={250}
                         />
                     </Grid.Col>
                     <Grid.Col xs={12} md={6} lg={6}>
@@ -117,6 +119,7 @@ export const ExampleHomePage = () => {
                             logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Saber2gLauYim4Mvftnrasomsv6NvAuncvMEZwcLpD1/logo.svg"
                             appName="Saber"
                             description="Automated market maker (AMM) optimized for trading pegged assets."
+                            height={250}
                         />
                     </Grid.Col>
                     <Grid.Col xs={12} md={6} lg={6}>
@@ -125,12 +128,13 @@ export const ExampleHomePage = () => {
                             appName="Solend"
                             description="Algorithmic, decentralized protocol for lending and borrowing."
                             additionalStyles={{marginLeft: 'auto', marginRight: 0}}
+                            height={250}
                         />
                     </Grid.Col>
                 </Grid>
 
 
-                <Grid gutter="xl" style={{marginTop: '20px'}}>
+                <Grid gutter="xl" style={{marginTop: '30px'}}>
                     <Grid.Col xs={8} md={8} lg={10}>
                         <Heading text="NFT Communities" />
                     </Grid.Col>

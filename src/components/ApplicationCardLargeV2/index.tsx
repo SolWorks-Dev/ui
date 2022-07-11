@@ -9,6 +9,7 @@ export interface ApplicationCardLargeV2Props {
     description: string;
     onClick?: () => {};
     additionalStyles?: any;
+    height?: number;
 };
 
 export const ApplicationCardLargeV2: FC<ApplicationCardLargeV2Props> = ({
@@ -16,12 +17,13 @@ export const ApplicationCardLargeV2: FC<ApplicationCardLargeV2Props> = ({
     appName,
     description,
     onClick,
-    additionalStyles = undefined
+    additionalStyles = undefined,
+    height = 300
 }) => {
 
     return (
-        <div className="lac-v2-outline glow-on-hover bg px18 rise-on-hover-300" onClick={onClick} style={additionalStyles}>
-            <div style={{display: 'flex'}}>
+        <div className="lac-v2-outline glow-on-hover bg px18 rise-on-hover-300" onClick={onClick} style={{height: `${height}px`, ...additionalStyles}}>
+            <div style={{display: 'flex', alignItems: 'center', marginTop: '-50px'}}>
                 <div className="lac-v2-logo">
                     <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
                 </div>

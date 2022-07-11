@@ -8,10 +8,10 @@ REMEMBER: push your changes daily
 - [x] Create application card - mini
 - [x] Create application card - main
 - [x] Create application card - v2
+- [x] Add mobile support
 
 # TODO
 - [~] Create pages
-- [~] Add mobile support
 
 DEV
 - [ ] Create application details components
@@ -23,7 +23,6 @@ DEV
     - [ ] Create search bar
     - [ ] Create menu hamburger icon
 - [ ] Create menu
-
 
 - [ ] Create web page project with scaffolding
 - [ ] Import UI library into new project

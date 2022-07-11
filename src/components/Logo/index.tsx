@@ -12,7 +12,9 @@ export const Logo: FC<LogoProps> = ({logoUrl, altText}) => {
                 src={logoUrl}
                 width="78px"
                 height="78px"
-                alt={`${altText} logo`} />
+                alt={`${altText} logo`}
+                style={{borderRadius: '40px'}}
+            />
         </div>
     );
 };

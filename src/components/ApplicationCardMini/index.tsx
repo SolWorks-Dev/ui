@@ -35,8 +35,8 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
     }
 
     return (
-        <div className="glow-on-hover bg px18" style={{...additionalStyles}}>
-            <div className="mac-outline">
+        <div className="" style={{...additionalStyles}}>
+            <div className="mac-outline glow-on-hover bg px18">
                 <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
                 <div className="mac-title">{appName}</div>
                 <div className="mac-tag" style={{backgroundColor: tagColorHex}}>

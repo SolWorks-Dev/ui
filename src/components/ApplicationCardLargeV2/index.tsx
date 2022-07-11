@@ -30,8 +30,10 @@ export const ApplicationCardLargeV2: FC<ApplicationCardLargeV2Props> = ({
                     <div className="lac-v2-desc">{description}</div>
                 </div>
             </div>
-            <div className="lac-v2-divider" />
-            <div className="lac-v2-tap-text">Tap to open</div>
+            <div className="lac-v2-tap-wrapper">
+                <div className="lac-v2-divider" />
+                <div className="lac-v2-tap-text">Tap to open</div>
+            </div>
         </div>
     );
 };

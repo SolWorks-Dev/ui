@@ -148,8 +148,8 @@ body.sb-show-main {
     -webkit-transition: 150ms ease-in-out;
     transition: 150ms ease-in-out;
     background-color: var(--primary);
-    min-height: 52px;
-    height: 52px;
+    min-height: 42px;
+    height: 42px;
     width: 100%;
     min-width: 150px;
     color: white;
@@ -170,7 +170,7 @@ body.sb-show-main {
 .action-button-text {
     margin: 0 auto;
     font-family: Roboto;
-    font-size: 20px;
+    font-size: 18px;
 }
 .no-link-hover {
     text-decoration: none;

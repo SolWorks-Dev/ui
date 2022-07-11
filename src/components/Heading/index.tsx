@@ -7,7 +7,7 @@ export interface HeadingProps {
 
 export const Heading: FC<HeadingProps> = ({
     text = "",
-    size = 48
+    size = 42
 }) => {
 
     const HeadingStyles: CSSProperties = {

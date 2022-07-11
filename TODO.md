@@ -19,11 +19,11 @@ DEV
     - [ ] Socials component
     - [ ] Links component
     - [ ] Related component
-
 - [ ] Create menu header
     - [ ] Create search bar
     - [ ] Create menu hamburger icon
 - [ ] Create menu
+
 
 - [ ] Create web page project with scaffolding
 - [ ] Import UI library into new project

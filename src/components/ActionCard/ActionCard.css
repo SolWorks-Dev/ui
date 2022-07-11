@@ -1,9 +1,9 @@
 .action-card {
     min-height: 100px;
+    height: 278px;
     max-height: 400px;
     min-width: 240px;
     width: 100%;
-    /* max-width: 480px; */
     color: white;
     font-family: 'Roboto';
     display: flex;
@@ -11,6 +11,7 @@
     border-radius: 18px;
     border: 1px solid var(--border);
     text-align: center;
+    position: relative;
 }
 
 .action-card-title {
@@ -23,7 +24,7 @@
 
 .action-card-text {
     color: #797F91;
-    font-size: 20px;
+    font-size: 18px;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
@@ -32,6 +33,10 @@
 
 .action-card-button {
     margin-bottom: 24px;
-    margin-left: auto;
+    margin-left: auto; 
     margin-right: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    right: 0; 
 }

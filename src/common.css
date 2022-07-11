@@ -256,3 +256,11 @@ body.sb-show-main {
         width: 100%;
     }
   }
+
+.pink-text {
+    color: var(--primary);
+}
+
+.grey-text {
+    color: var(--grey);
+}

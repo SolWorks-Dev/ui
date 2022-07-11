@@ -2,8 +2,8 @@ import React from "react";
 import { ExampleHomePage } from "./index";
 
 export default {
-    title: "Example Home page",
+    title: "Example pages",
     component: ExampleHomePage,
   };
   
-export const Example = () => <ExampleHomePage />
+export const Home = () => <ExampleHomePage />

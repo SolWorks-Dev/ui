@@ -17,7 +17,7 @@ export const ActionButton: FC<ActionButtonProps> = ({
 }) => {
   return (
     <div
-      className="action-button glow-on-hover pink-bg"
+      className="action-button"
       onClick={onClick}
       style={{ width: width === 0 ? "100%" : `${width}px` }}
     >

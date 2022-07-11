@@ -19,7 +19,7 @@ export const ActionButtonWithLink: FC<ActionButtonWithLinkProps> = ({
 }) => {
   return (
     <a
-      className={"action-button glow-on-hover pink-bg " + classname}
+      className={"action-button " + classname}
       target="_blank"
       rel="noreferrer"
       href={url}

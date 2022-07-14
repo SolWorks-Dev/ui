@@ -58,7 +58,7 @@ export const ExampleHomePage = () => {
                     </Grid.Col>
                 </Grid>
                 <Grid gutter="xl" justify={'space-between'} style={{marginTop: '20px'}}>
-                    <Grid.Col xs={6} md={4} lg={3}>
+                    <Grid.Col xs={6} md={3} lg={3}>
                         <ApplicationCardMini 
                             logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
                             appName="Raydium"
@@ -66,7 +66,7 @@ export const ExampleHomePage = () => {
                             tagColor='purple'
                         />
                     </Grid.Col>
-                    <Grid.Col xs={6} md={4} lg={3}>
+                    <Grid.Col xs={6} md={3} lg={3}>
                         <ApplicationCardMini 
                             logoUrl="https://metal.equinix.com/media/pages/images/0ff8033cf9437c213ee13937b1c4c455/79hX-genesysgo.svg"
                             appName="GenesysGo"
@@ -74,7 +74,7 @@ export const ExampleHomePage = () => {
                             tagColor='orange'
                         />
                     </Grid.Col>
-                    <Grid.Col xs={6} md={4} lg={3}>
+                    <Grid.Col xs={6} md={3} lg={3}>
                         <ApplicationCardMini 
                             logoUrl="https://www.orca.so/static/media/orca.0284041e.svg"
                             appName="Orca"
@@ -82,7 +82,7 @@ export const ExampleHomePage = () => {
                             tagColor='purple'
                         />
                     </Grid.Col>
-                    <Grid.Col xs={6} md={4} lg={3}>
+                    <Grid.Col xs={6} md={3} lg={3}>
                         <ApplicationCardMini 
                             logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Saber2gLauYim4Mvftnrasomsv6NvAuncvMEZwcLpD1/logo.svg"
                             appName="Saber"

@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import "../../common.css";
 import PacmanLoader from "react-spinners/PacmanLoader";
+import { Grid } from "@mantine/core";
 
 export interface NetworkStatusBarProps {
   // Solana TPS
@@ -28,27 +29,25 @@ const NetworkStatusBar: FC<NetworkStatusBarProps> = ({
 
   return (
     <div className="dark-background status-bar">
-      <div className="status-bar-content inline-contents">
-        <NetworkStatusBarItem
-          title="Solana TPS"
-          value={`${transactionsPerSecond.toLocaleString()} TPS`}
-          isLoading={isLoading}
-          link="https://explorer.solana.com/"
-        />
-        <NetworkStatusBarItem
-          title="SOL/USD"
-          value={`${solusdPrice.toLocaleString()} USD`}
-          isLoading={isLoading}
-          isCenter
-          link="https://www.binance.com/en/trade/SOL_USDC?theme=dark&type=spot"
-        />
-        <NetworkStatusBarItem
-          title="SOL/GBP"
-          value={`${solgbpPrice.toLocaleString()} GBP`}
-          isLoading={isLoading}
-          link="https://www.binance.com/en/trade/SOL_GBP?theme=dark&type=spot"
-        />
-      </div>
+        <Grid gutter={"xl"} justify="space-around">
+          <Grid.Col xs={6} md={6} lg={6}> 
+            <NetworkStatusBarItem
+              title="Solana TPS"
+              value={`${transactionsPerSecond.toLocaleString()} TPS`}
+              isLoading={isLoading}
+              link="https://explorer.solana.com/"
+            />
+          </Grid.Col>
+          <Grid.Col xs={6} md={6} lg={6}>
+            <NetworkStatusBarItem
+              title="SOL/USD"
+              value={`${solusdPrice.toLocaleString()} USD`}
+              isLoading={isLoading}
+              isCenter
+              link="https://www.binance.com/en/trade/SOL_USDC?theme=dark&type=spot"
+            />
+          </Grid.Col>
+        </Grid>
     </div>
   );
 };

@@ -29,7 +29,7 @@ const NetworkStatusBar: FC<NetworkStatusBarProps> = ({
 
   return (
     <div className="dark-background status-bar">
-        <Grid gutter={"xl"} justify="space-around">
+        <Grid gutter={"xl"}>
           <Grid.Col xs={6} md={6} lg={6}> 
             <NetworkStatusBarItem
               title="Solana TPS"
@@ -87,12 +87,14 @@ const NetworkStatusBarItem: FC<NetworkStatusBarItemProps> = ({
       target='_blank' 
       rel="noreferrer"
     >
-      <div className="status-bar-title">{title}:</div>
-      {isLoading ? (
-        <PacmanLoader loading={isLoading} size={8} color="#E42575" />
-      ) : (
-        <div className="status-bar-value">{value}</div>
-      )}
+      <div style={{display: 'flex', margin: '0 auto'}}>
+        <div className="status-bar-title">{title}:</div>
+        {isLoading ? (
+          <PacmanLoader loading={isLoading} size={8} color="#E42575" />
+        ) : (
+          <div className="status-bar-value">{value}</div>
+        )}
+      </div>
     </a>
   );
 };

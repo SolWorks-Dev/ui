@@ -20,12 +20,11 @@
     color: var(--grey);
     font-weight: bold;
     font-size: 14px;
-    margin: 0 auto;
 }
 .status-bar-value {
     color: var(--primary);
     font-size: 14px;
-    margin: 0 auto;
+    padding-left: 8px;
 }
 .status-bar-item {
     display: flex;

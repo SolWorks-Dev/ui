@@ -37,13 +37,11 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
     return (
         <div className="" style={{...additionalStyles}}>
             <div className="mac-outline glow-on-hover bg px18">
-                <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
-                <div className="mac-title">{appName}</div>
-                <div className="mac-tag" style={{backgroundColor: tagColorHex}}>
-                    <div className="mac-tag-text">
-                        {tag.toUpperCase()}
-                    </div>
+                <div className="mac-logo">
+                    <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
                 </div>
+                <div className="mac-title">{appName}</div>
+                <Tag tagColor={tagColor} tag={tag} />
                 <div className="mac-divider" />
                 <div className="mac-tap-text">Tap to open</div>
             </div>
@@ -51,3 +49,33 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
     );
 };
 
+export interface TagProps {
+    tagColor: TagColor;
+    tag: string;
+}
+
+export const Tag: FC<TagProps> = ({
+    tagColor,
+    tag
+}) => {
+    let tagColorHex = '';
+    switch (tagColor) {
+        case 'light-blue':
+            tagColorHex = '#71adff';
+            break;
+        case 'orange':
+            tagColorHex = '#f89a3d';
+            break;
+        case 'purple':
+            tagColorHex = '#461183';
+            break;
+    }
+
+    return (
+        <div className="mac-tag" style={{backgroundColor: tagColorHex}}>
+            <div className="mac-tag-text">
+                {tag.toUpperCase()}
+            </div>
+        </div>
+    );
+}

@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import "../../common.css";
+import { Tag, TagColor } from "../ApplicationCardMini";
 import { Logo } from "../Logo";
 import "./ApplicationDetailsCard.css";
 
@@ -7,6 +8,7 @@ export interface ApplicationDetailsCardProps {
     logoUrl: string;
     applicationName: string;
     tag: string;
+    tagColor: TagColor;
     description: string;
 };
 
@@ -14,6 +16,7 @@ export const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
     logoUrl,
     applicationName,
     tag,
+    tagColor = 'light-blue',
     description
 }) => {
     return (
@@ -21,13 +24,13 @@ export const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
             <div className="adc-wrapper">
                 <div className="adc-header">
                     <div className="adc-header-logo">
-                        <Logo logoUrl={logoUrl} altText=""/>
+                        <Logo logoUrl={logoUrl} altText="" sizePx={48}/>
                     </div>
                     <div className="adc-header-text">
                         {applicationName}
                     </div>
                     <div className="adc-header-tag">
-                        {tag}
+                        <Tag tagColor={tagColor} tag={tag} />
                     </div>
                 </div>
                 <div className="adc-description">

@@ -241,6 +241,7 @@ body.sb-show-main {
     padding-top: 34px;
     padding-left: 72px;
     padding-right: 72px;
+    color: white;
 }
 
 @media (max-width: 640px) {
@@ -263,4 +264,12 @@ body.sb-show-main {
 
 .grey-text {
     color: var(--grey);
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
 }

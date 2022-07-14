@@ -11,14 +11,14 @@ REMEMBER: push your changes daily
 - [x] Add mobile support
 
 # TODO
-- [~] Create pages
+- [x] Create pages
+- [x] Create application details components
+    - [x] Application component
+    - [x] Socials component
+    - [x] Links component
+    - [x] Related component
 
 DEV
-- [ ] Create application details components
-    - [ ] Application component
-    - [ ] Socials component
-    - [ ] Links component
-    - [ ] Related component
 - [ ] Create menu header
     - [ ] Create search bar
     - [ ] Create menu hamburger icon

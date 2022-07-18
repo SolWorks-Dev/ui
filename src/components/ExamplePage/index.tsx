@@ -12,6 +12,7 @@ import { LinkCard } from "../LinkCard";
 import { ApplicationDetailsCard } from "../ApplicationDetailsCard";
 import { SocialsCard } from "../SocialsCard";
 import { Breadcrumb } from "../Breadcrumb";
+import { Menu } from "../Menu";
 
 export const ExampleHomePage = () => {
 
@@ -22,7 +23,7 @@ export const ExampleHomePage = () => {
                 solusdPrice={33.33}
                 solgbpPrice={28.88}
             />
-
+            <Menu showMenu />
             <div className="body-wrapper">
                 <Breadcrumb />
                 <Grid gutter="xl"  style={{marginTop: '2px'}}>

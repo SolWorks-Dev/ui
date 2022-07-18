@@ -9,21 +9,20 @@ REMEMBER: push your changes daily
 - [x] Create application card - main
 - [x] Create application card - v2
 - [x] Add mobile support
-
-# TODO
 - [x] Create pages
 - [x] Create application details components
     - [x] Application component
     - [x] Socials component
     - [x] Links component
     - [x] Related component
+- [x] Create menu header
+    - [x] Create search bar
+    - [x] Create menu hamburger icon
 
+# TODO
 DEV
-- [ ] Create menu header
-    - [ ] Create search bar
-    - [ ] Create menu hamburger icon
+- [ ] Design how to store app data (bundled or API)
 - [ ] Create menu
-
 - [ ] Create web page project with scaffolding
 - [ ] Import UI library into new project
 - [ ] Set up importing of local data (.toml files in directory)

@@ -227,10 +227,14 @@ body.sb-show-main {
 }
 
 .body-wrapper {
-    padding-top: 34px;
+    padding-top: 0px;
     padding-left: 72px;
     padding-right: 72px;
     color: white;
+}
+
+.search {
+    width: 380px;
 }
 
 @media (max-width: 640px) {
@@ -238,6 +242,10 @@ body.sb-show-main {
         padding-top: 34px;
         padding-left: 24px;
         padding-right: 24px;
+    }
+
+    .search {
+        width: 280px;
     }
   }
 

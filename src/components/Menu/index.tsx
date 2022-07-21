@@ -1,94 +1,138 @@
-import { forwardRef } from "react";
-import { Group, Avatar, Text, Select, Burger, Kbd } from "@mantine/core";
-import React, { FC } from "react";
-import "../../common.css";
-import { ExampleAppData } from "../ExampleData";
-import "./Menu.css";
-import { Search } from "tabler-icons-react";
+import { ActionIcon, Aside, createStyles, Group, Navbar, ScrollArea, useMantineColorScheme } from '@mantine/core';
+import { FC } from 'react';
+import { Adjustments, Lock, MoonStars, Notes, PresentationAnalytics, Sun } from 'tabler-icons-react';
+import '../../common.css';
+import { LinksGroup } from '../LinksGroup';
 
-interface ItemProps extends React.ComponentPropsWithoutRef<"div"> {
-  logoUrl: string;
-  label: string;
-  description: string;
-}
+const mockdata = [
+  {
+    label: 'Categories',
+    icon: Notes,
+    initiallyOpened: true,
+    links: [
+      { label: 'AMM', link: '/' },
+      { label: 'Lending', link: '/' },
+      { label: 'NFT', link: '/' },
+      { label: 'DAO', link: '/' },
+      { label: 'Infrastructure', link: '/' },
+      { label: 'Tooling', link: '/' },
+    ],
+  },
+  { label: 'Curated', icon: PresentationAnalytics },
+  {
+    label: 'Help',
+    icon: Lock,
+    links: [
+      { label: 'Getting started', link: '/' },
+      { label: 'Listing: Apply', link: '/' },
+      { label: 'Listing: Update', link: '/' },
+      { label: 'Partnership', link: '/' },
+    ],
+  },
+  { label: 'Roadmap', icon: Adjustments },
+  {
+    label: 'SolWorks',
+    icon: Adjustments,
+    links: [
+      { label: 'SolApps', link: '/' },
+      { label: 'SolToolkit', link: '/' },
+      { label: 'SolDisperse', link: '/' },
+      { label: 'Sujiko (Solana)', link: '/' },
+      { label: 'Nite (Aptos)', link: '/' },
+      { label: 'Taco (Sui)', link: '/' },
+    ],
+  },
+];
 
-const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
-  ({ logoUrl, label, description, ...others }: ItemProps, ref) => (
-    <div ref={ref} {...others}>
-      <Group noWrap>
-        <Avatar src={logoUrl} />
+const useStyles = createStyles((theme) => ({
+  navbar: {
+    backgroundColor: 'var(--background)',
+    paddingBottom: 0,
+  },
 
-        <div>
-          <Text size="sm">{label}</Text>
-          <Text size="xs" color="dimmed">
-            {description}
-          </Text>
-        </div>
-      </Group>
-    </div>
-  )
-);
+  header: {
+    padding: theme.spacing.md,
+    paddingTop: 0,
+    marginRight: -theme.spacing.xs,
+    color: 'white',
+  },
 
-export interface MenuProps {
-    showMenu?: boolean;
-}
+  links: {
+    marginRight: 0,
+    color: 'white',
+    borderTop: `1px solid #261d2b`,
+    paddingTop: '12px',
+  },
 
-export const Menu: FC<MenuProps> = ({
-    showMenu = false
-}) => {
+  linksInner: {
+    paddingBottom: theme.spacing.xl,
+    color: 'white',
+  },
+
+  footer: {
+    marginLeft: -theme.spacing.md,
+    marginRight: -theme.spacing.md,
+    borderTop: `1px solid ${theme.colors.dark[4]}`,
+    color: 'white',
+  },
+}));
+
+export const Menu: FC<{showNavbar?: boolean; }> = ({ showNavbar = true }) => {
+  const { classes } = useStyles();
+  const { toggleColorScheme, colorScheme } = useMantineColorScheme();
+  const links = mockdata.map((item) => <LinksGroup {...item} key={item.label} />);
+
   return (
-    <div className="menu-wrapper">
-      {!showMenu 
-        ? <></> 
-        : <Burger size={27} color={'white'} opened={false} className="menu-icon" />}
-      <div className="menu-search-wrapper">
-        <div className="menu-search">
-          <Select
-            placeholder="Search"
-            searchable
-            maxDropdownHeight={420}
-            nothingFound="No apps found 🤔"
-            data={ExampleAppData}
-            size="lg"
-            radius="md"
-            transition="pop-top-left"
-            transitionDuration={80}
-            transitionTimingFunction="ease"
-            itemComponent={SelectItem}
-            className="search"
-            rightSection={<>
-              <Kbd sx={{
-                backgroundColor: '#373a3f',
-                border: '1px solid #373a3f',
-                color: '#c0c2c5'
-              }}>⌘</Kbd>&nbsp;+&nbsp;<Kbd sx={{
-                backgroundColor: '#373a3f',
-                border: '1px solid #373a3f',
-                color: '#c0c2c5'
-              }}>K</Kbd>
-            </>}
-            rightSectionWidth={80}
-            styles={{
-              dropdown: { color: 'var(--grey)', backgroundColor: 'var(--background)', border: 'solid 2px #373a47', borderRadius: '8px' },
-              item: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-              hovered: { color: 'white', backgroundColor: 'var(--background)' },
-              disabled: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-              selected: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-              nothingFound: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-              separator: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-              separatorLabel: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-              wrapper: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-              defaultVariant: { color: 'var(--grey)', backgroundColor: 'var(--background)', border: 'solid 2px #373a47', borderRadius: '8px' },
-              filledVariant: { color: 'var(--grey)', backgroundColor: 'var(--background)', border: 'solid 2px #373a47', borderRadius: '8px' },
-              unstyledVariant: { color: 'var(--grey)', backgroundColor: 'var(--background)', border: 'solid 2px #373a47', borderRadius: '8px' },
-              input: { color: 'white' },
-              rightSection: { color: 'var(--grey)' },
+    <Navbar
+      width={{
+        xs: 250,
+        sm: 250,
+        md: 275,
+        lg: 275,
+        xl: 275,
+      }}
+      p="xs"
+      className={classes.navbar}
+      hidden={!showNavbar}
+      hiddenBreakpoint="xl"
+      sx={{ borderLeft: 0, borderRight: '1px solid #261D2B' }}
+    >
+      <Aside.Section className={classes.header}>
+        <Group className={classes.header} position="apart">
+          <div
+            style={{
+              fontFamily: 'Roboto, sans-serif !important',
+              fontSize: '22px',
+              fontWeight: 500,
+              fontStretch: 'normal',
+              fontStyle: 'normal',
+              lineHeight: 'normal',
+              letterSpacing: 'normal',
+              textAlign: 'left',
+              color: '#fff',
             }}
-            clearable
-            allowDeselect
-          />
-        </div>
-      </div>
-    </div>
+          >
+            SolApps
+          </div>
+          <ActionIcon
+            onClick={() => toggleColorScheme()}
+            size="lg"
+            sx={(theme) => ({
+              backgroundColor: 'var(--solworks-background)',
+              color: theme.colorScheme === 'dark' ? 'white' : 'white',
+              '&:hover': {
+                backgroundColor: 'var(--background)',
+              },
+            })}
+          >
+            {colorScheme === 'dark' ? <Sun size={18} /> : <MoonStars size={18} />}
+          </ActionIcon>
+        </Group>
+      </Aside.Section>
+
+      <Aside.Section grow className={classes.links} component={ScrollArea}>
+        <div className={classes.linksInner}>{links}</div>
+      </Aside.Section>
+    </Navbar>
   );
 };

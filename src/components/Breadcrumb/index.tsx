@@ -22,7 +22,7 @@ export const Breadcrumb: FC<BreadcrumbProps> = ({
                 {hideHomeEmoji ? '' : '🏡'} <u>Home</u>
             </div>
             <text className="breadcrumb-current-page">
-                {currentPageName ? `> ${currentPageName}` : ''}
+                {currentPageName ? `/ ${currentPageName}` : ''}
             </text>  
         </div>
     );

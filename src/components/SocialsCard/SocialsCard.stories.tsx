@@ -3,7 +3,6 @@ import { BlackBackground } from "../../BlackBackground";
 import { SocialsCard } from "./index";
 
 export default {
-    title: "Socials card",
     component: SocialsCard
 };
 

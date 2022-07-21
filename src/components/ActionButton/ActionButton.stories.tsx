@@ -2,7 +2,6 @@ import React from "react";
 import { ActionButton } from "./index";
 
 export default {
-  title: "Action button",
   component: ActionButton,
 };
 

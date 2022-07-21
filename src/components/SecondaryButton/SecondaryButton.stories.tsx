@@ -3,7 +3,6 @@ import { BlackBackground } from "../../BlackBackground";
 import { SecondaryButton } from "./index";
 
 export default {
-  title: "Secondary button",
   component: SecondaryButton,
 };
 

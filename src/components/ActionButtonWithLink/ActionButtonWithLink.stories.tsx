@@ -2,7 +2,6 @@ import React from "react";
 import { ActionButtonWithLink } from "./index";
 
 export default {
-  title: "Action button with link",
   component: ActionButtonWithLink,
 };
 

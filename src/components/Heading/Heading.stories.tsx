@@ -4,7 +4,6 @@ import "../../common.css";
 import { BlackBackground } from "../../BlackBackground";
 
 export default {
-  title: "Heading",
   component: Heading,
 };
 

@@ -3,7 +3,6 @@ import NetworkStatusBar from './index';
 import '../../common.css';
 
 export default {
-     title: 'Network status bar',
      component: NetworkStatusBar
 };
 

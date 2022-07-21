@@ -3,7 +3,6 @@ import { BlackBackground } from "../../BlackBackground";
 import { ApplicationCardMini } from "./index";
 
 export default {
-  title: "Application card mini",
   component: ApplicationCardMini,
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import { ExampleApplicationPage, ExampleHomePage } from "./index";
 
 export default {
-  title: "Example pages",
+  title: "Components/Example pages",
   component: ExampleHomePage,
 };
 

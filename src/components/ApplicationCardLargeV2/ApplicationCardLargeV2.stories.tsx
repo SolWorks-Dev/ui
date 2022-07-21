@@ -3,7 +3,6 @@ import { BlackBackground } from "../../BlackBackground";
 import { ApplicationCardLargeV2 } from "./index";
 
 export default {
-  title: "Application card large V2",
   component: ApplicationCardLargeV2,
 };
 

@@ -4,7 +4,6 @@ import { BlackBackground } from "../../BlackBackground";
 import { ApplicationDetailsCard } from "./index";
 
 export default {
-    title: "Application details card",
     component: ApplicationDetailsCard
 };
 

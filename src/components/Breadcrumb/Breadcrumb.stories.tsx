@@ -3,7 +3,6 @@ import { BlackBackground } from "../../BlackBackground";
 import { Breadcrumb } from "./index";
 
 export default {
-  title: "Breadcrumb",
   component: Breadcrumb,
 };
 

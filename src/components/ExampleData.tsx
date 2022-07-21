@@ -15,7 +15,7 @@ export const ExampleAppData = [
     group: "AMM",
     logoUrl:
       "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Saber2gLauYim4Mvftnrasomsv6NvAuncvMEZwcLpD1/logo.svg",
-    description: "",
+    description: "Automated market maker (AMM) optimized for trading pegged assets.",
     isCurated: "false",
   },
   {
@@ -40,7 +40,7 @@ export const ExampleAppData = [
     label: "Orca",
     group: "AMM",
     logoUrl: "https://www.orca.so/static/media/orca.0284041e.svg",
-    description: "",
+    description: "Automated market maker (AMM) enabling low-fee, near-instant token swaps. Tackling UX for the masses.",
     isCurated: "false",
   },
   {
@@ -57,7 +57,7 @@ export const ExampleAppData = [
     label: "DeGods",
     group: "NFT",
     logoUrl: "https://i.imgur.com/fO3tI1t.png",
-    description: "",
+    description: "A collection of degenerates, punks, and misfits. Gods of the metaverse & masters of our own universe. DeGods can be converted to DeadGods with DUST.",
     isCurated: "false",
   },
   {
@@ -75,7 +75,7 @@ export const ExampleAppData = [
     group: "NFT",
     logoUrl:
       "https://bafybeicwsd4if6yxgunl4x4czy3kp2i7fzwppvbkaj4l3touqhjw4z2wfa.ipfs.dweb.link/",
-    description: "",
+    description: "A collection of 10,000 Apes that take us back to basics. None of the fluff, all of the value.",
     isCurated: "false",
   },
   {
@@ -101,7 +101,7 @@ export const ExampleAppData = [
     group: "NFT",
     logoUrl:
       "https://bafybeifnx4apyushfc3i2tg5wx2xgudcfxgisd2sven2mhxixpghuo2jeu.ipfs.dweb.link/",
-    description: "",
+    description: "Aiming to create a brand that facilitates a seamless adoption of the web3 space through our community fueled ventures and collaborations.",
     isCurated: "false",
   },
   {

@@ -1,0 +1,41 @@
+.menu-wrapper {
+    height: 94px;
+    width: 100%;
+    min-width: 100px;
+    background-color: var(--background);
+    color: white;
+    display: flex;
+}
+
+.menu-search-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-icon {
+    cursor: pointer;
+    margin: auto 0 auto 48px;
+}
+
+@media (max-width: 640px) {
+    .menu-icon {
+        cursor: pointer;
+        margin: auto 0 auto 24px;
+    }
+
+    .menu-icon-bar {
+        width: 32px;
+        height: 4px;
+        background-color: white;
+        margin: 0px 0;
+    }
+}
+
+.menu-icon-bar {
+    width: 32px;
+    height: 4px;
+    background-color: white;
+    margin: 6px 0;
+}

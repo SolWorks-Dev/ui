@@ -18,7 +18,7 @@ export const ApplicationCardLargeV2: FC<ApplicationCardLargeV2Props> = ({
     description,
     onClick,
     additionalStyles = undefined,
-    height = 300
+    height = 285
 }) => {
 
     return (

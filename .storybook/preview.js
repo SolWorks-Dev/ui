@@ -15,5 +15,9 @@ export const parameters = {
         value: '#121212',
       },
     ],
+  },
+  darkMode: {
+    // dark: { ...themes.dark, appBg: 'black' },
+    current: 'dark'
   }
 }

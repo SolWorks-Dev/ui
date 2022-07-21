@@ -1,10 +1,15 @@
 :root {
     --background: #140F1A;
     --status-bar-background: #1D1326;
+    --solworks-background: #1D1326;
     --grey: #797F91;
     --primary: #E42575;
     --border: #261D2B;
-    font-family: Roboto;
+    --lm-background: white;
+
+    --grey-border: #261d2b;
+
+    font-family: Roboto, sans-serif !important;
 }
 
 .inline-contents {
@@ -12,9 +17,10 @@
 }
 
 .status-bar {
-    height: 36px;
+    height: 32px;
     min-width: 100%;
     background-color: var(--status-bar-background);
+    padding-top: 6px;
 }
 .status-bar-title {
     color: var(--grey);
@@ -228,8 +234,8 @@ body.sb-show-main {
 
 .body-wrapper {
     padding-top: 0px;
-    padding-left: 72px;
-    padding-right: 72px;
+    padding-left: 48px;
+    padding-right: 48px;
     color: white;
 }
 

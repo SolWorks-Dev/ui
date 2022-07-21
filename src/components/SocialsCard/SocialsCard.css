@@ -30,7 +30,7 @@
 }
 
 .sc-group-title {
-    font-family: Roboto;
+    font-family: var(--font);
     font-size: 20px;
     font-weight: 500;
     font-stretch: normal;
@@ -67,7 +67,7 @@
 }
 
 .sc-link {
-    font-family: Roboto;
+    font-family: var(--font);
     font-size: 20px;
     font-weight: normal;
     font-stretch: normal;

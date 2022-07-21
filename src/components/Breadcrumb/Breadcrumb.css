@@ -1,5 +1,5 @@
 .breadcrumb-wrapper {
-    font-family: Roboto;
+    font-family: var(--font);
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -12,7 +12,7 @@
 
 .breadcrumb-link {
     text-decoration: none;
-    font-family: Roboto;
+    font-family: var(--font);
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;

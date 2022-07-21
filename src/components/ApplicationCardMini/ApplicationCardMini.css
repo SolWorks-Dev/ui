@@ -11,7 +11,7 @@
 
 
 .mac-title {
-  font-family: Roboto;
+  font-family: var(--font);
   font-size: 22px;
   font-weight: bold;
   font-stretch: normal;
@@ -63,7 +63,7 @@
 .mac-tap-text {
   padding-top: 12px;
   padding-bottom: 10px;
-  font-family: Roboto;
+  font-family: var(--font);
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;

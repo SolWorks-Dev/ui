@@ -8,7 +8,7 @@
 }
 
 .link-card-title {
-    font-family: Roboto;
+    font-family: var(--font);
     font-size: 25px;
     font-weight: bold;
     font-stretch: normal;
@@ -21,7 +21,7 @@
 }
 
 .link-card-url {
-    font-family: Roboto;
+    font-family: var(--font);
     font-size: 16px;
     font-weight: bold;
     font-stretch: normal;
@@ -52,7 +52,7 @@
     padding-top: 12px;
     padding-bottom: 10px;
     margin-bottom: 0;
-    font-family: Roboto;
+    font-family: var(--font);
     font-size: 18px;
     font-weight: normal;
     font-stretch: normal;

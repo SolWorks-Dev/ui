@@ -21,7 +21,7 @@
 }
 
 .adc-header-text {
-    font-family: Roboto;
+    font-family: var(--font);
     font-size: 26px;
     font-weight: 500;
     font-stretch: normal;
@@ -39,7 +39,7 @@
 .adc-description {
     text-align: left;
     padding-top: 20px;
-    font-family: Roboto;
+    font-family: var(--font);
     font-size: 20px;
     font-weight: 400;
     font-stretch: normal;

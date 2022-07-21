@@ -10,6 +10,7 @@
     --grey-border: #261d2b;
 
     font-family: Roboto, sans-serif !important;
+    --font: 'Roboto', 'sans-serif' !important;
 }
 
 .inline-contents {
@@ -164,7 +165,7 @@ body.sb-show-main {
 }
 .action-button-text {
     margin: 0 auto;
-    font-family: Roboto;
+    font-family: var(--font);
     font-size: 18px;
 }
 .no-link-hover {
@@ -191,7 +192,7 @@ body.sb-show-main {
 }
 
 .secondary-button-text {
-    font-family: Roboto;
+    font-family: var(--font);
     font-size: 18px;
     font-weight: bold;
     font-stretch: normal;
@@ -267,7 +268,7 @@ body.sb-show-main {
 
 .grey-text {
     color: var(--grey);
-    font-family: Roboto;
+    font-family: var(--font);
     font-size: 18px;
     font-weight: normal;
     font-stretch: normal;

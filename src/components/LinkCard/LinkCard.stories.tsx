@@ -3,7 +3,6 @@ import { BlackBackground } from "../../BlackBackground";
 import { LinkCard } from './index';
 
 export default {
-    title: "Link card",
     component: LinkCard
 };
 

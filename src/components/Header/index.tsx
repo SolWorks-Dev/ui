@@ -16,6 +16,8 @@ import '../../common.css';
 import { ExampleAppData } from '../ExampleData';
 import './Header.css';
 import { BrandDiscord, BrandTwitter } from 'tabler-icons-react';
+import { useNavigate } from 'react-router-dom';
+import { formatLink } from '../../Common';
 
 interface ItemProps extends React.ComponentPropsWithoutRef<'div'> {
   logoUrl: string;
@@ -45,6 +47,8 @@ export interface HeaderProps {
 }
 
 export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = false }) => {
+  let navigate = useNavigate();
+
   return (
     <div className="menu-wrapper">
       <MediaQuery largerThan="xl" styles={{ display: 'none' }}>
@@ -70,6 +74,11 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
             transitionTimingFunction="ease"
             itemComponent={SelectItem}
             className="search"
+            onChange={(e: any) => {
+              if(e) {
+                navigate(`${formatLink(e)}`);
+              }
+            }}
             rightSection={
               <>
               <Kbd

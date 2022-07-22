@@ -1,0 +1,25 @@
+[details]
+value="raydium"
+label="Raydium"
+logo_url="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
+description_short="Automated market maker (AMM) utilising Serum’s on-chain central order book for trading"
+description_long="Automated market maker (AMM) utilising Serum’s on-chain central order book for trading"
+is_curated=false
+
+[links]
+website="https://raydium.io"
+application="https://raydium.io/swap"
+
+[[links.other]]
+name="Analytics"
+url="https://raydium.info"
+
+[[links.other]]
+name="DEX"
+url="https://dex.raydium.io"
+
+[socials]
+twitter=["@RaydiumProtocol", "@EspanolRaydium"]
+discord=["discord-code"]
+medium=[]
+telegram=[]

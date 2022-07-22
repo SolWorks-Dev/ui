@@ -28,7 +28,6 @@ const SelectItem = forwardRef<HTMLDivElement, ItemProps>(
     <div ref={ref} {...others}>
       <Group noWrap>
         <Avatar src={logoUrl} />
-
         <div>
           <Text size="sm">{label}</Text>
           <Text size="xs" color="dimmed">
@@ -51,12 +50,16 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
       <MediaQuery largerThan="xl" styles={{ display: 'none' }}>
         <Burger size={24} color={'white'} opened={openMenu} onClick={onBurgerClick} className="menu-icon" />
       </MediaQuery>
+      <MediaQuery smallerThan="xl" styles={{ display: 'none' }}>
+        <div className='menu-icon'></div>
+      </MediaQuery>
       <Space w="xs" />
       <div className="menu-search-wrapper">
         <div className="menu-search">
           <Select
             placeholder="Search"
             searchable
+            clearable
             maxDropdownHeight={420}
             nothingFound="No apps found 🤔"
             data={ExampleAppData}
@@ -67,7 +70,6 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
             transitionTimingFunction="ease"
             itemComponent={SelectItem}
             className="search"
-            style={{width: '100%'}}
             rightSection={
               <>
               <Kbd
@@ -134,7 +136,6 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
               input: { color: 'white' },
               rightSection: { color: 'var(--grey)' },
             }}
-            clearable
           />
         </div>
       </div>

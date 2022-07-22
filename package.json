@@ -5,6 +5,7 @@
   "dependencies": {
     "@mantine/core": "^4.2.12",
     "@mantine/hooks": "^4.2.12",
+    "@mantine/spotlight": "^4.2.12",
     "@storybook/addon-backgrounds": "^6.5.9",
     "@tanstack/react-query": "^4.0.10",
     "@types/node": "^16.11.43",
@@ -12,6 +13,7 @@
     "@types/react-dom": "^18.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.3",
     "tabler-icons-react": "^1.53.0",

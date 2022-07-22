@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
     '&:hover': {
       backgroundColor: 'var(--solworks-background)',
       color: theme.white,
-      borderRadius: '6px'
+      borderRadius: '6px',
     },
   },
 
@@ -35,7 +35,7 @@ const useStyles = createStyles((theme) => ({
       backgroundColor: 'var(--solworks-background)',
       color: theme.white,
       borderRadius: '6px',
-      border: 0
+      border: 0,
     },
   },
 
@@ -73,7 +73,7 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksG
       <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
         <Group position="apart" spacing={0}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <ThemeIcon variant="outline" size={32} sx={{color:'white', border: '0'}}>
+            <ThemeIcon variant="outline" size={32} sx={{ color: 'white', border: '0' }}>
               <Icon size={22} />
             </ThemeIcon>
             <Box ml="md">{label}</Box>

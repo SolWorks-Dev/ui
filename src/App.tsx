@@ -8,6 +8,8 @@ import { HomeView } from './views/HomeView';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { fetchTpsStats } from './apis/fetchTpsStats';
 import { fetchSolStats } from './apis/fetchSolStats';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
+import { ApplicationPage } from './components/ApplicationPage/ApplicationPage';
 
 const queryClient = new QueryClient();
 
@@ -18,13 +20,15 @@ function App() {
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider theme={{ colorScheme: colorScheme }} withGlobalStyles withNormalizeCSS>
-          <AppContent setOpened={setOpened} opened={opened} />
-        </MantineProvider>
-      </ColorSchemeProvider>
-    </QueryClientProvider>
+    <Router>
+      <QueryClientProvider client={queryClient}>
+        <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+          <MantineProvider theme={{ colorScheme: colorScheme }} withGlobalStyles withNormalizeCSS>
+            <AppContent setOpened={setOpened} opened={opened} />
+          </MantineProvider>
+        </ColorSchemeProvider>
+      </QueryClientProvider>
+    </Router>
   );
 }
 
@@ -57,7 +61,10 @@ const AppContent: FC<{ setOpened: React.Dispatch<React.SetStateAction<boolean>>;
         backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'var(--background)',
       })}
     >
-      <HomeView />
+      <Routes>
+        <Route path="/" element={<HomeView />} />
+        <Route path="apps/:id" element={<ApplicationPage />} />
+      </Routes>
     </AppShell>
   );
 };

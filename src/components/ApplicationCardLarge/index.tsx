@@ -9,7 +9,6 @@ export interface ApplicationCardLargeProps {
     logoUrl: string;
     appName: string;
     description: string;
-    onClick?: () => {};
     additionalStyles?: any;
 };
 
@@ -17,7 +16,6 @@ export const ApplicationCardLarge: FC<ApplicationCardLargeProps> = ({
     logoUrl,
     appName,
     description,
-    onClick,
     additionalStyles = undefined
 }) => {
 
@@ -31,7 +29,7 @@ export const ApplicationCardLarge: FC<ApplicationCardLargeProps> = ({
                 <div className="lac-desc">{description}</div>
             </div>
             <div className="lac-button">
-                <ActionButton text="Open" onClick={onClick} />
+                <ActionButton text="Open" />
             </div>
         </div>
     );

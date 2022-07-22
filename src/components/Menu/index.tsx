@@ -1,5 +1,6 @@
 import { ActionIcon, Aside, createStyles, Group, Navbar, ScrollArea, useMantineColorScheme } from '@mantine/core';
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import { Adjustments, Lock, MoonStars, Notes, PresentationAnalytics, Sun } from 'tabler-icons-react';
 import '../../common.css';
 import { LinksGroup } from '../LinksGroup';
@@ -8,7 +9,6 @@ const mockdata = [
   {
     label: 'Categories',
     icon: Notes,
-    initiallyOpened: true,
     links: [
       { label: 'AMM', link: '/' },
       { label: 'Lending', link: '/' },
@@ -112,7 +112,7 @@ export const Menu: FC<{showNavbar?: boolean; }> = ({ showNavbar = true }) => {
               color: '#fff',
             }}
           >
-            SolApps
+            <Link to="/" style={{textDecoration: 'none', color: 'white'}}>SolApps</Link>
           </div>
           <ActionIcon
             onClick={() => toggleColorScheme()}

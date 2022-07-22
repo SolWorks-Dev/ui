@@ -9,7 +9,6 @@
   transition: 150ms ease-in-out;
 }
 
-
 .mac-title {
   font-family: var(--font);
   font-size: 22px;
@@ -71,4 +70,8 @@
   line-height: normal;
   letter-spacing: normal;
   color: #261d2b;
+}
+
+.mac-outline:hover + .mac-tap-text {
+  color: white;
 }

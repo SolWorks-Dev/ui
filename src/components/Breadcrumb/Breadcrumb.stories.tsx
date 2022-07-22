@@ -9,5 +9,5 @@ export default {
 export const Home = () => <BlackBackground child={<Breadcrumb />} />;
 
 export const Application = () => (
-  <BlackBackground child={<Breadcrumb currentPageName="Raydium" />} />
+  <BlackBackground child={<Breadcrumb />} />
 );

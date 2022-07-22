@@ -1,53 +1,31 @@
-import React, { FC } from "react";
-import "../../common.css";
-import NetworkStatusBar from "../NetworkStatusBar";
-import {
-  AppShell,
-  ColorScheme,
-  ColorSchemeProvider,
-  Grid,
-  MantineProvider,
-} from "@mantine/core";
-import { ActionCard } from "../ActionCard";
-import { Heading } from "../Heading";
-import { SecondaryButton } from "../SecondaryButton";
-import { ApplicationCardMini } from "../ApplicationCardMini";
-import { ApplicationCardLargeV2 } from "../ApplicationCardLargeV2";
-import { LinkCard } from "../LinkCard";
-import { ApplicationDetailsCard } from "../ApplicationDetailsCard";
-import { SocialsCard } from "../SocialsCard";
-import { Breadcrumb } from "../Breadcrumb";
-import { Header } from "../Header";
-import { Menu } from "../Menu";
+import React, { FC } from 'react';
+import '../../common.css';
+import NetworkStatusBar from '../NetworkStatusBar';
+import { AppShell, ColorScheme, ColorSchemeProvider, Grid, MantineProvider } from '@mantine/core';
+import { ActionCard } from '../ActionCard';
+import { Heading } from '../Heading';
+import { SecondaryButton } from '../SecondaryButton';
+import { ApplicationCardMini } from '../ApplicationCardMini';
+import { ApplicationCardLargeV2 } from '../ApplicationCardLargeV2';
+import { Breadcrumb } from '../Breadcrumb';
+import { Header } from '../Header';
+import { Menu } from '../Menu';
+import { ApplicationPage } from '../ApplicationPage/ApplicationPage';
 
 export const ExampleHomePage = () => {
   const [opened, setOpened] = React.useState(false);
-  const [colorScheme, setColorScheme] = React.useState<ColorScheme>("dark");
+  const [colorScheme, setColorScheme] = React.useState<ColorScheme>('dark');
   const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
   return (
-    <ColorSchemeProvider
-      colorScheme={colorScheme}
-      toggleColorScheme={toggleColorScheme}
-    >
-      <MantineProvider
-        theme={{ colorScheme: colorScheme }}
-        withGlobalStyles
-        withNormalizeCSS
-      >
+    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+      <MantineProvider theme={{ colorScheme: colorScheme }} withGlobalStyles withNormalizeCSS>
         <AppShell
           header={
             <>
-              <NetworkStatusBar
-                transactionsPerSecond={235}
-                solusdPrice={33.33}
-                solgbpPrice={28.88}
-              />
-              <Header
-                onBurgerClick={() => setOpened((o) => !o)}
-                openMenu={opened}
-              />
+              <NetworkStatusBar transactionsPerSecond={235} solusdPrice={33.33} solgbpPrice={28.88} />
+              <Header onBurgerClick={() => setOpened((o) => !o)} openMenu={opened} />
             </>
           }
           navbar={<Menu showNavbar={opened} />}
@@ -57,25 +35,23 @@ export const ExampleHomePage = () => {
         >
           <div
             style={{
-              backgroundColor: "var(--background)",
-              height: "100%",
-              width: "100%",
+              backgroundColor: 'var(--background)',
+              height: '100%',
+              width: '100%',
             }}
           >
             <div className="body-wrapper">
               <Breadcrumb />
-              <Grid gutter="xl" style={{ marginTop: "2px" }}>
+              <Grid gutter="xl" style={{ marginTop: '2px' }}>
                 <Grid.Col xs={12} md={6} lg={6}>
                   <ActionCard
                     title="First time here? gm 👋"
                     text={
                       <>
-                        SolApps is a directory of the best Solana protocols and
-                        communities.
+                        SolApps is a directory of the best Solana protocols and communities.
                         <br />
                         <br />
-                        No more searching for verified protocol links. Read our
-                        getting started guide.
+                        No more searching for verified protocol links. Read our getting started guide.
                       </>
                     }
                     actionLink=""
@@ -87,8 +63,7 @@ export const ExampleHomePage = () => {
                     title="Are we missing a protocol? 🕵️‍♀️"
                     text={
                       <>
-                        Contact us if you want to see a protocol or community on
-                        SolApps ✉️
+                        Contact us if you want to see a protocol or community on SolApps ✉️
                         <br />
                         <br />
                         Submissions can take up to 1 week to review a protocol.
@@ -100,7 +75,7 @@ export const ExampleHomePage = () => {
                 </Grid.Col>
               </Grid>
 
-              <Grid gutter="xl" style={{ marginTop: "30px" }}>
+              <Grid gutter="xl" style={{ marginTop: '30px' }}>
                 <Grid.Col xs={8} md={8} lg={10}>
                   <Heading text="Curated" />
                 </Grid.Col>
@@ -108,17 +83,13 @@ export const ExampleHomePage = () => {
                   <SecondaryButton
                     text="See more"
                     onClick={() => {
-                      console.log("onClick");
+                      console.log('onClick');
                     }}
-                    additionalStyles={{ marginLeft: "auto", marginRight: 0 }}
+                    additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
                   />
                 </Grid.Col>
               </Grid>
-              <Grid
-                gutter="xl"
-                justify={"space-between"}
-                style={{ marginTop: "20px" }}
-              >
+              <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
                 <Grid.Col xs={6} md={3} lg={3}>
                   <ApplicationCardMini
                     logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
@@ -153,7 +124,7 @@ export const ExampleHomePage = () => {
                 </Grid.Col>
               </Grid>
 
-              <Grid gutter="xl" style={{ marginTop: "30px" }}>
+              <Grid gutter="xl" style={{ marginTop: '30px' }}>
                 <Grid.Col xs={8} md={8} lg={10}>
                   <Heading text="NFT Communities" />
                 </Grid.Col>
@@ -161,17 +132,13 @@ export const ExampleHomePage = () => {
                   <SecondaryButton
                     text="See more"
                     onClick={() => {
-                      console.log("onClick");
+                      console.log('onClick');
                     }}
-                    additionalStyles={{ marginLeft: "auto", marginRight: 0 }}
+                    additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
                   />
                 </Grid.Col>
               </Grid>
-              <Grid
-                gutter="xl"
-                justify={"space-between"}
-                style={{ marginTop: "20px" }}
-              >
+              <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
                 <Grid.Col xs={12} md={6} lg={6}>
                   <ApplicationCardLargeV2
                     logoUrl="https://bafybeicwsd4if6yxgunl4x4czy3kp2i7fzwppvbkaj4l3touqhjw4z2wfa.ipfs.dweb.link/"
@@ -245,7 +212,7 @@ export const ExampleHomePage = () => {
                 </Grid.Col>
               </Grid>
 
-              <Grid gutter="xl" style={{ marginTop: "30px" }}>
+              <Grid gutter="xl" style={{ marginTop: '30px' }}>
                 <Grid.Col xs={9} md={9} lg={10}>
                   <Heading text="AMMs" />
                 </Grid.Col>
@@ -253,13 +220,13 @@ export const ExampleHomePage = () => {
                   <SecondaryButton
                     text="See more"
                     onClick={() => {
-                      console.log("onClick");
+                      console.log('onClick');
                     }}
-                    additionalStyles={{ marginLeft: "auto", marginRight: 0 }}
+                    additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
                   />
                 </Grid.Col>
               </Grid>
-              <Grid gutter="xl" style={{ marginTop: "20px" }}>
+              <Grid gutter="xl" style={{ marginTop: '20px' }}>
                 <Grid.Col xs={12} md={6} lg={6}>
                   <ApplicationCardLargeV2
                     logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
@@ -273,7 +240,7 @@ export const ExampleHomePage = () => {
                     logoUrl="https://www.orca.so/static/media/orca.0284041e.svg"
                     appName="Orca"
                     description="Automated market maker (AMM) enabling low-fee, near-instant token swaps. Tackling UX for the masses."
-                    additionalStyles={{ marginLeft: "auto", marginRight: 0 }}
+                    additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
                     height={250}
                   />
                 </Grid.Col>
@@ -290,7 +257,7 @@ export const ExampleHomePage = () => {
                     logoUrl="https://solend.fi/assets/tokens/slnd.png"
                     appName="Solend"
                     description="Algorithmic, decentralized protocol for lending and borrowing."
-                    additionalStyles={{ marginLeft: "auto", marginRight: 0 }}
+                    additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
                     height={250}
                   />
                 </Grid.Col>
@@ -307,111 +274,16 @@ export const ExampleApplicationPage = () => {
   return (
     <div
       style={{
-        backgroundColor: "var(--background)",
-        height: "100%",
-        width: "100%",
+        backgroundColor: 'var(--background)',
+        height: '100%',
+        width: '100%',
       }}
     >
-      <NetworkStatusBar
-        transactionsPerSecond={235}
-        solusdPrice={33.33}
-        solgbpPrice={28.88}
-      />
+      <NetworkStatusBar transactionsPerSecond={235} solusdPrice={33.33} solgbpPrice={28.88} />
       <Menu showNavbar />
-      <div className="body-wrapper">
-        <Breadcrumb currentPageName="Raydium" />
-        <Grid gutter="xl" style={{ marginTop: "2px" }}>
-          <Grid.Col xs={12} md={6} lg={6}>
-            <div style={{ marginBottom: "30px" }}>
-              <Heading text="Application" />
-            </div>
-            <ApplicationDetailsCard
-              applicationName="Raydium"
-              logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-              tag="AMM"
-              tagColor="orange"
-            />
-          </Grid.Col>
-          <Grid.Col xs={12} md={6} lg={6}>
-            <div style={{ marginBottom: "30px" }}>
-              <Heading text="Links" />
-            </div>
-            <Grid gutter="xl">
-              <Grid.Col xs={12} md={12} lg={6}>
-                <LinkCard title="Website" url="https://raydium.io" />
-              </Grid.Col>
-              <Grid.Col xs={12} md={12} lg={6}>
-                <LinkCard title="Application" url="https://raydium.io/swap" />
-              </Grid.Col>
-            </Grid>
-          </Grid.Col>
-          <Grid.Col xs={12} md={6} lg={6}>
-            <div style={{ marginBottom: "30px" }}>
-              <Heading text="Socials" />
-            </div>
-            <SocialsCard
-              twitter={[
-                {
-                  text: "@Raydium",
-                  url: "https://twitter.com/raydium",
-                },
-                {
-                  text: "@RaydiumIo",
-                  url: "https://twitter.com/raydiumio",
-                },
-              ]}
-              discord={[
-                {
-                  text: "discord.gg/areallylonglink",
-                  url: "https://discord.gg/areallylonglink",
-                },
-              ]}
-            />
-          </Grid.Col>
-          <Grid.Col xs={12} md={6} lg={6}>
-            <div style={{ marginBottom: "30px" }}>
-              <Heading text="Related" />
-            </div>
-            <Grid gutter="xl">
-              <Grid.Col xs={6} md={6} lg={6}>
-                <ApplicationCardMini
-                  logoUrl="https://metal.equinix.com/media/pages/images/0ff8033cf9437c213ee13937b1c4c455/79hX-genesysgo.svg"
-                  appName="GenesysGo"
-                  tag="Infrastructure"
-                  tagColor="orange"
-                />
-              </Grid.Col>
-              <Grid.Col xs={6} md={6} lg={6}>
-                <ApplicationCardMini
-                  logoUrl="https://solend.fi/assets/tokens/slnd.png"
-                  appName="Solend"
-                  tag="Lending"
-                  tagColor="light-blue"
-                />
-              </Grid.Col>
-              <Grid.Col xs={6} md={6} lg={6}>
-                <ApplicationCardMini
-                  logoUrl="https://www.orca.so/static/media/orca.0284041e.svg"
-                  appName="Orca"
-                  tag="AMM"
-                  tagColor="purple"
-                />
-              </Grid.Col>
-              <Grid.Col xs={6} md={6} lg={6}>
-                <ApplicationCardMini
-                  logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
-                  appName="Raydium"
-                  tag="AMM"
-                  tagColor="purple"
-                />
-              </Grid.Col>
-            </Grid>
-          </Grid.Col>
-        </Grid>
-      </div>
+      <ApplicationPage />
     </div>
   );
 };
+
+

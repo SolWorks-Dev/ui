@@ -18,16 +18,21 @@ REMEMBER: push your changes daily
 - [x] Create menu header
     - [x] Create search bar
     - [x] Create menu hamburger icon
+- [x] Create menu
+- [x] Create web page project with scaffolding
+- [x] Import UI library into new project
+- [x] Add socials component to design
+- [x] Create design for landing/home page for SolWorks
+- [x] Create design for SolToolkit UI
+- [x] Hook up react router
+- [x] Hook up routing links from menu
+- [x] Hook up application page
+- [x] Design how to store app data (bundled or API)
 
 # TODO
 DEV
-- [ ] Design how to store app data (bundled or API)
-- [ ] Create menu
-- [ ] Create web page project with scaffolding
-- [ ] Import UI library into new project
-- [ ] Set up importing of local data (.toml files in directory)
-
-DESIGN
-- [ ] Add socials component to design
-- [ ] Create design for landing/home page for SolWorks
-- [ ] Create design for SolToolkit UI
+- [ ] Extend example data to includ urls and social links
+- [ ] Hook up search bar
+- [ ] Set up importing of local data
+- [ ] Create see more view
+- [ ] Hook up see more button

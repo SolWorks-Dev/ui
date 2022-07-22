@@ -2,8 +2,10 @@ import React, { FC } from "react";
 import "../../common.css";
 import './ApplicationCardMini.css';
 import { Logo } from "../Logo";
+import { Link } from "react-router-dom";
+import { formatLink } from "../../Common";
 
-export type TagColor = 'light-blue' | 'orange' | 'purple';
+export type TagColor = 'light-blue' | 'orange' | 'purple' | 'red';
 
 export interface ApplicationCardMiniProps {
     logoUrl: string;
@@ -32,10 +34,20 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
         case 'purple':
             tagColorHex = '#461183';
             break;
+        case 'red':
+            tagColorHex = '#ff0000';
+            break;
+        default:
+            tagColorHex = '#71adff';
+            break;
     }
 
     return (
-        <div className="" style={{...additionalStyles}}>
+        <Link 
+            to={formatLink(appName)} 
+            className="" 
+            style={{...additionalStyles, textDecoration: 'none'}}
+        >
             <div className="mac-outline glow-on-hover bg px18">
                 <div className="mac-logo">
                     <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
@@ -45,7 +57,7 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
                 <div className="mac-divider" />
                 <div className="mac-tap-text">Tap to open</div>
             </div>
-        </div>
+        </Link>
     );
 };
 

@@ -68,6 +68,8 @@
   letter-spacing: normal;
   color: #261d2b;
   align-self: center;
+  -webkit-transition: 150ms ease-in-out;
+  transition: 150ms ease-in-out;
 }
 
 .lac-v2-tap-wrapper {
@@ -77,4 +79,8 @@
   bottom: 0;
   margin-left: auto;
   margin-right: auto;
+}
+
+.lac-v2-outline:hover .lac-v2-tap-text {
+  color: white;
 }

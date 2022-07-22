@@ -36,10 +36,10 @@ function App() {
 
 export default App;
 
-const AppContent: FC<{ setOpened: React.Dispatch<React.SetStateAction<boolean>>; opened: boolean }> = ({
-  setOpened,
-  opened,
-}) => {
+const AppContent: FC<{
+  setOpened: React.Dispatch<React.SetStateAction<boolean>>;
+  opened: boolean;
+}> = ({ setOpened, opened }) => {
   const tpsQuery = useQuery(['tps-data'], fetchTpsStats);
   const solQuery = useQuery(['sol-data'], fetchSolStats);
 

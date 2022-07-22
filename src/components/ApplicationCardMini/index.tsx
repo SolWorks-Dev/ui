@@ -23,8 +23,8 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
   additionalStyles = undefined,
 }) => {
   return (
-    <Link to={formatLink(appName)} className="" style={{ ...additionalStyles, textDecoration: 'none' }}>
-      <div className="mac-outline glow-on-hover bg px18">
+    <Link to={formatLink(appName)} className="mac-lw" style={{ ...additionalStyles, textDecoration: 'none' }}>
+      <div className="mac-outline glow-on-hover bg px18 rise-on-hover-300">
         <div className="mac-logo">
           <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
         </div>

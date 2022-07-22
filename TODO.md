@@ -11,13 +11,13 @@ REMEMBER: push your changes daily
 - [x] Add mobile support
 - [x] Create pages
 - [x] Create application details components
-    - [x] Application component
-    - [x] Socials component
-    - [x] Links component
-    - [x] Related component
+  - [x] Application component
+  - [x] Socials component
+  - [x] Links component
+  - [x] Related component
 - [x] Create menu header
-    - [x] Create search bar
-    - [x] Create menu hamburger icon
+  - [x] Create search bar
+  - [x] Create menu hamburger icon
 - [x] Create menu
 - [x] Create web page project with scaffolding
 - [x] Import UI library into new project
@@ -28,13 +28,15 @@ REMEMBER: push your changes daily
 - [x] Hook up routing links from menu
 - [x] Hook up application page
 - [x] Design how to store app data (bundled or API)
+- [x] Hook up search bar
+- [x] Fix tap to open not going white on tap
+- [x] Fix tag font on mobile
 
 # TODO
-DEV
-- [x] Hook up search bar
-- [~] Extend example data to includ urls and social links
 - [~] Set up importing of local data
+  - [~] Extend example data to include urls and social links
 
+- [ ] Fix mobile styling of CTA button
 - [ ] Hook up learn more/apply now buttons
 - [ ] Hook up menu
 - [ ] Add footer links to menu

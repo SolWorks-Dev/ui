@@ -69,8 +69,10 @@
   line-height: normal;
   letter-spacing: normal;
   color: #261d2b;
+  -webkit-transition: 150ms ease-in-out;
+  transition: 150ms ease-in-out;
 }
 
-.mac-outline:hover + .mac-tap-text {
+.mac-outline:hover .mac-tap-text {
   color: white;
 }

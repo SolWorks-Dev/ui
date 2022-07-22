@@ -31,8 +31,13 @@ REMEMBER: push your changes daily
 
 # TODO
 DEV
-- [ ] Extend example data to includ urls and social links
-- [ ] Hook up search bar
-- [ ] Set up importing of local data
+- [x] Hook up search bar
+- [~] Extend example data to includ urls and social links
+- [~] Set up importing of local data
+
+- [ ] Hook up learn more/apply now buttons
+- [ ] Hook up menu
+- [ ] Add footer links to menu
+- [ ] Switch sol price endpoint to binance API
 - [ ] Create see more view
 - [ ] Hook up see more button

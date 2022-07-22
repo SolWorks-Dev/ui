@@ -10,6 +10,7 @@ import { fetchTpsStats } from './apis/fetchTpsStats';
 import { fetchSolStats } from './apis/fetchSolStats';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApplicationPage } from './components/ApplicationPage/ApplicationPage';
+import ScrollToTop from './Common';
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
           <MantineProvider theme={{ colorScheme: colorScheme }} withGlobalStyles withNormalizeCSS>
+            <ScrollToTop />
             <AppContent setOpened={setOpened} opened={opened} />
           </MantineProvider>
         </ColorSchemeProvider>

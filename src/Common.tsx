@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { TagColor } from './components/ApplicationCardMini';
 
 export function formatLink(appName: string) {
@@ -15,4 +17,14 @@ export function categoryToColor(category: string): TagColor {
     default:
       return 'light-blue';
   }
+}
+
+export default function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
 }

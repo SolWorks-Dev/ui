@@ -62,3 +62,7 @@
   color: #261d2b;
   align-self: center;
 }
+
+.link-card-outline:hover .link-card-tap-text {
+  color: white;
+}

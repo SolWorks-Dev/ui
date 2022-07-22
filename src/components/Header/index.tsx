@@ -138,52 +138,54 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
         </div>
       </div>
       <Space w="xs" />
-      <Center
-        inline
-        sx={(theme) => ({
-          marginRight: '48px',
-          '@media (max-width: 640px)': {
-            marginRight: '24px',
-          },
-        })}
-      >
-        <ActionIcon<'a'>
-          component="a"
-          href="https://discord.com/invite/qfEGBPRyUt"
-          target="_blank"
-          rel="noreferrer"
-          size="xl"
+      <MediaQuery smallerThan="xl" styles={{ display: 'none' }}>
+        <Center
+          inline
           sx={(theme) => ({
-            backgroundColor: 'transparent',
-            color: theme.colorScheme === 'dark' ? 'white' : 'grey',
-            '&:hover': {
-              backgroundColor: 'var(--solworks-background)',
-            },
-          })}
-        >
-          <BrandDiscord size={24} />
-        </ActionIcon>
-        <ActionIcon<'a'>
-          component="a"
-          href="https://twitter.com/SolWorks_"
-          target="_blank"
-          rel="noreferrer"
-          size="xl"
-          sx={(theme) => ({
-            backgroundColor: 'transparent',
-            color: theme.colorScheme === 'dark' ? 'white' : 'grey',
-            marginLeft: '12px',
+            marginRight: '48px',
             '@media (max-width: 640px)': {
-              marginLeft: '2px',
-            },
-            '&:hover': {
-              backgroundColor: 'var(--solworks-background)',
+              marginRight: '24px',
             },
           })}
         >
-          <BrandTwitter size={24} />
-        </ActionIcon>
-      </Center>
+          <ActionIcon<'a'>
+            component="a"
+            href="https://discord.com/invite/qfEGBPRyUt"
+            target="_blank"
+            rel="noreferrer"
+            size="xl"
+            sx={(theme) => ({
+              backgroundColor: 'transparent',
+              color: theme.colorScheme === 'dark' ? 'white' : 'grey',
+              '&:hover': {
+                backgroundColor: 'var(--solworks-background)',
+              },
+            })}
+          >
+            <BrandDiscord size={24} />
+          </ActionIcon>
+          <ActionIcon<'a'>
+            component="a"
+            href="https://twitter.com/SolWorks_"
+            target="_blank"
+            rel="noreferrer"
+            size="xl"
+            sx={(theme) => ({
+              backgroundColor: 'transparent',
+              color: theme.colorScheme === 'dark' ? 'white' : 'grey',
+              marginLeft: '12px',
+              '@media (max-width: 640px)': {
+                marginLeft: '2px',
+              },
+              '&:hover': {
+                backgroundColor: 'var(--solworks-background)',
+              },
+            })}
+          >
+            <BrandTwitter size={24} />
+          </ActionIcon>
+        </Center>
+      </MediaQuery>
     </div>
   );
 };

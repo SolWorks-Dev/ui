@@ -54,7 +54,7 @@ export const ExampleAppData = [
     value: 'degods',
     label: 'DeGods',
     group: 'NFT',
-    logoUrl: 'https://i.imgur.com/fO3tI1t.png',
+    logoUrl: 'https://img-cdn.magiceden.dev/rs:fill:400:400:0:0/plain/https://i.imgur.com/fO3tI1t.png',
     description:
       'A collection of degenerates, punks, and misfits. Gods of the metaverse & masters of our own universe. DeGods can be converted to DeadGods with DUST.',
     isCurated: 'false',

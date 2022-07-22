@@ -36,10 +36,13 @@ REMEMBER: push your changes daily
 - [~] Set up importing of local data
   - [~] Extend example data to include urls and social links
 
-- [ ] Fix mobile styling of CTA button
-- [ ] Hook up learn more/apply now buttons
-- [ ] Hook up menu
-- [ ] Add footer links to menu
-- [ ] Switch sol price endpoint to binance API
 - [ ] Create see more view
 - [ ] Hook up see more button
+- [ ] Hook up learn more/apply now buttons
+- [ ] Switch sol price endpoint to binance API
+- [ ] Hook up menu
+- [ ] Add footer links to menu
+- [ ] Fix: Mobile styling of CTA button
+- [ ] Fix: Tapping on link card doesnt open link
+- [ ] Design footer
+- [ ] Add footer

@@ -14,6 +14,7 @@ export const Logo: FC<LogoProps> = ({ logoUrl, altText, sizePx = 78 }) => {
       height={`${sizePx}px`}
       alt={`${altText} logo`}
       style={{ borderRadius: '40px' }}
+      loading="lazy"
     />
   );
 };

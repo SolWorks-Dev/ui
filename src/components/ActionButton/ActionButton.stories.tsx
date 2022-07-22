@@ -1,5 +1,5 @@
-import React from "react";
-import { ActionButton } from "./index";
+import React from 'react';
+import { ActionButton } from './index';
 
 export default {
   component: ActionButton,

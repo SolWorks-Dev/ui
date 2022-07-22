@@ -1,8 +1,8 @@
-import React from "react";
-import { ExampleApplicationPage, ExampleHomePage } from "./index";
+import React from 'react';
+import { ExampleApplicationPage, ExampleHomePage } from './index';
 
 export default {
-  title: "Components/Example pages",
+  title: 'Components/Example pages',
   component: ExampleHomePage,
 };
 

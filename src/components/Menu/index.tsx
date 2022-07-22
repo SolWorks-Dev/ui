@@ -77,7 +77,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export const Menu: FC<{showNavbar?: boolean; }> = ({ showNavbar = true }) => {
+export const Menu: FC<{ showNavbar?: boolean }> = ({ showNavbar = true }) => {
   const { classes } = useStyles();
   const { toggleColorScheme, colorScheme } = useMantineColorScheme();
   const links = mockdata.map((item) => <LinksGroup {...item} key={item.label} />);
@@ -112,7 +112,9 @@ export const Menu: FC<{showNavbar?: boolean; }> = ({ showNavbar = true }) => {
               color: '#fff',
             }}
           >
-            <Link to="/" style={{textDecoration: 'none', color: 'white'}}>SolApps</Link>
+            <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+              SolApps
+            </Link>
           </div>
           <ActionIcon
             onClick={() => toggleColorScheme()}

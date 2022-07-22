@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import "../../common.css";
-import PulseLoader from "react-spinners/PulseLoader";
+import React, { FC } from 'react';
+import '../../common.css';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 export interface ActionButtonProps {
   isLoading?: boolean;
@@ -11,22 +11,14 @@ export interface ActionButtonProps {
 
 export const ActionButton: FC<ActionButtonProps> = ({
   isLoading = false,
-  text = "",
+  text = '',
   onClick = () => {},
   width = 0,
 }) => {
   return (
-    <div
-      className="action-button"
-      onClick={onClick}
-      style={{ width: width === 0 ? "100%" : `${width}px` }}
-    >
+    <div className="action-button" onClick={onClick} style={{ width: width === 0 ? '100%' : `${width}px` }}>
       <div className="action-button-text">
-        {isLoading ? (
-          <PulseLoader loading={isLoading} size={8} color="white" />
-        ) : (
-          text
-        )}
+        {isLoading ? <PulseLoader loading={isLoading} size={8} color="white" /> : text}
       </div>
     </div>
   );

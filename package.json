@@ -25,7 +25,8 @@
     "storybook": "start-storybook",
     "dev": "npm run storybook",
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json}\""
   },
   "eslintConfig": {
     "extends": [

@@ -8,7 +8,7 @@ import { HomeView } from './views/HomeView';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { fetchTpsStats } from './apis/fetchTpsStats';
 import { fetchSolStats } from './apis/fetchSolStats';
-import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApplicationPage } from './components/ApplicationPage/ApplicationPage';
 
 const queryClient = new QueryClient();

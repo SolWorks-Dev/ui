@@ -1,16 +1,5 @@
 import { forwardRef } from 'react';
-import {
-  Group,
-  Avatar,
-  Text,
-  Select,
-  Burger,
-  Kbd,
-  MediaQuery,
-  ActionIcon,
-  Center,
-  Space,
-} from '@mantine/core';
+import { Group, Avatar, Text, Select, Burger, Kbd, MediaQuery, ActionIcon, Center, Space } from '@mantine/core';
 import React, { FC } from 'react';
 import '../../common.css';
 import { ExampleAppData } from '../ExampleData';
@@ -55,7 +44,7 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
         <Burger size={24} color={'white'} opened={openMenu} onClick={onBurgerClick} className="menu-icon" />
       </MediaQuery>
       <MediaQuery smallerThan="xl" styles={{ display: 'none' }}>
-        <div className='menu-icon'></div>
+        <div className="menu-icon"></div>
       </MediaQuery>
       <Space w="xs" />
       <div className="menu-search-wrapper">
@@ -75,13 +64,13 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
             itemComponent={SelectItem}
             className="search"
             onChange={(e: any) => {
-              if(e) {
+              if (e) {
                 navigate(`${formatLink(e)}`);
               }
             }}
             rightSection={
               <>
-              <Kbd
+                <Kbd
                   sx={{
                     backgroundColor: '#373a3f',
                     border: '1px solid #373a3f',
@@ -115,11 +104,11 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
                 backgroundColor: 'var(--background)',
                 '&:hover': {
                   backgroundColor: 'var(--solworks-background)',
-                }
+                },
               },
               hovered: { color: 'white', backgroundColor: 'var(--background)' },
               disabled: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-              selected: { color: 'white', backgroundColor: 'var(--background)'},
+              selected: { color: 'white', backgroundColor: 'var(--background)' },
               nothingFound: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
               separator: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
               separatorLabel: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
@@ -149,12 +138,15 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
         </div>
       </div>
       <Space w="xs" />
-      <Center inline sx={(theme) => ({
-        marginRight: '48px',
-        '@media (max-width: 640px)': {
-          marginRight: '24px',
-        },
-      })}>
+      <Center
+        inline
+        sx={(theme) => ({
+          marginRight: '48px',
+          '@media (max-width: 640px)': {
+            marginRight: '24px',
+          },
+        })}
+      >
         <ActionIcon<'a'>
           component="a"
           href="https://discord.com/invite/qfEGBPRyUt"

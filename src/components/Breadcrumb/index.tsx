@@ -27,7 +27,7 @@ export const Breadcrumb: FC<{ appName?: string }> = ({ appName }) => {
       className="rise-on-hover-150"
     >
       {item.emoji ? <span className="emoji">{item.emoji} </span> : null}
-      <span style={{textDecoration: item.active ? 'underline' : 'none'}}>{item.title}</span>
+      <span style={{ textDecoration: item.active ? 'underline' : 'none' }}>{item.title}</span>
     </Link>
   ));
 

@@ -1,33 +1,33 @@
 .breadcrumb-wrapper {
-    font-family: var(--font);
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
-    color: #797f91;
-    display: flex;
+  font-family: var(--font);
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #797f91;
+  display: flex;
 }
 
 .breadcrumb-link {
-    text-decoration: none;
-    font-family: var(--font);
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
-    color: #797f91;
-    transition: 300ms ease-in-out;
-    cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font);
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #797f91;
+  transition: 300ms ease-in-out;
+  cursor: pointer;
 }
 
 .breadcrumb-link:hover {
-    transform: translate(0,-2px);
+  transform: translate(0, -2px);
 }
 
 .breadcrumb-current-page {
-    padding-left: 0.3125rem;
+  padding-left: 0.3125rem;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Grid } from '@mantine/core';
 import { Heading } from '../Heading';
 import { ApplicationCardMini } from '../ApplicationCardMini';
@@ -12,7 +12,7 @@ import { categoryToColor } from '../../Common';
 
 export interface ApplicationPageProps {}
 
-export const ApplicationPage = ({}: ApplicationPageProps) => {
+export const ApplicationPage: FC<ApplicationPageProps> = () => {
   let params = useParams();
 
   const data = ExampleAppData.find(

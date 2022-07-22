@@ -1,80 +1,80 @@
 .lac-v2-outline {
-    border: solid 1px #261d2b;
-    border-radius: 18px;
-    max-width: 100%;
-    height: 100%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  border: solid 1px #261d2b;
+  border-radius: 18px;
+  max-width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .lac-v2-title {
-    font-family: var(--font);
-    font-size: 22px;
-    font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #fff;
-    text-align: left;
+  font-family: var(--font);
+  font-size: 22px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #fff;
+  text-align: left;
 }
 
 .lac-v2-title-desc-wrapper {
-    margin-left: 40px;
-    margin-right: 48px;
+  margin-left: 40px;
+  margin-right: 48px;
 }
 
 .lac-v2-desc {
-    text-align: left;
-    font-family: var(--font);
-    font-size: 16px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    text-align: left;
-    color: #fff;
-    margin-top: 20px;
+  text-align: left;
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+  margin-top: 20px;
 }
 
 .lac-v2-logo {
-    margin-left: 32px;
+  margin-left: 32px;
 }
 
 .lac-v2-button {
-    margin-right: 48px;
-    margin-left: 48px;
+  margin-right: 48px;
+  margin-left: 48px;
 }
 
 .lac-v2-divider {
-    width: 100%;
-    height: 1px;
-    background-color: #261d2b;
-  }
-  
+  width: 100%;
+  height: 1px;
+  background-color: #261d2b;
+}
+
 .lac-v2-tap-text {
-    padding-top: 12px;
-    padding-bottom: 10px;
-    margin-bottom: 0;
-    font-family: var(--font);
-    font-size: 18px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #261d2b;
-    align-self: center;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #261d2b;
+  align-self: center;
 }
 
 .lac-v2-tap-wrapper {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
 }

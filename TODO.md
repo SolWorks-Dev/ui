@@ -33,10 +33,18 @@ REMEMBER: push your changes daily
 - [x] Fix tag font on mobile
 
 # TODO
+
 - [~] Set up importing of local data
   - [~] Extend example data to include urls and social links
-- [ ] Create see more view
 
+- [ ] Hook up application page
+  - [ ] Links
+  - [ ] Socials
+  - [ ] Related
+- [ ] Add external link icon to socials and link card
+
+
+- [ ] Create see more view
 - [ ] Hook up see more button
 - [ ] Hook up learn more/apply now buttons
 - [ ] Switch sol price endpoint to binance API
@@ -44,5 +52,3 @@ REMEMBER: push your changes daily
 - [ ] Add footer links to menu
 - [ ] Fix: Mobile styling of CTA button
 - [ ] Fix: Tapping on link card doesnt open link
-- [ ] Design footer
-- [ ] Add footer

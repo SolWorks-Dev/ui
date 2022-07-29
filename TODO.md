@@ -47,7 +47,7 @@ REMEMBER: push your changes daily
 
 # TODO
 - [x] Show relavent related apps on application page
-
+- [x] Force menu to hide on tap of links
 
 - [ ] Set up application form 
 - [ ] Set up doc space 

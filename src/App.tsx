@@ -37,7 +37,7 @@ function App() {
 export default App;
 
 const AppContent: FC<{
-  setOpened: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpened: any;
   opened: boolean;
 }> = ({ setOpened, opened }) => {
   const tpsQuery = useQuery(['tps-data'], fetchTpsStats);
@@ -49,13 +49,13 @@ const AppContent: FC<{
         <>
           <NetworkStatusBar
             transactionsPerSecond={tpsQuery.data ? tpsQuery.data.data.networkInfo.tps.toFixed(0) : 0}
-            solusdPrice={solQuery.data ? solQuery.data[0].price : 0}
+            solusdPrice={solQuery.data ? solQuery.data[0] : 0}
             isLoading={tpsQuery.isLoading || solQuery.isLoading}
           />
-          <Header onBurgerClick={() => setOpened((o) => !o)} openMenu={opened} />
+          <Header onBurgerClick={() => setOpened(!opened)} openMenu={opened} />
         </>
       }
-      navbar={<Menu showNavbar={opened} />}
+      navbar={<Menu showNavbar={opened} hideMenu={() => {setOpened(false)}} />}
       navbarOffsetBreakpoint="xl"
       padding={0}
       fixed

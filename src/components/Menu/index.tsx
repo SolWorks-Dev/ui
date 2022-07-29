@@ -89,10 +89,10 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export const Menu: FC<{ showNavbar?: boolean }> = ({ showNavbar = true }) => {
+export const Menu: FC<{ showNavbar?: boolean, hideMenu?: () => void }> = ({ showNavbar = true, hideMenu }) => {
   const { classes } = useStyles();
   const { toggleColorScheme, colorScheme } = useMantineColorScheme();
-  const links = mockdata.map((item) => <LinksGroup {...item} key={item.label} />);
+  const links = mockdata.map((item) => <LinksGroup {...item} key={item.label} hideMenu={hideMenu} />);
 
   return (
     <Navbar

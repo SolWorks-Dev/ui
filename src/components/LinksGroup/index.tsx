@@ -50,18 +50,19 @@ interface LinksGroupProps {
   label: string;
   initiallyOpened?: boolean;
   links?: { label: string; link: string; comingSoon?: boolean }[];
+  hideMenu?: () => void;
 }
 
-export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksGroupProps) {
+export function LinksGroup({ icon: Icon, label, initiallyOpened, links, hideMenu }: LinksGroupProps) {
   const { classes, theme } = useStyles();
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(initiallyOpened || false);
   const ChevronIcon = theme.dir === 'ltr' ? ChevronRight : ChevronLeft;
-  const items = (hasLinks ? links : []).map((link) => MenuSubLink(classes, link));
+  const items = (hasLinks ? links : []).map((link) => MenuSubLink(classes, link, hideMenu));
 
   if (!hasLinks) {
     return (
-      <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
+      <UnstyledButton className={classes.control} onClick={hideMenu}>
         <HashLink smooth to={`/#${label.toLocaleLowerCase()}`} className="link">
           <Group position="apart" spacing={0}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -101,12 +102,14 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksG
     </>
   );
 }
+
 function MenuSubLink(
   classes: Record<'control' | 'link' | 'chevron', string>,
-  link: { label: string; link: string; comingSoon?: boolean }
+  link: { label: string; link: string; comingSoon?: boolean },
+  hideMenu?: () => void 
 ): JSX.Element {
   return (
-    <HashLink className={classes.link} key={link.label} smooth to={link.link}>
+    <HashLink className={classes.link} key={link.label} smooth to={link.link} onClick={hideMenu}>
       <Group position="apart">
         {link.label}
         {link.comingSoon ? (

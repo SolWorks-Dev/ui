@@ -1,12 +1,10 @@
 import { forwardRef } from 'react';
-import { Group, Avatar, Text, Select, Burger, Kbd, MediaQuery, ActionIcon, Center, Space } from '@mantine/core';
+import { Group, Avatar, Text, Select, Burger, MediaQuery, ActionIcon, Center, Space } from '@mantine/core';
 import React, { FC } from 'react';
 import '../../common.css';
-import { ExampleAppData } from '../ExampleData';
 import './Header.css';
 import { BrandDiscord, BrandTwitter } from 'tabler-icons-react';
 import { useNavigate } from 'react-router-dom';
-import { formatLink } from '../../Common';
 import { appList } from '@solworks/application-registry';
 
 interface ItemProps extends React.ComponentPropsWithoutRef<'div'> {

@@ -46,8 +46,6 @@ REMEMBER: push your changes daily
 - [x] Fix: Tapping on link card doesnt open link
 
 # TODO
-
-
 - [ ] Hook up learn more/apply now buttons
   - [ ] Set up application form and link to it in menu
   - [ ] Set up doc space and link to it in menu 

@@ -14,6 +14,7 @@ export const Raydium = () => (
         appName="Raydium"
         tag="AMM"
         tagColor="purple"
+        appValue='raydium'
       />
     }
   />
@@ -27,6 +28,7 @@ export const Solend = () => (
         appName="Solend"
         tag="Lending"
         tagColor="light-blue"
+        appValue='solend'
       />
     }
   />
@@ -40,6 +42,7 @@ export const GenesysGo = () => (
         appName="GenesysGo"
         tag="Infrastructure"
         tagColor="orange"
+        appValue='genesysgo'
       />
     }
   />
@@ -53,6 +56,7 @@ export const Orca = () => (
         appName="Orca"
         tag="AMM"
         tagColor="purple"
+        appValue='orca'
       />
     }
   />

@@ -75,54 +75,60 @@ export const ExampleHomePage = () => {
                 </Grid.Col>
               </Grid>
 
-              <Grid gutter="xl" style={{ marginTop: '30px' }}>
-                <Grid.Col xs={8} md={8} lg={10}>
-                  <Heading text="Curated" />
-                </Grid.Col>
-                <Grid.Col xs={4} md={4} lg={2}>
-                  <SecondaryButton
-                    text="See more"
-                    onClick={() => {
-                      console.log('onClick');
-                    }}
-                    additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
-                  />
-                </Grid.Col>
-              </Grid>
-              <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
-                <Grid.Col xs={6} md={3} lg={3}>
-                  <ApplicationCardMini
-                    logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
-                    appName="Raydium"
-                    tag="AMM"
-                    tagColor="purple"
-                  />
-                </Grid.Col>
-                <Grid.Col xs={6} md={3} lg={3}>
-                  <ApplicationCardMini
-                    logoUrl="https://metal.equinix.com/media/pages/images/0ff8033cf9437c213ee13937b1c4c455/79hX-genesysgo.svg"
-                    appName="GenesysGo"
-                    tag="Infrastructure"
-                    tagColor="orange"
-                  />
-                </Grid.Col>
-                <Grid.Col xs={6} md={3} lg={3}>
-                  <ApplicationCardMini
-                    logoUrl="https://www.orca.so/static/media/orca.0284041e.svg"
-                    appName="Orca"
-                    tag="AMM"
-                    tagColor="purple"
-                  />
-                </Grid.Col>
-                <Grid.Col xs={6} md={3} lg={3}>
-                  <ApplicationCardMini
-                    logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Saber2gLauYim4Mvftnrasomsv6NvAuncvMEZwcLpD1/logo.svg"
-                    appName="Saber"
-                    tag="AMM"
-                    tagColor="purple"
-                  />
-                </Grid.Col>
-              </Grid>
+              <section id="curated">
+                <Grid gutter="xl" style={{ marginTop: '30px' }}>
+                  <Grid.Col xs={8} md={8} lg={10}>
+                    <Heading text="Curated" />
+                  </Grid.Col>
+                  <Grid.Col xs={4} md={4} lg={2}>
+                    <SecondaryButton
+                      text="See more"
+                      onClick={() => {
+                        console.log('onClick');
+                      }}
+                      additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
+                    />
+                  </Grid.Col>
+                </Grid>
+                <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
+                  <Grid.Col xs={6} md={3} lg={3}>
+                    <ApplicationCardMini
+                      logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
+                      appName="Raydium"
+                      tag="AMM"
+                      tagColor="purple"
+                      appValue="raydium"
+                    />
+                  </Grid.Col>
+                  <Grid.Col xs={6} md={3} lg={3}>
+                    <ApplicationCardMini
+                      logoUrl="https://metal.equinix.com/media/pages/images/0ff8033cf9437c213ee13937b1c4c455/79hX-genesysgo.svg"
+                      appName="GenesysGo"
+                      tag="Infrastructure"
+                      tagColor="orange"
+                      appValue="genesysgo"
+                    />
+                  </Grid.Col>
+                  <Grid.Col xs={6} md={3} lg={3}>
+                    <ApplicationCardMini
+                      logoUrl="https://www.orca.so/static/media/orca.0284041e.svg"
+                      appName="Orca"
+                      tag="AMM"
+                      tagColor="purple"
+                      appValue="orca"
+                    />
+                  </Grid.Col>
+                  <Grid.Col xs={6} md={3} lg={3}>
+                    <ApplicationCardMini
+                      logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Saber2gLauYim4Mvftnrasomsv6NvAuncvMEZwcLpD1/logo.svg"
+                      appName="Saber"
+                      tag="AMM"
+                      tagColor="purple"
+                      appValue="saber"
+                    />
+                  </Grid.Col>
+                </Grid>
+              </section>
 
               <Grid gutter="xl" style={{ marginTop: '30px' }}>
                 <Grid.Col xs={8} md={8} lg={10}>
@@ -144,6 +150,7 @@ export const ExampleHomePage = () => {
                     logoUrl="https://bafybeicwsd4if6yxgunl4x4czy3kp2i7fzwppvbkaj4l3touqhjw4z2wfa.ipfs.dweb.link/"
                     appName="Just Ape"
                     description="A collection of 10,000 Apes that take us back to basics. None of the fluff, all of the value."
+                    appValue="justape"
                   />
                 </Grid.Col>
                 <Grid.Col xs={6} md={3} lg={3}>
@@ -152,6 +159,7 @@ export const ExampleHomePage = () => {
                     appName="Great Goats"
                     tag="NFT"
                     tagColor="light-blue"
+                    appValue="greatgoats"
                   />
                 </Grid.Col>
                 <Grid.Col xs={6} md={3} lg={3}>
@@ -160,6 +168,7 @@ export const ExampleHomePage = () => {
                     appName="Okay Bears"
                     tag="NFT"
                     tagColor="light-blue"
+                    appValue="okaybears"
                   />
                 </Grid.Col>
 
@@ -168,6 +177,7 @@ export const ExampleHomePage = () => {
                     logoUrl="https://bafybeifnx4apyushfc3i2tg5wx2xgudcfxgisd2sven2mhxixpghuo2jeu.ipfs.dweb.link/"
                     appName="Primates"
                     description="Aiming to create a brand that facilitates a seamless adoption of the web3 space through our community fueled ventures and collaborations."
+                    appValue="primates"
                   />
                 </Grid.Col>
                 <Grid.Col xs={6} md={3} lg={3}>
@@ -176,6 +186,7 @@ export const ExampleHomePage = () => {
                     appName="Gothic Degens"
                     tag="NFT"
                     tagColor="light-blue"
+                    appValue="gothicdegens"
                   />
                 </Grid.Col>
                 <Grid.Col xs={6} md={3} lg={3}>
@@ -184,6 +195,7 @@ export const ExampleHomePage = () => {
                     appName="DegenTown"
                     tag="NFT"
                     tagColor="light-blue"
+                    appValue="degentown"
                   />
                 </Grid.Col>
 
@@ -192,6 +204,7 @@ export const ExampleHomePage = () => {
                     logoUrl="https://i.imgur.com/fO3tI1t.png"
                     appName="DeGods"
                     description="A collection of degenerates, punks, and misfits. Gods of the metaverse & masters of our own universe. DeGods can be converted to DeadGods with DUST."
+                    appValue="degods"
                   />
                 </Grid.Col>
                 <Grid.Col xs={12} md={3} lg={3}>
@@ -200,6 +213,7 @@ export const ExampleHomePage = () => {
                     appName="Trippin' Ape Tribe"
                     tag="NFT"
                     tagColor="light-blue"
+                    appValue="trippinape"
                   />
                 </Grid.Col>
                 <Grid.Col xs={12} md={3} lg={3}>
@@ -208,6 +222,7 @@ export const ExampleHomePage = () => {
                     appName="Blocksmith Labs"
                     tag="NFT"
                     tagColor="light-blue"
+                    appValue="blocksmith"
                   />
                 </Grid.Col>
               </Grid>
@@ -233,6 +248,7 @@ export const ExampleHomePage = () => {
                     appName="Raydium"
                     description="Automated market maker (AMM) utilising Serum’s on-chain central order book for trading."
                     height={250}
+                    appValue="raydium"
                   />
                 </Grid.Col>
                 <Grid.Col xs={12} md={6} lg={6}>
@@ -242,6 +258,7 @@ export const ExampleHomePage = () => {
                     description="Automated market maker (AMM) enabling low-fee, near-instant token swaps. Tackling UX for the masses."
                     additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
                     height={250}
+                    appValue="orca"
                   />
                 </Grid.Col>
                 <Grid.Col xs={12} md={6} lg={6}>
@@ -250,6 +267,7 @@ export const ExampleHomePage = () => {
                     appName="Saber"
                     description="Automated market maker (AMM) optimized for trading pegged assets."
                     height={250}
+                    appValue="saber"
                   />
                 </Grid.Col>
                 <Grid.Col xs={12} md={6} lg={6}>
@@ -259,6 +277,7 @@ export const ExampleHomePage = () => {
                     description="Algorithmic, decentralized protocol for lending and borrowing."
                     additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
                     height={250}
+                    appValue="solend"
                   />
                 </Grid.Col>
               </Grid>

@@ -21,6 +21,10 @@
 }
 
 .link-card-url {
+  margin: 15px 20px;
+}
+
+.link-card-link {
   font-family: var(--font);
   font-size: 16px;
   font-weight: bold;
@@ -28,10 +32,11 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  text-align: center;
   color: #e42575;
   margin-top: 26px;
+  word-wrap: break-word;
 }
+
 
 .link-card-tap-wrapper {
   position: absolute;

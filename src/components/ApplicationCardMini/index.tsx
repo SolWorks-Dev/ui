@@ -3,7 +3,6 @@ import '../../common.css';
 import './ApplicationCardMini.css';
 import { Logo } from '../Logo';
 import { Link } from 'react-router-dom';
-import { formatLink } from '../../Common';
 
 export type TagColor = 'light-blue' | 'orange' | 'purple' | 'red';
 
@@ -13,6 +12,7 @@ export interface ApplicationCardMiniProps {
   tag: string;
   tagColor: TagColor;
   additionalStyles?: any;
+  appValue: string;
 }
 
 export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
@@ -21,9 +21,10 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
   tag,
   tagColor,
   additionalStyles = undefined,
+  appValue,
 }) => {
   return (
-    <Link to={formatLink(appName)} className="mac-lw" style={{ ...additionalStyles, textDecoration: 'none' }}>
+    <Link to={`/apps/${appValue}`} className="mac-lw" style={{ ...additionalStyles, textDecoration: 'none' }}>
       <div className="mac-outline glow-on-hover bg px18 rise-on-hover-300">
         <div className="mac-logo">
           <Logo logoUrl={logoUrl} altText={`${appName} logo`} />

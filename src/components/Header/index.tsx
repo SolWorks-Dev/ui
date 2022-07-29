@@ -7,6 +7,7 @@ import './Header.css';
 import { BrandDiscord, BrandTwitter } from 'tabler-icons-react';
 import { useNavigate } from 'react-router-dom';
 import { formatLink } from '../../Common';
+import { appList } from '@solworks/application-registry';
 
 interface ItemProps extends React.ComponentPropsWithoutRef<'div'> {
   logoUrl: string;
@@ -55,7 +56,14 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
             clearable
             maxDropdownHeight={420}
             nothingFound="No apps found 🤔"
-            data={ExampleAppData}
+            data={appList.apps.map((app) => ({
+              value: app.app.value,
+              label: app.app.label,
+              group: app.app.categories[0].toUpperCase(),
+              logoUrl: app.urls.logo,
+              description: app.description.short,
+              isCurated: app.app.is_curated
+            }))}
             size="lg"
             radius="md"
             transition="pop-top-left"
@@ -65,12 +73,12 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
             className="search"
             onChange={(e: any) => {
               if (e) {
-                navigate(`${formatLink(e)}`);
+                navigate(`/apps/${e}`);
               }
             }}
             rightSection={
               <>
-                <Kbd
+                {/* <Kbd
                   sx={{
                     backgroundColor: '#373a3f',
                     border: '1px solid #373a3f',
@@ -88,7 +96,7 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
                   }}
                 >
                   K
-                </Kbd>
+                </Kbd> */}
               </>
             }
             rightSectionWidth={80}

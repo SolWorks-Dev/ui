@@ -10,10 +10,6 @@ export interface SocialsCardProps {
 }
 
 export const SocialsCard: FC<SocialsCardProps> = ({ twitter = [], discord = [], medium = [], telegram = [] }) => {
-  if (twitter.length === 0 && discord.length === 0 && medium.length === 0 && telegram.length === 0) {
-    // Return no socials found state
-  }
-
   return (
     <div className="sc-outline">
       <div className="sc-wrapper">

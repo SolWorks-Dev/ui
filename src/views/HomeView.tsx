@@ -4,10 +4,141 @@ import { ActionCard } from '../components/ActionCard';
 import { ApplicationCardLargeV2 } from '../components/ApplicationCardLargeV2';
 import { ApplicationCardMini } from '../components/ApplicationCardMini';
 import { Breadcrumb } from '../components/Breadcrumb';
-import { SecondaryButton } from '../components/SecondaryButton';
 import { Heading } from '../components/Heading';
+import { appList } from '@solworks/application-registry';
+
+// TODO: refactor from first category to any category
+const curatedApps = appList.apps.filter((app) => app.app.is_curated)!;
+const nftApps = appList.apps.filter((app) => app.app.categories[0] === 'nft');
+const otherApps = appList.apps.filter((app) => app.app.categories[0] !== 'nft').filter((app) => !app.app.is_curated);
+const otherCategories = [...new Set(otherApps.map((app) => app.app.categories[0]))].sort();
+
+const appGroups: any[] = [];
+for (var x = 0; x < otherCategories.length; x++) {
+  const otherCategory = otherCategories[x];
+  const matchedCategory = appList.categories.find((category) => category.value === otherCategory)!;
+  const otherApps = appList.apps.filter((app) => app.app.categories[0] === otherCategory);
+  const otherCategoryHeader = (
+    <Grid gutter="xl" style={{ marginTop: '30px' }}>
+      <Grid.Col xs={8} md={8} lg={10}>
+        <Heading text={matchedCategory.heading_label} />
+      </Grid.Col>
+      {/* <Grid.Col xs={4} md={4} lg={2}>
+        <SecondaryButton
+          text="See more"
+          onClick={() => {
+            console.log('onClick');
+          }}
+          additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
+        />
+      </Grid.Col> */}
+    </Grid>
+  );
+
+  const otherAppsList = [];
+  for (var y = 0; y < otherApps.length; y++) {
+    const otherApp = otherApps[y];
+    const otherCategoryApps =
+      y % 3 !== 0 ? (
+        <Grid.Col xs={6} md={3} lg={3} xl={3}>
+          <ApplicationCardMini
+            logoUrl={otherApp.urls.logo}
+            appName={otherApp.app.label}
+            tag={appList.categories.find((category) => category.value === otherApp.app.categories[0])?.tag_label!}
+            tagColor={'purple'}
+            appValue={otherApp.app.value}
+          />
+        </Grid.Col>
+      ) : (
+        <Grid.Col xs={12} md={6} lg={6}>
+          <ApplicationCardLargeV2
+            logoUrl={otherApp.urls.logo}
+            appName={otherApp.app.label}
+            description={otherApp.description.short}
+            appValue={otherApp.app.value}
+          />
+        </Grid.Col>
+      );
+    otherAppsList.push(otherCategoryApps);
+  }
+
+  const fullGroups = (
+    <section id={otherCategory}>
+      {otherCategoryHeader}
+      <Grid gutter="xl" style={{ marginTop: '20px' }}>
+        {otherAppsList}
+      </Grid>
+    </section>
+  );
+  appGroups.push(fullGroups);
+}
 
 export const HomeView = () => {
+  const curatedRowHeader = (
+    <Grid gutter="xl" style={{ marginTop: '30px' }}>
+      <Grid.Col xs={8} md={8} lg={10}>
+        <Heading text={'Curated'} />
+      </Grid.Col>
+      {/* <Grid.Col xs={4} md={4} lg={2}>
+        <SecondaryButton
+          text="See more"
+          onClick={() => {
+            console.log('onClick');
+          }}
+          additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
+        />
+      </Grid.Col> */}
+    </Grid>
+  );
+
+  const curatedRowApps = (
+    <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
+      {curatedApps.map((app) => (
+        <Grid.Col xs={6} md={3} lg={3}>
+          <ApplicationCardMini
+            logoUrl={app.urls.logo}
+            appName={app.app.label}
+            tag={appList.categories.find((category) => category.value === app.app.categories[0])?.tag_label!}
+            tagColor="purple"
+            appValue={app.app.value}
+          />
+        </Grid.Col>
+      ))}
+    </Grid>
+  );
+
+  const nftRowHeader = (
+    <Grid gutter="xl" style={{ marginTop: '30px' }}>
+      <Grid.Col xs={8} md={8} lg={10}>
+        <Heading text="NFT Communities" />
+      </Grid.Col>
+      {/* <Grid.Col xs={4} md={4} lg={2}>
+        <SecondaryButton
+          text="See more"
+          onClick={() => {
+            console.log('onClick');
+          }}
+          additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
+        />
+      </Grid.Col> */}
+    </Grid>
+  );
+
+  const nftRowApps = (
+    <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
+      {nftApps.map((app) => (
+        <Grid.Col xs={12} md={6} lg={6}>
+          <ApplicationCardLargeV2
+            logoUrl={app.urls.logo}
+            appName={app.app.label}
+            description={app.description.short}
+            appValue={app.app.value}
+          />
+        </Grid.Col>
+      ))}
+    </Grid>
+  );
+
   return (
     <div className="body-wrapper">
       <Breadcrumb />
@@ -44,193 +175,17 @@ export const HomeView = () => {
         </Grid.Col>
       </Grid>
 
-      <Grid gutter="xl" style={{ marginTop: '30px' }}>
-        <Grid.Col xs={8} md={8} lg={10}>
-          <Heading text="Curated" />
-        </Grid.Col>
-        <Grid.Col xs={4} md={4} lg={2}>
-          <SecondaryButton
-            text="See more"
-            onClick={() => {
-              console.log('onClick');
-            }}
-            additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
-          />
-        </Grid.Col>
-      </Grid>
-      <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
-        <Grid.Col xs={6} md={3} lg={3}>
-          <ApplicationCardMini
-            logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
-            appName="Raydium"
-            tag="AMM"
-            tagColor="purple"
-          />
-        </Grid.Col>
-        <Grid.Col xs={6} md={3} lg={3}>
-          <ApplicationCardMini
-            logoUrl="https://metal.equinix.com/media/pages/images/0ff8033cf9437c213ee13937b1c4c455/79hX-genesysgo.svg"
-            appName="GenesysGo"
-            tag="Infrastructure"
-            tagColor="orange"
-          />
-        </Grid.Col>
-        <Grid.Col xs={6} md={3} lg={3}>
-          <ApplicationCardMini
-            logoUrl="https://www.orca.so/static/media/orca.0284041e.svg"
-            appName="Orca"
-            tag="AMM"
-            tagColor="purple"
-          />
-        </Grid.Col>
-        <Grid.Col xs={6} md={3} lg={3}>
-          <ApplicationCardMini
-            logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Saber2gLauYim4Mvftnrasomsv6NvAuncvMEZwcLpD1/logo.svg"
-            appName="Saber"
-            tag="AMM"
-            tagColor="purple"
-          />
-        </Grid.Col>
-      </Grid>
+      <section id="curated">
+        {curatedRowHeader}
+        {curatedRowApps}
+      </section>
 
-      <Grid gutter="xl" style={{ marginTop: '30px' }}>
-        <Grid.Col xs={8} md={8} lg={10}>
-          <Heading text="NFT Communities" />
-        </Grid.Col>
-        <Grid.Col xs={4} md={4} lg={2}>
-          <SecondaryButton
-            text="See more"
-            onClick={() => {
-              console.log('onClick');
-            }}
-            additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
-          />
-        </Grid.Col>
-      </Grid>
-      <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
-        <Grid.Col xs={12} md={6} lg={6}>
-          <ApplicationCardLargeV2
-            logoUrl="https://bafybeicwsd4if6yxgunl4x4czy3kp2i7fzwppvbkaj4l3touqhjw4z2wfa.ipfs.dweb.link/"
-            appName="Just Ape"
-            description="A collection of 10,000 Apes that take us back to basics. None of the fluff, all of the value."
-          />
-        </Grid.Col>
-        <Grid.Col xs={6} md={3} lg={3}>
-          <ApplicationCardMini
-            logoUrl="https://greatgoats.io/assets/images/icon.png"
-            appName="Great Goats"
-            tag="NFT"
-            tagColor="light-blue"
-          />
-        </Grid.Col>
-        <Grid.Col xs={6} md={3} lg={3}>
-          <ApplicationCardMini
-            logoUrl="https://bafkreidgfsdjx4nt4vctch73hcchb3pkiwic2onfw5yr4756adchogk5de.ipfs.dweb.link/"
-            appName="Okay Bears"
-            tag="NFT"
-            tagColor="light-blue"
-          />
-        </Grid.Col>
+      <section id="nft">
+        {nftRowHeader}
+        {nftRowApps}
+      </section>
 
-        <Grid.Col xs={12} md={6} lg={6}>
-          <ApplicationCardLargeV2
-            logoUrl="https://bafybeifnx4apyushfc3i2tg5wx2xgudcfxgisd2sven2mhxixpghuo2jeu.ipfs.dweb.link/"
-            appName="Primates"
-            description="Aiming to create a brand that facilitates a seamless adoption of the web3 space through our community fueled ventures and collaborations."
-          />
-        </Grid.Col>
-        <Grid.Col xs={6} md={3} lg={3}>
-          <ApplicationCardMini
-            logoUrl="https://creator-hub-prod.s3.us-east-2.amazonaws.com/gothic_degens_pfp_1654733979006.png"
-            appName="Gothic Degens"
-            tag="NFT"
-            tagColor="light-blue"
-          />
-        </Grid.Col>
-        <Grid.Col xs={6} md={3} lg={3}>
-          <ApplicationCardMini
-            logoUrl="https://dl.airtable.com/.attachmentThumbnails/408f2a34f3ee1f67856cca3a226d71ab/9679778e"
-            appName="DegenTown"
-            tag="NFT"
-            tagColor="light-blue"
-          />
-        </Grid.Col>
-
-        <Grid.Col xs={12} md={6} lg={6}>
-          <ApplicationCardLargeV2
-            logoUrl="https://i.imgur.com/fO3tI1t.png"
-            appName="DeGods"
-            description="A collection of degenerates, punks, and misfits. Gods of the metaverse & masters of our own universe. DeGods can be converted to DeadGods with DUST."
-          />
-        </Grid.Col>
-        <Grid.Col xs={12} md={3} lg={3}>
-          <ApplicationCardMini
-            logoUrl="https://i.imgur.com/iFgvQva.png"
-            appName="Trippin' Ape Tribe"
-            tag="NFT"
-            tagColor="light-blue"
-          />
-        </Grid.Col>
-        <Grid.Col xs={12} md={3} lg={3}>
-          <ApplicationCardMini
-            logoUrl="https://dl.airtable.com/.attachmentThumbnails/b1aabaad68ef1a7512de6a0ddd15f38d/47c53a89"
-            appName="Blocksmith Labs"
-            tag="NFT"
-            tagColor="light-blue"
-          />
-        </Grid.Col>
-      </Grid>
-
-      <Grid gutter="xl" style={{ marginTop: '30px' }}>
-        <Grid.Col xs={9} md={9} lg={10}>
-          <Heading text="AMMs" />
-        </Grid.Col>
-        <Grid.Col xs={3} md={3} lg={2}>
-          <SecondaryButton
-            text="See more"
-            onClick={() => {
-              console.log('onClick');
-            }}
-            additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
-          />
-        </Grid.Col>
-      </Grid>
-      <Grid gutter="xl" style={{ marginTop: '20px' }}>
-        <Grid.Col xs={12} md={6} lg={6}>
-          <ApplicationCardLargeV2
-            logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
-            appName="Raydium"
-            description="Automated market maker (AMM) utilising Serum’s on-chain central order book for trading."
-            height={250}
-          />
-        </Grid.Col>
-        <Grid.Col xs={12} md={6} lg={6}>
-          <ApplicationCardLargeV2
-            logoUrl="https://www.orca.so/static/media/orca.0284041e.svg"
-            appName="Orca"
-            description="Automated market maker (AMM) enabling low-fee, near-instant token swaps. Tackling UX for the masses."
-            additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
-            height={250}
-          />
-        </Grid.Col>
-        <Grid.Col xs={12} md={6} lg={6}>
-          <ApplicationCardLargeV2
-            logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Saber2gLauYim4Mvftnrasomsv6NvAuncvMEZwcLpD1/logo.svg"
-            appName="Saber"
-            description="Automated market maker (AMM) optimized for trading pegged assets."
-            height={250}
-          />
-        </Grid.Col>
-        <Grid.Col xs={12} md={6} lg={6}>
-          <ApplicationCardLargeV2
-            logoUrl="https://solend.fi/assets/tokens/slnd.png"
-            appName="Solend"
-            description="Algorithmic, decentralized protocol for lending and borrowing."
-            additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
-            height={250}
-          />
-        </Grid.Col>
-      </Grid>
+      {appGroups}
     </div>
   );
 };

@@ -9,17 +9,19 @@ export interface LinkCardProps {
 
 export const LinkCard: FC<LinkCardProps> = ({ title, url }) => {
   return (
-    <div className="link-card-outline glow-on-hover bg px18">
-      <div className="link-card-title">{title}</div>
-      <div className="link-card-url">
-        <a className="link-card-url" href={url} target="_blank" rel="noreferrer">
-          {url}
-        </a>
+    <a href={url} target="_blank" rel="noreferrer" style={{textDecoration: 'none'}}>
+      <div className="link-card-outline glow-on-hover bg px18">
+        <div className="link-card-title">{title}</div>
+        <div className="link-card-url">
+          <a className="link-card-link" href={url} target="_blank" rel="noreferrer">
+            {url}
+          </a>
+        </div>
+        <div className="link-card-tap-wrapper">
+          <div className="link-card-divider" />
+          <div className="link-card-tap-text white-text-on-hover">Tap to open</div>
+        </div>
       </div>
-      <div className="link-card-tap-wrapper">
-        <div className="link-card-divider" />
-        <div className="link-card-tap-text">Tap to open</div>
-      </div>
-    </div>
+    </a>
   );
 };

@@ -31,24 +31,30 @@ REMEMBER: push your changes daily
 - [x] Hook up search bar
 - [x] Fix tap to open not going white on tap
 - [x] Fix tag font on mobile
+- [x] Set up importing of local data
+  - [x] Extend example data to include urls and social links
+- [x] Hook up application page
+  - [x] Links
+  - [x] Socials
+  - [x] Related
+- [x] Add scroll to category
+- [x] Hook up menu
+- [x] Hide see more button
+- [x] Make entire link card clickable 
+- [x] Fix Saber logo
+- [x] Hide keyboard icons
+- [x] Fix: Tapping on link card doesnt open link
 
 # TODO
 
-- [~] Set up importing of local data
-  - [~] Extend example data to include urls and social links
 
-- [ ] Hook up application page
-  - [ ] Links
-  - [ ] Socials
-  - [ ] Related
+- [ ] Hook up learn more/apply now buttons
+  - [ ] Set up application form and link to it in menu
+  - [ ] Set up doc space and link to it in menu 
+- [ ] Switch sol price endpoint to binance API
 - [ ] Add external link icon to socials and link card
-
+- [ ] Fix: Mobile styling of CTA button
 
 - [ ] Create see more view
 - [ ] Hook up see more button
-- [ ] Hook up learn more/apply now buttons
-- [ ] Switch sol price endpoint to binance API
-- [ ] Hook up menu
 - [ ] Add footer links to menu
-- [ ] Fix: Mobile styling of CTA button
-- [ ] Fix: Tapping on link card doesnt open link

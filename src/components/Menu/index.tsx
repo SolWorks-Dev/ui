@@ -1,45 +1,57 @@
 import { ActionIcon, Aside, createStyles, Group, Navbar, ScrollArea, useMantineColorScheme } from '@mantine/core';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { Adjustments, Lock, MoonStars, Notes, PresentationAnalytics, Sun } from 'tabler-icons-react';
+import { BuildingSkyscraper, Filter, Firetruck, Icon, ListDetails, MoonStars, Sun, Track } from 'tabler-icons-react';
 import '../../common.css';
 import { LinksGroup } from '../LinksGroup';
+import { appList } from '@solworks/application-registry';
 
-const mockdata = [
+const mockdata: {
+  label: string;
+  icon: Icon;
+  links?: {
+    label: string;
+    link: string;
+    comingSoon?: boolean;
+  }[];
+  link?: string;
+}[] = [
+  { label: 'Curated', icon: Filter, link: '/#curated' },
   {
     label: 'Categories',
-    icon: Notes,
-    links: [
-      { label: 'AMM', link: '/' },
-      { label: 'Lending', link: '/' },
-      { label: 'NFT', link: '/' },
-      { label: 'DAO', link: '/' },
-      { label: 'Infrastructure', link: '/' },
-      { label: 'Tooling', link: '/' },
-    ],
+    icon: ListDetails,
+    links: [...new Set(appList.apps.map((app) => app.app.categories[0]))]
+      .sort()
+      .map((category) => {
+        return appList.categories.find((mCategory) => mCategory.value === category)!;
+      })
+      .map((category) => {
+        return {
+          label: category.heading_label,
+          link: `/#${category.value}`,
+        };
+      }),
   },
-  { label: 'Curated', icon: PresentationAnalytics },
   {
     label: 'Help',
-    icon: Lock,
+    icon: Firetruck,
     links: [
-      { label: 'Getting started', link: '/' },
-      { label: 'Listing: Apply', link: '/' },
-      { label: 'Listing: Update', link: '/' },
-      { label: 'Partnership', link: '/' },
+      { label: 'Getting started', link: '/', comingSoon: true },
+      { label: 'Listing: Apply', link: '/', comingSoon: true },
+      { label: 'Listing: Update', link: '/', comingSoon: true },
+      { label: 'Partnership', link: '/', comingSoon: true },
     ],
   },
-  { label: 'Roadmap', icon: Adjustments },
+  { label: 'Roadmap', icon: Track, link: '/roadmap' },
   {
     label: 'SolWorks',
-    icon: Adjustments,
+    icon: BuildingSkyscraper,
     links: [
-      { label: 'SolApps', link: '/' },
-      { label: 'SolToolkit', link: '/' },
-      { label: 'SolDisperse', link: '/' },
-      { label: 'Sujiko (Solana)', link: '/' },
-      { label: 'Nite (Aptos)', link: '/' },
-      { label: 'Taco (Sui)', link: '/' },
+      { label: 'SolApps', link: '/#' },
+      { label: 'SolToolkit', link: '/', comingSoon: true },
+      { label: 'SolDisperse', link: '/', comingSoon: true },
+      { label: 'Sujiko', link: '/', comingSoon: true },
+      { label: 'Nite (Aptos)', link: '/', comingSoon: true },
     ],
   },
 ];

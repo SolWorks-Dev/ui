@@ -49,26 +49,18 @@ REMEMBER: push your changes daily
 - [x] Show relavent related apps on application page
 - [x] Force menu to hide on tap of links
 - [x] Fix: Mobile styling of CTA button
+- [x] Set up application forms
+- [x] Switch sol price endpoint to binance API
+- [x] Set up doc space 
+- [x] Hook up learn more/apply now buttons
+- [x] Create image preview for meta preivew like Saber
 
-- [x] Set up application form 
-- [ ] Set up doc space 
-  - [ ] SolWorks
-    - [ ] What is SolWorks?
-    - [ ] Who are we?
-    - [ ] What are we building?
-  - [ ] SolApps
-    - [ ] Getting started
-    - [ ] Searching for an application
-    - [ ] Get listed
-    - [ ] Report an error
-    - [ ] Contribute
-
-- [ ] Switch sol price endpoint to binance API
+Go live checklist
+- [ ] Complete doc space
 - [ ] Add external link icon to socials and link card
-
-- [ ] Hook up learn more/apply now buttons
 
 - [ ] Create see more view
 - [ ] Hook up see more button
 - [ ] Add footer links to menu
-- [ ] Create image preview for meta preivew like Saber
+
+- [ ] Integrate helmet and optimise SEO

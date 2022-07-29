@@ -39,14 +39,20 @@ const mockdata: {
     label: 'Help',
     icon: Firetruck,
     links: [
-      { label: 'Getting started', link: '/', comingSoon: true, external: false },
+      { label: 'Getting started', link: 'https://help.solworks.dev', comingSoon: false, external: true },
       {
         label: 'Listing: Apply',
         link: 'https://k722zc9ivtg.typeform.com/to/uN4Pklej',
         comingSoon: false,
         external: true,
       },
-      { label: 'Partnership', link: '/', comingSoon: true, external: false },
+      {
+        label: 'Listing: Update',
+        link: 'https://k722zc9ivtg.typeform.com/to/BljLUU8I',
+        comingSoon: false,
+        external: true,
+      },
+      { label: 'Partnership', link: 'https://k722zc9ivtg.typeform.com/to/OHTjdlkb', comingSoon: false, external: true },
     ],
   },
   { label: 'Roadmap', icon: Track, link: '/roadmap' },

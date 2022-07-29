@@ -154,7 +154,7 @@ export const HomeView = () => {
                 No more searching for verified protocol links. Read our getting started guide.
               </>
             }
-            actionLink=""
+            actionLink="https://help.solworks.dev/"
             actionButtonText="Learn more"
           />
         </Grid.Col>
@@ -169,7 +169,7 @@ export const HomeView = () => {
                 Submissions can take up to 1 week to review a protocol.
               </>
             }
-            actionLink=""
+            actionLink="https://k722zc9ivtg.typeform.com/to/uN4Pklej"
             actionButtonText="Apply now"
           />
         </Grid.Col>

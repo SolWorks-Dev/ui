@@ -4,13 +4,13 @@ import './ApplicationCardMini.css';
 import { Logo } from '../Logo';
 import { Link } from 'react-router-dom';
 
-export type TagColor = 'light-blue' | 'orange' | 'purple' | 'red';
+export type TagColor = 'light-blue' | 'orange' | 'purple' | 'red' | 'green' | 'violet';
 
 export interface ApplicationCardMiniProps {
   logoUrl: string;
   appName: string;
   tag: string;
-  tagColor: TagColor;
+  tagColorHex: string;
   additionalStyles?: any;
   appValue: string;
 }
@@ -19,7 +19,7 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
   logoUrl,
   appName,
   tag,
-  tagColor,
+  tagColorHex,
   additionalStyles = undefined,
   appValue,
 }) => {
@@ -30,7 +30,7 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
           <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
         </div>
         <div className="mac-title">{appName}</div>
-        <Tag tagColor={tagColor} tag={tag} />
+        <Tag tagColorHex={tagColorHex} tag={tag} />
         <div className="mac-divider" />
         <div className="mac-tap-text">Tap to open</div>
       </div>
@@ -39,24 +39,11 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
 };
 
 export interface TagProps {
-  tagColor: TagColor;
+  tagColorHex: string;
   tag: string;
 }
 
-export const Tag: FC<TagProps> = ({ tagColor, tag }) => {
-  let tagColorHex = '';
-  switch (tagColor) {
-    case 'light-blue':
-      tagColorHex = '#71adff';
-      break;
-    case 'orange':
-      tagColorHex = '#f89a3d';
-      break;
-    case 'purple':
-      tagColorHex = '#461183';
-      break;
-  }
-
+export const Tag: FC<TagProps> = ({ tagColorHex, tag }) => {
   return (
     <div className="mac-tag" style={{ backgroundColor: tagColorHex }}>
       <div className="mac-tag-text">{tag.toUpperCase()}</div>

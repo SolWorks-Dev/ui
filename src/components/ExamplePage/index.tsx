@@ -96,7 +96,7 @@ export const ExampleHomePage = () => {
                       logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
                       appName="Raydium"
                       tag="AMM"
-                      tagColor="purple"
+                      tagColorHex='#71adff'
                       appValue="raydium"
                     />
                   </Grid.Col>
@@ -105,7 +105,7 @@ export const ExampleHomePage = () => {
                       logoUrl="https://metal.equinix.com/media/pages/images/0ff8033cf9437c213ee13937b1c4c455/79hX-genesysgo.svg"
                       appName="GenesysGo"
                       tag="Infrastructure"
-                      tagColor="orange"
+                      tagColorHex='#71adff'
                       appValue="genesysgo"
                     />
                   </Grid.Col>
@@ -114,7 +114,7 @@ export const ExampleHomePage = () => {
                       logoUrl="https://www.orca.so/static/media/orca.0284041e.svg"
                       appName="Orca"
                       tag="AMM"
-                      tagColor="purple"
+                      tagColorHex='#71adff'
                       appValue="orca"
                     />
                   </Grid.Col>
@@ -123,7 +123,7 @@ export const ExampleHomePage = () => {
                       logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Saber2gLauYim4Mvftnrasomsv6NvAuncvMEZwcLpD1/logo.svg"
                       appName="Saber"
                       tag="AMM"
-                      tagColor="purple"
+                      tagColorHex='#71adff'
                       appValue="saber"
                     />
                   </Grid.Col>
@@ -158,7 +158,7 @@ export const ExampleHomePage = () => {
                     logoUrl="https://greatgoats.io/assets/images/icon.png"
                     appName="Great Goats"
                     tag="NFT"
-                    tagColor="light-blue"
+                    tagColorHex='#71adff'
                     appValue="greatgoats"
                   />
                 </Grid.Col>
@@ -167,7 +167,7 @@ export const ExampleHomePage = () => {
                     logoUrl="https://bafkreidgfsdjx4nt4vctch73hcchb3pkiwic2onfw5yr4756adchogk5de.ipfs.dweb.link/"
                     appName="Okay Bears"
                     tag="NFT"
-                    tagColor="light-blue"
+                    tagColorHex='#71adff'
                     appValue="okaybears"
                   />
                 </Grid.Col>
@@ -185,7 +185,7 @@ export const ExampleHomePage = () => {
                     logoUrl="https://creator-hub-prod.s3.us-east-2.amazonaws.com/gothic_degens_pfp_1654733979006.png"
                     appName="Gothic Degens"
                     tag="NFT"
-                    tagColor="light-blue"
+                    tagColorHex='#71adff'
                     appValue="gothicdegens"
                   />
                 </Grid.Col>
@@ -194,7 +194,7 @@ export const ExampleHomePage = () => {
                     logoUrl="https://dl.airtable.com/.attachmentThumbnails/408f2a34f3ee1f67856cca3a226d71ab/9679778e"
                     appName="DegenTown"
                     tag="NFT"
-                    tagColor="light-blue"
+                    tagColorHex='#71adff'
                     appValue="degentown"
                   />
                 </Grid.Col>
@@ -212,7 +212,7 @@ export const ExampleHomePage = () => {
                     logoUrl="https://i.imgur.com/iFgvQva.png"
                     appName="Trippin' Ape Tribe"
                     tag="NFT"
-                    tagColor="light-blue"
+                    tagColorHex='#71adff'
                     appValue="trippinape"
                   />
                 </Grid.Col>
@@ -221,7 +221,7 @@ export const ExampleHomePage = () => {
                     logoUrl="https://dl.airtable.com/.attachmentThumbnails/b1aabaad68ef1a7512de6a0ddd15f38d/47c53a89"
                     appName="Blocksmith Labs"
                     tag="NFT"
-                    tagColor="light-blue"
+                    tagColorHex='#71adff'
                     appValue="blocksmith"
                   />
                 </Grid.Col>

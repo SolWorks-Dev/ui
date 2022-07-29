@@ -1,21 +1,41 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { TagColor } from './components/ApplicationCardMini';
 
 export function formatLink(appName: string) {
   return `/apps/${appName.toLocaleLowerCase().replace(' ', '_').replace(/\W/g, '')}`;
 }
 
-export function categoryToColor(category: string): TagColor {
+export function categoryToColorHex(category: string): string {
   switch (category.toLowerCase()) {
     case 'amm':
     case 'amms':
-      return 'purple';
+      return '#71adff';
+    case 'analytics':
+      return '#8AA78C';
+    case 'dao':
+      return '#f89a3d';
+    case 'derivatives':
+      return '#461183';
+    case 'game':
+      return '#ff0000';
+    case 'dex':
+      return '#8AA78C';
+    case 'lending':
+      return '#8a2be2';
+    case 'marketplace':
+      return '#8a8583';
+    case 'music':
+      return '#C2C2B4';
+    case 'oracle':
+      return '#461183';
+    case 'wallet':
+      return '#475c6c'
     case 'infrastructure':
-      return 'orange';
+      return '#cd8b62'
     case 'nft':
+      return '#71adff'
     default:
-      return 'light-blue';
+      return '#8AA78C';
   }
 }
 

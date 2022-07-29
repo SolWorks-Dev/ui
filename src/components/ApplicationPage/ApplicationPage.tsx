@@ -7,7 +7,7 @@ import { ApplicationDetailsCard } from '../ApplicationDetailsCard';
 import { SocialsCard } from '../SocialsCard';
 import { Breadcrumb } from '../Breadcrumb';
 import { useParams } from 'react-router-dom';
-import { categoryToColor, shuffle } from '../../Common';
+import { categoryToColorHex, shuffle } from '../../Common';
 import { appList } from '@solworks/application-registry';
 
 export interface ApplicationPageProps {}
@@ -60,7 +60,7 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
           logoUrl={app.urls.logo}
           appName={app.app.label}
           tag={appList.categories.find((category) => category.value === app.app.categories[0])?.tag_label!}
-          tagColor="orange"
+          tagColorHex={categoryToColorHex(app.app.categories[0])}
           appValue={app.app.value}
         />
       </Grid.Col>
@@ -79,7 +79,7 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
             logoUrl={data.urls.logo || ''}
             description={data.description.long || ''}
             tag={data.app.categories[0] || ''}
-            tagColor={categoryToColor(data.app.categories[0])}
+            tagColorHex={categoryToColorHex(data.app.categories[0])}
           />
         </Grid.Col>
         <Grid.Col xs={12} md={6} lg={6}>

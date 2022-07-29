@@ -6,6 +6,7 @@ import { ApplicationCardMini } from '../components/ApplicationCardMini';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Heading } from '../components/Heading';
 import { appList } from '@solworks/application-registry';
+import { categoryToColorHex } from '../Common';
 
 // TODO: refactor from first category to any category
 const curatedApps = appList.apps.filter((app) => app.app.is_curated)!;
@@ -45,7 +46,7 @@ for (var x = 0; x < otherCategories.length; x++) {
             logoUrl={otherApp.urls.logo}
             appName={otherApp.app.label}
             tag={appList.categories.find((category) => category.value === otherApp.app.categories[0])?.tag_label!}
-            tagColor={'purple'}
+            tagColorHex={categoryToColorHex(otherApp.app.categories[0])}
             appValue={otherApp.app.value}
           />
         </Grid.Col>
@@ -99,7 +100,7 @@ export const HomeView = () => {
             logoUrl={app.urls.logo}
             appName={app.app.label}
             tag={appList.categories.find((category) => category.value === app.app.categories[0])?.tag_label!}
-            tagColor="purple"
+            tagColorHex={categoryToColorHex(app.app.categories[0])}
             appValue={app.app.value}
           />
         </Grid.Col>

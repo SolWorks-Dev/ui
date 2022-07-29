@@ -16,7 +16,7 @@ export const Raydium = () => (
 
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         tag="AMM"
-        tagColor="orange"
+        tagColorHex="#71adff"
       />
     }
   />

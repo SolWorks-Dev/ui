@@ -13,7 +13,7 @@ export const Raydium = () => (
         logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
         appName="Raydium"
         tag="AMM"
-        tagColor="purple"
+        tagColorHex='#71adff'
         appValue='raydium'
       />
     }
@@ -27,7 +27,7 @@ export const Solend = () => (
         logoUrl="https://solend.fi/assets/tokens/slnd.png"
         appName="Solend"
         tag="Lending"
-        tagColor="light-blue"
+        tagColorHex='#71adff'
         appValue='solend'
       />
     }
@@ -41,7 +41,7 @@ export const GenesysGo = () => (
         logoUrl="https://metal.equinix.com/media/pages/images/0ff8033cf9437c213ee13937b1c4c455/79hX-genesysgo.svg"
         appName="GenesysGo"
         tag="Infrastructure"
-        tagColor="orange"
+        tagColorHex='#71adff'
         appValue='genesysgo'
       />
     }
@@ -55,7 +55,7 @@ export const Orca = () => (
         logoUrl="https://www.orca.so/static/media/orca.0284041e.svg"
         appName="Orca"
         tag="AMM"
-        tagColor="purple"
+        tagColorHex='#71adff'
         appValue='orca'
       />
     }

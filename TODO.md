@@ -48,6 +48,7 @@ REMEMBER: push your changes daily
 # TODO
 - [x] Show relavent related apps on application page
 - [x] Force menu to hide on tap of links
+- [x] Fix: Mobile styling of CTA button
 
 - [ ] Set up application form 
 - [ ] Set up doc space 
@@ -66,7 +67,6 @@ REMEMBER: push your changes daily
 - [ ] Add external link icon to socials and link card
 
 - [ ] Hook up learn more/apply now buttons
-- [ ] Fix: Mobile styling of CTA button
 
 - [ ] Create see more view
 - [ ] Hook up see more button

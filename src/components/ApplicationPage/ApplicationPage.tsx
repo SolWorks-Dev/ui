@@ -7,7 +7,7 @@ import { ApplicationDetailsCard } from '../ApplicationDetailsCard';
 import { SocialsCard } from '../SocialsCard';
 import { Breadcrumb } from '../Breadcrumb';
 import { useParams } from 'react-router-dom';
-import { categoryToColor } from '../../Common';
+import { categoryToColor, shuffle } from '../../Common';
 import { appList } from '@solworks/application-registry';
 
 export interface ApplicationPageProps {}
@@ -47,6 +47,25 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
     cards.push(...otherUrls);
   }
 
+  // get related app categories
+  let relatedApps = appList.apps
+    .filter((app) => app.app.categories.includes(data.app.categories[0]))
+    .filter((x) => x.app.value !== data.app.value);
+  relatedApps = shuffle(relatedApps).slice(0, 6);
+
+  const relatedAppCards = relatedApps.map((app) => {
+    return (
+      <Grid.Col xs={6} md={6} lg={6}>
+        <ApplicationCardMini
+          logoUrl={app.urls.logo}
+          appName={app.app.label}
+          tag={appList.categories.find((category) => category.value === app.app.categories[0])?.tag_label!}
+          tagColor="orange"
+          appValue={app.app.value}
+        />
+      </Grid.Col>
+    );
+  });
   return (
     <div className="body-wrapper">
       <Breadcrumb appName={data.app.label || undefined} />
@@ -98,52 +117,13 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
           <div style={{ marginBottom: '30px' }}>
             <Heading text="Links" />
           </div>
-          <Grid gutter="xl">
-            {cards}
-          </Grid>
+          <Grid gutter="xl">{cards}</Grid>
         </Grid.Col>
         <Grid.Col xs={12} md={6} lg={6}>
           <div style={{ marginBottom: '30px' }}>
             <Heading text="Related" />
           </div>
-          <Grid gutter="xl">
-            <Grid.Col xs={6} md={6} lg={6}>
-              <ApplicationCardMini
-                logoUrl="https://metal.equinix.com/media/pages/images/0ff8033cf9437c213ee13937b1c4c455/79hX-genesysgo.svg"
-                appName="GenesysGo"
-                tag="Infrastructure"
-                tagColor="orange"
-                appValue='genesysgo'
-              />
-            </Grid.Col>
-            <Grid.Col xs={6} md={6} lg={6}>
-              <ApplicationCardMini
-                logoUrl="https://solend.fi/assets/tokens/slnd.png"
-                appName="Solend"
-                tag="Lending"
-                tagColor="light-blue"
-                appValue='solend'
-              />
-            </Grid.Col>
-            <Grid.Col xs={6} md={6} lg={6}>
-              <ApplicationCardMini
-                logoUrl="https://www.orca.so/static/media/orca.0284041e.svg"
-                appName="Orca"
-                tag="AMM"
-                tagColor="purple"
-                appValue='orca'
-              />
-            </Grid.Col>
-            <Grid.Col xs={6} md={6} lg={6}>
-              <ApplicationCardMini
-                logoUrl="https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png"
-                appName="Raydium"
-                tag="AMM"
-                tagColor="purple"
-                appValue='raydium'
-              />
-            </Grid.Col>
-          </Grid>
+          <Grid gutter="xl">{relatedAppCards}</Grid>
         </Grid.Col>
       </Grid>
     </div>

@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import '../../common.css';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import { Center, SimpleGrid } from '@mantine/core';
+import { formatNumber } from '../../Common';
 
 export interface NetworkStatusBarProps {
   // Solana TPS
@@ -41,7 +42,7 @@ const NetworkStatusBar: FC<NetworkStatusBarProps> = ({
         />
         <NetworkStatusBarItem
           title="SOL/USD"
-          value={`${solusdPrice.toLocaleString()} USD`}
+          value={`${formatNumber(solusdPrice, 2)} USD`}
           isLoading={isLoading}
           isCenter
           link="https://www.binance.com/en/trade/SOL_USDC?theme=dark&type=spot"

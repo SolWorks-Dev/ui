@@ -46,13 +46,29 @@ REMEMBER: push your changes daily
 - [x] Fix: Tapping on link card doesnt open link
 
 # TODO
-- [ ] Hook up learn more/apply now buttons
-  - [ ] Set up application form and link to it in menu
-  - [ ] Set up doc space and link to it in menu 
+- [x] Show relavent related apps on application page
+
+
+- [ ] Set up application form 
+- [ ] Set up doc space 
+  - [ ] SolWorks
+    - [ ] What is SolWorks?
+    - [ ] Who are we?
+    - [ ] What are we building?
+  - [ ] SolApps
+    - [ ] Getting started
+    - [ ] Searching for an application
+    - [ ] Get listed
+    - [ ] Report an error
+    - [ ] Contribute
+
 - [ ] Switch sol price endpoint to binance API
 - [ ] Add external link icon to socials and link card
+
+- [ ] Hook up learn more/apply now buttons
 - [ ] Fix: Mobile styling of CTA button
 
 - [ ] Create see more view
 - [ ] Hook up see more button
 - [ ] Add footer links to menu
+- [ ] Create image preview for meta preivew like Saber

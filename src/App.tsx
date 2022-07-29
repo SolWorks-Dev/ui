@@ -49,7 +49,7 @@ const AppContent: FC<{
         <>
           <NetworkStatusBar
             transactionsPerSecond={tpsQuery.data ? tpsQuery.data.data.networkInfo.tps.toFixed(0) : 0}
-            solusdPrice={solQuery.data ? solQuery.data.data.priceUsdt : 0}
+            solusdPrice={solQuery.data ? solQuery.data[0].price : 0}
             isLoading={tpsQuery.isLoading || solQuery.isLoading}
           />
           <Header onBurgerClick={() => setOpened((o) => !o)} openMenu={opened} />

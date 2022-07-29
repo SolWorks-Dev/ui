@@ -12,7 +12,8 @@ const mockdata: {
   links?: {
     label: string;
     link: string;
-    comingSoon?: boolean;
+    comingSoon: boolean;
+    external: boolean;
   }[];
   link?: string;
 }[] = [
@@ -29,6 +30,8 @@ const mockdata: {
         return {
           label: category.heading_label,
           link: `/#${category.value}`,
+          comingSoon: false,
+          external: false,
         };
       }),
   },
@@ -36,10 +39,14 @@ const mockdata: {
     label: 'Help',
     icon: Firetruck,
     links: [
-      { label: 'Getting started', link: '/', comingSoon: true },
-      { label: 'Listing: Apply', link: '/', comingSoon: true },
-      { label: 'Listing: Update', link: '/', comingSoon: true },
-      { label: 'Partnership', link: '/', comingSoon: true },
+      { label: 'Getting started', link: '/', comingSoon: true, external: false },
+      {
+        label: 'Listing: Apply',
+        link: 'https://k722zc9ivtg.typeform.com/to/uN4Pklej',
+        comingSoon: false,
+        external: true,
+      },
+      { label: 'Partnership', link: '/', comingSoon: true, external: false },
     ],
   },
   { label: 'Roadmap', icon: Track, link: '/roadmap' },
@@ -47,11 +54,11 @@ const mockdata: {
     label: 'SolWorks',
     icon: BuildingSkyscraper,
     links: [
-      { label: 'SolApps', link: '/#' },
-      { label: 'SolToolkit', link: '/', comingSoon: true },
-      { label: 'SolDisperse', link: '/', comingSoon: true },
-      { label: 'Sujiko', link: '/', comingSoon: true },
-      { label: 'Nite (Aptos)', link: '/', comingSoon: true },
+      { label: 'SolApps', link: '/#', comingSoon: false, external: false },
+      { label: 'SolToolkit', link: '/', comingSoon: true, external: false },
+      { label: 'SolDisperse', link: '/', comingSoon: true, external: false },
+      { label: 'Sujiko', link: '/', comingSoon: true, external: false },
+      { label: 'Nite (Aptos)', link: '/', comingSoon: true, external: false },
     ],
   },
 ];
@@ -89,7 +96,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export const Menu: FC<{ showNavbar?: boolean, hideMenu?: () => void }> = ({ showNavbar = true, hideMenu }) => {
+export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ showNavbar = true, hideMenu }) => {
   const { classes } = useStyles();
   const { toggleColorScheme, colorScheme } = useMantineColorScheme();
   const links = mockdata.map((item) => <LinksGroup {...item} key={item.label} hideMenu={hideMenu} />);

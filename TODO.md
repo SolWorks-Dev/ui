@@ -50,7 +50,7 @@ REMEMBER: push your changes daily
 - [x] Force menu to hide on tap of links
 - [x] Fix: Mobile styling of CTA button
 
-- [ ] Set up application form 
+- [x] Set up application form 
 - [ ] Set up doc space 
   - [ ] SolWorks
     - [ ] What is SolWorks?

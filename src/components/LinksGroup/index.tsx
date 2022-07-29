@@ -105,29 +105,41 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links, hideMenu
 
 function MenuSubLink(
   classes: Record<'control' | 'link' | 'chevron', string>,
-  link: { label: string; link: string; comingSoon?: boolean },
-  hideMenu?: () => void 
+  link: { label: string; link: string; comingSoon?: boolean; external?: boolean },
+  hideMenu?: () => void
 ): JSX.Element {
-  return (
-    <HashLink className={classes.link} key={link.label} smooth to={link.link} onClick={hideMenu}>
-      <Group position="apart">
-        {link.label}
-        {link.comingSoon ? (
-          <Badge
-            size="md"
-            radius="sm"
-            variant="gradient"
-            gradient={{ from: 'violet', to: 'red' }}
-            style={{
-              paddingRight: '8px',
-            }}
-          >
-            🛠️
-          </Badge>
-        ) : (
-          <></>
-        )}
-      </Group>
-    </HashLink>
+  const contents = (
+    <Group position="apart">
+      {link.label}
+      {link.comingSoon ? (
+        <Badge
+          size="md"
+          radius="sm"
+          variant="gradient"
+          gradient={{ from: 'violet', to: 'red' }}
+          style={{
+            paddingRight: '8px',
+          }}
+        >
+          🛠️
+        </Badge>
+      ) : (
+        <></>
+      )}
+    </Group>
   );
+
+  if (link.external) {
+    return (
+      <a className={classes.link} href={link.link} target="_blank" rel="noreferrer">
+        {contents}
+      </a>
+    );
+  } else {
+    return (
+      <HashLink className={classes.link} key={link.label} smooth to={link.link} onClick={hideMenu}>
+        {contents}
+      </HashLink>
+    );
+  }
 }

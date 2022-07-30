@@ -6,7 +6,7 @@ import '../../common.css';
 import { LinksGroup } from '../LinksGroup';
 import { appList } from '@solworks/application-registry';
 
-const mockdata: {
+type MenuLinkDetails = {
   label: string;
   icon: Icon;
   links?: {
@@ -16,8 +16,11 @@ const mockdata: {
     external: boolean;
   }[];
   link?: string;
-}[] = [
-  { label: 'Curated', icon: Filter, link: '/#curated' },
+  initiallyOpened: boolean;
+};
+
+const mockdata: MenuLinkDetails[] = [
+  { label: 'Curated', icon: Filter, link: '/#curated', initiallyOpened: false },
   {
     label: 'Categories',
     icon: ListDetails,
@@ -34,6 +37,7 @@ const mockdata: {
           external: false,
         };
       }),
+    initiallyOpened: true,
   },
   {
     label: 'Help',
@@ -54,8 +58,9 @@ const mockdata: {
       },
       { label: 'Partnership', link: 'https://k722zc9ivtg.typeform.com/to/OHTjdlkb', comingSoon: false, external: true },
     ],
+    initiallyOpened: false,
   },
-  { label: 'Roadmap', icon: Track, link: '/roadmap' },
+  { label: 'Roadmap', icon: Track, link: '/roadmap', initiallyOpened: false },
   {
     label: 'SolWorks',
     icon: BuildingSkyscraper,
@@ -66,6 +71,7 @@ const mockdata: {
       { label: 'Sujiko', link: '/', comingSoon: true, external: false },
       { label: 'Nite (Aptos)', link: '/', comingSoon: true, external: false },
     ],
+    initiallyOpened: false,
   },
 ];
 
@@ -122,7 +128,7 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ show
       hiddenBreakpoint="xl"
       sx={{ borderLeft: 0, borderRight: '1px solid #261D2B' }}
     >
-      <Aside.Section className={classes.header}>
+      <Navbar.Section className={classes.header}>
         <Group className={classes.header} position="apart">
           <div
             style={{
@@ -155,11 +161,14 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ show
             {colorScheme === 'dark' ? <Sun size={18} /> : <MoonStars size={18} />}
           </ActionIcon>
         </Group>
-      </Aside.Section>
+      </Navbar.Section>
 
-      <Aside.Section grow className={classes.links} component={ScrollArea}>
+      <Navbar.Section grow className={classes.links} component={ScrollArea}>
         <div className={classes.linksInner}>{links}</div>
-      </Aside.Section>
+      </Navbar.Section>
+      <Navbar.Section>
+
+      </Navbar.Section>
     </Navbar>
   );
 };

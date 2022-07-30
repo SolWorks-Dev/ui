@@ -52,7 +52,7 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
             placeholder="Search"
             searchable
             clearable
-            maxDropdownHeight={420}
+            maxDropdownHeight={360}
             nothingFound="No apps found 🤔"
             data={appList.apps.map((app) => ({
               value: app.app.value,
@@ -62,7 +62,7 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
               description: app.description.short,
               isCurated: app.app.is_curated
             }))}
-            size="lg"
+            size="md"
             radius="md"
             transition="pop-top-left"
             transitionDuration={80}

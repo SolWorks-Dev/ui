@@ -5,4 +5,6 @@ export default {
   component: Header,
 };
 
-export const HeaderExample = () => <Header onBurgerClick={() => {}} openMenu />;
+export const HeaderExample = () => (
+  <Header onBurgerClick={() => {}} openMenu solQuery={undefined} tpsQuery={undefined} />
+);

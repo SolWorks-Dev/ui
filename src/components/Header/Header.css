@@ -5,6 +5,8 @@
   background-color: var(--background);
   color: white;
   display: flex;
+  flex-direction: row;
+  padding: 12px 0 12px 0;
 }
 
 .menu-search-wrapper {

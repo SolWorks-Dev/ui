@@ -25,7 +25,7 @@ export const ExampleHomePage = () => {
           header={
             <>
               <NetworkStatusBar transactionsPerSecond={235} solusdPrice={33.33} solgbpPrice={28.88} />
-              <Header onBurgerClick={() => setOpened((o) => !o)} openMenu={opened} />
+              {/* <Header onBurgerClick={() => setOpened((o) => !o)} openMenu={opened} /> */}
             </>
           }
           navbar={<Menu showNavbar={opened} />}

@@ -1,4 +1,4 @@
-import { ActionIcon, Aside, createStyles, Group, Navbar, ScrollArea, useMantineColorScheme } from '@mantine/core';
+import { ActionIcon, createStyles, Group, Navbar, ScrollArea, useMantineColorScheme } from '@mantine/core';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { BuildingSkyscraper, Filter, Firetruck, Icon, ListDetails, MoonStars, Sun, Track } from 'tabler-icons-react';
@@ -126,7 +126,14 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ show
       className={classes.navbar}
       hidden={!showNavbar}
       hiddenBreakpoint="xl"
-      sx={{ borderLeft: 0, borderRight: '1px solid #261D2B' }}
+      sx={{
+        borderLeft: 0,
+        borderRight: '1px solid #261D2B',
+      }}
+      position={{
+        left: 0,
+        top: 90,
+      }}
     >
       <Navbar.Section className={classes.header}>
         <Group className={classes.header} position="apart">
@@ -163,11 +170,8 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ show
         </Group>
       </Navbar.Section>
 
-      <Navbar.Section grow className={classes.links} component={ScrollArea}>
+      <Navbar.Section grow className={classes.links} component={ScrollArea} style={{ marginBottom: '90px' }}>
         <div className={classes.linksInner}>{links}</div>
-      </Navbar.Section>
-      <Navbar.Section>
-
       </Navbar.Section>
     </Navbar>
   );

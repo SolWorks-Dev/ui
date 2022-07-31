@@ -2019,10 +2019,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@solworks/application-registry@^0.0.10":
-  "integrity" "sha512-MrqmNNKJkTO+F4iOnCSAPJtvHc3KKv1cYQK0FllmfPajg03yRvqh+LGHo0y+Tkp0Ru78u6Qyn8IhpaHW1XNSLA=="
-  "resolved" "https://registry.npmjs.org/@solworks/application-registry/-/application-registry-0.0.10.tgz"
-  "version" "0.0.10"
+"@solworks/application-registry@^0.0.11":
+  "integrity" "sha512-vjPoGVtswDE2HkhZH/FoWeCS4c5QE4Z+lpahLYESrh86343MN2xy/8rtg7QnmMqTDyYky3NW26fYrLWv3726Ng=="
+  "resolved" "https://registry.npmjs.org/@solworks/application-registry/-/application-registry-0.0.11.tgz"
+  "version" "0.0.11"
   dependencies:
     "toml" "^3.0.0"
 

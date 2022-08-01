@@ -1,12 +1,12 @@
-import { ActionIcon, createStyles, Group, Navbar, ScrollArea, useMantineColorScheme } from '@mantine/core';
+import { ActionIcon, createStyles, Grid, Group, Navbar, ScrollArea, useMantineColorScheme } from '@mantine/core';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { BuildingSkyscraper, Filter, Firetruck, Icon, ListDetails, MoonStars, Sun, Track } from 'tabler-icons-react';
+import { Icon, MoonStars, Sun } from 'tabler-icons-react';
 import '../../common.css';
 import { LinksGroup } from '../LinksGroup';
-import { appList } from '@solworks/application-registry';
+import { MenuData } from './MenuData';
 
-type MenuLinkDetails = {
+export type MenuLinkDetails = {
   label: string;
   icon: Icon;
   links?: {
@@ -18,62 +18,6 @@ type MenuLinkDetails = {
   link?: string;
   initiallyOpened: boolean;
 };
-
-const mockdata: MenuLinkDetails[] = [
-  { label: 'Curated', icon: Filter, link: '/#curated', initiallyOpened: false },
-  {
-    label: 'Categories',
-    icon: ListDetails,
-    links: [...new Set(appList.apps.map((app) => app.app.categories[0]))]
-      .sort()
-      .map((category) => {
-        return appList.categories.find((mCategory) => mCategory.value === category)!;
-      })
-      .map((category) => {
-        return {
-          label: category.heading_label,
-          link: `/#${category.value}`,
-          comingSoon: false,
-          external: false,
-        };
-      }),
-    initiallyOpened: true,
-  },
-  {
-    label: 'Help',
-    icon: Firetruck,
-    links: [
-      { label: 'Getting started', link: 'https://help.solworks.dev', comingSoon: false, external: true },
-      {
-        label: 'Listing: Apply',
-        link: 'https://k722zc9ivtg.typeform.com/to/uN4Pklej',
-        comingSoon: false,
-        external: true,
-      },
-      {
-        label: 'Listing: Update',
-        link: 'https://k722zc9ivtg.typeform.com/to/BljLUU8I',
-        comingSoon: false,
-        external: true,
-      },
-      { label: 'Partnership', link: 'https://k722zc9ivtg.typeform.com/to/OHTjdlkb', comingSoon: false, external: true },
-    ],
-    initiallyOpened: false,
-  },
-  { label: 'Roadmap', icon: Track, link: '/roadmap', initiallyOpened: false },
-  {
-    label: 'SolWorks',
-    icon: BuildingSkyscraper,
-    links: [
-      { label: 'SolApps', link: '/#', comingSoon: false, external: false },
-      { label: 'SolToolkit', link: '/', comingSoon: true, external: false },
-      { label: 'SolDisperse', link: '/', comingSoon: true, external: false },
-      { label: 'Sujiko', link: '/', comingSoon: true, external: false },
-      { label: 'Nite (Aptos)', link: '/', comingSoon: true, external: false },
-    ],
-    initiallyOpened: false,
-  },
-];
 
 const useStyles = createStyles((theme) => ({
   navbar: {
@@ -101,17 +45,53 @@ const useStyles = createStyles((theme) => ({
   },
 
   footer: {
-    marginLeft: -theme.spacing.md,
-    marginRight: -theme.spacing.md,
-    borderTop: `1px solid ${theme.colors.dark[4]}`,
+    borderTop: `1px solid #261d2b`,
     color: 'white',
+    marginBottom: '100px',
+    paddingTop: '25px',
+  },
+
+  socialButton: {
+    transition: '150ms ease-in-out',
+    minWidth: '60px',
+    height: '48px',
+    minHeight: '48px',
+    border: 'solid 1px #24182f',
+    backgroundColor: 'none',
+    display: 'flex',
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textDecoration: 'none',
+    borderRadius: '8px',
+  },
+
+  socialButtonText: {
+    fontFamily: 'var(--font)',
+    fontSize: '18px',
+    fontWeight: 'bold',
+    fontStretch: 'normal',
+    fontStyle: 'normal',
+    lineHeight: 'normal',
+    letterSpacing: 'normal',
+    textAlign: 'left',
+    color: '#eae4e4',
+    textDecoration: 'none',
+  },
+
+  actionItem: {
+    backgroundColor: 'var(--solworks-background)',
+    color: theme.colorScheme === 'dark' ? 'white' : 'white',
+    '&:hover': {
+      backgroundColor: 'var(--background)',
+    },
   },
 }));
 
 export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ showNavbar = true, hideMenu }) => {
   const { classes } = useStyles();
   const { toggleColorScheme, colorScheme } = useMantineColorScheme();
-  const links = mockdata.map((item) => <LinksGroup {...item} key={item.label} hideMenu={hideMenu} />);
+  const links = MenuData.map((item) => <LinksGroup {...item} key={item.label} hideMenu={hideMenu} />);
 
   return (
     <Navbar
@@ -154,17 +134,7 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ show
               SolApps
             </Link>
           </div>
-          <ActionIcon
-            onClick={() => toggleColorScheme()}
-            size="lg"
-            sx={(theme) => ({
-              backgroundColor: 'var(--solworks-background)',
-              color: theme.colorScheme === 'dark' ? 'white' : 'white',
-              '&:hover': {
-                backgroundColor: 'var(--background)',
-              },
-            })}
-          >
+          <ActionIcon onClick={() => toggleColorScheme()} size="lg" className={classes.actionItem}>
             {colorScheme === 'dark' ? <Sun size={18} /> : <MoonStars size={18} />}
           </ActionIcon>
         </Group>
@@ -173,6 +143,34 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ show
       <Navbar.Section grow className={classes.links} component={ScrollArea} style={{ marginBottom: '90px' }}>
         <div className={classes.linksInner}>{links}</div>
       </Navbar.Section>
+
+      <Navbar.Section className={classes.footer}>
+        <Grid>
+          <Grid.Col xs={12} md={6} lg={6} xl={6}>
+            <SocialButton text="Twitter" url="https://twitter.com/SolApps_" />
+          </Grid.Col>
+          <Grid.Col xs={12} md={6} lg={6} xl={6}>
+            <SocialButton text="Discord" url="https://discord.com/invite/qfEGBPRyUt" />
+          </Grid.Col>
+          <Grid.Col xs={12} md={6} lg={6} xl={6}>
+            <SocialButton text="Docs" url="https://help.solworks.dev" />
+          </Grid.Col>
+          <Grid.Col xs={12} md={6} lg={6} xl={6}>
+            <SocialButton text="Contact" url="https://twitter.com/messages/compose?recipient_id=1547241706990567426" />
+          </Grid.Col>
+        </Grid>
+      </Navbar.Section>
     </Navbar>
+  );
+};
+
+const SocialButton = ({ text, url }: { text: string; url: string }) => {
+  const { classes } = useStyles();
+  return (
+    <div className={'glow-on-hover bg colors-only ' + classes.socialButton}>
+      <a className={classes.socialButtonText} target="_blank" rel="noreferrer" href={url}>
+        {text}
+      </a>
+    </div>
   );
 };

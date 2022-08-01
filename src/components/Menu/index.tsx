@@ -150,7 +150,7 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ show
               color: '#fff',
             }}
           >
-            <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+            <Link to="/" style={{ textDecoration: 'none', color: 'white' }} onClick={hideMenu}>
               SolApps
             </Link>
           </div>

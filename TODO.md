@@ -21,7 +21,8 @@ REMEMBER: push your changes daily
 - [x] Add links to DefiLlama, whitepaper, docs and metrics for Pyth
 - [x] Add links to documentation and YouTube for Francium
 - [x] Update description and add documentation link for SolanaFM
-
+- [x] FIX: Menu not closing when tapping SolWorks logo
+- [x] Rotated curated apps
 
 - [ ] FIX: Application page loading of related apps
 - [ ] Convert to ??? for SEO/Integrate helmet and optimise SEO

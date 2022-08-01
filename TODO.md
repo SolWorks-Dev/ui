@@ -15,6 +15,14 @@ REMEMBER: push your changes daily
 
 # TODO
 - [~] Complete doc space
+- [x] Add staking link for Just Ape
+- [x] Update links for Lifinity 
+- [x] Update discord invite for Solend
+- [x] Add links to DefiLlama, whitepaper, docs and metrics for Pyth
+- [x] Add links to documentation and YouTube for Francium
+- [x] Update description and add documentation link for SolanaFM
+
+
 - [ ] FIX: Application page loading of related apps
 - [ ] Convert to ??? for SEO/Integrate helmet and optimise SEO
 

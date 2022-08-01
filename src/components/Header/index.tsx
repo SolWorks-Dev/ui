@@ -185,7 +185,7 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
             </ActionIcon>
             <ActionIcon<'a'>
               component="a"
-              href="https://twitter.com/SolWorks_"
+              href="https://twitter.com/SolApps_"
               target="_blank"
               rel="noreferrer"
               size="xl"

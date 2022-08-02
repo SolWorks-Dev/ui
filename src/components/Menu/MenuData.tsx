@@ -20,7 +20,7 @@ export const MenuData: MenuLinkDetails[] = [
           external: false,
         };
       }),
-    initiallyOpened: true,
+    initiallyOpened: false,
   },
   {
     label: 'Help',
@@ -45,9 +45,10 @@ export const MenuData: MenuLinkDetails[] = [
   },
   { label: 'Roadmap', icon: Track, link: '/roadmap', initiallyOpened: false },
   {
-    label: 'SolWorks',
+    label: 'Ecosystem',
     icon: BuildingSkyscraper,
     links: [
+      { label: 'SolWorks', link: 'https://solworks.dev', comingSoon: false, external: true },
       { label: 'SolApps', link: '/#', comingSoon: false, external: false },
       { label: 'SolToolkit', link: '/', comingSoon: true, external: false },
       { label: 'SolDisperse', link: '/', comingSoon: true, external: false },

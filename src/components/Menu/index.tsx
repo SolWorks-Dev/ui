@@ -1,5 +1,5 @@
 import { ActionIcon, createStyles, Grid, Group, Navbar, ScrollArea, useMantineColorScheme } from '@mantine/core';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon, MoonStars, Sun } from 'tabler-icons-react';
 import '../../common.css';
@@ -23,6 +23,8 @@ const useStyles = createStyles((theme) => ({
   navbar: {
     backgroundColor: 'var(--background)',
     paddingBottom: 0,
+    borderLeft: 0,
+    borderRight: '1px solid #261D2B',
   },
 
   header: {
@@ -88,10 +90,17 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ showNavbar = true, hideMenu }) => {
+export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen: boolean }> = ({
+  showNavbar = true,
+  hideMenu,
+}) => {
   const { classes } = useStyles();
   const { toggleColorScheme, colorScheme } = useMantineColorScheme();
-  const links = MenuData.map((item) => <LinksGroup {...item} key={item.label} hideMenu={hideMenu} />);
+  const [links, setLinks] = useState<JSX.Element[]>([]);
+
+  useEffect(() => {
+    setLinks(MenuData.map((item) => <LinksGroup {...item} key={item.label} hideMenu={hideMenu} />));
+  }, []);
 
   return (
     <Navbar
@@ -106,10 +115,6 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ show
       className={classes.navbar}
       hidden={!showNavbar}
       hiddenBreakpoint="xl"
-      sx={{
-        borderLeft: 0,
-        borderRight: '1px solid #261D2B',
-      }}
       position={{
         left: 0,
         top: 90,

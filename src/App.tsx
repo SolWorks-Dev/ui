@@ -66,6 +66,7 @@ const AppContent: FC<{
           hideMenu={() => {
             setOpened(false);
           }}
+          isMenuOpen={opened}
         />
       }
       navbarOffsetBreakpoint="xl"

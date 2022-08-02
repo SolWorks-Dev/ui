@@ -12,8 +12,6 @@ REMEMBER: push your changes daily
 - [x] FIX: Header not sticking
 - [x] FIX: Menu extending below bottom of screen
 - [x] ADD: google analytics
-
-# TODO
 - [x] Add staking link for Just Ape
 - [x] Add YouTube and Podcast links for Lifinity 
 - [x] Update discord invite for Solend
@@ -24,8 +22,13 @@ REMEMBER: push your changes daily
 - [x] Rotated curated apps
 - [x] ADD: Footer links to menu
 
+# TODO
+- [x] FIX: Bottom of menu was covered
+- [x] FIX: Unwanted rerendering of application page (Application page related apps reloading randomly)
+- [x] FIX: Menu indicator showing categories opened but it's not
+- [x] FIX: Infrastructure category tag spilling out of container
+
 - [~] Complete doc space
-- [ ] FIX: Application page loading of related apps
 - [ ] ADD: external link icon to socials and link card
 
 - [ ] Convert to ??? for SEO/Integrate helmet and optimise SEO

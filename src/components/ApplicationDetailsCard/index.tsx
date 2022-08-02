@@ -1,3 +1,4 @@
+import { Grid } from '@mantine/core';
 import React, { FC } from 'react';
 import '../../common.css';
 import { Tag } from '../ApplicationCardMini';
@@ -23,13 +24,15 @@ export const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
     <div className="adc-outline">
       <div className="adc-wrapper">
         <div className="adc-header">
-          <div className="adc-header-logo">
-            <Logo logoUrl={logoUrl} altText="" sizePx={48} />
-          </div>
-          <div className="adc-header-text">{applicationName}</div>
-          <div className="adc-header-tag">
-            <Tag tagColorHex={tagColorHex} tag={tag} />
-          </div>
+          <Grid justify={'center'} align={'center'}>
+              <div className="adc-header-logo">
+                <Logo logoUrl={logoUrl} altText="" sizePx={48} />
+              </div>
+              <div className="adc-header-text">{applicationName}</div>
+              <div className="adc-header-tag">
+                <Tag tagColorHex={tagColorHex} tag={tag} size={'lg'} />
+              </div>
+          </Grid>
         </div>
         <div className="adc-description">{description}</div>
       </div>

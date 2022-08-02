@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Group, Box, Collapse, ThemeIcon, UnstyledButton, createStyles, Badge } from '@mantine/core';
 import { Icon as TablerIcon, ChevronLeft, ChevronRight } from 'tabler-icons-react';
 import { HashLink } from 'react-router-hash-link';
@@ -48,7 +48,7 @@ const useStyles = createStyles((theme) => ({
 interface LinksGroupProps {
   icon: TablerIcon;
   label: string;
-  initiallyOpened?: boolean;
+  initiallyOpened: boolean;
   links?: { label: string; link: string; comingSoon?: boolean }[];
   hideMenu?: () => void;
 }
@@ -56,9 +56,15 @@ interface LinksGroupProps {
 export function LinksGroup({ icon: Icon, label, initiallyOpened, links, hideMenu }: LinksGroupProps) {
   const { classes, theme } = useStyles();
   const hasLinks = Array.isArray(links);
-  const [opened, setOpened] = useState(initiallyOpened || false);
+  const [opened, setOpened] = useState(initiallyOpened);
   const ChevronIcon = theme.dir === 'ltr' ? ChevronRight : ChevronLeft;
-  const items = (hasLinks ? links : []).map((link) => MenuSubLink(classes, link, hideMenu));
+  const [items, setItems] = useState<JSX.Element[]>();
+
+  useEffect(() => {
+    if (links) {
+      setItems(links.map((link) => MenuSubLink(classes, link, hideMenu)))
+    }
+  }, [opened]);
 
   if (!hasLinks) {
     return (
@@ -75,32 +81,32 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links, hideMenu
         </HashLink>
       </UnstyledButton>
     );
+  } else {
+    return (
+      <>
+        <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
+          <Group position="apart" spacing={0}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <ThemeIcon variant="outline" size={32} sx={{ color: 'white', border: '0' }}>
+                <Icon size={22} />
+              </ThemeIcon>
+              <Box ml="md">{label}</Box>
+            </Box>
+            {hasLinks && (
+              <ChevronIcon
+                className={classes.chevron}
+                size={18}
+                style={{
+                  transform: opened ? `rotate(${theme.dir === 'rtl' ? -90 : 90}deg)` : 'none',
+                }}
+              />
+            )}
+          </Group>
+        </UnstyledButton>
+        <Collapse in={opened}>{items}</Collapse>
+      </>
+    );
   }
-
-  return (
-    <>
-      <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
-        <Group position="apart" spacing={0}>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <ThemeIcon variant="outline" size={32} sx={{ color: 'white', border: '0' }}>
-              <Icon size={22} />
-            </ThemeIcon>
-            <Box ml="md">{label}</Box>
-          </Box>
-          {hasLinks && (
-            <ChevronIcon
-              className={classes.chevron}
-              size={18}
-              style={{
-                transform: opened ? `rotate(${theme.dir === 'rtl' ? -90 : 90}deg)` : 'none',
-              }}
-            />
-          )}
-        </Group>
-      </UnstyledButton>
-      <Collapse in={opened}>{items}</Collapse>
-    </>
-  );
 }
 
 function MenuSubLink(
@@ -131,7 +137,7 @@ function MenuSubLink(
 
   if (link.external) {
     return (
-      <a className={classes.link} href={link.link} target="_blank" rel="noreferrer">
+      <a className={classes.link} href={link.link} target="_blank" rel="noreferrer" onClick={hideMenu}>
         {contents}
       </a>
     );

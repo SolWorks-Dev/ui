@@ -28,7 +28,7 @@ export const ExampleHomePage = () => {
               {/* <Header onBurgerClick={() => setOpened((o) => !o)} openMenu={opened} /> */}
             </>
           }
-          navbar={<Menu showNavbar={opened} />}
+          navbar={<Menu showNavbar={opened} isMenuOpen />}
           padding={0}
           navbarOffsetBreakpoint="sm"
           asideOffsetBreakpoint="sm"
@@ -299,7 +299,7 @@ export const ExampleApplicationPage = () => {
       }}
     >
       <NetworkStatusBar transactionsPerSecond={235} solusdPrice={33.33} solgbpPrice={28.88} />
-      <Menu showNavbar />
+      <Menu showNavbar isMenuOpen />
       <ApplicationPage />
     </div>
   );

@@ -5,4 +5,4 @@ export default {
   component: Menu,
 };
 
-export const Default = () => <Menu />;
+export const Default = () => <Menu isMenuOpen />;

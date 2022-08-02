@@ -3,6 +3,7 @@ import '../../common.css';
 import './ApplicationCardMini.css';
 import { Logo } from '../Logo';
 import { Link } from 'react-router-dom';
+import { Badge, MantineSize } from '@mantine/core';
 
 export type TagColor = 'light-blue' | 'orange' | 'purple' | 'red' | 'green' | 'violet';
 
@@ -41,12 +42,13 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
 export interface TagProps {
   tagColorHex: string;
   tag: string;
+  size?: MantineSize;
 }
 
-export const Tag: FC<TagProps> = ({ tagColorHex, tag }) => {
+export const Tag: FC<TagProps> = ({ tagColorHex, tag, size }) => {
   return (
-    <div className="mac-tag" style={{ backgroundColor: tagColorHex }}>
+    <Badge className="mac-tag" style={{ backgroundColor: tagColorHex }} size={size}>
       <div className="mac-tag-text">{tag.toUpperCase()}</div>
-    </div>
+    </Badge>
   );
 };

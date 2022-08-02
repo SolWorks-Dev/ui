@@ -38,7 +38,7 @@
 }
 .adc-description {
   text-align: left;
-  padding-top: 20px;
+  padding-top: 25px;
   font-family: var(--font);
   font-size: 18px;
   font-weight: 400;
@@ -48,5 +48,4 @@
   letter-spacing: normal;
   text-align: left;
   color: #797f91;
-  /* margin-left: 80px; */
 }

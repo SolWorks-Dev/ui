@@ -32,8 +32,8 @@ REMEMBER: push your changes daily
 
 - [~] Complete doc space
 - [ ] ADD: external link icon to socials and link card
-
 - [ ] Convert to ??? for SEO/Integrate helmet and optimise SEO
+
 - [ ] Create see more view
 - [ ] Hook up see more button
 - [ ] DESIGN: Footer

@@ -24,7 +24,7 @@ export const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
     <div className="adc-outline">
       <div className="adc-wrapper">
         <div className="adc-header">
-          <Grid justify={'center'} align={'center'}>
+          <Grid justify={'center'} align={'center'} style={{paddingLeft: '10px'}}>
               <div className="adc-header-logo">
                 <Logo logoUrl={logoUrl} altText="" sizePx={48} />
               </div>

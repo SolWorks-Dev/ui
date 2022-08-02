@@ -140,7 +140,7 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void }> = ({ show
         </Group>
       </Navbar.Section>
 
-      <Navbar.Section grow className={classes.links} component={ScrollArea} style={{ marginBottom: '90px' }}>
+      <Navbar.Section grow className={classes.links} component={ScrollArea}>
         <div className={classes.linksInner}>{links}</div>
       </Navbar.Section>
 

@@ -190,3 +190,4 @@ export const HomeView = () => {
     </div>
   );
 };
+

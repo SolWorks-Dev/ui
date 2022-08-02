@@ -27,6 +27,8 @@ REMEMBER: push your changes daily
 - [x] FIX: Unwanted rerendering of application page (Application page related apps reloading randomly)
 - [x] FIX: Menu indicator showing categories opened but it's not
 - [x] FIX: Infrastructure category tag spilling out of container
+- [x] ADD: SolanaFM substack link
+- [x] UPDATE: HelloMoon description
 
 - [~] Complete doc space
 - [ ] ADD: external link icon to socials and link card

@@ -4,6 +4,7 @@ import '../../common.css';
 import { Tag } from '../ApplicationCardMini';
 import { Logo } from '../Logo';
 import './ApplicationDetailsCard.css';
+import ReactMarkdown from 'react-markdown'
 
 export interface ApplicationDetailsCardProps {
   logoUrl: string;
@@ -34,7 +35,7 @@ export const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
               </div>
           </Grid>
         </div>
-        <div className="adc-description">{description}</div>
+        <div className="adc-description"><ReactMarkdown children={description} /></div>
       </div>
     </div>
   );

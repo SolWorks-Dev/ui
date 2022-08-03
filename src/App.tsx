@@ -76,7 +76,7 @@ const AppContent: FC<{
       sx={(theme) => ({
         backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'var(--background)',
         main: {
-          paddingTop: '100px',
+          paddingTop: '110px',
         },
       })}
     >

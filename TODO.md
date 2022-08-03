@@ -21,14 +21,18 @@ REMEMBER: push your changes daily
 - [x] FIX: Menu not closing when tapping SolWorks logo
 - [x] Rotated curated apps
 - [x] ADD: Footer links to menu
-
-# TODO
 - [x] FIX: Bottom of menu was covered
 - [x] FIX: Unwanted rerendering of application page (Application page related apps reloading randomly)
 - [x] FIX: Menu indicator showing categories opened but it's not
 - [x] FIX: Infrastructure category tag spilling out of container
 - [x] ADD: SolanaFM substack link
 - [x] UPDATE: HelloMoon description
+
+# TODO
+- [x] Add number of apps badge on home page for categories
+- [x] Add categories page + update breadcrumb to link to categories
+- [x] Update menu to link to new category pages
+
 
 - [~] Complete doc space
 - [ ] ADD: external link icon to socials and link card

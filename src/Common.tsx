@@ -5,6 +5,10 @@ export function formatLink(appName: string) {
   return `/apps/${appName.toLocaleLowerCase().replace(' ', '_').replace(/\W/g, '')}`;
 }
 
+export function formatCategoryLink(categoryName: string) {
+  return `/category/${categoryName.toLocaleLowerCase().replace(' ', '_').replace(/\W/g, '')}`;
+}
+
 export function categoryToColorHex(category: string): string {
   switch (category.toLowerCase()) {
     case 'amm':

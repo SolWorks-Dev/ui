@@ -1,6 +1,7 @@
 import { BuildingSkyscraper, Filter, Firetruck, ListDetails, Track } from 'tabler-icons-react';
 import { appList } from '@solworks/application-registry';
 import { MenuLinkDetails } from './index';
+import { formatCategoryLink } from '../../Common';
 
 export const MenuData: MenuLinkDetails[] = [
   { label: 'Curated', icon: Filter, link: '/#curated', initiallyOpened: false },
@@ -15,7 +16,7 @@ export const MenuData: MenuLinkDetails[] = [
       .map((category) => {
         return {
           label: category.heading_label,
-          link: `/#${category.value}`,
+          link: formatCategoryLink(category.heading_label),
           comingSoon: false,
           external: false,
         };

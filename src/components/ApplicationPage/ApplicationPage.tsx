@@ -13,7 +13,6 @@ import { App, appList } from '@solworks/application-registry';
 export interface ApplicationPageProps {}
 
 export const ApplicationPage: FC<ApplicationPageProps> = () => {
-  // parse params
   let { id } = useParams();
   const [data, setData] = useState<App>();
   const [cards, setCards] = useState<JSX.Element[]>([]);
@@ -59,19 +58,24 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
         .filter((x) => x.app.value !== data.app.value);
       relatedApps = shuffle(relatedApps).slice(0, 6);
 
-      setRelatedCards(relatedApps.map((app) => {
-        return (
-          <Grid.Col xs={6} md={6} lg={6}>
-            <ApplicationCardMini
-              logoUrl={app.urls.logo}
-              appName={app.app.label}
-              tag={appList.categories.find((category) => category.value === app.app.categories[0])?.tag_label!}
-              tagColorHex={categoryToColorHex(app.app.categories[0])}
-              appValue={app.app.value}
-            />
-          </Grid.Col>
-        );
-      }));
+      setRelatedCards(
+        relatedApps.map((app) => {
+          return (
+            <Grid.Col xs={6} md={6} lg={6}>
+              <ApplicationCardMini
+                logoUrl={app.urls.logo}
+                appName={app.app.label}
+                tag={
+                  appList.categories.find((category) => category.value === app.app.categories[0])
+                    ?.tag_label!
+                }
+                tagColorHex={categoryToColorHex(app.app.categories[0])}
+                appValue={app.app.value}
+              />
+            </Grid.Col>
+          );
+        })
+      );
     }
   }, [id]);
 
@@ -79,7 +83,14 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
 
   return (
     <div className="body-wrapper">
-      <Breadcrumb appName={data ? data.app.label : undefined} />
+      <Breadcrumb
+        appName={data ? data.app.label : undefined}
+        categoryName={
+          data
+            ? appList.categories.find((category) => category.value === data.app.categories[0])?.heading_label
+            : undefined
+        }
+      />
       <Grid gutter="xl" style={{ marginTop: '20px' }}>
         <Grid.Col xs={12} md={6} lg={6}>
           <div style={{ marginBottom: '30px' }}>
@@ -98,30 +109,49 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
             <Heading text="Socials" />
           </div>
           <SocialsCard
-            twitter={data ? data.socials.twitter.map((handle) => {
-              return {
-                url: `https://twitter.com/${handle}`,
-                text: `@${handle}`,
-              };
-            }) : []}
-            discord={data ? data.socials.discord.map((invite) => {
-              return {
-                url: `https://discord.gg/${invite}`,
-                text: `discord.gg/${invite}`,
-              };
-            }) : []}
-            medium={data ? data.socials.medium.map((blogLink) => {
-              return {
-                url: blogLink,
-                text: blogLink.replace('https://', '').replace('http://', '').replace(/\/+$/, ''),
-              };
-            }) : []}
-            telegram={data ? data.socials.telegram.map((groupInvite) => {
-              return {
-                url: `https://t.me/${groupInvite}`,
-                text: `t.me/${groupInvite}`,
-              };
-            }) : []}
+            twitter={
+              data
+                ? data.socials.twitter.map((handle) => {
+                    return {
+                      url: `https://twitter.com/${handle}`,
+                      text: `@${handle}`,
+                    };
+                  })
+                : []
+            }
+            discord={
+              data
+                ? data.socials.discord.map((invite) => {
+                    return {
+                      url: `https://discord.gg/${invite}`,
+                      text: `discord.gg/${invite}`,
+                    };
+                  })
+                : []
+            }
+            medium={
+              data
+                ? data.socials.medium.map((blogLink) => {
+                    return {
+                      url: blogLink,
+                      text: blogLink
+                        .replace('https://', '')
+                        .replace('http://', '')
+                        .replace(/\/+$/, ''),
+                    };
+                  })
+                : []
+            }
+            telegram={
+              data
+                ? data.socials.telegram.map((groupInvite) => {
+                    return {
+                      url: `https://t.me/${groupInvite}`,
+                      text: `t.me/${groupInvite}`,
+                    };
+                  })
+                : []
+            }
           />
         </Grid.Col>
         <Grid.Col xs={12} md={6} lg={6}>

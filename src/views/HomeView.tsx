@@ -1,4 +1,4 @@
-import { Grid } from '@mantine/core';
+import { Badge, Grid, Group } from '@mantine/core';
 import React from 'react';
 import { ActionCard } from '../components/ActionCard';
 import { ApplicationCardLargeV2 } from '../components/ApplicationCardLargeV2';
@@ -11,7 +11,9 @@ import { categoryToColorHex } from '../Common';
 // TODO: refactor from first category to any category
 const curatedApps = appList.apps.filter((app) => app.app.is_curated)!;
 const nftApps = appList.apps.filter((app) => app.app.categories[0] === 'nft');
-const otherApps = appList.apps.filter((app) => app.app.categories[0] !== 'nft').filter((app) => !app.app.is_curated);
+const otherApps = appList.apps
+  .filter((app) => app.app.categories[0] !== 'nft')
+  .filter((app) => !app.app.is_curated);
 const otherCategories = [...new Set(otherApps.map((app) => app.app.categories[0]))].sort();
 
 const appGroups: any[] = [];
@@ -22,7 +24,10 @@ for (var x = 0; x < otherCategories.length; x++) {
   const otherCategoryHeader = (
     <Grid gutter="xl" style={{ marginTop: '30px' }}>
       <Grid.Col xs={8} md={8} lg={10}>
+        <Group spacing={'xl'}>
         <Heading text={matchedCategory.heading_label} />
+        <Badge children={`${otherApps.length} app${otherApps.length > 1 ? 's' : ''}`} />
+        </Group>
       </Grid.Col>
       {/* <Grid.Col xs={4} md={4} lg={2}>
         <SecondaryButton
@@ -45,7 +50,10 @@ for (var x = 0; x < otherCategories.length; x++) {
           <ApplicationCardMini
             logoUrl={otherApp.urls.logo}
             appName={otherApp.app.label}
-            tag={appList.categories.find((category) => category.value === otherApp.app.categories[0])?.tag_label!}
+            tag={
+              appList.categories.find((category) => category.value === otherApp.app.categories[0])
+                ?.tag_label!
+            }
             tagColorHex={categoryToColorHex(otherApp.app.categories[0])}
             appValue={otherApp.app.value}
           />
@@ -74,72 +82,81 @@ for (var x = 0; x < otherCategories.length; x++) {
   appGroups.push(fullGroups);
 }
 
-export const HomeView = () => {
-  const curatedRowHeader = (
-    <Grid gutter="xl" style={{ marginTop: '30px' }}>
-      <Grid.Col xs={8} md={8} lg={10}>
+const curatedRowHeader = (
+  <Grid gutter="xl" style={{ marginTop: '30px' }}>
+    <Grid.Col xs={8} md={8} lg={10}>
+      <Group spacing={'xl'}>
         <Heading text={'Curated'} />
-      </Grid.Col>
-      {/* <Grid.Col xs={4} md={4} lg={2}>
-        <SecondaryButton
-          text="See more"
-          onClick={() => {
-            console.log('onClick');
-          }}
-          additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
+        <Badge children={`${curatedApps.length} apps`} />
+      </Group>
+    </Grid.Col>
+    {/* <Grid.Col xs={4} md={4} lg={2}>
+      <SecondaryButton
+        text="See more"
+        onClick={() => {
+          console.log('onClick');
+        }}
+        additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
+      />
+    </Grid.Col> */}
+  </Grid>
+);
+
+const curatedRowApps = (
+  <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
+    {curatedApps.map((app) => (
+      <Grid.Col xs={6} md={3} lg={3}>
+        <ApplicationCardMini
+          logoUrl={app.urls.logo}
+          appName={app.app.label}
+          tag={
+            appList.categories.find((category) => category.value === app.app.categories[0])
+              ?.tag_label!
+          }
+          tagColorHex={categoryToColorHex(app.app.categories[0])}
+          appValue={app.app.value}
         />
-      </Grid.Col> */}
-    </Grid>
-  );
+      </Grid.Col>
+    ))}
+  </Grid>
+);
 
-  const curatedRowApps = (
-    <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
-      {curatedApps.map((app) => (
-        <Grid.Col xs={6} md={3} lg={3}>
-          <ApplicationCardMini
-            logoUrl={app.urls.logo}
-            appName={app.app.label}
-            tag={appList.categories.find((category) => category.value === app.app.categories[0])?.tag_label!}
-            tagColorHex={categoryToColorHex(app.app.categories[0])}
-            appValue={app.app.value}
-          />
-        </Grid.Col>
-      ))}
-    </Grid>
-  );
-
-  const nftRowHeader = (
-    <Grid gutter="xl" style={{ marginTop: '30px' }}>
-      <Grid.Col xs={8} md={8} lg={10}>
+const nftRowHeader = (
+  <Grid gutter="xl" style={{ marginTop: '30px' }}>
+    <Grid.Col xs={8} md={8} lg={10}>
+      <Group spacing={'xl'}>
         <Heading text="NFT Communities" />
-      </Grid.Col>
-      {/* <Grid.Col xs={4} md={4} lg={2}>
-        <SecondaryButton
-          text="See more"
-          onClick={() => {
-            console.log('onClick');
-          }}
-          additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
+        <Badge children={`${nftApps.length} apps`} />
+      </Group>
+    </Grid.Col>
+    {/* <Grid.Col xs={4} md={4} lg={2}>
+      <SecondaryButton
+        text="See more"
+        onClick={() => {
+          console.log('onClick');
+        }}
+        additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
+      />
+    </Grid.Col> */}
+  </Grid>
+);
+
+const nftRowApps = (
+  <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
+    {nftApps.map((app) => (
+      <Grid.Col xs={12} md={6} lg={6}>
+        <ApplicationCardLargeV2
+          logoUrl={app.urls.logo}
+          appName={app.app.label}
+          description={app.description.short}
+          appValue={app.app.value}
         />
-      </Grid.Col> */}
-    </Grid>
-  );
+      </Grid.Col>
+    ))}
+  </Grid>
+);
 
-  const nftRowApps = (
-    <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
-      {nftApps.map((app) => (
-        <Grid.Col xs={12} md={6} lg={6}>
-          <ApplicationCardLargeV2
-            logoUrl={app.urls.logo}
-            appName={app.app.label}
-            description={app.description.short}
-            appValue={app.app.value}
-          />
-        </Grid.Col>
-      ))}
-    </Grid>
-  );
-
+export const HomeView = () => {
   return (
     <div className="body-wrapper">
       <Breadcrumb />
@@ -190,4 +207,3 @@ export const HomeView = () => {
     </div>
   );
 };
-

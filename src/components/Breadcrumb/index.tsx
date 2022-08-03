@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../../common.css';
 import './Breadcrumb.css';
 import { Breadcrumbs } from '@mantine/core';
-import { formatLink } from '../../Common';
+import { formatCategoryLink, formatLink } from '../../Common';
 
 interface BreadcrumbItem {
   title: string;
@@ -12,13 +12,31 @@ interface BreadcrumbItem {
   emoji?: string;
 }
 
-export const Breadcrumb: FC<{ appName?: string }> = ({ appName }) => {
+export const Breadcrumb: FC<{ appName?: string; categoryName?: string }> = ({
+  appName,
+  categoryName,
+}) => {
   let items: BreadcrumbItem[] = [{ title: 'Home', link: '/', active: true, emoji: '🏠' }];
+
+  if (categoryName) {
+    items.push({
+      title: categoryName,
+      link: `${formatCategoryLink(categoryName)}`,
+      active: true,
+      emoji: undefined,
+    });
+    items[0].active = false;
+  }
 
   if (appName) {
     items.push({ title: appName, link: `${formatLink(appName)}`, active: true, emoji: undefined });
     items[0].active = false;
+
+    if (categoryName) {
+      items[1].active = false;
+    }
   }
+
   let breakcrumbs = items.map((item, index) => (
     <Link
       to={item.link}

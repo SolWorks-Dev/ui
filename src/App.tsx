@@ -10,17 +10,18 @@ import { fetchSolStats } from './apis/fetchSolStats';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApplicationPage } from './components/ApplicationPage/ApplicationPage';
 import ScrollToTop from './Common';
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { CategoryView } from './views/CategoryView';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCsMrL742RRWPnje1JaTczkt6mP3-spGek",
-  authDomain: "solapps-solworks.firebaseapp.com",
-  projectId: "solapps-solworks",
-  storageBucket: "solapps-solworks.appspot.com",
-  messagingSenderId: "358059785620",
-  appId: "1:358059785620:web:a8328e788ddf45ac34e381",
-  measurementId: "G-WMBENV3S1N"
+  apiKey: 'AIzaSyCsMrL742RRWPnje1JaTczkt6mP3-spGek',
+  authDomain: 'solapps-solworks.firebaseapp.com',
+  projectId: 'solapps-solworks',
+  storageBucket: 'solapps-solworks.appspot.com',
+  messagingSenderId: '358059785620',
+  appId: '1:358059785620:web:a8328e788ddf45ac34e381',
+  measurementId: 'G-WMBENV3S1N',
 };
 const queryClient = new QueryClient();
 
@@ -58,7 +59,7 @@ const AppContent: FC<{
   return (
     <AppShell
       header={
-          <Header onBurgerClick={() => setOpened(!opened)} openMenu={opened} solQuery={solQuery} tpsQuery={tpsQuery} />
+        <Header onBurgerClick={() => setOpened(!opened)} openMenu={opened} solQuery={solQuery} tpsQuery={tpsQuery} />
       }
       navbar={
         <Menu
@@ -75,13 +76,14 @@ const AppContent: FC<{
       sx={(theme) => ({
         backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'var(--background)',
         main: {
-          paddingTop: '100px'
-        }
+          paddingTop: '100px',
+        },
       })}
     >
       <Routes>
         <Route path="/" element={<HomeView />} />
         <Route path="apps/:id" element={<ApplicationPage />} />
+        <Route path="category/:id" element={<CategoryView />} />
       </Routes>
     </AppShell>
   );

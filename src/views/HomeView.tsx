@@ -6,7 +6,8 @@ import { ApplicationCardMini } from '../components/ApplicationCardMini';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Heading } from '../components/Heading';
 import { appList } from '@solworks/application-registry';
-import { categoryToColorHex } from '../Common';
+import { categoryToColorHex, formatCategoryLink } from '../Common';
+import { SecondaryButton } from '../components/SecondaryButton';
 
 // TODO: refactor from first category to any category
 const curatedApps = appList.apps.filter((app) => app.app.is_curated)!;
@@ -29,15 +30,13 @@ for (var x = 0; x < otherCategories.length; x++) {
         <Badge children={`${otherApps.length} app${otherApps.length > 1 ? 's' : ''}`} />
         </Group>
       </Grid.Col>
-      {/* <Grid.Col xs={4} md={4} lg={2}>
+      <Grid.Col xs={4} md={4} lg={2}>
         <SecondaryButton
           text="See more"
-          onClick={() => {
-            console.log('onClick');
-          }}
+          url={`${formatCategoryLink(matchedCategory.heading_label)}`}
           additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
         />
-      </Grid.Col> */}
+      </Grid.Col>
     </Grid>
   );
 
@@ -129,15 +128,13 @@ const nftRowHeader = (
         <Badge children={`${nftApps.length} apps`} />
       </Group>
     </Grid.Col>
-    {/* <Grid.Col xs={4} md={4} lg={2}>
+    <Grid.Col xs={4} md={4} lg={2}>
       <SecondaryButton
         text="See more"
-        onClick={() => {
-          console.log('onClick');
-        }}
+        url={`${formatCategoryLink(appList.categories.find((x) => x.value === 'nft')!.heading_label)}`}
         additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
       />
-    </Grid.Col> */}
+    </Grid.Col>
   </Grid>
 );
 

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 import '../../common.css';
 
 export interface SecondaryButtonProps {
@@ -18,15 +19,13 @@ export const SecondaryButton: FC<SecondaryButtonProps> = ({
 }) => {
   if (url !== undefined) {
     return (
-      <a
+      <Link
         className={'secondary-button glow-on-hover bg colors-only ' + classname}
-        target="_blank"
-        rel="noreferrer"
-        href={url}
+        to={url}
         style={additionalStyles}
       >
         <div className="secondary-button-text">{text.toUpperCase()}</div>
-      </a>
+      </Link>
     );
   } else if (onClick) {
     return (

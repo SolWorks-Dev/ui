@@ -32,13 +32,13 @@ REMEMBER: push your changes daily
 - [x] Add number of apps badge on home page for categories
 - [x] Add categories page + update breadcrumb to link to categories
 - [x] Update menu to link to new category pages
-
+- [x] Create see more view
+- [x] Hook up see more button
 
 - [~] Complete doc space
+
+- [ ] Hook up see more button for curated apps + add support for categories === curated pages
 - [ ] ADD: external link icon to socials and link card
 - [ ] Convert to ??? for SEO/Integrate helmet and optimise SEO
-
-- [ ] Create see more view
-- [ ] Hook up see more button
 - [ ] DESIGN: Footer
 - [ ] Build generative OG image

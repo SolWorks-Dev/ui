@@ -16,7 +16,7 @@ export const MenuData: MenuLinkDetails[] = [
       .map((category) => {
         return {
           label: category.heading_label,
-          link: formatCategoryLink(category.heading_label),
+          link: formatCategoryLink(category.value),
           comingSoon: false,
           external: false,
         };

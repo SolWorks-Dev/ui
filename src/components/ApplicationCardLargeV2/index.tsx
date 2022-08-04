@@ -3,6 +3,7 @@ import '../../common.css';
 import './ApplicationCardLargeV2.css';
 import { Logo } from '../Logo';
 import { Link } from 'react-router-dom';
+import { encodeString } from '../../Common';
 
 export interface ApplicationCardLargeV2Props {
   logoUrl: string;
@@ -23,7 +24,7 @@ export const ApplicationCardLargeV2: FC<ApplicationCardLargeV2Props> = ({
 }) => {
   return (
     <Link
-      to={`/apps/${appValue}`}
+      to={`/apps/${encodeString(appName)}`}
       className="lac-v2-outline glow-on-hover bg px18 rise-on-hover-300"
       style={{ height: `${height}px`, ...additionalStyles, textDecoration: 'none' }}
     >

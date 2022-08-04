@@ -7,7 +7,7 @@ import { ApplicationDetailsCard } from '../ApplicationDetailsCard';
 import { SocialsCard } from '../SocialsCard';
 import { Breadcrumb } from '../Breadcrumb';
 import { useParams } from 'react-router-dom';
-import { categoryToColorHex, formatLink, shuffle } from '../../Common';
+import { categoryToColorHex, encodeString, formatLink, shuffle } from '../../Common';
 import { App, appList } from '@solworks/application-registry';
 import { Helmet } from 'react-helmet';
 
@@ -20,7 +20,7 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
   const [relatedCards, setRelatedCards] = useState<JSX.Element[]>([]);
 
   useEffect(() => {
-    const data = appList.apps.find((app) => app.app.value === id);
+    const data = appList.apps.find((app) => encodeString(app.app.label) === id);
     if (data) {
       setData(data as App);
 

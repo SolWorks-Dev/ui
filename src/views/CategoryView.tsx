@@ -14,7 +14,7 @@ export const CategoryView = () => {
   const [category, setCategory] = useState<Category>();
 
   useEffect(() => {
-    const category = appList.categories.find((category) => category.heading_label.toLocaleLowerCase().replace(' ', '_').replace(/\W/g, '') === id);
+    const category = appList.categories.find((category) => category.value === id);
     if (category) {
       setCategory(category);
     }

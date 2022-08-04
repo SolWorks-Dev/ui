@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+export function encodeString(text: string) {
+  return text.replace(' ', '_').toLocaleLowerCase().replace(/\W/g, '');
+}
+
 export function formatLink(appName: string) {
-  return `/apps/${appName.toLocaleLowerCase().replace(' ', '_').replace(/\W/g, '')}`;
+  return `/apps/${encodeString(appName)}`;
 }
 
 export function formatCategoryLink(categoryName: string) {
-  return `/category/${categoryName.toLocaleLowerCase().replace(' ', '_').replace(/\W/g, '')}`;
+  return `/category/${encodeString(categoryName)}`;
 }
 
 export function categoryToColorHex(category: string): string {

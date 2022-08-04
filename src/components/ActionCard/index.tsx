@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-import '../../common.css';
 import { ActionButtonWithLink } from '../ActionButtonWithLink';
-import './ActionCard.css';
 
 export interface ActionCardProps {
   title: string;
@@ -21,3 +19,5 @@ export const ActionCard: FC<ActionCardProps> = ({ title = '', text = '', actionL
     </div>
   );
 };
+
+export default ActionCard;

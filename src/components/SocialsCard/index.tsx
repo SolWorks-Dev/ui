@@ -1,6 +1,4 @@
 import React, { FC } from 'react';
-import '../../common.css';
-import './SocialsCard.css';
 
 export interface SocialsCardProps {
   twitter?: { url: string; text: string }[];
@@ -77,3 +75,5 @@ const Link: FC<LinkProps> = ({ text, url, additionalRow = false }) => {
     </a>
   );
 };
+
+export default SocialsCard;

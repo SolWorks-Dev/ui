@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import '../../common.css';
 import './ApplicationCardLarge.css';
 import { Logo } from '../Logo';
 import { ActionButton } from '../ActionButton';
@@ -32,3 +31,5 @@ export const ApplicationCardLarge: FC<ApplicationCardLargeProps> = ({
     </div>
   );
 };
+
+export default ApplicationCardLarge;

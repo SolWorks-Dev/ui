@@ -1,19 +1,19 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Grid } from '@mantine/core';
-import { Heading } from '../Heading';
-import { ApplicationCardMini } from '../ApplicationCardMini';
-import { LinkCard } from '../LinkCard';
-import { ApplicationDetailsCard } from '../ApplicationDetailsCard';
-import { SocialsCard } from '../SocialsCard';
-import { Breadcrumb } from '../Breadcrumb';
-import { useParams } from 'react-router-dom';
-import { categoryToColorHex, shuffle } from '../../Common';
+import { useRouter } from 'next/router'
 import { App, appList } from '@solworks/application-registry';
+import { categoryToColorHex, shuffle } from '../../src/Common';
+import Heading from '../../src/components/Heading';
+import ApplicationCardMini from '../../src/components/ApplicationCardMini';
+import LinkCard from '../../src/components/LinkCard';
+import ApplicationDetailsCard from '../../src/components/ApplicationDetailsCard';
+import SocialsCard from '../../src/components/SocialsCard';
+import Breadcrumb from '../../src/components/Breadcrumb';
 
-export interface ApplicationPageProps {}
+interface ApplicationPageProps {};
 
 export const ApplicationPage: FC<ApplicationPageProps> = () => {
-  let { id } = useParams();
+  let { id } = useRouter().query;
   const [data, setData] = useState<App>();
   const [cards, setCards] = useState<JSX.Element[]>([]);
   const [relatedCards, setRelatedCards] = useState<JSX.Element[]>([]);
@@ -170,3 +170,5 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
     </div>
   );
 };
+
+export default ApplicationPage;

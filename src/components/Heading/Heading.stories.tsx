@@ -1,6 +1,5 @@
 import React from 'react';
 import { Heading } from './index';
-import '../../common.css';
 import { BlackBackground } from '../../BlackBackground';
 
 export default {

@@ -1,6 +1,4 @@
 import React, { FC } from 'react';
-import '../../common.css';
-import './ApplicationCardLargeV2.css';
 import { Logo } from '../Logo';
 import { Link } from 'react-router-dom';
 
@@ -43,3 +41,5 @@ export const ApplicationCardLargeV2: FC<ApplicationCardLargeV2Props> = ({
     </Link>
   );
 };
+
+export default ApplicationCardLargeV2;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BlackBackground } from '../../BlackBackground';
-import { ApplicationDetailsCard } from './index';
+import ApplicationDetailsCard from './index';
 
 export default {
   component: ApplicationDetailsCard,

@@ -1,9 +1,7 @@
 import { Grid } from '@mantine/core';
 import React, { FC } from 'react';
-import '../../common.css';
 import { Tag } from '../ApplicationCardMini';
 import { Logo } from '../Logo';
-import './ApplicationDetailsCard.css';
 import ReactMarkdown from 'react-markdown'
 
 export interface ApplicationDetailsCardProps {
@@ -14,7 +12,7 @@ export interface ApplicationDetailsCardProps {
   description: string;
 }
 
-export const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
+const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
   logoUrl,
   applicationName,
   tag,
@@ -40,3 +38,5 @@ export const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
     </div>
   );
 };
+
+export default ApplicationDetailsCard;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { ActionCard } from './index';
-import '../../common.css';
 import { BlackBackground } from '../../BlackBackground';
 
 export default {

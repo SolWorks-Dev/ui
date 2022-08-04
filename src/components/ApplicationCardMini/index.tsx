@@ -1,6 +1,4 @@
 import React, { FC } from 'react';
-import '../../common.css';
-import './ApplicationCardMini.css';
 import { Logo } from '../Logo';
 import { Link } from 'react-router-dom';
 import { Badge, MantineSize } from '@mantine/core';
@@ -52,3 +50,5 @@ export const Tag: FC<TagProps> = ({ tagColorHex, tag, size }) => {
     </Badge>
   );
 };
+
+export default ApplicationCardMini;

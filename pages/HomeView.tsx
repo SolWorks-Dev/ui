@@ -1,13 +1,13 @@
 import { Badge, Grid, Group } from '@mantine/core';
 import React from 'react';
-import { ActionCard } from '../components/ActionCard';
-import { ApplicationCardLargeV2 } from '../components/ApplicationCardLargeV2';
-import { ApplicationCardMini } from '../components/ApplicationCardMini';
-import { Breadcrumb } from '../components/Breadcrumb';
-import { Heading } from '../components/Heading';
 import { appList } from '@solworks/application-registry';
-import { categoryToColorHex, formatCategoryLink } from '../Common';
-import { SecondaryButton } from '../components/SecondaryButton';
+import { categoryToColorHex, formatCategoryLink } from '../src/Common';
+import ActionCard from '../src/components/ActionCard';
+import ApplicationCardLargeV2 from '../src/components/ApplicationCardLargeV2';
+import ApplicationCardMini from '../src/components/ApplicationCardMini';
+import Breadcrumb from '../src/components/Breadcrumb';
+import Heading from '../src/components/Heading';
+import SecondaryButton from '../src/components/SecondaryButton';
 
 // TODO: refactor from first category to any category
 const curatedApps = appList.apps.filter((app) => app.app.is_curated)!;
@@ -153,7 +153,7 @@ const nftRowApps = (
   </Grid>
 );
 
-export const HomeView = () => {
+export default function HomeView() {
   return (
     <div className="body-wrapper">
       <Breadcrumb />

@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import '../../common.css';
 import PulseLoader from 'react-spinners/PulseLoader';
 
 export interface ActionButtonWithLinkProps {
@@ -31,3 +30,5 @@ export const ActionButtonWithLink: FC<ActionButtonWithLinkProps> = ({
     </a>
   );
 };
+
+export default ActionButtonWithLink;

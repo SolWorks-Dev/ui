@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import '../../common.css';
 import NetworkStatusBar from '../NetworkStatusBar';
 import { AppShell, ColorScheme, ColorSchemeProvider, Grid, MantineProvider } from '@mantine/core';
 import { ActionCard } from '../ActionCard';
@@ -8,9 +7,8 @@ import { SecondaryButton } from '../SecondaryButton';
 import { ApplicationCardMini } from '../ApplicationCardMini';
 import { ApplicationCardLargeV2 } from '../ApplicationCardLargeV2';
 import { Breadcrumb } from '../Breadcrumb';
-import { Header } from '../Header';
 import { Menu } from '../Menu';
-import { ApplicationPage } from '../ApplicationPage/ApplicationPage';
+import { ApplicationPage } from '../../../pages/application/[id]';
 
 export const ExampleHomePage = () => {
   const [opened, setOpened] = React.useState(false);
@@ -304,3 +302,5 @@ export const ExampleApplicationPage = () => {
     </div>
   );
 };
+
+export default ExampleApplicationPage;

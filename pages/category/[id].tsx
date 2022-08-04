@@ -1,14 +1,14 @@
 import { Grid, Group } from '@mantine/core';
 import { appList, Category } from '@solworks/application-registry';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { Badge } from '@mantine/core';
-import { ApplicationCardLargeV2 } from '../components/ApplicationCardLargeV2';
-import { Breadcrumb } from '../components/Breadcrumb';
-import { Heading } from '../components/Heading';
+import { ApplicationCardLargeV2 } from '../../src/components/ApplicationCardLargeV2';
+import { Breadcrumb } from '../../src/components/Breadcrumb';
+import { Heading } from '../../src/components/Heading';
+import { useRouter } from 'next/router'
 
 export const CategoryView = () => {
-  let { id } = useParams();
+  let { id } = useRouter().query;
   const [cards, setCards] = useState<JSX.Element[]>([]);
 
   const [category, setCategory] = useState<Category>();
@@ -61,3 +61,5 @@ export const CategoryView = () => {
     </div>
   );
 };
+
+export default CategoryView;

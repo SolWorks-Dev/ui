@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import '../../common.css';
-import './Breadcrumb.css';
 import { Breadcrumbs } from '@mantine/core';
 import { formatCategoryLink, formatLink } from '../../Common';
 
@@ -55,3 +53,5 @@ export const Breadcrumb: FC<{ appName?: string; categoryName?: string }> = ({
     </div>
   );
 };
+
+export default Breadcrumb;

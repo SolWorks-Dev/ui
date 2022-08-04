@@ -1,8 +1,6 @@
 import { forwardRef } from 'react';
 import { Group, Avatar, Text, Select, Burger, MediaQuery, ActionIcon, Center, Space, Navbar } from '@mantine/core';
 import React, { FC } from 'react';
-import '../../common.css';
-import './Header.css';
 import { BrandDiscord, BrandTwitter } from 'tabler-icons-react';
 import { useNavigate } from 'react-router-dom';
 import { appList } from '@solworks/application-registry';
@@ -209,3 +207,5 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
     </Navbar>
   );
 };
+
+export default Header;

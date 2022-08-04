@@ -20,3 +20,5 @@ export const Heading: FC<HeadingProps> = ({ text = '', size = 42 }) => {
 
   return <div style={HeadingStyles}>{text}</div>;
 };
+
+export default Heading;

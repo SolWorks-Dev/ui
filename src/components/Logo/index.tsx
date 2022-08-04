@@ -18,3 +18,5 @@ export const Logo: FC<LogoProps> = ({ logoUrl, altText, sizePx = 78 }) => {
     />
   );
 };
+
+export default Logo;

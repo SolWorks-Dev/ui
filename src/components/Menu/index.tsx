@@ -2,7 +2,6 @@ import { ActionIcon, createStyles, Grid, Group, Navbar, ScrollArea, useMantineCo
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon, MoonStars, Sun } from 'tabler-icons-react';
-import '../../common.css';
 import { LinksGroup } from '../LinksGroup';
 import { MenuData } from './MenuData';
 
@@ -179,3 +178,5 @@ const SocialButton = ({ text, url }: { text: string; url: string }) => {
     </div>
   );
 };
+
+export default Menu;

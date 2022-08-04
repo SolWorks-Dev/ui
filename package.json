@@ -13,12 +13,11 @@
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "firebase": "^9.9.1",
+    "next": "^12.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
-    "react-router-dom": "^6.3.0",
     "react-router-hash-link": "^2.4.3",
-    "react-scripts": "5.0.1",
     "react-spinners": "^0.13.3",
     "tabler-icons-react": "^1.53.0",
     "typeface-roboto": "^1.1.13",
@@ -27,9 +26,9 @@
   },
   "scripts": {
     "storybook": "start-storybook",
-    "dev": "npm run storybook",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dev": "next build && next dev",
+    "start": "next build && next start",
+    "build": "next build",
     "pretty": "npx prettier --write ."
   },
   "eslintConfig": {

@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import '../../common.css';
 import PacmanLoader from 'react-spinners/PacmanLoader';
 import { Center, SimpleGrid } from '@mantine/core';
 import { formatNumber } from '../../Common';

@@ -1,6 +1,4 @@
 import React, { FC } from 'react';
-import '../../common.css';
-import './LinkCard.css';
 
 export interface LinkCardProps {
   title: string;
@@ -25,3 +23,5 @@ export const LinkCard: FC<LinkCardProps> = ({ title, url }) => {
     </a>
   );
 };
+
+export default LinkCard;

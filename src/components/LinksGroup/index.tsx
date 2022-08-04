@@ -150,3 +150,5 @@ function MenuSubLink(
     );
   }
 }
+
+export default LinksGroup;

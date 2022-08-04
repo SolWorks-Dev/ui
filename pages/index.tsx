@@ -1,18 +1,18 @@
 import { AppShell, ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core';
 import React, { FC } from 'react';
-import { Header } from './components/Header';
-import { Menu } from './components/Menu';
-import './common.css';
-import { HomeView } from './views/HomeView';
+import { Header } from '../src/components/Header';
+import { Menu } from '../src/components/Menu';
+import HomeView from './HomeView';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
-import { fetchTpsStats } from './apis/fetchTpsStats';
-import { fetchSolStats } from './apis/fetchSolStats';
+import { fetchTpsStats } from '../src/apis/fetchTpsStats';
+import { fetchSolStats } from '../src/apis/fetchSolStats';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ApplicationPage } from './components/ApplicationPage/ApplicationPage';
-import ScrollToTop from './Common';
+import { ApplicationPage } from './application/[id]';
+import ScrollToTop from '../src/Common';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { CategoryView } from './views/CategoryView';
+import { CategoryView } from './category/[id]';
+import ReactDOM from 'react-dom/client';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCsMrL742RRWPnje1JaTczkt6mP3-spGek',
@@ -25,13 +25,13 @@ const firebaseConfig = {
 };
 const queryClient = new QueryClient();
 
-function App() {
+export default function App() {
   const [opened, setOpened] = React.useState(false);
   const [colorScheme, setColorScheme] = React.useState<ColorScheme>('dark');
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  // const app = initializeApp(firebaseConfig);
+  // const analytics = getAnalytics(app);
 
   return (
     <Router>
@@ -46,8 +46,6 @@ function App() {
     </Router>
   );
 }
-
-export default App;
 
 const AppContent: FC<{
   setOpened: any;

@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
-import '../../common.css';
 
 export interface SecondaryButtonProps {
   text?: string;
@@ -45,3 +44,5 @@ export const SecondaryButton: FC<SecondaryButtonProps> = ({
     );
   }
 };
+
+export default SecondaryButton;

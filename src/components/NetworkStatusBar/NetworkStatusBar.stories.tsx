@@ -1,6 +1,5 @@
 import React from 'react';
 import NetworkStatusBar from './index';
-import '../../common.css';
 
 export default {
   component: NetworkStatusBar,

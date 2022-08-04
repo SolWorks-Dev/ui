@@ -1,6 +1,6 @@
 import { ActionIcon, createStyles, Grid, Group, Navbar, ScrollArea, useMantineColorScheme } from '@mantine/core';
 import { FC, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Icon, MoonStars, Sun } from 'tabler-icons-react';
 import { LinksGroup } from '../LinksGroup';
 import { MenuData } from './MenuData';
@@ -134,7 +134,7 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
               color: '#fff',
             }}
           >
-            <Link to="/" style={{ textDecoration: 'none', color: 'white' }} onClick={hideMenu}>
+            <Link href="/" style={{ textDecoration: 'none', color: 'white' }} onClick={hideMenu}>
               SolApps
             </Link>
           </div>

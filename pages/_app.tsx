@@ -1,22 +1,24 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import Router, { withRouter } from 'next/router';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from '.';
 
-export default function AppWrapper() {
-  const [isMounted, setIsMounted] = useState(false)
+function AppWrapper() {
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true)
-  }, [])
+    setIsMounted(true);
+  }, []);
 
   if (!isMounted) {
-    return null
+    return null;
   }
 
-  return <App />
+  return (<App />);
 }
 
+export default withRouter(AppWrapper);
 
 if (typeof window !== 'undefined') {
   const root = ReactDOM.createRoot(document.getElementById('root')!);

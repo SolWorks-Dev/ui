@@ -13,7 +13,10 @@ import Breadcrumb from '../../src/components/Breadcrumb';
 interface ApplicationPageProps {};
 
 export const ApplicationPage: FC<ApplicationPageProps> = () => {
-  let { id } = useRouter().query;
+  const router = useRouter()
+  const { id } = router.query;
+  console.error(`ApplicationPage: id = ${id}`);
+
   const [data, setData] = useState<App>();
   const [cards, setCards] = useState<JSX.Element[]>([]);
   const [relatedCards, setRelatedCards] = useState<JSX.Element[]>([]);

@@ -26,7 +26,7 @@
   },
   "scripts": {
     "storybook": "start-storybook",
-    "dev": "next build && next dev",
+    "dev": "npm i && next build && next dev",
     "start": "next build && next start",
     "build": "next build",
     "pretty": "npx prettier --write ."

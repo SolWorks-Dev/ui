@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Breadcrumbs } from '@mantine/core';
 import { formatCategoryLink, formatLink } from '../../Common';
 
@@ -37,13 +37,15 @@ export const Breadcrumb: FC<{ appName?: string; categoryName?: string }> = ({
 
   let breakcrumbs = items.map((item, index) => (
     <Link
-      to={item.link}
+      href={item.link}
       key={index}
       style={{ textDecoration: 'none', color: 'var(--grey)' }}
       className="rise-on-hover-150"
     >
-      {item.emoji ? <span className="emoji">{item.emoji} </span> : null}
-      <span style={{ textDecoration: item.active ? 'underline' : 'none' }}>{item.title}</span>
+      <>
+        {item.emoji ? <span className="emoji">{item.emoji} </span> : null}
+        <span style={{ textDecoration: item.active ? 'underline' : 'none' }}>{item.title}</span>
+      </>
     </Link>
   ));
 

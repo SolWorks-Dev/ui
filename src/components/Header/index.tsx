@@ -36,7 +36,7 @@ export interface HeaderProps {
 }
 
 export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = false, tpsQuery, solQuery }) => {
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   return (
     <Navbar style={{
@@ -82,7 +82,7 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
               className="search"
               onChange={(e: any) => {
                 if (e) {
-                  navigate(`/apps/${e}`);
+                  // navigate(`/apps/${e}`);
                 }
               }}
               rightSection={

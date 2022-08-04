@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export interface SecondaryButtonProps {
   text?: string;
@@ -20,7 +20,7 @@ export const SecondaryButton: FC<SecondaryButtonProps> = ({
     return (
       <Link
         className={'secondary-button glow-on-hover bg colors-only ' + classname}
-        to={url}
+        href={url}
         style={additionalStyles}
       >
         <div className="secondary-button-text">{text.toUpperCase()}</div>

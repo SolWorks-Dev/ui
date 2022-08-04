@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Group, Box, Collapse, ThemeIcon, UnstyledButton, createStyles, Badge } from '@mantine/core';
 import { Icon as TablerIcon, ChevronLeft, ChevronRight } from 'tabler-icons-react';
-import { HashLink } from 'react-router-hash-link';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const useStyles = createStyles((theme) => ({
   control: {
@@ -70,7 +69,6 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links, hideMenu
   if (!hasLinks) {
     return (
       <UnstyledButton className={classes.control} onClick={hideMenu}>
-        <HashLink smooth to={`/#${label.toLocaleLowerCase()}`} className="link">
           <Group position="apart" spacing={0}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <ThemeIcon variant="outline" size={32} sx={{ color: 'white', border: '0' }}>
@@ -79,7 +77,6 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links, hideMenu
               <Box ml="md">{label}</Box>
             </Box>
           </Group>
-        </HashLink>
       </UnstyledButton>
     );
   } else {
@@ -144,7 +141,7 @@ function MenuSubLink(
     );
   } else {
     return (
-      <Link className={classes.link} key={link.label} to={link.link} onClick={hideMenu}>
+      <Link className={classes.link} key={link.label} href={link.link} onClick={hideMenu}>
         {contents}
       </Link>
     );

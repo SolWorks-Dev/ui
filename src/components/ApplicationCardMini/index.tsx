@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Logo } from '../Logo';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Badge, MantineSize } from '@mantine/core';
 
 export type TagColor = 'light-blue' | 'orange' | 'purple' | 'red' | 'green' | 'violet';
@@ -23,7 +23,12 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
   appValue,
 }) => {
   return (
-    <Link to={`/apps/${appValue}`} className="mac-lw" style={{ ...additionalStyles, textDecoration: 'none' }}>
+    <Link
+      href={`/application/${encodeURIComponent(appValue)}`}
+      className="mac-lw"
+      style={{ ...additionalStyles, textDecoration: 'none' }}
+      passHref
+    >
       <div className="mac-outline glow-on-hover bg px18 rise-on-hover-300">
         <div className="mac-logo">
           <Logo logoUrl={logoUrl} altText={`${appName} logo`} />

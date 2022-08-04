@@ -6,12 +6,11 @@ import HomeView from './HomeView';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { fetchTpsStats } from '../src/apis/fetchTpsStats';
 import { fetchSolStats } from '../src/apis/fetchSolStats';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApplicationPage } from './application/[id]';
+import { CategoryView } from './category/[id]';
 import ScrollToTop from '../src/Common';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { CategoryView } from './category/[id]';
 import ReactDOM from 'react-dom/client';
 
 const firebaseConfig = {
@@ -34,16 +33,14 @@ export default function App() {
   // const analytics = getAnalytics(app);
 
   return (
-    <Router>
-      <QueryClientProvider client={queryClient}>
-        <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-          <MantineProvider theme={{ colorScheme: colorScheme }} withGlobalStyles withNormalizeCSS>
-            <ScrollToTop />
-            <AppContent setOpened={setOpened} opened={opened} />
-          </MantineProvider>
-        </ColorSchemeProvider>
-      </QueryClientProvider>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+        <MantineProvider theme={{ colorScheme: colorScheme }} withGlobalStyles withNormalizeCSS>
+          {/* <ScrollToTop /> */}
+          <AppContent setOpened={setOpened} opened={opened} />
+        </MantineProvider>
+      </ColorSchemeProvider>
+    </QueryClientProvider>
   );
 }
 
@@ -57,7 +54,12 @@ const AppContent: FC<{
   return (
     <AppShell
       header={
-        <Header onBurgerClick={() => setOpened(!opened)} openMenu={opened} solQuery={solQuery} tpsQuery={tpsQuery} />
+        <Header
+          onBurgerClick={() => setOpened(!opened)}
+          openMenu={opened}
+          solQuery={solQuery}
+          tpsQuery={tpsQuery}
+        />
       }
       navbar={
         <Menu
@@ -78,11 +80,7 @@ const AppContent: FC<{
         },
       })}
     >
-      <Routes>
-        <Route path="/" element={<HomeView />} />
-        <Route path="apps/:id" element={<ApplicationPage />} />
-        <Route path="category/:id" element={<CategoryView />} />
-      </Routes>
+      <HomeView />
     </AppShell>
   );
 };

@@ -7,8 +7,9 @@ import { ApplicationDetailsCard } from '../ApplicationDetailsCard';
 import { SocialsCard } from '../SocialsCard';
 import { Breadcrumb } from '../Breadcrumb';
 import { useParams } from 'react-router-dom';
-import { categoryToColorHex, shuffle } from '../../Common';
+import { categoryToColorHex, formatLink, shuffle } from '../../Common';
 import { App, appList } from '@solworks/application-registry';
+import { Helmet } from 'react-helmet';
 
 export interface ApplicationPageProps {}
 
@@ -34,8 +35,8 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
       // validate if application url is different to website
       tempCards.push(
         <Grid.Col xs={12} md={12} lg={6}>
-        <LinkCard title="Application" url={data.urls.application} />
-      </Grid.Col>
+          <LinkCard title="Application" url={data.urls.application} />
+        </Grid.Col>
       );
 
       // display other urls
@@ -81,6 +82,19 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
 
   return (
     <div className="body-wrapper">
+      <Helmet>
+        <title>{`${data?.app.label} | SolApps`}</title>
+        <meta name="description" content={data?.description.short} data-react-helmet="true"/>
+        <meta property="og:title" content={`${data?.app.label} | SolApps`} data-react-helmet="true"/>
+        <meta
+          property="og:description"
+          content={data?.description.short}
+          data-react-helmet="true"
+        />
+        <meta property="og:url" content={`https://solapps.dev${formatLink(data?.app.label || '')}`} data-react-helmet="true"/>
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://solapps.dev/og-image.png" data-react-helmet="true"/>
+      </Helmet>
       <Breadcrumb
         appName={data ? data.app.label : undefined}
         categoryName={

@@ -24,22 +24,19 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
       setData(data as App);
 
       // parse url cards
-      setCards([
-        ...cards,
+      const tempCards = [];
+      tempCards.push(
         <Grid.Col xs={12} md={12} lg={6}>
           <LinkCard title="Website" url={data.urls.website} />
-        </Grid.Col>,
-      ]);
+        </Grid.Col>
+      );
 
       // validate if application url is different to website
-      if (data.urls.website !== data.urls.application) {
-        setCards([
-          ...cards,
-          <Grid.Col xs={12} md={12} lg={6}>
-            <LinkCard title="Application" url={data.urls.application} />
-          </Grid.Col>,
-        ]);
-      }
+      tempCards.push(
+        <Grid.Col xs={12} md={12} lg={6}>
+        <LinkCard title="Application" url={data.urls.application} />
+      </Grid.Col>
+      );
 
       // display other urls
       if (data.urls.other) {
@@ -50,8 +47,9 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
             </Grid.Col>
           );
         });
-        setCards([...cards, ...otherUrls]);
+        tempCards.push(...otherUrls);
       }
+      setCards(tempCards);
 
       let relatedApps = appList.apps
         .filter((app) => app.app.categories.includes(data.app.categories[0]))
@@ -87,7 +85,8 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
         appName={data ? data.app.label : undefined}
         categoryName={
           data
-            ? appList.categories.find((category) => category.value === data.app.categories[0])?.heading_label
+            ? appList.categories.find((category) => category.value === data.app.categories[0])
+                ?.heading_label
             : undefined
         }
       />

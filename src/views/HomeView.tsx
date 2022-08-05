@@ -33,7 +33,7 @@ for (var x = 0; x < otherCategories.length; x++) {
       <Grid.Col xs={4} md={4} lg={2}>
         <SecondaryButton
           text="See more"
-          url={`${formatCategoryLink(matchedCategory.heading_label)}`}
+          url={`${formatCategoryLink(matchedCategory.value)}`}
           additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
         />
       </Grid.Col>
@@ -131,7 +131,7 @@ const nftRowHeader = (
     <Grid.Col xs={4} md={4} lg={2}>
       <SecondaryButton
         text="See more"
-        url={`${formatCategoryLink(appList.categories.find((x) => x.value === 'nft')!.heading_label)}`}
+        url={`${formatCategoryLink(appList.categories.find((x) => x.value === 'nft')!.value)}`}
         additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
       />
     </Grid.Col>

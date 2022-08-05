@@ -31,8 +31,6 @@ export const CategoryView = () => {
               logoUrl={app.urls.logo}
               appName={app.app.label}
               description={app.description.short}
-              // tag={category.tag_label}
-              // tagColorHex={categoryToColorHex(category.value)}
               appValue={app.app.value}
             />
             </Grid.Col>

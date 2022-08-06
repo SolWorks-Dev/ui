@@ -4,6 +4,7 @@ import '../../common.css';
 import './Breadcrumb.css';
 import { Breadcrumbs } from '@mantine/core';
 import { formatCategoryLink, formatLink } from '../../Common';
+import { appList } from '@solworks/application-registry';
 
 interface BreadcrumbItem {
   title: string;
@@ -19,9 +20,10 @@ export const Breadcrumb: FC<{ appName?: string; categoryName?: string }> = ({
   let items: BreadcrumbItem[] = [{ title: 'Home', link: '/', active: true, emoji: '🏠' }];
 
   if (categoryName) {
+    var category = appList.categories.find(x => x.heading_label === categoryName)!;
     items.push({
-      title: categoryName,
-      link: `${formatCategoryLink(categoryName)}`,
+      title: category.heading_label,
+      link: `${formatCategoryLink(category.value)}`,
       active: true,
       emoji: undefined,
     });

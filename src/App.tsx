@@ -3,16 +3,14 @@ import React, { FC } from 'react';
 import { Header } from './components/Header';
 import { Menu } from './components/Menu';
 import './common.css';
-import { HomeView } from './views/HomeView';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { fetchTpsStats } from './apis/fetchTpsStats';
 import { fetchSolStats } from './apis/fetchSolStats';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ApplicationPage } from './components/ApplicationPage/ApplicationPage';
+import { BrowserRouter as Router } from 'react-router-dom';
 import ScrollToTop from './Common';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { CategoryView } from './views/CategoryView';
+import NavigationRouter from './NavigationRouter';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCsMrL742RRWPnje1JaTczkt6mP3-spGek',
@@ -80,11 +78,8 @@ const AppContent: FC<{
         },
       })}
     >
-      <Routes>
-        <Route path="/" element={<HomeView />} />
-        <Route path="apps/:id" element={<ApplicationPage />} />
-        <Route path="category/:id" element={<CategoryView />} />
-      </Routes>
+      <NavigationRouter />
     </AppShell>
   );
 };
+

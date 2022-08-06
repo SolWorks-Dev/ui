@@ -6,6 +6,8 @@ import { Badge } from '@mantine/core';
 import { ApplicationCardLargeV2 } from '../components/ApplicationCardLargeV2';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { Heading } from '../components/Heading';
+import { Helmet } from 'react-helmet';
+import { formatCategoryLink } from '../Common';
 
 export const CategoryView = () => {
   let { id } = useParams();
@@ -27,12 +29,12 @@ export const CategoryView = () => {
         setCards(
           apps.map((app) => (
             <Grid.Col xs={12} md={6} lg={6}>
-            <ApplicationCardLargeV2
-              logoUrl={app.urls.logo}
-              appName={app.app.label}
-              description={app.description.short}
-              appValue={app.app.value}
-            />
+              <ApplicationCardLargeV2
+                logoUrl={app.urls.logo}
+                appName={app.app.label}
+                description={app.description.short}
+                appValue={app.app.value}
+              />
             </Grid.Col>
           ))
         );
@@ -42,6 +44,31 @@ export const CategoryView = () => {
 
   return (
     <div className="body-wrapper">
+      <Helmet>
+        <title>{`${category?.heading_label} | SolApps`}</title>
+        <meta name="description" content={`View all of the best ${category?.heading_label} projects on SolApps.`} data-react-helmet="true" />
+        <meta
+          property="og:title"
+          content={`${category?.heading_label} | SolApps`}
+          data-react-helmet="true"
+        />
+        <meta
+          property="og:description"
+          content={`View all of the best ${category?.heading_label} projects on SolApps.`}
+          data-react-helmet="true"
+        />
+        <meta
+          property="og:url"
+          content={`https://solapps.dev${formatCategoryLink(category?.heading_label || '')}`}
+          data-react-helmet="true"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://solapps.dev/og-image.png"
+          data-react-helmet="true"
+        />
+      </Helmet>
       <Breadcrumb appName={category ? category.heading_label : 'Not found'} />
       <Grid gutter="xl" style={{ marginTop: '20px' }}>
         <Grid.Col xs={12} md={6} lg={6}>
@@ -54,8 +81,8 @@ export const CategoryView = () => {
         </Grid.Col>
       </Grid>
       <Grid gutter="xl" justify={'space-between'}>
-      {cards}
-    </Grid>
+        {cards}
+      </Grid>
     </div>
   );
 };

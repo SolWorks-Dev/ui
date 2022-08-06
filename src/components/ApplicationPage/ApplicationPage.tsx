@@ -25,7 +25,7 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
       setData(data as App);
 
       // parse url cards
-      const tempCards = [];
+      const tempCards: any[] = [];
       tempCards.push(
         <Grid.Col xs={12} md={12} lg={6}>
           <LinkCard title="Website" url={data.urls.website} />

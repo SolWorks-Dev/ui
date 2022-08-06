@@ -34,11 +34,11 @@ REMEMBER: push your changes daily
 - [x] Update menu to link to new category pages
 - [x] Create see more view
 - [x] Hook up see more button
-
+- [x] Convert to ??? for SEO/Integrate helmet and optimise SEO
 - [~] Complete doc space
+
 
 - [ ] Hook up see more button for curated apps + add support for categories === curated pages
 - [ ] ADD: external link icon to socials and link card
-- [ ] Convert to ??? for SEO/Integrate helmet and optimise SEO
 - [ ] DESIGN: Footer
 - [ ] Build generative OG image

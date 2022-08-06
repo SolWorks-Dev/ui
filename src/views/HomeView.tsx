@@ -40,7 +40,7 @@ for (var x = 0; x < otherCategories.length; x++) {
     </Grid>
   );
 
-  const otherAppsList = [];
+  const otherAppsList: any[] = [];
   for (var y = 0; y < otherApps.length; y++) {
     const otherApp = otherApps[y];
     const otherCategoryApps =

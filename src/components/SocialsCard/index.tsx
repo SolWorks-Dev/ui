@@ -28,7 +28,7 @@ interface LinkGroupProps {
 }
 
 const LinkGroup: FC<LinkGroupProps> = ({ title, urlAndTexts }) => {
-  let additionalLinks = [];
+  let additionalLinks: any[] = [];
   if (urlAndTexts.length > 1) {
     // skip first
     for (var x = 1; x < urlAndTexts.length; x++) {

@@ -1,8 +1,35 @@
 import React, { FC } from 'react';
 import '../../common.css';
 import PacmanLoader from 'react-spinners/PacmanLoader';
-import { Center, SimpleGrid } from '@mantine/core';
+import { Center, createStyles, SimpleGrid } from '@mantine/core';
 import { formatNumber } from '../../Common';
+
+const useStyles = createStyles((theme) => ({
+  networkStatusBar: {
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--status-bar-background)' : 'white',
+    height: '32px',
+    maxWidth: '100%',
+    paddingTop: '6px',
+    borderBottom: theme.colorScheme === 'dark' ? 'none' : '1px solid #d9d9d9',
+  },
+  networkBarTitle: {
+    color: theme.colorScheme === 'dark' ? 'var(--grey)' : '#454545',
+    fontFamily: 'Roboto, sans-serif !important',
+    fontWeight: 'bold',
+    fontSize: '14px',
+  },
+  networkBarItemValue: {
+    color: theme.colorScheme === 'dark' ? 'var(--primary)' : 'var(--primary)',
+    fontSize: '14px',
+    paddingLeft: '8px',
+    fontWeight: 'bold',
+    fontFamily: 'Roboto, sans-serif !important',
+  },
+  networkBarItem: {
+    display: 'flex',
+    textDecoration: 'none'
+  }
+}));
 
 export interface NetworkStatusBarProps {
   // Solana TPS
@@ -15,15 +42,25 @@ export interface NetworkStatusBarProps {
   isLoading?: boolean;
 }
 
+interface NetworkStatusBarItemProps {
+  title: string;
+  value: string;
+  isLoading?: boolean;
+  isCenter?: boolean;
+  link: string;
+}
+
 const NetworkStatusBar: FC<NetworkStatusBarProps> = ({
   transactionsPerSecond = 0,
   solusdPrice = 0,
   solgbpPrice = 0,
   isLoading = false,
 }) => {
+  const { classes } = useStyles();
+
   if (isLoading) {
     return (
-      <div className="dark-background status-bar">
+      <div className={classes.networkStatusBar}>
         <Center>
           <PacmanLoader size={10} color="#E42575" />
         </Center>
@@ -32,7 +69,7 @@ const NetworkStatusBar: FC<NetworkStatusBarProps> = ({
   }
 
   return (
-    <div className="dark-background status-bar">
+    <div className={classes.networkStatusBar}>
       <SimpleGrid cols={2} spacing={0}>
         <NetworkStatusBarItem
           title="Solana TPS"
@@ -44,7 +81,6 @@ const NetworkStatusBar: FC<NetworkStatusBarProps> = ({
           title="SOL/USD"
           value={`${formatNumber(solusdPrice, 2)} USD`}
           isLoading={isLoading}
-          isCenter
           link="https://www.binance.com/en/trade/SOL_USDC?theme=dark&type=spot"
         />
       </SimpleGrid>
@@ -52,37 +88,30 @@ const NetworkStatusBar: FC<NetworkStatusBarProps> = ({
   );
 };
 
-interface NetworkStatusBarItemProps {
-  title: string;
-  value: string;
-  isLoading?: boolean;
-  isCenter?: boolean;
-  link: string;
-}
-
 const NetworkStatusBarItem: FC<NetworkStatusBarItemProps> = ({
   title = '',
   value = '',
   isLoading = true,
-  isCenter = false,
   link = '',
 }) => {
+  const { classes } = useStyles();
+
   return (
-    <a
-      className={isCenter ? 'status-bar-item no-link-hover center' : 'status-bar-item no-link-hover'}
-      href={link}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <div style={{ display: 'flex', margin: '0 auto' }}>
-        <div className="status-bar-title">{title}:</div>
+    <Center>
+      <a
+        className={classes.networkBarItem + ' no-link-hover'}
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <div className={classes.networkBarTitle}>{title}:</div>
         {isLoading ? (
           <PacmanLoader loading={isLoading} size={8} color="#E42575" />
         ) : (
-          <div className="status-bar-value">{value}</div>
+          <div className={classes.networkBarItemValue}>{value}</div>
         )}
-      </div>
-    </a>
+      </a>
+    </Center>
   );
 };
 

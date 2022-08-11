@@ -41,11 +41,12 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
   let navigate = useNavigate();
 
   return (
-    <Navbar style={{
+    <Navbar sx={(theme) => ({
       display: 'flex',
       width: '100%',
-      height: '100px'
-    }}>
+      height: '100px',
+      backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    })}>
       <NetworkStatusBar
         transactionsPerSecond={tpsQuery.data ? tpsQuery.data.data.networkInfo.tps.toFixed(0) : 0}
         solusdPrice={solQuery.data ? solQuery.data[0].price : 0}

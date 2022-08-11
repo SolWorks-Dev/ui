@@ -10,7 +10,7 @@ const useStyles = createStyles((theme) => ({
     display: 'block',
     width: '100%',
     padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
-    color: 'white',
+    color: theme.colorScheme === 'dark' ? 'white' : '#454545',
     fontSize: theme.fontSizes.lg,
 
     '&:hover': {
@@ -28,7 +28,7 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: 31,
     marginLeft: 30,
     fontSize: theme.fontSizes.md,
-    color: '#797f91',
+    color: theme.colorScheme === 'dark' ? '#797f91' : '#454545',
     borderLeft: `1px solid ${theme.colors.dark[4]}`,
     font: 'Roboto',
     border: 0,

@@ -1,4 +1,5 @@
-import React, { CSSProperties, FC } from 'react';
+import { Text } from '@mantine/core';
+import React, { FC } from 'react';
 
 export interface HeadingProps {
   text: string;
@@ -6,8 +7,8 @@ export interface HeadingProps {
 }
 
 export const Heading: FC<HeadingProps> = ({ text = '', size = 42 }) => {
-  const HeadingStyles: CSSProperties = {
-    color: '#fff',
+  return <Text sx={(theme) => ({
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
     fontSize: `${size}px`,
     fontFamily: 'Roboto',
     fontWeight: 'bold',
@@ -16,7 +17,5 @@ export const Heading: FC<HeadingProps> = ({ text = '', size = 42 }) => {
     lineHeight: 'normal',
     letterSpacing: 'normal',
     textAlign: 'left',
-  };
-
-  return <div style={HeadingStyles}>{text}</div>;
+  })}>{text}</Text>;
 };

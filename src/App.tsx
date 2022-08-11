@@ -72,7 +72,7 @@ const AppContent: FC<{
       padding={0}
       fixed
       sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'var(--background)',
+        backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
         main: {
           paddingTop: '110px',
         },

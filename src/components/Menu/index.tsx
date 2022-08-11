@@ -21,7 +21,7 @@ export type MenuLinkDetails = {
 
 const useStyles = createStyles((theme) => ({
   navbar: {
-    backgroundColor: 'var(--background)',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
     paddingBottom: 0,
     borderLeft: 0,
     borderRight: '1px solid #261D2B',
@@ -31,24 +31,25 @@ const useStyles = createStyles((theme) => ({
     padding: theme.spacing.md,
     paddingTop: 0,
     marginRight: -theme.spacing.xs,
-    color: 'white',
+    color: theme.colorScheme === 'dark' ? 'white' : 'black'
   },
 
   links: {
     marginRight: 0,
-    color: 'white',
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
     borderTop: `1px solid #261d2b`,
     paddingTop: '12px',
   },
 
   linksInner: {
     paddingBottom: theme.spacing.xl,
-    color: 'white',
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
   },
 
   footer: {
     borderTop: `1px solid #261d2b`,
-    color: 'white',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
     marginBottom: '100px',
     paddingTop: '25px',
   },
@@ -132,7 +133,7 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
               lineHeight: 'normal',
               letterSpacing: 'normal',
               textAlign: 'left',
-              color: '#fff',
+              color: 'white'
             }}
           >
             <Link to="/" style={{ textDecoration: 'none', color: 'white' }} onClick={hideMenu}>

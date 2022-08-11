@@ -38,35 +38,12 @@
   display: flex;
 }
 
-.status-bar {
-  height: 32px;
-  min-width: 100%;
-  background-color: var(--status-bar-background);
-  padding-top: 6px;
-}
-
-.status-bar-title {
-  color: var(--grey);
-  font-family: Roboto, sans-serif !important;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.status-bar-value {
-  color: var(--primary);
-  font-size: 14px;
-  padding-left: 8px;
-}
-
-.status-bar-item {
-  display: flex;
-}
 
 .no-link-hover:hover {
   text-decoration: none;
-  -webkit-transform: translate(0, -1px);
-  -ms-transform: translate(0, -1px);
-  transform: translate(0, -1px);
+  -webkit-transform: translate(0, -3px);
+  -ms-transform: translate(0, -3px);
+  transform: translate(0, -3px);
 }
 
 body.sb-show-main {

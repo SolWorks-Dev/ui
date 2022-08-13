@@ -1,5 +1,3 @@
-REMEMBER: push your changes daily
-
 # DONE
 - [x] Show relavent related apps on application page
 - [x] Force menu to hide on tap of links
@@ -33,32 +31,38 @@ REMEMBER: push your changes daily
 - [x] Create see more view
 - [x] Hook up see more button
 - [x] Convert to ??? for SEO/Integrate helmet and optimise SEO
+- [x] Refactor to inline styles
+- [x] Light mode
 
 # TODO
-- [~] Complete doc space
+- [ ] Set up moderator permissions for channels on Discord
+- [ ] Role jake as moderator
+- [ ] Add developer channel
+
+- [ ] Add SolanaFloor to curated apps
+- [ ] Remove lifinity from curated apps
+
+- [ ] UPDATE: meta on home screen
+- [ ] Add footer padding to all pages
+- [ ] ADD: skeleton loader for images
+- [ ] ADD: google analytics events on click
+- [ ] Refactor to inline styles
+    - [ ] Breadbrumb
+    - [ ] Header
+    - [ ] Action card
+- [ ] Complete doc space
     - [ ] Add section on contribution
     - [ ] Searching for a project
     - [ ] Viewing a project
     - [ ] Report an error
     - [ ] Getting started with SolApps
-- [~] Refactor to inline styles
-- [~] Light mode
-- [ ] Add SolanaFloor to curated apps
-- [ ] Remove lifinity from curated apps
 
-- [ ] Set up moderator permissions for channels on Discord
-- [ ] Role jake as moderator
-- [ ] Add developer channel
-
-- [ ] UPDATE: meta on home screen
-- [ ] Add footer padding to all pages
+# Backlog
 - [ ] FIX: iphone SE styling
     - [ ] Title text in action cards on home page
     - [ ] Breadcrumb with long category on application page
     - [ ] Application icon, name and category on application page
     - [ ] Application details font size (match magiceden)
-- [ ] ADD: skeleton loader for images
-- [ ] ADD: google analytics events on click
 
 - [ ] Generate sitemap
 - [ ] Build generative OG image

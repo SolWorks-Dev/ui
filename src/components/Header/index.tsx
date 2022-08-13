@@ -7,6 +7,7 @@ import { BrandDiscord, BrandTwitter } from 'tabler-icons-react';
 import { useNavigate } from 'react-router-dom';
 import { appList } from '@solworks/application-registry';
 import NetworkStatusBar from '../NetworkStatusBar';
+import { formatLink } from '../../Common';
 
 interface ItemProps extends React.ComponentPropsWithoutRef<'div'> {
   logoUrl: string;
@@ -85,7 +86,8 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
               className="search"
               onChange={(e: any) => {
                 if (e) {
-                  navigate(`/apps/${e}`);
+                  const app = appList.apps.find((app) => app.app.value === e);
+                  navigate(formatLink(app?.app.label!));
                 }
               }}
               rightSection={

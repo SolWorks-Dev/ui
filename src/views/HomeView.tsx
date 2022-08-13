@@ -33,7 +33,7 @@ for (var x = 0; x < otherCategories.length; x++) {
       <Grid.Col xs={4} md={4} lg={2}>
         <SecondaryButton
           text="See more"
-          url={`${formatCategoryLink(matchedCategory.value)}`}
+          url={formatCategoryLink(matchedCategory.value)}
           additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
         />
       </Grid.Col>
@@ -104,7 +104,7 @@ const curatedRowHeader = (
 const curatedRowApps = (
   <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
     {curatedApps.map((app) => (
-      <Grid.Col xs={6} md={3} lg={3}>
+      <Grid.Col xs={6} sm={6} md={3} lg={3} xl={3}>
         <ApplicationCardMini
           logoUrl={app.urls.logo}
           appName={app.app.label}
@@ -131,7 +131,7 @@ const nftRowHeader = (
     <Grid.Col xs={4} md={4} lg={2}>
       <SecondaryButton
         text="See more"
-        url={`${formatCategoryLink(appList.categories.find((x) => x.value === 'nft')!.value)}`}
+        url={formatCategoryLink(appList.categories.find((x) => x.value === 'nft')!.value)}
         additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
       />
     </Grid.Col>
@@ -158,22 +158,22 @@ export const HomeView = () => {
     <div className="body-wrapper">
       <Breadcrumb />
       <Grid gutter="xl" style={{ marginTop: '12px' }}>
-        <Grid.Col xs={12} md={6} lg={6}>
+        <Grid.Col xs={12} md={12} lg={12}>
           <ActionCard
             title="First time here? gm 👋"
             text={
               <>
-                SolApps is a directory of the best Solana protocols and communities.
+                SolApps is a directory of the best Solana protocols and communities. No more searching for verified protocol links. 
                 <br />
                 <br />
-                No more searching for verified protocol links. Read our getting started guide.
+                Read our getting started guide.
               </>
             }
             actionLink="https://help.solworks.dev/"
             actionButtonText="Learn more"
           />
         </Grid.Col>
-        <Grid.Col xs={12} md={6} lg={6}>
+        {/* <Grid.Col xs={12} md={6} lg={6}>
           <ActionCard
             title="Are we missing a protocol? 🕵️‍♀️"
             text={
@@ -181,13 +181,13 @@ export const HomeView = () => {
                 Contact us if you want to see a protocol or community on SolApps ✉️
                 <br />
                 <br />
-                Submissions can take up to 1 week to review a protocol.
+                Submissions typically take 3 days to review.
               </>
             }
             actionLink="https://k722zc9ivtg.typeform.com/to/uN4Pklej"
             actionButtonText="Apply now"
           />
-        </Grid.Col>
+        </Grid.Col> */}
       </Grid>
 
       <section id="curated">

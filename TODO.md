@@ -27,18 +27,58 @@ REMEMBER: push your changes daily
 - [x] FIX: Infrastructure category tag spilling out of container
 - [x] ADD: SolanaFM substack link
 - [x] UPDATE: HelloMoon description
-
-# TODO
 - [x] Add number of apps badge on home page for categories
 - [x] Add categories page + update breadcrumb to link to categories
 - [x] Update menu to link to new category pages
 - [x] Create see more view
 - [x] Hook up see more button
 - [x] Convert to ??? for SEO/Integrate helmet and optimise SEO
+
+# TODO
 - [~] Complete doc space
+    - [ ] Add section on contribution
+    - [ ] Searching for a project
+    - [ ] Viewing a project
+    - [ ] Report an error
+    - [ ] Getting started with SolApps
+- [~] Refactor to inline styles
+- [~] Light mode
+- [ ] Add SolanaFloor to curated apps
+- [ ] Remove lifinity from curated apps
 
+- [ ] Set up moderator permissions for channels on Discord
+- [ ] Role jake as moderator
+- [ ] Add developer channel
 
-- [ ] Hook up see more button for curated apps + add support for categories === curated pages
-- [ ] ADD: external link icon to socials and link card
-- [ ] DESIGN: Footer
+- [ ] UPDATE: meta on home screen
+- [ ] Add footer padding to all pages
+- [ ] FIX: iphone SE styling
+    - [ ] Title text in action cards on home page
+    - [ ] Breadcrumb with long category on application page
+    - [ ] Application icon, name and category on application page
+    - [ ] Application details font size (match magiceden)
+- [ ] ADD: skeleton loader for images
+- [ ] ADD: google analytics events on click
+
+- [ ] Generate sitemap
 - [ ] Build generative OG image
+
+- [ ] Prepare traits
+- [ ] Hook up see more button for curated apps + add support for categories === curated pages
+- [ ] UPDATE: change links in menu footer to icons on mobile
+- [ ] ADD: external link icon to socials and link card
+
+
+- [ ] DESIGN JAM: Footer
+- [ ] DESIGN JAM: Message action card - something more colourful
+- [ ] DESIGN JAM: New app listing social image
+- [ ] DESIGN JAM: Roadmap
+- [ ] DESIGN JAM: Weekly/monthly updates
+- [ ] DESIGN JAM: Changelog
+- [ ] DESIGN JAM: Solapps lightmode
+
+- [ ] BRAINSTORM: NFT utility
+- [ ] BRAINSTORM: marketing for SolApps
+
+- [ ] Begin SolDisperse UI
+- [ ] Build proof of concept heads or tails game

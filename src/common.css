@@ -4,9 +4,15 @@
   --solworks-background: #1d1326;
   --grey: #797f91;
   --primary: #e42575;
+  --alternative-primary: #0051c3;
   --border: #261d2b;
   --lm-background: white;
+  --lm-border: rgb(153, 153, 153);
   --grey-border: #261d2b;
+
+  --lm-selected-menu: #EBF4FF;
+  --lm-selected-menu-border: #B9D6FF;
+
   font-family: Roboto, sans-serif !important;
   --font: 'Roboto', 'sans-serif' !important;
 }
@@ -38,35 +44,12 @@
   display: flex;
 }
 
-.status-bar {
-  height: 32px;
-  min-width: 100%;
-  background-color: var(--status-bar-background);
-  padding-top: 6px;
-}
-
-.status-bar-title {
-  color: var(--grey);
-  font-family: Roboto, sans-serif !important;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.status-bar-value {
-  color: var(--primary);
-  font-size: 14px;
-  padding-left: 8px;
-}
-
-.status-bar-item {
-  display: flex;
-}
 
 .no-link-hover:hover {
   text-decoration: none;
-  -webkit-transform: translate(0, -1px);
-  -ms-transform: translate(0, -1px);
-  transform: translate(0, -1px);
+  -webkit-transform: translate(0, -3px);
+  -ms-transform: translate(0, -3px);
+  transform: translate(0, -3px);
 }
 
 body.sb-show-main {
@@ -155,6 +138,10 @@ body.sb-show-main {
   background: transparent;
 }
 
+.glow-on-hover.white-bg:after {
+  background: white;
+}
+
 .glow-on-hover.pink-bg:after {
   background: var(--primary);
 }
@@ -175,38 +162,6 @@ body.sb-show-main {
   100% {
     background-position: 0 0;
   }
-}
-
-.action-button {
-  -webkit-transition: 150ms ease-in-out;
-  transition: 150ms ease-in-out;
-  background-color: var(--primary);
-  /* background-image: linear-gradient(45deg, #5F3DC4, #C92A2A); */
-  min-height: 42px;
-  height: 42px;
-  width: 100%;
-  min-width: 150px;
-  color: white;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  text-decoration: none;
-}
-
-.action-button:hover {
-  -webkit-transform: translate(0, -2px);
-  -ms-transform: translate(0, -2px);
-  transform: translate(0, -2px);
-  box-shadow: 0 3px 5px rgba(145, 92, 182, 0.2);
-  cursor: pointer;
-}
-
-.action-button-text {
-  margin: 0 auto;
-  font-family: var(--font);
-  font-size: 18px;
 }
 
 .no-link-hover {

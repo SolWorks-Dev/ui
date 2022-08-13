@@ -21,34 +21,35 @@ export type MenuLinkDetails = {
 
 const useStyles = createStyles((theme) => ({
   navbar: {
-    backgroundColor: 'var(--background)',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
     paddingBottom: 0,
     borderLeft: 0,
-    borderRight: '1px solid #261D2B',
+    borderRight: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
   },
 
   header: {
     padding: theme.spacing.md,
-    paddingTop: 0,
+    paddingTop: '12px',
     marginRight: -theme.spacing.xs,
-    color: 'white',
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
   },
 
   links: {
     marginRight: 0,
-    color: 'white',
-    borderTop: `1px solid #261d2b`,
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    borderTop: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
     paddingTop: '12px',
   },
 
   linksInner: {
     paddingBottom: theme.spacing.xl,
-    color: 'white',
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
   },
 
   footer: {
-    borderTop: `1px solid #261d2b`,
-    color: 'white',
+    borderTop: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
     marginBottom: '100px',
     paddingTop: '25px',
   },
@@ -66,6 +67,10 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     textDecoration: 'none',
     borderRadius: '8px',
+    background: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    '&:after': {
+      background: theme.colorScheme === 'dark' ? 'var(--background) !important' : 'white !important',
+    }
   },
 
   socialButtonText: {
@@ -77,17 +82,23 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 'normal',
     letterSpacing: 'normal',
     textAlign: 'left',
-    color: '#eae4e4',
+    color: theme.colorScheme === 'dark' ? '#eae4e4' : 'black',
     textDecoration: 'none',
   },
 
   actionItem: {
-    backgroundColor: 'var(--solworks-background)',
-    color: theme.colorScheme === 'dark' ? 'white' : 'white',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--solworks-background)' : 'none',
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    border: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
     '&:hover': {
-      backgroundColor: 'var(--background)',
+      backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : '#f5f5f5',
     },
   },
+
+  headerTitle: {
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    textDecoration: 'none'
+  }
 }));
 
 export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen: boolean }> = ({
@@ -117,7 +128,7 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
       hiddenBreakpoint="xl"
       position={{
         left: 0,
-        top: 90,
+        top: 100,
       }}
     >
       <Navbar.Section className={classes.header}>
@@ -132,10 +143,9 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
               lineHeight: 'normal',
               letterSpacing: 'normal',
               textAlign: 'left',
-              color: '#fff',
             }}
           >
-            <Link to="/" style={{ textDecoration: 'none', color: 'white' }} onClick={hideMenu}>
+            <Link to="/" className={classes.headerTitle} onClick={hideMenu}>
               SolApps
             </Link>
           </div>
@@ -151,16 +161,16 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
 
       <Navbar.Section className={classes.footer}>
         <Grid>
-          <Grid.Col xs={12} md={6} lg={6} xl={6}>
+          <Grid.Col xs={6} md={6} lg={6} xl={6}>
             <SocialButton text="Twitter" url="https://twitter.com/SolApps_" />
           </Grid.Col>
-          <Grid.Col xs={12} md={6} lg={6} xl={6}>
+          <Grid.Col xs={6} md={6} lg={6} xl={6}>
             <SocialButton text="Discord" url="https://discord.com/invite/qfEGBPRyUt" />
           </Grid.Col>
-          <Grid.Col xs={12} md={6} lg={6} xl={6}>
+          <Grid.Col xs={6} md={6} lg={6} xl={6}>
             <SocialButton text="Docs" url="https://help.solworks.dev" />
           </Grid.Col>
-          <Grid.Col xs={12} md={6} lg={6} xl={6}>
+          <Grid.Col xs={6} md={6} lg={6} xl={6}>
             <SocialButton text="Contact" url="https://twitter.com/messages/compose?recipient_id=1547241706990567426" />
           </Grid.Col>
         </Grid>
@@ -171,8 +181,9 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
 
 const SocialButton = ({ text, url }: { text: string; url: string }) => {
   const { classes } = useStyles();
+
   return (
-    <div className={'glow-on-hover bg colors-only ' + classes.socialButton}>
+    <div className={'glow-on-hover colors-only ' + classes.socialButton}>
       <a className={classes.socialButtonText} target="_blank" rel="noreferrer" href={url}>
         {text}
       </a>

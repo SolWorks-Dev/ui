@@ -59,7 +59,7 @@ const useStyles = createStyles((theme) => ({
     minWidth: '60px',
     height: '48px',
     minHeight: '48px',
-    border: 'solid 1px #24182f',
+    border: theme.colorScheme === 'dark' ? 'solid 1px #24182f' : '1px solid rgb(153, 153, 153)',
     backgroundColor: 'none',
     display: 'flex',
     textAlign: 'center',

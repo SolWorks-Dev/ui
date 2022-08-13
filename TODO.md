@@ -41,6 +41,7 @@
 
 - [ ] Add SolanaFloor to curated apps
 - [ ] Remove lifinity from curated apps
+- [ ] Add section on contribution to documentation space
 
 - [ ] UPDATE: meta on home screen
 - [ ] Add footer padding to all pages

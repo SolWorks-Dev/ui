@@ -43,6 +43,8 @@ REMEMBER: push your changes daily
     - [ ] Getting started with SolApps
 - [~] Refactor to inline styles
 - [~] Light mode
+- [ ] Add SolanaFloor to curated apps
+- [ ] Remove lifinity from curated apps
 
 - [ ] Set up moderator permissions for channels on Discord
 - [ ] Role jake as moderator

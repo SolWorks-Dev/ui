@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Group, Box, Collapse, ThemeIcon, UnstyledButton, createStyles, Badge } from '@mantine/core';
+import {
+  Group,
+  Box,
+  Collapse,
+  ThemeIcon,
+  UnstyledButton,
+  createStyles,
+  Badge,
+} from '@mantine/core';
 import { Icon as TablerIcon, ChevronLeft, ChevronRight } from 'tabler-icons-react';
 import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles((theme, _params, getRef) => ({
   control: {
     fontWeight: 400,
     display: 'block',
@@ -12,14 +20,15 @@ const useStyles = createStyles((theme) => ({
     padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
     color: theme.colorScheme === 'dark' ? 'white' : '#454545',
     fontSize: theme.fontSizes.lg,
-
     '&:hover': {
       backgroundColor: 'var(--solworks-background)',
       color: theme.white,
       borderRadius: '6px',
+      [`& .${getRef('label')}`]: {
+        color: theme.white,
+      },
     },
   },
-
   link: {
     fontWeight: 400,
     display: 'block',
@@ -40,10 +49,21 @@ const useStyles = createStyles((theme) => ({
       border: 0,
     },
   },
-
   chevron: {
     transition: 'transform 200ms ease',
   },
+  icon: {
+    color: theme.colorScheme === 'dark' ? 'white' : '#454545',
+    border: 'none',
+  },
+  iconWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  label: {
+    color: theme.colorScheme === 'dark' ? 'white' : '#454545',
+    ref: getRef('label')
+  }
 }));
 
 interface LinksGroupProps {
@@ -54,7 +74,13 @@ interface LinksGroupProps {
   hideMenu?: () => void;
 }
 
-export function LinksGroup({ icon: Icon, label, initiallyOpened, links, hideMenu }: LinksGroupProps) {
+export function LinksGroup({
+  icon: Icon,
+  label,
+  initiallyOpened,
+  links,
+  hideMenu,
+}: LinksGroupProps) {
   const { classes, theme } = useStyles();
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(initiallyOpened);
@@ -63,7 +89,7 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links, hideMenu
 
   useEffect(() => {
     if (links) {
-      setItems(links.map((link) => MenuSubLink(classes, link, hideMenu)))
+      setItems(links.map((link) => MenuSubLink(classes, link, hideMenu)));
     }
   }, [opened]);
 
@@ -72,11 +98,11 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links, hideMenu
       <UnstyledButton className={classes.control} onClick={hideMenu}>
         <HashLink smooth to={`/#${label.toLocaleLowerCase()}`} className="link">
           <Group position="apart" spacing={0}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <ThemeIcon variant="outline" size={32} sx={{ color: 'white', border: '0' }}>
+            <Box className={classes.iconWrapper}>
+              <ThemeIcon variant="outline" size={32} className={classes.icon}>
                 <Icon size={22} />
               </ThemeIcon>
-              <Box ml="md">{label}</Box>
+              <Box ml="md" className={classes.label}>{label}</Box>
             </Box>
           </Group>
         </HashLink>
@@ -87,11 +113,11 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links, hideMenu
       <>
         <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
           <Group position="apart" spacing={0}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <ThemeIcon variant="outline" size={32} sx={{ color: 'white', border: '0' }}>
+            <Box className={classes.iconWrapper}>
+              <ThemeIcon variant="outline" size={32} className={classes.icon}>
                 <Icon size={22} />
               </ThemeIcon>
-              <Box ml="md">{label}</Box>
+              <Box ml="md" className={classes.label}>{label}</Box>
             </Box>
             {hasLinks && (
               <ChevronIcon
@@ -138,7 +164,13 @@ function MenuSubLink(
 
   if (link.external) {
     return (
-      <a className={classes.link} href={link.link} target="_blank" rel="noreferrer" onClick={hideMenu}>
+      <a
+        className={classes.link}
+        href={link.link}
+        target="_blank"
+        rel="noreferrer"
+        onClick={hideMenu}
+      >
         {contents}
       </a>
     );

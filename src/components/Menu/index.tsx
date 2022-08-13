@@ -24,7 +24,7 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
     paddingBottom: 0,
     borderLeft: 0,
-    borderRight: '1px solid #261D2B',
+    borderRight: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
   },
 
   header: {
@@ -37,7 +37,7 @@ const useStyles = createStyles((theme) => ({
   links: {
     marginRight: 0,
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
-    borderTop: `1px solid #261d2b`,
+    borderTop: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
     paddingTop: '12px',
   },
 
@@ -47,7 +47,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   footer: {
-    borderTop: `1px solid #261d2b`,
+    borderTop: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
     backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
     marginBottom: '100px',
@@ -78,7 +78,8 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 'normal',
     letterSpacing: 'normal',
     textAlign: 'left',
-    color: '#eae4e4',
+    color: theme.colorScheme === 'dark' ? '#eae4e4' : 'black',
+
     textDecoration: 'none',
   },
 
@@ -89,6 +90,11 @@ const useStyles = createStyles((theme) => ({
       backgroundColor: 'var(--background)',
     },
   },
+
+  headerTitle: {
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    textDecoration: 'none'
+  }
 }));
 
 export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen: boolean }> = ({
@@ -133,10 +139,9 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
               lineHeight: 'normal',
               letterSpacing: 'normal',
               textAlign: 'left',
-              color: 'white'
             }}
           >
-            <Link to="/" style={{ textDecoration: 'none', color: 'white' }} onClick={hideMenu}>
+            <Link to="/" className={classes.headerTitle} onClick={hideMenu}>
               SolApps
             </Link>
           </div>
@@ -172,8 +177,9 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
 
 const SocialButton = ({ text, url }: { text: string; url: string }) => {
   const { classes } = useStyles();
+
   return (
-    <div className={'glow-on-hover bg colors-only ' + classes.socialButton}>
+    <div className={'glow-on-hover colors-only ' + classes.socialButton}>
       <a className={classes.socialButtonText} target="_blank" rel="noreferrer" href={url}>
         {text}
       </a>

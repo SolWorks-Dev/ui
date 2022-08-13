@@ -158,22 +158,22 @@ export const HomeView = () => {
     <div className="body-wrapper">
       <Breadcrumb />
       <Grid gutter="xl" style={{ marginTop: '12px' }}>
-        <Grid.Col xs={12} md={6} lg={6}>
+        <Grid.Col xs={12} md={12} lg={12}>
           <ActionCard
             title="First time here? gm 👋"
             text={
               <>
-                SolApps is a directory of the best Solana protocols and communities.
+                SolApps is a directory of the best Solana protocols and communities. No more searching for verified protocol links. 
                 <br />
                 <br />
-                No more searching for verified protocol links. Read our getting started guide.
+                Read our getting started guide.
               </>
             }
             actionLink="https://help.solworks.dev/"
             actionButtonText="Learn more"
           />
         </Grid.Col>
-        <Grid.Col xs={12} md={6} lg={6}>
+        {/* <Grid.Col xs={12} md={6} lg={6}>
           <ActionCard
             title="Are we missing a protocol? 🕵️‍♀️"
             text={
@@ -181,13 +181,13 @@ export const HomeView = () => {
                 Contact us if you want to see a protocol or community on SolApps ✉️
                 <br />
                 <br />
-                Submissions can take up to 1 week to review a protocol.
+                Submissions typically take 3 days to review.
               </>
             }
             actionLink="https://k722zc9ivtg.typeform.com/to/uN4Pklej"
             actionButtonText="Apply now"
           />
-        </Grid.Col>
+        </Grid.Col> */}
       </Grid>
 
       <section id="curated">

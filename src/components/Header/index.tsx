@@ -1,5 +1,17 @@
 import { forwardRef } from 'react';
-import { Group, Avatar, Text, Select, Burger, MediaQuery, ActionIcon, Center, Space, Navbar } from '@mantine/core';
+import {
+  Group,
+  Avatar,
+  Text,
+  Select,
+  Burger,
+  MediaQuery,
+  ActionIcon,
+  Center,
+  Space,
+  Navbar,
+  createStyles,
+} from '@mantine/core';
 import React, { FC } from 'react';
 import '../../common.css';
 import './Header.css';
@@ -38,16 +50,90 @@ export interface HeaderProps {
   solQuery: any;
 }
 
-export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = false, tpsQuery, solQuery }) => {
+const useStyles = createStyles((theme) => ({
+  navbar: {
+    display: 'flex',
+    width: '100%',
+    height: '100px',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+  },
+  menuIcon: {
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    cursor: 'pointer',
+    margin: 'auto 0 auto 48px',
+  },
+  dropdown: {
+    color: 'var(--grey)',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    border: theme.colorScheme === 'dark' ? 'solid 2px var(--grey-border)' : 'solid 1px var(--lm-border)',
+    borderRadius: '8px',
+  },
+  item: {
+    color: 'var(--grey)',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    '&:hover': {
+      backgroundColor: theme.colorScheme === 'dark' ? 'var(--solworks-background)' : '#ebf4ff',
+    },
+  },
+  hovered: {
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+  },
+  disabled: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
+  selected: {
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+  },
+  nothingFound: {
+    color: 'var(--grey)',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+  },
+  separator: {
+    color: 'var(--grey)',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+  },
+  separatorLabel: {
+    color: 'var(--grey)',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+  },
+  wrapper: {
+    color: 'var(--grey)',
+  },
+  defaultVariant: {
+    color: 'var(--grey)',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    border: theme.colorScheme === 'dark' ? 'solid 2px var(--grey-border)' : 'solid 1px var(--lm-border)',
+    borderRadius: '8px',
+  },
+  filledVariant: {
+    color: 'var(--grey)',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    border: 'solid 2px var(--grey-border)',
+    borderRadius: '8px',
+  },
+  unstyledVariant: {
+    color: 'var(--grey)',
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    border: theme.colorScheme === 'dark' ? 'solid 2px var(--grey-border)' : 'solid 1px var(--lm-border)',
+    borderRadius: '8px',
+  },
+  input: { 
+    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+  },
+  rightSection: { color: 'var(--grey)' },
+}));
+
+export const Header: FC<HeaderProps> = ({
+  onBurgerClick = () => {},
+  openMenu = false,
+  tpsQuery,
+  solQuery,
+}) => {
   let navigate = useNavigate();
+  const { classes } = useStyles();
 
   return (
-    <Navbar sx={(theme) => ({
-      display: 'flex',
-      width: '100%',
-      height: '100px',
-      backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
-    })}>
+    <Navbar className={classes.navbar}>
       <NetworkStatusBar
         transactionsPerSecond={tpsQuery.data ? tpsQuery.data.data.networkInfo.tps.toFixed(0) : 0}
         solusdPrice={solQuery.data ? solQuery.data[0].price : 0}
@@ -55,7 +141,7 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
       />
       <div className="menu-wrapper">
         <MediaQuery largerThan="xl" styles={{ display: 'none' }}>
-          <Burger size={24} color={'white'} opened={openMenu} onClick={onBurgerClick} className="menu-icon" />
+          <Burger size={24} opened={openMenu} onClick={onBurgerClick} className="menu-icon" />
         </MediaQuery>
         <MediaQuery smallerThan="xl" styles={{ display: 'none' }}>
           <div className="menu-icon"></div>
@@ -90,71 +176,21 @@ export const Header: FC<HeaderProps> = ({ onBurgerClick = () => {}, openMenu = f
                   navigate(formatLink(app?.app.label!));
                 }
               }}
-              rightSection={
-                <>
-                  {/* <Kbd
-                  sx={{
-                    backgroundColor: '#373a3f',
-                    border: '1px solid #373a3f',
-                    color: '#c0c2c5',
-                  }}
-                >
-                  ⌘
-                </Kbd>
-                &nbsp;+&nbsp;
-                <Kbd
-                  sx={{
-                    backgroundColor: '#373a3f',
-                    border: '1px solid #373a3f',
-                    color: '#c0c2c5',
-                  }}
-                >
-                  K
-                </Kbd> */}
-                </>
-              }
-              rightSectionWidth={80}
-              styles={{
-                dropdown: {
-                  color: 'var(--grey)',
-                  backgroundColor: 'var(--background)',
-                  border: 'solid 2px var(--grey-border)',
-                  borderRadius: '8px',
-                },
-                item: {
-                  color: 'var(--grey)',
-                  backgroundColor: 'var(--background)',
-                  '&:hover': {
-                    backgroundColor: 'var(--solworks-background)',
-                  },
-                },
-                hovered: { color: 'white', backgroundColor: 'var(--background)' },
-                disabled: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-                selected: { color: 'white', backgroundColor: 'var(--background)' },
-                nothingFound: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-                separator: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-                separatorLabel: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-                wrapper: { color: 'var(--grey)', backgroundColor: 'var(--background)' },
-                defaultVariant: {
-                  color: 'var(--grey)',
-                  backgroundColor: 'var(--background)',
-                  border: 'solid 2px var(--grey-border)',
-                  borderRadius: '8px',
-                },
-                filledVariant: {
-                  color: 'var(--grey)',
-                  backgroundColor: 'var(--background)',
-                  border: 'solid 2px var(--grey-border)',
-                  borderRadius: '8px',
-                },
-                unstyledVariant: {
-                  color: 'var(--grey)',
-                  backgroundColor: 'var(--background)',
-                  border: 'solid 2px var(--grey-border)',
-                  borderRadius: '8px',
-                },
-                input: { color: 'white' },
-                rightSection: { color: 'var(--grey)' },
+              classNames={{
+                dropdown: classes.dropdown,
+                item: classes.item,
+                hovered: classes.hovered,
+                disabled: classes.disabled,
+                selected: classes.selected,
+                nothingFound: classes.nothingFound,
+                separator: classes.separator,
+                separatorLabel: classes.separatorLabel,
+                wrapper: classes.wrapper,
+                defaultVariant: classes.defaultVariant,
+                filledVariant: classes.filledVariant,
+                unstyledVariant: classes.unstyledVariant,
+                input: classes.input,
+                rightSection: classes.rightSection,
               }}
             />
           </div>

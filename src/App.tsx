@@ -1,4 +1,10 @@
-import { AppShell, ColorScheme, ColorSchemeProvider, MantineProvider } from '@mantine/core';
+import {
+  AppShell,
+  ColorScheme,
+  ColorSchemeProvider,
+  createStyles,
+  MantineProvider,
+} from '@mantine/core';
 import React, { FC } from 'react';
 import { Header } from './components/Header';
 import { Menu } from './components/Menu';
@@ -23,8 +29,46 @@ const firebaseConfig = {
 };
 const queryClient = new QueryClient();
 
-function App() {
+const useStyles = createStyles((theme) => ({
+  appShell: {
+    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    main: {
+      '@media (max-width: 755px)': {
+        paddingTop: '100px',
+      },
+      paddingTop: '125px',
+    },
+  },
+}));
+
+const AppContainer = () => {
+  const tpsQuery = useQuery(['tps-data'], fetchTpsStats);
+  const solQuery = useQuery(['sol-data'], fetchSolStats);
+  const { classes } = useStyles();
   const [opened, setOpened] = React.useState(false);
+
+  return (
+    <AppShell
+      header={
+        <Header
+          onBurgerClick={() => setOpened(!opened)}
+          openMenu={opened}
+          solQuery={solQuery}
+          tpsQuery={tpsQuery}
+        />
+      }
+      navbar={<Menu showNavbar={opened} hideMenu={() => setOpened(false)} isMenuOpen={opened} />}
+      navbarOffsetBreakpoint="xl"
+      padding={0}
+      fixed
+      className={classes.appShell}
+    >
+      <NavigationRouter />
+    </AppShell>
+  );
+};
+
+export default function App() {
   const [colorScheme, setColorScheme] = React.useState<ColorScheme>('dark');
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
@@ -37,49 +81,10 @@ function App() {
         <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
           <MantineProvider theme={{ colorScheme: colorScheme }} withGlobalStyles withNormalizeCSS>
             <ScrollToTop />
-            <AppContent setOpened={setOpened} opened={opened} />
+            <AppContainer />
           </MantineProvider>
         </ColorSchemeProvider>
       </QueryClientProvider>
     </Router>
   );
 }
-
-export default App;
-
-const AppContent: FC<{
-  setOpened: any;
-  opened: boolean;
-}> = ({ setOpened, opened }) => {
-  const tpsQuery = useQuery(['tps-data'], fetchTpsStats);
-  const solQuery = useQuery(['sol-data'], fetchSolStats);
-
-  return (
-    <AppShell
-      header={
-        <Header onBurgerClick={() => setOpened(!opened)} openMenu={opened} solQuery={solQuery} tpsQuery={tpsQuery} />
-      }
-      navbar={
-        <Menu
-          showNavbar={opened}
-          hideMenu={() => {
-            setOpened(false);
-          }}
-          isMenuOpen={opened}
-        />
-      }
-      navbarOffsetBreakpoint="xl"
-      padding={0}
-      fixed
-      sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
-        main: {
-          paddingTop: '110px',
-        },
-      })}
-    >
-      <NavigationRouter />
-    </AppShell>
-  );
-};
-

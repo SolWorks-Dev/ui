@@ -10,7 +10,7 @@ const useStyles = createStyles((theme) => ({
     height: '32px',
     maxWidth: '100%',
     paddingTop: '6px',
-    borderBottom: theme.colorScheme === 'dark' ? 'none' : '1px solid #d9d9d9',
+    borderBottom: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
   },
   networkBarTitle: {
     color: theme.colorScheme === 'dark' ? 'var(--grey)' : '#454545',

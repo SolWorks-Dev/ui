@@ -56,6 +56,8 @@ const useStyles = createStyles((theme) => ({
     width: '100%',
     height: '100px',
     backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    borderBottom:
+      theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
   },
   menuIcon: {
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
@@ -65,7 +67,7 @@ const useStyles = createStyles((theme) => ({
   dropdown: {
     color: 'var(--grey)',
     backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
-    border: theme.colorScheme === 'dark' ? 'solid 2px var(--grey-border)' : 'solid 1px var(--lm-border)',
+    border: 'solid 2px var(--grey-border)',
     borderRadius: '8px',
   },
   item: {
@@ -102,7 +104,8 @@ const useStyles = createStyles((theme) => ({
   defaultVariant: {
     color: 'var(--grey)',
     backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
-    border: theme.colorScheme === 'dark' ? 'solid 2px var(--grey-border)' : 'solid 1px var(--lm-border)',
+    border:
+      theme.colorScheme === 'dark' ? 'solid 2px var(--grey-border)' : 'solid 1px var(--lm-border)',
     borderRadius: '8px',
   },
   filledVariant: {
@@ -114,13 +117,16 @@ const useStyles = createStyles((theme) => ({
   unstyledVariant: {
     color: 'var(--grey)',
     backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
-    border: theme.colorScheme === 'dark' ? 'solid 2px var(--grey-border)' : 'solid 1px var(--lm-border)',
+    border:
+      theme.colorScheme === 'dark' ? 'solid 2px var(--grey-border)' : 'solid 1px var(--lm-border)',
     borderRadius: '8px',
   },
-  input: { 
+  input: {
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
   },
-  rightSection: { color: 'var(--grey)' },
+  rightSection: { 
+    color: 'var(--grey)'
+  }
 }));
 
 export const Header: FC<HeaderProps> = ({

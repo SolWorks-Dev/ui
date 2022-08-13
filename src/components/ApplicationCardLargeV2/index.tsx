@@ -27,7 +27,13 @@ const useStyles = createStyles((theme) => ({
     background: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
     '&:after': {
       background: theme.colorScheme === 'dark' ? 'var(--background) !important' : 'white !important',
-    }
+    },
+    '&:hover': {
+      color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    },
+    color: theme.colorScheme === 'dark' ? '#261d2b' : 'var(--grey)',
+    WebkitTransition: '150ms ease-in-out',
+    transition: '150ms ease-in-out'
   },
   lacLogoWrapper: {
     display: 'flex',
@@ -88,10 +94,7 @@ const useStyles = createStyles((theme) => ({
     fontStyle: 'normal',
     lineHeight: 'normal',
     letterSpacing: 'normal',
-    color: '#261d2b',
-    alignSelf: 'center',
-    WebkitTransition: '150ms ease-in-out',
-    transition: '150ms ease-in-out',
+    alignSelf: 'center'
   },
   lacButton: {
     marginRight: '48px',

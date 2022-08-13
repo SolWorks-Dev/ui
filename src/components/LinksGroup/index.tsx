@@ -18,14 +18,15 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     display: 'block',
     width: '100%',
     padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
-    color: theme.colorScheme === 'dark' ? 'white' : '#454545',
+    color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
     fontSize: theme.fontSizes.lg,
     '&:hover': {
-      backgroundColor: 'var(--solworks-background)',
-      color: theme.white,
-      borderRadius: '6px',
+      backgroundColor: theme.colorScheme === 'dark' ? 'var(--solworks-background)' : 'var(--lm-selected-menu)',
+      border: theme.colorScheme === 'dark' ? 'none' : 'solid 2px var(--lm-selected-menu-border)',
+      color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
+      borderRadius: theme.colorScheme === 'dark' ? '6px' : '20px 0 0 20px',
       [`& .${getRef('label')}`]: {
-        color: theme.white,
+        color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
       },
     },
   },
@@ -37,23 +38,23 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     paddingLeft: 31,
     marginLeft: 30,
     fontSize: theme.fontSizes.md,
-    color: theme.colorScheme === 'dark' ? '#797f91' : '#454545',
+    color: theme.colorScheme === 'dark' ? '#797f91' : '#002B67',
     borderLeft: `1px solid ${theme.colors.dark[4]}`,
     font: 'Roboto',
     border: 0,
 
     '&:hover': {
-      backgroundColor: 'var(--solworks-background)',
-      color: theme.white,
-      borderRadius: '6px',
-      border: 0,
+      backgroundColor: theme.colorScheme === 'dark' ? 'var(--solworks-background)' : 'var(--lm-selected-menu)',
+      border: theme.colorScheme === 'dark' ? 'none' : 'solid 2px var(--lm-selected-menu-border)',
+      color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
+      borderRadius: theme.colorScheme === 'dark' ? '6px' : '20px 0 0 20px',
     },
   },
   chevron: {
     transition: 'transform 200ms ease',
   },
   icon: {
-    color: theme.colorScheme === 'dark' ? 'white' : '#454545',
+    color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
     border: 'none',
   },
   iconWrapper: {
@@ -61,7 +62,7 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     alignItems: 'center',
   },
   label: {
-    color: theme.colorScheme === 'dark' ? 'white' : '#454545',
+    color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
     ref: getRef('label')
   }
 }));

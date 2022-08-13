@@ -9,6 +9,10 @@
   --lm-background: white;
   --lm-border: rgb(153, 153, 153);
   --grey-border: #261d2b;
+
+  --lm-selected-menu: #EBF4FF;
+  --lm-selected-menu-border: #B9D6FF;
+
   font-family: Roboto, sans-serif !important;
   --font: 'Roboto', 'sans-serif' !important;
 }

@@ -20,14 +20,18 @@ const useStyles = createStyles((theme) => ({
   macOutline: {
     border: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
     borderRadius: '18px',
-    width: '100%',
-    minWidth: '200px',
     textAlign: 'center',
     cursor: 'pointer',
     background: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
     '&:after': {
       background: theme.colorScheme === 'dark' ? 'var(--background) !important' : 'white !important',
-    }
+    },
+    '&:hover': {
+      color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    },
+    color: theme.colorScheme === 'dark' ? '#261d2b' : 'var(--grey)',
+    WebkitTransition: '150ms ease-in-out',
+    transition: '150ms ease-in-out'
   },
   macLogo: {
     marginTop: '34px',
@@ -59,10 +63,7 @@ const useStyles = createStyles((theme) => ({
     fontStretch: 'normal',
     fontStyle: 'normal',
     lineHeight: 'normal',
-    letterSpacing: 'normal',
-    color: '#261d2b',
-    WebkitTransition: '150ms ease-in-out',
-    transition: '150ms ease-in-out',
+    letterSpacing: 'normal'
   },
 }));
 

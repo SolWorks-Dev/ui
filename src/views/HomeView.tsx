@@ -33,7 +33,7 @@ for (var x = 0; x < otherCategories.length; x++) {
       <Grid.Col xs={4} md={4} lg={2}>
         <SecondaryButton
           text="See more"
-          url={`${formatCategoryLink(matchedCategory.value)}`}
+          url={formatCategoryLink(matchedCategory.value)}
           additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
         />
       </Grid.Col>
@@ -104,7 +104,7 @@ const curatedRowHeader = (
 const curatedRowApps = (
   <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
     {curatedApps.map((app) => (
-      <Grid.Col xs={6} md={3} lg={3}>
+      <Grid.Col xs={6} sm={6} md={3} lg={3} xl={3}>
         <ApplicationCardMini
           logoUrl={app.urls.logo}
           appName={app.app.label}
@@ -131,7 +131,7 @@ const nftRowHeader = (
     <Grid.Col xs={4} md={4} lg={2}>
       <SecondaryButton
         text="See more"
-        url={`${formatCategoryLink(appList.categories.find((x) => x.value === 'nft')!.value)}`}
+        url={formatCategoryLink(appList.categories.find((x) => x.value === 'nft')!.value)}
         additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
       />
     </Grid.Col>

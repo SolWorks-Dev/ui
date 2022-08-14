@@ -36,7 +36,7 @@ export const ActionCard: FC<ActionCardProps> = ({ title = '', text = '', actionL
   return (
     <div className={classes.actionCard}>
       <div>
-        <Center sx={{paddingTop: '20px'}}><Heading text={title} size={32}/></Center>
+        <Center sx={{paddingTop: '20px'}}><Heading text={title} size={28}/></Center>
         <div className="action-card-text">{text}</div>
         <ActionButtonWithLink text={actionButtonText} url={actionLink} classname="action-card-button" width={180} />
       </div>

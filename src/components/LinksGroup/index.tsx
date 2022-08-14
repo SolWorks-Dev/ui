@@ -19,10 +19,11 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     width: '100%',
     padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
     color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
+    border: theme.colorScheme === 'dark' ? 'solid 2px transparent' : 'solid 2px white',
     fontSize: theme.fontSizes.lg,
     '&:hover': {
       backgroundColor: theme.colorScheme === 'dark' ? 'var(--solworks-background)' : 'var(--lm-selected-menu)',
-      border: theme.colorScheme === 'dark' ? 'none' : 'solid 2px var(--lm-selected-menu-border)',
+      border: theme.colorScheme === 'dark' ? 'solid 2px var(--solworks-background)' : 'solid 2px var(--lm-selected-menu-border)',
       color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
       borderRadius: theme.colorScheme === 'dark' ? '6px' : '20px 0 0 20px',
       [`& .${getRef('label')}`]: {
@@ -41,8 +42,7 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     color: theme.colorScheme === 'dark' ? '#797f91' : '#002B67',
     borderLeft: `1px solid ${theme.colors.dark[4]}`,
     font: 'Roboto',
-    border: 0,
-
+    border: 'solid 2px transparent',
     '&:hover': {
       backgroundColor: theme.colorScheme === 'dark' ? 'var(--solworks-background)' : 'var(--lm-selected-menu)',
       border: theme.colorScheme === 'dark' ? 'none' : 'solid 2px var(--lm-selected-menu-border)',

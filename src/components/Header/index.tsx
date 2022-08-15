@@ -220,9 +220,9 @@ export const Header: FC<HeaderProps> = ({
               size="xl"
               sx={(theme) => ({
                 backgroundColor: 'transparent',
-                color: theme.colorScheme === 'dark' ? 'white' : 'grey',
+                color: theme.colorScheme === 'dark' ? 'white' : 'black',
                 '&:hover': {
-                  backgroundColor: 'var(--solworks-background)',
+                  backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : '#f5f5f5',
                 },
               })}
             >
@@ -236,13 +236,13 @@ export const Header: FC<HeaderProps> = ({
               size="xl"
               sx={(theme) => ({
                 backgroundColor: 'transparent',
-                color: theme.colorScheme === 'dark' ? 'white' : 'grey',
+                color: theme.colorScheme === 'dark' ? 'white' : 'black',
                 marginLeft: '12px',
                 '@media (max-width: 640px)': {
                   marginLeft: '2px',
                 },
                 '&:hover': {
-                  backgroundColor: 'var(--solworks-background)',
+                  backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : '#f5f5f5',
                 },
               })}
             >

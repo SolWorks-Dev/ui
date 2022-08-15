@@ -19,7 +19,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: '14px',
   },
   networkBarItemValue: {
-    color: theme.colorScheme === 'dark' ? 'var(--primary)' : 'var(--primary)',
+    color: theme.colorScheme === 'dark' ? 'var(--primary)' : 'var(--alternative-primary)',
     fontSize: '14px',
     paddingLeft: '8px',
     fontWeight: 'bold',

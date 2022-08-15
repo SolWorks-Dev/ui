@@ -82,7 +82,7 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 'normal',
     letterSpacing: 'normal',
     textAlign: 'left',
-    color: theme.colorScheme === 'dark' ? '#eae4e4' : 'black',
+    color: theme.colorScheme === 'dark' ? '#eae4e4' : '#002B67',
     textDecoration: 'none',
   },
 
@@ -96,7 +96,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   headerTitle: {
-    color: theme.colorScheme === 'dark' ? 'white' : 'black',
+    color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
     textDecoration: 'none'
   }
 }));

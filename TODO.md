@@ -36,8 +36,8 @@
 
 # TODO
 - [ ] Set up moderator permissions for channels on Discord
-- [ ] Role jake as moderator
-- [ ] Add developer channel
+- [x] Role jake as moderator
+- [x] Add developer channel
 
 - [ ] Add SolanaFloor to curated apps
 - [ ] Remove lifinity from curated apps

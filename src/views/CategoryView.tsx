@@ -1,4 +1,4 @@
-import { Grid, Group } from '@mantine/core';
+import { createStyles, Grid, Group } from '@mantine/core';
 import { appList, Category } from '@solworks/application-registry';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -9,11 +9,21 @@ import { Heading } from '../components/Heading';
 import { Helmet } from 'react-helmet';
 import { formatCategoryLink } from '../Common';
 
+const useStyles = createStyles((theme) => ({
+  wrapper: {
+    paddingBottom: '120px',
+    paddingTop: '0px',
+    paddingLeft: '48px',
+    paddingRight: '48px',
+    color: 'white',
+  }
+}));
+
 export const CategoryView = () => {
   let { id } = useParams();
   const [cards, setCards] = useState<JSX.Element[]>([]);
-
   const [category, setCategory] = useState<Category>();
+  const { classes } = useStyles();
 
   useEffect(() => {
     const category = appList.categories.find((category) => category.value === id);
@@ -43,7 +53,7 @@ export const CategoryView = () => {
   }, [category]);
 
   return (
-    <div className="body-wrapper">
+    <div className={classes.wrapper}>
       <Helmet>
         <title>{`${category?.heading_label} | SolApps`}</title>
         <meta name="description" content={`View all of the best ${category?.heading_label} projects on SolApps.`} data-react-helmet="true" />

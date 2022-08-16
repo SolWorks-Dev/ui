@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Grid } from '@mantine/core';
+import { createStyles, Grid } from '@mantine/core';
 import { Heading } from '../Heading';
 import { ApplicationCardMini } from '../ApplicationCardMini';
 import { LinkCard } from '../LinkCard';
@@ -13,11 +13,22 @@ import { Helmet } from 'react-helmet';
 
 export interface ApplicationPageProps {}
 
+const useStyles = createStyles((theme) => ({
+  wrapper: {
+    paddingBottom: '120px',
+    paddingTop: '0px',
+    paddingLeft: '48px',
+    paddingRight: '48px',
+    color: 'white',
+  }
+}));
+
 export const ApplicationPage: FC<ApplicationPageProps> = () => {
   let { id } = useParams();
   const [data, setData] = useState<App>();
   const [cards, setCards] = useState<JSX.Element[]>([]);
   const [relatedCards, setRelatedCards] = useState<JSX.Element[]>([]);
+  const { classes } = useStyles();
 
   useEffect(() => {
     const data = appList.apps.find((app) => encodeString(app.app.label) === id);
@@ -81,7 +92,7 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
   // get related app categories
 
   return (
-    <div className="body-wrapper">
+    <div className={classes.wrapper}>
       <Helmet>
         <title>{`${data?.app.label} | SolApps`}</title>
         <meta name="description" content={data?.description.short} data-react-helmet="true"/>
@@ -175,7 +186,7 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
         </Grid.Col>
         <Grid.Col xs={12} md={6} lg={6}>
           <div style={{ marginBottom: '30px' }}>
-            <Heading text="Related" />
+            {relatedCards.length > 0 ? <Heading text="Related" /> : <></>}
           </div>
           <Grid gutter="xl">{relatedCards}</Grid>
         </Grid.Col>

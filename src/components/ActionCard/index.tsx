@@ -15,7 +15,6 @@ export interface ActionCardProps {
 const useStyles = createStyles((theme) => ({
   actionCard: {
     minHeight: "100px", 
-    maxHeight: "400px", 
     minWidth: "240px", 
     width: "100%", 
     color: "white", 

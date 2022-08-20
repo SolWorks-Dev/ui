@@ -82,8 +82,8 @@ const useStyles = createStyles((theme) => ({
     lineHeight: 'normal',
     letterSpacing: 'normal',
     textAlign: 'center',
-    color: '#e42575',
-    textDecoration: 'none',
+    color: theme.colorScheme === 'dark' ? '#e42575' : 'var(--alternative-primary)',
+    textDecoration: 'underline dashed',
   },
 }));
 
@@ -165,7 +165,7 @@ const Link: FC<LinkProps> = ({ text, url, additionalRow = false }) => {
   return (
     <a
       className={
-        additionalRow ? `${classes.scAdditionalRow} ${classes.scLink} no-link-hover` : `${classes.scLink} no-link-hover`
+        additionalRow ? `${classes.scAdditionalRow} ${classes.scLink} link-hover` : `${classes.scLink} link-hover`
       }
       href={url}
       target="_blank"

@@ -38,7 +38,10 @@ const useStyles = createStyles((theme) => ({
   },
   linkCardLink: {
     fontFamily: 'var(--font)',
-    fontSize: '16px',
+    '@media (max-width: 420px)': {
+      fontSize: '16px',
+    },
+    fontSize: '20px',
     fontWeight: theme.colorScheme === 'dark' ? 'bold' : 500,
     fontStretch: 'normal',
     fontStyle: 'normal',

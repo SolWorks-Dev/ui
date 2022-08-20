@@ -28,7 +28,7 @@ const useStyles = createStyles((theme) => ({
   adcWrapper: {
     padding: '32px',
     '@media (max-width: 420px)': {
-      padding: '24px',
+      padding: '28px',
     },
   },
   adcHeader: {

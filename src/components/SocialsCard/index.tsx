@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
   scWrapper: {
     margin: '32px 32px 0px 32px',
     '@media (max-width: 420px)': {
-      margin: '20px 20px 0px 20px',
+      margin: '24px 18px 0px 24px',
     },
     width: '100%',
   },

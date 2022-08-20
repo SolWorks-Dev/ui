@@ -27,7 +27,7 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: '48px',
     paddingRight: '48px',
     color: 'white',
-  }
+  },
 }));
 
 export const CategoryView = () => {
@@ -37,15 +37,27 @@ export const CategoryView = () => {
   const { classes } = useStyles();
 
   useEffect(() => {
-    const category = appList.categories.find((category) => category.value === id);
-    if (category) {
-      setCategory(category);
+    if (id === 'curated') {
+      setCategory({
+        value: 'curated',
+        tag_label: 'Curated',
+        heading_label: 'Curated',
+      });
+    } else {
+      const category = appList.categories.find((category) => category.value === id);
+      if (category) {
+        setCategory(category);
+      }
     }
   }, [id]);
 
   useEffect(() => {
     if (category) {
-      const apps = appList.apps.filter((app) => app.app.categories[0] === category.value);
+      const apps =
+        category.value === 'curated'
+          ? appList.apps.filter((app) => app.app.is_curated)
+          : appList.apps.filter((app) => app.app.categories[0] === category.value);
+
       if (apps) {
         setCards(
           apps.map((app) => (
@@ -67,7 +79,11 @@ export const CategoryView = () => {
     <div className={classes.wrapper}>
       <Helmet>
         <title>{`${category?.heading_label} | SolApps`}</title>
-        <meta name="description" content={`View all of the best ${category?.heading_label} projects on SolApps.`} data-react-helmet="true" />
+        <meta
+          name="description"
+          content={`View all of the best ${category?.heading_label} projects on SolApps.`}
+          data-react-helmet="true"
+        />
         <meta
           property="og:title"
           content={`${category?.heading_label} | SolApps`}

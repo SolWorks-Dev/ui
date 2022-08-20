@@ -1,4 +1,4 @@
-import { Badge, createStyles, Grid, Group, LoadingOverlay } from '@mantine/core';
+import { Badge, createStyles, Grid, Group, LoadingOverlay, MediaQuery } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 import { ActionCard } from '../components/ActionCard';
 import { ApplicationCardLargeV2 } from '../components/ApplicationCardLargeV2';
@@ -28,7 +28,7 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: '48px',
     paddingRight: '48px',
     color: 'white',
-  }
+  },
 }));
 
 export const HomeView = () => {
@@ -68,42 +68,41 @@ export const HomeView = () => {
             <SecondaryButton
               text="See more"
               url={formatCategoryLink(matchedCategory.value)}
-              additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
+              additionalStyles={{ marginLeft: 'auto', marginRight: 0, width: '100%' }}
             />
           </Grid.Col>
         </Grid>
       );
 
-      const otherAppsList: any[] = [];
-      for (var y = 0; y < otherApps.length; y++) {
-        const otherApp = otherApps[y];
-        const otherCategoryApps =
-          y % 3 !== 0 ? (
+      const otherAppsList: any[] = otherApps.slice(0, 6).map((x, index) => {
+        if (index % 3 !== 0) {
+          return (
             <Grid.Col xs={6} md={3} lg={3} xl={3}>
               <ApplicationCardMini
-                logoUrl={otherApp.urls.logo}
-                appName={otherApp.app.label}
+                logoUrl={x.urls.logo}
+                appName={x.app.label}
                 tag={
-                  appList.categories.find(
-                    (category) => category.value === otherApp.app.categories[0]
-                  )?.tag_label!
+                  appList.categories.find((category) => category.value === x.app.categories[0])
+                    ?.tag_label!
                 }
-                tagColorHex={categoryToColorHex(otherApp.app.categories[0])}
-                appValue={otherApp.app.value}
-              />
-            </Grid.Col>
-          ) : (
-            <Grid.Col xs={12} md={6} lg={6}>
-              <ApplicationCardLargeV2
-                logoUrl={otherApp.urls.logo}
-                appName={otherApp.app.label}
-                description={otherApp.description.short}
-                appValue={otherApp.app.value}
+                tagColorHex={categoryToColorHex(x.app.categories[0])}
+                appValue={x.app.value}
               />
             </Grid.Col>
           );
-        otherAppsList.push(otherCategoryApps);
-      }
+        } else {
+          return (
+            <Grid.Col xs={12} md={6} lg={6}>
+              <ApplicationCardLargeV2
+                logoUrl={x.urls.logo}
+                appName={x.app.label}
+                description={x.description.short}
+                appValue={x.app.value}
+              />
+            </Grid.Col>
+          );
+        }
+      });
 
       const fullGroups = (
         <section id={otherCategory}>
@@ -119,8 +118,8 @@ export const HomeView = () => {
 
     const curatedAppCards = (
       <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
-        {curatedApps.map((app) => (
-          <Grid.Col xs={6} sm={6} md={3} lg={3} xl={3}>
+        {curatedApps.slice(0, 8).map((app) => (
+          <Grid.Col xs={6} sm={3} md={3} lg={3} xl={3}>
             <ApplicationCardMini
               logoUrl={app.urls.logo}
               appName={app.app.label}
@@ -139,15 +138,33 @@ export const HomeView = () => {
 
     const nftAppCards = (
       <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
-        {nftApps.map((app) => (
-          <Grid.Col xs={12} md={6} lg={6}>
-            <ApplicationCardLargeV2
-              logoUrl={app.urls.logo}
-              appName={app.app.label}
-              description={app.description.short}
-              appValue={app.app.value}
-            />
-          </Grid.Col>
+        {nftApps.slice(0, 6).map((app) => (
+          <>
+            <MediaQuery smallerThan={420} styles={{ display: 'none' }}>
+              <Grid.Col xs={12} md={6} lg={6}>
+                <ApplicationCardLargeV2
+                  logoUrl={app.urls.logo}
+                  appName={app.app.label}
+                  description={app.description.short}
+                  appValue={app.app.value}
+                />
+              </Grid.Col>
+            </MediaQuery>
+            <MediaQuery largerThan={420} styles={{ display: 'none' }}>
+              <Grid.Col xs={12} md={6} lg={6}>
+                <ApplicationCardMini
+                  logoUrl={app.urls.logo}
+                  appName={app.app.label}
+                  appValue={app.app.value}
+                  tag={
+                    appList.categories.find((category) => category.value === app.app.categories[0])
+                      ?.tag_label!
+                  }
+                  tagColorHex={categoryToColorHex(app.app.categories[0])}
+                />
+              </Grid.Col>
+            </MediaQuery>
+          </>
         ))}
       </Grid>
     );
@@ -175,11 +192,7 @@ export const HomeView = () => {
           content="SolApps is an application directory for the best Solana projects. New curated projects added weekly."
           data-react-helmet="true"
         />
-        <meta
-          property="og:url"
-          content="https://solapps.dev"
-          data-react-helmet="true"
-        />
+        <meta property="og:url" content="https://solapps.dev" data-react-helmet="true" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
@@ -222,15 +235,13 @@ export const HomeView = () => {
               <Badge children={`${numberOfCuratedApps} apps`} />
             </Group>
           </Grid.Col>
-          {/* <Grid.Col xs={4} md={4} lg={2}>
-      <SecondaryButton
-        text="See more"
-        onClick={() => {
-          console.log('onClick');
-        }}
-        additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
-      />
-    </Grid.Col> */}
+          <Grid.Col xs={4} md={4} lg={2}>
+            <SecondaryButton
+              text="See more"
+              url={formatCategoryLink('curated')}
+              additionalStyles={{ marginLeft: 'auto', marginRight: 0, width: '100%' }}
+            />
+          </Grid.Col>
         </Grid>
         {curatedRowApps}
       </section>
@@ -247,7 +258,7 @@ export const HomeView = () => {
             <SecondaryButton
               text="See more"
               url={formatCategoryLink(appList.categories.find((x) => x.value === 'nft')!.value)}
-              additionalStyles={{ marginLeft: 'auto', marginRight: 0 }}
+              additionalStyles={{ marginLeft: 'auto', marginRight: 0, width: '100%' }}
             />
           </Grid.Col>
         </Grid>

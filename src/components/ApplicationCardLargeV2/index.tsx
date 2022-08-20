@@ -26,14 +26,15 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'center',
     background: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
     '&:after': {
-      background: theme.colorScheme === 'dark' ? 'var(--background) !important' : 'white !important',
+      background:
+        theme.colorScheme === 'dark' ? 'var(--background) !important' : 'white !important',
     },
     '&:hover': {
       color: theme.colorScheme === 'dark' ? 'white' : 'black',
     },
     color: theme.colorScheme === 'dark' ? '#261d2b' : 'var(--grey)',
     WebkitTransition: '150ms ease-in-out',
-    transition: '150ms ease-in-out'
+    transition: '150ms ease-in-out',
   },
   lacLogoWrapper: {
     display: 'flex',
@@ -94,7 +95,7 @@ const useStyles = createStyles((theme) => ({
     fontStyle: 'normal',
     lineHeight: 'normal',
     letterSpacing: 'normal',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   lacButton: {
     marginRight: '48px',
@@ -115,8 +116,12 @@ export const ApplicationCardLargeV2: FC<ApplicationCardLargeV2Props> = ({
   return (
     <Link
       to={`/apps/${encodeString(appName)}`}
-      className={classes.lacOutline + " glow-on-hover px18 rise-on-hover-300"}
-      style={{ height: `${height}px`, ...additionalStyles, textDecoration: 'none' }}
+      className={classes.lacOutline + ' glow-on-hover px18 rise-on-hover-300'}
+      style={{
+        ...additionalStyles,
+        textDecoration: 'none',
+        height: `${height}px`
+      }}
     >
       <div className={classes.lacLogoWrapper}>
         <div className={classes.lacLogo}>

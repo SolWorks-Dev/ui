@@ -1,7 +1,6 @@
 import { createStyles, Grid } from '@mantine/core';
 import React, { FC } from 'react';
 import '../../common.css';
-import { Tag } from '../ApplicationCardMini';
 import { Logo } from '../Logo';
 import ReactMarkdown from 'react-markdown';
 
@@ -28,6 +27,9 @@ const useStyles = createStyles((theme) => ({
   },
   adcWrapper: {
     padding: '32px',
+    '@media (max-width: 420px)': {
+      padding: '24px',
+    },
   },
   adcHeader: {
     display: 'flex',
@@ -47,20 +49,19 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: '30px',
   },
   adcHeaderTag: {
-    paddingLeft: '30px',
     marginTop: '-20px',
   },
   adcHeaderDescription: {
-    textAlign: "left", 
-    paddingTop: "25px", 
-    fontFamily: "var(--font)", 
-    fontSize: "18px", 
-    fontWeight: 400, 
-    fontStretch: "normal", 
-    fontStyle: "normal", 
-    lineHeight: "1.33", 
-    letterSpacing: "normal", 
-    color: "#797f91"
+    textAlign: 'left',
+    paddingTop: '25px',
+    fontFamily: 'var(--font)',
+    fontSize: '18px',
+    fontWeight: 400,
+    fontStretch: 'normal',
+    fontStyle: 'normal',
+    lineHeight: '1.33',
+    letterSpacing: 'normal',
+    color: '#797f91',
   },
 }));
 
@@ -77,12 +78,9 @@ export const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
     <div className={classes.adcOutline}>
       <div className={classes.adcWrapper}>
         <div className={classes.adcHeader}>
-          <Grid justify={'center'} align={'center'} style={{ paddingLeft: '10px' }}>
-              <Logo logoUrl={logoUrl} altText="" sizePx={48} />
+          <Grid justify={'center'} align={'center'}>
+            <Logo logoUrl={logoUrl} altText="" sizePx={48} />
             <div className={classes.adcHeaderText}>{applicationName}</div>
-            <div className={classes.adcHeaderTag}>
-              <Tag tagColorHex={tagColorHex} tag={tag} size={'lg'} />
-            </div>
           </Grid>
         </div>
         <div className={classes.adcHeaderDescription}>

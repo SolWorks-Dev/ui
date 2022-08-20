@@ -1,4 +1,4 @@
-import { Badge, Grid, Group, LoadingOverlay } from '@mantine/core';
+import { Badge, createStyles, Grid, Group, LoadingOverlay } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 import { ActionCard } from '../components/ActionCard';
 import { ApplicationCardLargeV2 } from '../components/ApplicationCardLargeV2';
@@ -8,6 +8,28 @@ import { Heading } from '../components/Heading';
 import { appList } from '@solworks/application-registry';
 import { categoryToColorHex, formatCategoryLink } from '../Common';
 import { SecondaryButton } from '../components/SecondaryButton';
+import { Helmet } from 'react-helmet';
+
+const useStyles = createStyles((theme) => ({
+  wrapper: {
+    paddingBottom: '120px',
+    '@media (max-width: 755px)': {
+      paddingTop: '20px',
+    },
+    paddingTop: '0px',
+    '@media (max-width: 320px)': {
+      paddingLeft: '16px',
+      paddingRight: '16px',
+    },
+    '@media (max-width: 640px)': {
+      paddingLeft: '20px',
+      paddingRight: '20px',
+    },
+    paddingLeft: '48px',
+    paddingRight: '48px',
+    color: 'white',
+  }
+}));
 
 export const HomeView = () => {
   const [curatedRowApps, setCuratedRowApps] = useState<JSX.Element>();
@@ -16,6 +38,7 @@ export const HomeView = () => {
   const numberOfCuratedApps = appList.apps.filter((app) => app.app.is_curated)!.length;
   const numberOfNftApps = appList.apps.filter((app) => app.app.categories[0] === 'nft').length;
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { classes } = useStyles();
 
   useEffect(() => {
     // TODO: refactor from first category to any category
@@ -134,7 +157,36 @@ export const HomeView = () => {
   }, []);
 
   return (
-    <div className="body-wrapper">
+    <div className={classes.wrapper}>
+      <Helmet>
+        <title>SolApps: The directory for the best Solana applications</title>
+        <meta
+          name="description"
+          content="SolApps is an application directory for the best Solana projects. New curated projects added weekly."
+          data-react-helmet="true"
+        />
+        <meta
+          property="og:title"
+          content="SolApps: The directory for the best Solana applications"
+          data-react-helmet="true"
+        />
+        <meta
+          property="og:description"
+          content="SolApps is an application directory for the best Solana projects. New curated projects added weekly."
+          data-react-helmet="true"
+        />
+        <meta
+          property="og:url"
+          content="https://solapps.dev"
+          data-react-helmet="true"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://solapps.dev/og-image.png"
+          data-react-helmet="true"
+        />
+      </Helmet>
       <LoadingOverlay
         visible={isLoading}
         overlayOpacity={0.1}

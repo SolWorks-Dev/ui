@@ -16,7 +16,18 @@ export interface ApplicationPageProps {}
 const useStyles = createStyles((theme) => ({
   wrapper: {
     paddingBottom: '120px',
+    '@media (max-width: 755px)': {
+      paddingTop: '20px',
+    },
     paddingTop: '0px',
+    '@media (max-width: 320px)': {
+      paddingLeft: '16px',
+      paddingRight: '16px',
+    },
+    '@media (max-width: 640px)': {
+      paddingLeft: '20px',
+      paddingRight: '20px',
+    },
     paddingLeft: '48px',
     paddingRight: '48px',
     color: 'white',

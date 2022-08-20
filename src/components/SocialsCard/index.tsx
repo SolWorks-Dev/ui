@@ -15,6 +15,9 @@ const useStyles = createStyles((theme) => ({
   },
   scWrapper: {
     margin: '32px 32px 0px 32px',
+    '@media (max-width: 420px)': {
+      margin: '20px 20px 0px 20px',
+    },
     width: '100%',
   },
   scGroupWrapper: {
@@ -32,6 +35,9 @@ const useStyles = createStyles((theme) => ({
   },
   scGroupTitle: {
     fontFamily: 'var(--font)',
+    '@media (max-width: 420px)': {
+      fontSize: '18px',
+    },
     fontSize: '20px',
     fontWeight: 500,
     fontStretch: 'normal',
@@ -42,6 +48,9 @@ const useStyles = createStyles((theme) => ({
     color: '#7c7c7c',
   },
   scGroupFirstLink: {
+    '@media (max-width: 420px)': {
+      fontSize: '16px',
+    },
     fontSize: '20px',
     fontWeight: 'normal',
     fontStretch: 'normal',
@@ -63,6 +72,9 @@ const useStyles = createStyles((theme) => ({
   },
   scLink: {
     fontFamily: 'var(--font)',
+    '@media (max-width: 420px)': {
+      fontSize: '16px',
+    },
     fontSize: '20px',
     fontWeight: 'normal',
     fontStretch: 'normal',

@@ -19,13 +19,13 @@ import { getAnalytics } from 'firebase/analytics';
 import NavigationRouter from './NavigationRouter';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCsMrL742RRWPnje1JaTczkt6mP3-spGek',
-  authDomain: 'solapps-solworks.firebaseapp.com',
-  projectId: 'solapps-solworks',
-  storageBucket: 'solapps-solworks.appspot.com',
-  messagingSenderId: '358059785620',
-  appId: '1:358059785620:web:a8328e788ddf45ac34e381',
-  measurementId: 'G-WMBENV3S1N',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 const queryClient = new QueryClient();
 

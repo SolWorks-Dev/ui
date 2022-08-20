@@ -1,7 +1,5 @@
 .action-card {
   min-height: 100px;
-  height: 300px;
-  max-height: 400px;
   min-width: 240px;
   width: 100%;
   color: white;
@@ -13,19 +11,6 @@
   text-align: center;
   position: relative;
 }
-
-@media (max-width: 410px) and (min-width: 390px) {
-  .action-card {
-    height: 340px;
-  }  
-}
-
-@media (max-width: 390px) {
-  .action-card {
-    height: 360px;
-  }  
-}
-
 
 .action-card-title {
   font-size: 24px;

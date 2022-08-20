@@ -1,4 +1,4 @@
-import { Badge, Center, Grid, Group, LoadingOverlay } from '@mantine/core';
+import { Badge, Grid, Group, LoadingOverlay } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 import { ActionCard } from '../components/ActionCard';
 import { ApplicationCardLargeV2 } from '../components/ApplicationCardLargeV2';

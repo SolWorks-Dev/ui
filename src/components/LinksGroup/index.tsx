@@ -7,6 +7,7 @@ import {
   UnstyledButton,
   createStyles,
   Badge,
+  Tooltip,
 } from '@mantine/core';
 import { Icon as TablerIcon, ChevronLeft, ChevronRight } from 'tabler-icons-react';
 import { HashLink } from 'react-router-hash-link';
@@ -22,8 +23,12 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     border: theme.colorScheme === 'dark' ? 'solid 2px transparent' : 'solid 2px white',
     fontSize: theme.fontSizes.lg,
     '&:hover': {
-      backgroundColor: theme.colorScheme === 'dark' ? 'var(--solworks-background)' : 'var(--lm-selected-menu)',
-      border: theme.colorScheme === 'dark' ? 'solid 2px var(--solworks-background)' : 'solid 2px var(--lm-selected-menu-border)',
+      backgroundColor:
+        theme.colorScheme === 'dark' ? 'var(--solworks-background)' : 'var(--lm-selected-menu)',
+      border:
+        theme.colorScheme === 'dark'
+          ? 'solid 2px var(--solworks-background)'
+          : 'solid 2px var(--lm-selected-menu-border)',
       color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
       borderRadius: theme.colorScheme === 'dark' ? '6px' : '20px 0 0 20px',
       [`& .${getRef('label')}`]: {
@@ -44,7 +49,8 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     font: 'Roboto',
     border: 'solid 2px transparent',
     '&:hover': {
-      backgroundColor: theme.colorScheme === 'dark' ? 'var(--solworks-background)' : 'var(--lm-selected-menu)',
+      backgroundColor:
+        theme.colorScheme === 'dark' ? 'var(--solworks-background)' : 'var(--lm-selected-menu)',
       border: theme.colorScheme === 'dark' ? 'none' : 'solid 2px var(--lm-selected-menu-border)',
       color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
       borderRadius: theme.colorScheme === 'dark' ? '6px' : '20px 0 0 20px',
@@ -63,8 +69,8 @@ const useStyles = createStyles((theme, _params, getRef) => ({
   },
   label: {
     color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
-    ref: getRef('label')
-  }
+    ref: getRef('label'),
+  },
 }));
 
 interface LinksGroupProps {
@@ -72,6 +78,8 @@ interface LinksGroupProps {
   label: string;
   initiallyOpened: boolean;
   links?: { label: string; link: string; comingSoon?: boolean }[];
+  link?: string;
+  disabled?: boolean;
   hideMenu?: () => void;
 }
 
@@ -80,6 +88,8 @@ export function LinksGroup({
   label,
   initiallyOpened,
   links,
+  link,
+  disabled,
   hideMenu,
 }: LinksGroupProps) {
   const { classes, theme } = useStyles();
@@ -90,20 +100,45 @@ export function LinksGroup({
 
   useEffect(() => {
     if (links) {
-      setItems(links.map((link) => MenuSubLink(classes, link, hideMenu)));
+      setItems(links.map((sublink) => MenuSubLink(classes, sublink, hideMenu)));
     }
-  }, [opened]);
+  }, [opened, hideMenu, initiallyOpened, links, classes]);
 
-  if (!hasLinks) {
+  if (disabled) {
     return (
-      <UnstyledButton className={classes.control} onClick={hideMenu}>
-        <HashLink smooth to={`/#${label.toLocaleLowerCase()}`} className="link">
+      <Tooltip label="Coming soon" style={{ width: '100%' }}>
+        <UnstyledButton
+          className={classes.control}
+          onClick={hideMenu}
+          style={{ cursor: 'default' }}
+        >
           <Group position="apart" spacing={0}>
             <Box className={classes.iconWrapper}>
               <ThemeIcon variant="outline" size={32} className={classes.icon}>
                 <Icon size={22} />
               </ThemeIcon>
-              <Box ml="md" className={classes.label}>{label}</Box>
+              <Box ml="md" className={classes.label}>
+                {label}
+              </Box>
+            </Box>
+          </Group>
+        </UnstyledButton>
+      </Tooltip>
+    );
+  }
+
+  if (!hasLinks && link) {
+    return (
+      <UnstyledButton className={classes.control} onClick={hideMenu}>
+        <HashLink smooth to={link} className="link">
+          <Group position="apart" spacing={0}>
+            <Box className={classes.iconWrapper}>
+              <ThemeIcon variant="outline" size={32} className={classes.icon}>
+                <Icon size={22} />
+              </ThemeIcon>
+              <Box ml="md" className={classes.label}>
+                {label}
+              </Box>
             </Box>
           </Group>
         </HashLink>
@@ -118,7 +153,9 @@ export function LinksGroup({
               <ThemeIcon variant="outline" size={32} className={classes.icon}>
                 <Icon size={22} />
               </ThemeIcon>
-              <Box ml="md" className={classes.label}>{label}</Box>
+              <Box ml="md" className={classes.label}>
+                {label}
+              </Box>
             </Box>
             {hasLinks && (
               <ChevronIcon

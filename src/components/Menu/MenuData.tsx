@@ -4,7 +4,7 @@ import { MenuLinkDetails } from './index';
 import { formatCategoryLink } from '../../Common';
 
 export const MenuData: MenuLinkDetails[] = [
-  { label: 'Curated', icon: Filter, link: '/#curated', initiallyOpened: false },
+  { label: 'Curated', icon: Filter, link: formatCategoryLink('curated'), initiallyOpened: false },
   {
     label: 'Categories',
     icon: ListDetails,
@@ -44,7 +44,7 @@ export const MenuData: MenuLinkDetails[] = [
     ],
     initiallyOpened: false,
   },
-  { label: 'Roadmap', icon: Track, link: '/roadmap', initiallyOpened: false },
+  { label: 'Roadmap', icon: Track, link: '/roadmap', initiallyOpened: false, disabled: true },
   {
     label: 'Ecosystem',
     icon: BuildingSkyscraper,

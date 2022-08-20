@@ -17,6 +17,7 @@ export type MenuLinkDetails = {
   }[];
   link?: string;
   initiallyOpened: boolean;
+  disabled?: boolean;
 };
 
 const useStyles = createStyles((theme) => ({

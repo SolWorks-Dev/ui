@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import '../../common.css';
 import { Logo } from '../Logo';
 import { Link } from 'react-router-dom';
-import { Badge, createStyles, MantineSize } from '@mantine/core';
+import { Badge, Center, createStyles, MantineSize } from '@mantine/core';
 import { encodeString } from '../../Common';
 
 export type TagColor = 'light-blue' | 'orange' | 'purple' | 'red' | 'green' | 'violet';
@@ -83,9 +83,9 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
       style={{ ...additionalStyles, textDecoration: 'none' }}
     >
       <div className={classes.macOutline + " glow-on-hover px18 rise-on-hover-300"}>
-        <div className={classes.macLogo}>
+        <Center className={classes.macLogo}>
           <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
-        </div>
+        </Center>
         <div className={classes.macTitle}>{appName}</div>
         <Tag tagColorHex={tagColorHex} tag={tag} />
         <div className={classes.macDivider} />

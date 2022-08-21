@@ -9,7 +9,7 @@
     "@mantine/core": "^4.2.12",
     "@mantine/hooks": "^4.2.12",
     "@mantine/spotlight": "^4.2.12",
-    "@solworks/application-registry": "^0.0.26",
+    "@solworks/application-registry": "^0.0.29",
     "@storybook/addon-backgrounds": "^6.5.9",
     "@tanstack/react-query": "^4.0.10",
     "@types/node": "^16.11.43",

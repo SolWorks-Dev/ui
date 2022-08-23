@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, Grid } from '@mantine/core';
 import React, { FC } from 'react';
 import '../../common.css';
 
@@ -134,20 +134,20 @@ const LinkGroup: FC<LinkGroupProps> = ({ title, urlAndTexts }) => {
   if (urlAndTexts.length === 0) {
     return (
       <div className={classes.scGroupWrapper}>
-        <div className={classes.scFirstRow}>
+        <Grid className={classes.scFirstRow} style={{ margin: 0 }}>
           <div className={classes.scGroupTitle}>{title}</div>
           <div className="grey-text">N/A</div>
-        </div>
+        </Grid>
       </div>
     );
   }
 
   return (
     <div className={classes.scGroupWrapper}>
-      <div className={classes.scFirstRow}>
+      <Grid className={classes.scFirstRow} style={{ margin: 0 }}>
         <div className={classes.scGroupTitle}>{title}</div>
         <Link text={urlAndTexts[0].text} url={urlAndTexts[0].url} />
-      </div>
+      </Grid>
       {additionalLinks}
     </div>
   );
@@ -165,7 +165,9 @@ const Link: FC<LinkProps> = ({ text, url, additionalRow = false }) => {
   return (
     <a
       className={
-        additionalRow ? `${classes.scAdditionalRow} ${classes.scLink} link-hover` : `${classes.scLink} link-hover`
+        additionalRow
+          ? `${classes.scAdditionalRow} ${classes.scLink} link-hover`
+          : `${classes.scLink} link-hover`
       }
       href={url}
       target="_blank"

@@ -78,10 +78,8 @@ export const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
     <div className={classes.adcOutline}>
       <div className={classes.adcWrapper}>
         <div className={classes.adcHeader}>
-          <Grid justify={'center'} align={'center'}>
-            <Logo logoUrl={logoUrl} altText="" sizePx={48} />
-            <div className={classes.adcHeaderText}>{applicationName}</div>
-          </Grid>
+          <Logo logoUrl={logoUrl} altText="" sizePx={48} />
+          <div className={classes.adcHeaderText}>{applicationName}</div>
         </div>
         <div className={classes.adcHeaderDescription}>
           <ReactMarkdown children={description} />

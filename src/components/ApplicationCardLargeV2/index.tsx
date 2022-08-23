@@ -3,7 +3,7 @@ import '../../common.css';
 import { Logo } from '../Logo';
 import { Link } from 'react-router-dom';
 import { encodeString } from '../../Common';
-import { createStyles } from '@mantine/core';
+import { createStyles, MediaQuery } from '@mantine/core';
 
 export interface ApplicationCardLargeV2Props {
   logoUrl: string;
@@ -120,7 +120,7 @@ export const ApplicationCardLargeV2: FC<ApplicationCardLargeV2Props> = ({
       style={{
         ...additionalStyles,
         textDecoration: 'none',
-        height: `${height}px`
+        height: `${height}px`,
       }}
     >
       <div className={classes.lacLogoWrapper}>
@@ -129,7 +129,9 @@ export const ApplicationCardLargeV2: FC<ApplicationCardLargeV2Props> = ({
         </div>
         <div className={classes.lacTitleWrapper}>
           <div className={classes.lacTitle}>{appName}</div>
-          <div className={classes.lacDescription}>{description}</div>
+          <MediaQuery smallerThan={'xs'} styles={{ fontSize: '14px', marginTop: '10px' }}>
+            <div className={classes.lacDescription}>{description}</div>
+          </MediaQuery>
         </div>
       </div>
       <div className={classes.lacTapWrapper}>

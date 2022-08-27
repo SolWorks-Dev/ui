@@ -6,7 +6,6 @@ const useStyles = createStyles((theme) => ({
   linkCardOutline: {
     border: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
     borderRadius: '18px',
-    minWidth: '256px',
     maxWidth: '100%',
     height: '175px',
     textAlign: 'center',

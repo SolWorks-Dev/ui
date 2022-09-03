@@ -106,7 +106,9 @@ export const CategoryView = () => {
           data-react-helmet="true"
         />
       </Helmet>
-      <Breadcrumb appName={category ? category.heading_label : 'Not found'} />
+      <Breadcrumb
+        categoryName={category ? category.heading_label : ''}
+      />
       <Grid gutter="xl" style={{ marginTop: '20px' }}>
         <Grid.Col xs={12} md={6} lg={6}>
           <div style={{ marginBottom: '30px' }}>

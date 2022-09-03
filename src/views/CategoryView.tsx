@@ -78,20 +78,20 @@ export const CategoryView = () => {
   return (
     <div className={classes.wrapper}>
       <Helmet>
-        <title>{`${category?.heading_label} | SolApps`}</title>
+        <title>{`${category?.heading_label || ''} | SolApps`}</title>
         <meta
           name="description"
-          content={`View all of the best ${category?.heading_label} projects on SolApps.`}
+          content={`View all of the best ${category?.heading_label || ''} projects on SolApps.`}
           data-react-helmet="true"
         />
         <meta
           property="og:title"
-          content={`${category?.heading_label} | SolApps`}
+          content={`${category?.heading_label || ''} | SolApps`}
           data-react-helmet="true"
         />
         <meta
           property="og:description"
-          content={`View all of the best ${category?.heading_label} projects on SolApps.`}
+          content={`View all of the best ${category?.heading_label || ''} projects on SolApps.`}
           data-react-helmet="true"
         />
         <meta

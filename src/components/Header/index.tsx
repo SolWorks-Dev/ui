@@ -100,6 +100,10 @@ const useStyles = createStyles((theme) => ({
   },
   wrapper: {
     color: 'var(--grey)',
+    '@media (min-width: 500px)': {
+      width: '400px',
+    },
+    width: '100%',
   },
   defaultVariant: {
     color: 'var(--grey)',
@@ -124,9 +128,9 @@ const useStyles = createStyles((theme) => ({
   input: {
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
   },
-  rightSection: { 
-    color: 'var(--grey)'
-  }
+  rightSection: {
+    color: 'var(--grey)',
+  },
 }));
 
 export const Header: FC<HeaderProps> = ({

@@ -15,6 +15,8 @@ export function formatCategoryLink(categoryName: string) {
 
 export function categoryToColorHex(category: string): string {
   switch (category.toLowerCase()) {
+    case 'aggregator':
+      return '#BF8A8F';
     case 'amm':
     case 'amms':
       return '#71adff';

@@ -1,4 +1,12 @@
-import { ActionIcon, createStyles, Grid, Group, Navbar, ScrollArea, useMantineColorScheme } from '@mantine/core';
+import {
+  ActionIcon,
+  createStyles,
+  Grid,
+  Group,
+  Navbar,
+  ScrollArea,
+  useMantineColorScheme,
+} from '@mantine/core';
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon, MoonStars, Sun } from 'tabler-icons-react';
@@ -25,7 +33,8 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
     paddingBottom: 0,
     borderLeft: 0,
-    borderRight: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
+    borderRight:
+      theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
   },
 
   header: {
@@ -70,8 +79,9 @@ const useStyles = createStyles((theme) => ({
     borderRadius: '8px',
     background: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
     '&:after': {
-      background: theme.colorScheme === 'dark' ? 'var(--background) !important' : 'white !important',
-    }
+      background:
+        theme.colorScheme === 'dark' ? 'var(--background) !important' : 'white !important',
+    },
   },
 
   socialButtonText: {
@@ -98,8 +108,8 @@ const useStyles = createStyles((theme) => ({
 
   headerTitle: {
     color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
-    textDecoration: 'none'
-  }
+    textDecoration: 'none',
+  },
 }));
 
 export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen: boolean }> = ({
@@ -112,6 +122,7 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
 
   useEffect(() => {
     setLinks(MenuData.map((item) => <LinksGroup {...item} key={item.label} hideMenu={hideMenu} />));
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -172,7 +183,10 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
             <SocialButton text="Docs" url="https://help.solworks.dev" />
           </Grid.Col>
           <Grid.Col xs={6} md={6} lg={6} xl={6}>
-            <SocialButton text="Contact" url="https://twitter.com/messages/compose?recipient_id=1547241706990567426" />
+            <SocialButton
+              text="Contact"
+              url="https://twitter.com/messages/compose?recipient_id=1547241706990567426"
+            />
           </Grid.Col>
         </Grid>
       </Navbar.Section>

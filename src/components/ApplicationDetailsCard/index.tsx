@@ -1,4 +1,4 @@
-import { createStyles, Grid } from '@mantine/core';
+import { createStyles } from '@mantine/core';
 import React, { FC } from 'react';
 import '../../common.css';
 import { Logo } from '../Logo';

@@ -5,7 +5,7 @@ import {
   createStyles,
   MantineProvider,
 } from '@mantine/core';
-import React, { FC } from 'react';
+import React from 'react';
 import { Header } from './components/Header';
 import { Menu } from './components/Menu';
 import './common.css';
@@ -73,6 +73,7 @@ export default function App() {
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
   const app = initializeApp(firebaseConfig);
+  // eslint-disable-next-line
   const analytics = getAnalytics(app);
 
   return (

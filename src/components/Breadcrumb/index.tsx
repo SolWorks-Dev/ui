@@ -20,13 +20,14 @@ export const Breadcrumb: FC<{ appName?: string; categoryName?: string }> = ({
   let items: BreadcrumbItem[] = [{ title: 'Home', link: '/', active: true, emoji: '🏠' }];
 
   if (categoryName) {
-    var category = (categoryName === 'curated') 
-      ? {
-        value: 'curated',
-        tag_label: 'Curated',
-        heading_label: 'Curated',
-      }
-      : appList.categories.find((x) => x.heading_label === categoryName)!;
+    var category =
+      categoryName.toLowerCase() === 'curated'
+        ? {
+            value: 'curated',
+            tag_label: 'Curated',
+            heading_label: 'Curated',
+          }
+        : appList.categories.find((x) => x.heading_label === categoryName)!;
     items.push({
       title: category.heading_label,
       link: `${formatCategoryLink(category.value)}`,

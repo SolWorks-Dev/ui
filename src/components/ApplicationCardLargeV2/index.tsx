@@ -17,7 +17,7 @@ export interface ApplicationCardLargeV2Props {
 const useStyles = createStyles((theme) => ({
   lacOutline: {
     border: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
-    borderRadius: '18px',
+    borderRadius: '8px',
     maxWidth: '100%',
     height: '100%',
     textAlign: 'center',

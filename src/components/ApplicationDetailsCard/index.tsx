@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
   adcOutline: {
     color: 'white',
     border: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
-    borderRadius: '18px',
+    borderRadius: '8px',
     minWidth: '285px',
     maxWidth: '100%',
     maxHeight: '100%',

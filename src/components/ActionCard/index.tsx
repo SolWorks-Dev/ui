@@ -21,7 +21,7 @@ const useStyles = createStyles((theme) => ({
     fontFamily: "'Roboto'", 
     display: "flex", 
     justifyContent: "center", 
-    borderRadius: "18px", 
+    borderRadius: "8px", 
     border: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
     textAlign: "center", 
     position: "relative",

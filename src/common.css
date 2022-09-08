@@ -86,7 +86,7 @@ body.sb-show-main {
 }
 
 .glow-on-hover.px18 {
-  border-radius: 18px;
+  border-radius: 8px;
 }
 
 .glow-on-hover:before {
@@ -128,7 +128,7 @@ body.sb-show-main {
 }
 
 .glow-on-hover.px18:before {
-  border-radius: 18px;
+  border-radius: 8px;
 }
 
 .glow-on-hover:active {
@@ -152,7 +152,7 @@ body.sb-show-main {
 }
 
 .glow-on-hover.px18:after {
-  border-radius: 18px;
+  border-radius: 8px;
 }
 
 .glow-on-hover.no-bg:after {

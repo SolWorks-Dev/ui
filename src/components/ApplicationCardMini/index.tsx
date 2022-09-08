@@ -19,7 +19,7 @@ export interface ApplicationCardMiniProps {
 const useStyles = createStyles((theme) => ({
   macOutline: {
     border: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
-    borderRadius: '18px',
+    borderRadius: '8px',
     textAlign: 'center',
     cursor: 'pointer',
     background: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',

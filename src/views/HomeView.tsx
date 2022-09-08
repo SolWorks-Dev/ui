@@ -75,9 +75,9 @@ export const HomeView = () => {
       );
 
       const otherAppsList: any[] = otherApps.slice(0, 6).map((x, index) => {
-        if (index % 3 !== 0) {
+        if (index !== 0) {
           return (
-            <Grid.Col xs={6} md={3} lg={3} xl={3}>
+            <Grid.Col span={6} sm={4} md={3} lg={3}>
               <ApplicationCardMini
                 logoUrl={x.urls.logo}
                 appName={x.app.label}
@@ -119,7 +119,7 @@ export const HomeView = () => {
     const curatedAppCards = (
       <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
         {curatedApps.slice(0, 8).map((app) => (
-          <Grid.Col xs={6} sm={3} md={3} lg={3} xl={3}>
+          <Grid.Col span={6} sm={4} md={3} lg={3}>
             <ApplicationCardMini
               logoUrl={app.urls.logo}
               appName={app.app.label}
@@ -140,7 +140,7 @@ export const HomeView = () => {
       <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
         {nftApps.slice(0, 6).map((app) => (
           <>
-            <MediaQuery smallerThan={420} styles={{ display: 'none' }}>
+            <MediaQuery smallerThan={"sm"} styles={{ display: 'none' }}>
               <Grid.Col xs={12} md={6} lg={6}>
                 <ApplicationCardLargeV2
                   logoUrl={app.urls.logo}
@@ -150,8 +150,8 @@ export const HomeView = () => {
                 />
               </Grid.Col>
             </MediaQuery>
-            <MediaQuery largerThan={420} styles={{ display: 'none' }}>
-              <Grid.Col xs={12} md={6} lg={6}>
+            <MediaQuery largerThan={"sm"} styles={{ display: 'none' }}>
+            <Grid.Col span={6} sm={4} md={3} lg={3}>
                 <ApplicationCardMini
                   logoUrl={app.urls.logo}
                   appName={app.app.label}

@@ -34,7 +34,7 @@ const useStyles = createStyles((theme) => ({
     paddingBottom: 0,
     borderLeft: 0,
     borderRight:
-      theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
+      theme.colorScheme === 'dark' ? '1px solid #261d2b' : '1px solid rgb(153, 153, 153)',
   },
 
   header: {
@@ -47,7 +47,7 @@ const useStyles = createStyles((theme) => ({
   links: {
     marginRight: 0,
     color: theme.colorScheme === 'dark' ? 'white' : 'black',
-    borderTop: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
+    borderTop: theme.colorScheme === 'dark' ? '1px solid #261d2b' : '1px solid rgb(153, 153, 153)',
     paddingTop: '12px',
   },
 
@@ -69,7 +69,7 @@ const useStyles = createStyles((theme) => ({
     minWidth: '60px',
     height: '48px',
     minHeight: '48px',
-    border: theme.colorScheme === 'dark' ? 'solid 1px #24182f' : '1px solid rgb(153, 153, 153)',
+    border: theme.colorScheme === 'dark' ? '1px solid #261d2b' : '1px solid rgb(153, 153, 153)',
     backgroundColor: 'none',
     display: 'flex',
     textAlign: 'center',

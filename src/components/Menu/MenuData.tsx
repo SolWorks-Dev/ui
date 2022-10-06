@@ -51,7 +51,7 @@ export const MenuData: MenuLinkDetails[] = [
     links: [
       { label: 'SolWorks', link: 'https://solworks.dev', comingSoon: false, external: true },
       { label: 'SolApps', link: '/#', comingSoon: false, external: false },
-      { label: 'SolToolkit', link: 'https://www.npmjs.com/package/@solworks/soltoolkit-sdk', comingSoon: false, external: true },
+      { label: 'SolToolkit', link: 'https://soltoolkit.dev', comingSoon: false, external: true },
       { label: 'SolDisperse', link: '/', comingSoon: true, external: false },
       { label: 'Sujiko', link: '/', comingSoon: true, external: false },
     ],

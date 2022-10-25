@@ -180,7 +180,7 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
             <SocialButton text="Discord" url="https://discord.com/invite/qfEGBPRyUt" />
           </Grid.Col>
           <Grid.Col xs={6} md={6} lg={6} xl={6}>
-            <SocialButton text="Docs" url="https://help.solworks.dev" />
+            <SocialButton text="Docs" url="https://docs.solworks.dev" />
           </Grid.Col>
           <Grid.Col xs={6} md={6} lg={6} xl={6}>
             <SocialButton

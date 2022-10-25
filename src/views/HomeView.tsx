@@ -221,7 +221,7 @@ export const HomeView = () => {
                 Read our getting started guide.
               </>
             }
-            actionLink="https://help.solworks.dev/"
+            actionLink="https://docs.solworks.dev/"
             actionButtonText="Learn more"
           />
         </Grid.Col>

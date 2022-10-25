@@ -27,7 +27,7 @@ export const MenuData: MenuLinkDetails[] = [
     label: 'Help',
     icon: Firetruck,
     links: [
-      { label: 'Getting started', link: 'https://help.solworks.dev', comingSoon: false, external: true },
+      { label: 'Getting started', link: 'https://docs.solworks.dev', comingSoon: false, external: true },
       {
         label: 'Listing: Apply',
         link: 'https://k722zc9ivtg.typeform.com/to/uN4Pklej',

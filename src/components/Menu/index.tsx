@@ -9,24 +9,10 @@ import {
 } from '@mantine/core';
 import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Icon, MoonStars, Sun } from 'tabler-icons-react';
+import { MoonStars, Sun } from 'tabler-icons-react';
 import '../../common.css';
 import { LinksGroup } from '../LinksGroup';
 import { MenuData } from './MenuData';
-
-export type MenuLinkDetails = {
-  label: string;
-  icon: Icon;
-  links?: {
-    label: string;
-    link: string;
-    comingSoon: boolean;
-    external: boolean;
-  }[];
-  link?: string;
-  initiallyOpened: boolean;
-  disabled?: boolean;
-};
 
 const useStyles = createStyles((theme) => ({
   navbar: {

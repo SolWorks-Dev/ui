@@ -81,6 +81,7 @@ interface LinksGroupProps {
   link?: string;
   disabled?: boolean;
   hideMenu?: () => void;
+  external?: boolean;
 }
 
 export function LinksGroup({
@@ -91,6 +92,7 @@ export function LinksGroup({
   link,
   disabled,
   hideMenu,
+  external
 }: LinksGroupProps) {
   const { classes, theme } = useStyles();
   const hasLinks = Array.isArray(links);
@@ -128,22 +130,41 @@ export function LinksGroup({
   }
 
   if (!hasLinks && link) {
-    return (
-      <UnstyledButton className={classes.control} onClick={hideMenu}>
-        <HashLink smooth to={link} className="link">
-          <Group position="apart" spacing={0}>
-            <Box className={classes.iconWrapper}>
-              <ThemeIcon variant="outline" size={32} className={classes.icon}>
-                <Icon size={22} />
-              </ThemeIcon>
-              <Box ml="md" className={classes.label}>
-                {label}
+    if (external) {
+      return (
+        <UnstyledButton className={classes.control} onClick={hideMenu}>
+          <a href={link} className="link" target="_blank" rel="noreferrer">
+            <Group position="apart" spacing={0}>
+              <Box className={classes.iconWrapper}>
+                <ThemeIcon variant="outline" size={32} className={classes.icon}>
+                  <Icon size={22} />
+                </ThemeIcon>
+                <Box ml="md" className={classes.label}>
+                  {label}
+                </Box>
               </Box>
-            </Box>
-          </Group>
-        </HashLink>
-      </UnstyledButton>
-    );
+            </Group>
+          </a>
+        </UnstyledButton>
+      );
+    } else {
+      return (
+        <UnstyledButton className={classes.control} onClick={hideMenu}>
+          <HashLink smooth to={link} className="link">
+            <Group position="apart" spacing={0}>
+              <Box className={classes.iconWrapper}>
+                <ThemeIcon variant="outline" size={32} className={classes.icon}>
+                  <Icon size={22} />
+                </ThemeIcon>
+                <Box ml="md" className={classes.label}>
+                  {label}
+                </Box>
+              </Box>
+            </Group>
+          </HashLink>
+        </UnstyledButton>
+      );
+    }
   } else {
     return (
       <>

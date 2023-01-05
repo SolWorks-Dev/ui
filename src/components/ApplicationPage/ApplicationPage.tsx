@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { createStyles, Grid } from '@mantine/core';
+import { Badge, createStyles, Grid } from '@mantine/core';
 import { Heading } from '../Heading';
 import { ApplicationCardMini } from '../ApplicationCardMini';
 import { LinkCard } from '../LinkCard';
@@ -129,7 +129,7 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
       <Grid gutter="xl" style={{ marginTop: '20px' }}>
         <Grid.Col xs={12} md={6} lg={6}>
           <div style={{ marginBottom: '30px' }}>
-            <Heading text="Application" />
+            <Heading text={`Application ${data ? data?.app.is_deprecated ? "(DEPRECATED)" : "" : ""}`} />
           </div>
           <ApplicationDetailsCard
             applicationName={data ? data.app.label : ''}
@@ -137,6 +137,7 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
             description={data ? data.description.long : ''}
             tag={data ? data.app.categories[0] : ''}
             tagColorHex={categoryToColorHex(data ? data.app.categories[0] : '')}
+            isDeprecated={data ? data.app.is_deprecated || false : false}
           />
         </Grid.Col>
         <Grid.Col xs={12} md={6} lg={6}>

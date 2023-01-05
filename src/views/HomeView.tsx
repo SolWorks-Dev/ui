@@ -42,7 +42,9 @@ export const HomeView = () => {
 
   useEffect(() => {
     // TODO: refactor from first category to any category
-    const curatedApps = appList.apps.filter((app) => app.app.is_curated)!;
+    const curatedApps = appList.apps
+      .sort((a, b) => a.app.label.localeCompare(b.app.label))
+      .filter((app) => app.app.is_curated)!;
     const nftApps = appList.apps.filter((app) => app.app.categories[0] === 'nft');
     const otherApps = appList.apps
       .filter((app) => app.app.categories[0] !== 'nft')
@@ -118,7 +120,7 @@ export const HomeView = () => {
 
     const curatedAppCards = (
       <Grid gutter="xl" justify={'space-between'} style={{ marginTop: '20px' }}>
-        {curatedApps.slice(0, 8).map((app) => (
+        {curatedApps.slice(2, 10).map((app) => (
           <Grid.Col span={6} sm={4} md={3} lg={3}>
             <ApplicationCardMini
               logoUrl={app.urls.logo}

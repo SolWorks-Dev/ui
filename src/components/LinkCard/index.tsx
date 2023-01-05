@@ -84,6 +84,7 @@ const useStyles = createStyles((theme) => ({
 export interface LinkCardProps {
   title: string;
   url: string;
+  disabled?: boolean;
 }
 
 export const LinkCard: FC<LinkCardProps> = ({ title, url }) => {

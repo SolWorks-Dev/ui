@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/core';
+import { Badge, createStyles } from '@mantine/core';
 import React, { FC } from 'react';
 import '../../common.css';
 import { Logo } from '../Logo';
@@ -10,6 +10,7 @@ export interface ApplicationDetailsCardProps {
   tag: string;
   tagColorHex: string;
   description: string;
+  isDeprecated: boolean;
 }
 
 const useStyles = createStyles((theme) => ({
@@ -49,7 +50,8 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: '30px',
   },
   adcHeaderTag: {
-    marginTop: '-20px',
+    marginTop: '-5px',
+    paddingLeft: '30px',
   },
   adcHeaderDescription: {
     textAlign: 'left',
@@ -71,6 +73,7 @@ export const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
   tag,
   tagColorHex,
   description,
+  isDeprecated
 }) => {
   const { classes } = useStyles();
 
@@ -80,6 +83,9 @@ export const ApplicationDetailsCard: FC<ApplicationDetailsCardProps> = ({
         <div className={classes.adcHeader}>
           <Logo logoUrl={logoUrl} altText="" sizePx={48} />
           <div className={classes.adcHeaderText}>{applicationName}</div>
+          <div className={classes.adcHeaderTag}>
+            {isDeprecated ? <Badge color={'red'}>DEPRECATED</Badge> : null}
+          </div>
         </div>
         <div className={classes.adcHeaderDescription}>
           <ReactMarkdown children={description} />

@@ -73,10 +73,11 @@ export const MenuData: MenuLinkDetails[] = [
     links: [
       { label: 'SolWorks', link: 'https://solworks.dev', comingSoon: false, external: true },
       { label: 'SolApps', link: '/#', comingSoon: false, external: false },
+      { label: 'Sujiko', link: 'https://sujiko.dev', comingSoon: false, external: true },
+      { label: 'Footpath', link: 'https://solworks.notion.site/Footpath-15acf5c8403b4361a0118aea23e39b0a', comingSoon: false, external: true },
+      { label: 'Col8', link: 'https://github.com/SolWorks-Dev/col8', comingSoon: false, external: true },
       { label: 'SolToolkit', link: 'https://soltoolkit.dev', comingSoon: false, external: true },
       { label: 'SolDisperse', link: '/', comingSoon: true, external: false },
-      { label: 'Footpath', link: '/', comingSoon: true, external: false },
-      { label: 'Sujiko', link: 'https://sujiko.dev', comingSoon: false, external: true },
     ],
     initiallyOpened: false,
   },

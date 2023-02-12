@@ -218,7 +218,7 @@ export const Header: FC<HeaderProps> = ({
           >
             <ActionIcon<'a'>
               component="a"
-              href="https://discord.com/invite/qfEGBPRyUt"
+              href="https://discord.com/invite/sujiko"
               target="_blank"
               rel="noreferrer"
               size="xl"

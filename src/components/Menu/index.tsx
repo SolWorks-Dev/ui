@@ -163,7 +163,7 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
             <SocialButton text="Twitter" url="https://twitter.com/SolApps_" />
           </Grid.Col>
           <Grid.Col xs={6} md={6} lg={6} xl={6}>
-            <SocialButton text="Discord" url="https://discord.com/invite/qfEGBPRyUt" />
+            <SocialButton text="Discord" url="https://discord.com/invite/sujiko" />
           </Grid.Col>
           <Grid.Col xs={6} md={6} lg={6} xl={6}>
             <SocialButton text="Docs" url="https://docs.solworks.dev" />

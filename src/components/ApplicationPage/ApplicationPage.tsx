@@ -61,6 +61,16 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
         </Grid.Col>
       );
 
+      if (data.urls.github !== undefined) {
+        if (data.urls.github !== "") {
+          tempCards.push(
+            <Grid.Col xs={12} md={12} lg={6}>
+              <LinkCard title="GitHub" url={data.urls.github} />
+            </Grid.Col>
+          );
+        }
+      }
+
       // display other urls
       if (data.urls.other) {
         const otherUrls = data.urls.other.map((url) => {

@@ -2501,10 +2501,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@solworks/application-registry@^0.0.56":
-  "integrity" "sha512-gPmf3sTnGZYT8MzvWI0ZSQt+pik2qjky0VYfXelpg2lldokZDWu56vGu85eAxTMULHgdrAqTvo36lJGCJbbEOQ=="
-  "resolved" "https://registry.npmjs.org/@solworks/application-registry/-/application-registry-0.0.56.tgz"
-  "version" "0.0.56"
+"@solworks/application-registry@^0.0.57":
+  "integrity" "sha512-uNjmXpoHJr/AJZHMID7+XAPsQs3yvBO3A7A1e2t6PDg3oiUt36QYXCXHtORWJRhVqCfnOhgV95M2JeAwHcU9vw=="
+  "resolved" "https://registry.npmjs.org/@solworks/application-registry/-/application-registry-0.0.57.tgz"
+  "version" "0.0.57"
   dependencies:
     "toml" "^3.0.0"
 

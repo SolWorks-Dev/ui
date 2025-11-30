@@ -3,81 +3,180 @@ import {
   Group,
   Box,
   Collapse,
-  ThemeIcon,
-  UnstyledButton,
   createStyles,
   Badge,
   Tooltip,
 } from '@mantine/core';
-import { Icon as TablerIcon, ChevronLeft, ChevronRight } from 'tabler-icons-react';
+import { Icon as TablerIcon, ChevronLeft, ChevronRight, ExternalLink } from 'tabler-icons-react';
 import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme, _params, getRef) => ({
   control: {
-    fontWeight: 400,
-    display: 'block',
+    fontWeight: 500,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     width: '100%',
-    padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
-    color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
-    border: theme.colorScheme === 'dark' ? 'solid 2px transparent' : 'solid 2px white',
-    fontSize: theme.fontSizes.lg,
+    padding: '12px 16px',
+    color: 'var(--text-secondary)',
+    border: 'none',
+    fontSize: '14px',
+    fontFamily: 'var(--font-body)',
+    borderRadius: 'var(--radius-md)',
+    transition: 'all 0.25s var(--ease-out-quart)',
+    marginBottom: '2px',
+    textDecoration: 'none',
+    cursor: 'pointer',
+    background: 'transparent',
+
     '&:hover': {
-      backgroundColor:
-        theme.colorScheme === 'dark' ? 'var(--solworks-background)' : 'var(--lm-selected-menu)',
-      border:
-        theme.colorScheme === 'dark'
-          ? 'solid 2px var(--solworks-background)'
-          : 'solid 2px var(--lm-selected-menu-border)',
-      color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
-      borderRadius: theme.colorScheme === 'dark' ? '6px' : '20px 0 0 20px',
-      [`& .${getRef('label')}`]: {
-        color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
+      backgroundColor: 'var(--bg-secondary)',
+      color: 'var(--text-primary)',
+
+      [`& .${getRef('icon')}`]: {
+        color: 'var(--color-primary)',
+        transform: 'scale(1.1)',
       },
     },
   },
-  link: {
-    fontWeight: 400,
-    display: 'block',
-    textDecoration: 'none',
-    padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
-    paddingLeft: 31,
-    marginLeft: 30,
-    fontSize: theme.fontSizes.md,
-    color: theme.colorScheme === 'dark' ? '#797f91' : '#002B67',
-    borderLeft: `1px solid ${theme.colors.dark[4]}`,
-    font: 'Roboto',
-    border: 'solid 2px transparent',
-    '&:hover': {
-      backgroundColor:
-        theme.colorScheme === 'dark' ? 'var(--solworks-background)' : 'var(--lm-selected-menu)',
-      border: theme.colorScheme === 'dark' ? 'none' : 'solid 2px var(--lm-selected-menu-border)',
-      color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
-      borderRadius: theme.colorScheme === 'dark' ? '6px' : '20px 0 0 20px',
+
+  controlActive: {
+    backgroundColor: 'var(--color-primary-subtle)',
+    color: 'var(--color-primary)',
+    fontWeight: 600,
+
+    [`& .${getRef('icon')}`]: {
+      color: 'var(--color-primary)',
     },
   },
+
+  link: {
+    fontWeight: 500,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    textDecoration: 'none',
+    padding: '10px 16px',
+    paddingLeft: '48px',
+    fontSize: '13px',
+    color: 'var(--text-secondary)',
+    fontFamily: 'var(--font-body)',
+    transition: 'all 0.25s var(--ease-out-quart)',
+    borderRadius: 'var(--radius-md)',
+    position: 'relative',
+    marginBottom: '2px',
+    cursor: 'pointer',
+
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      left: '28px',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      width: '6px',
+      height: '6px',
+      borderRadius: '50%',
+      backgroundColor: 'var(--border-default)',
+      transition: 'all 0.25s var(--ease-out-quart)',
+    },
+
+    '&:hover': {
+      backgroundColor: 'var(--bg-secondary)',
+      color: 'var(--text-primary)',
+      textDecoration: 'none',
+
+      '&::before': {
+        backgroundColor: 'var(--color-primary)',
+        transform: 'translateY(-50%) scale(1.2)',
+      },
+
+      '& .external-icon': {
+        opacity: 1,
+        transform: 'translateX(0)',
+      }
+    },
+  },
+
+  linkActive: {
+    backgroundColor: 'var(--color-primary-subtle)',
+    color: 'var(--color-primary)',
+    fontWeight: 600,
+
+    '&::before': {
+      backgroundColor: 'var(--color-primary)',
+    }
+  },
+
   chevron: {
-    transition: 'transform 200ms ease',
+    transition: 'transform 200ms var(--ease-out-quart)',
+    color: 'var(--text-tertiary)',
   },
+
   icon: {
-    color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
-    border: 'none',
+    ref: getRef('icon'),
+    color: 'var(--text-tertiary)',
+    transition: 'all 0.25s var(--ease-out-quart)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    flexShrink: 0,
   },
+
   iconWrapper: {
     display: 'flex',
     alignItems: 'center',
   },
+
   label: {
-    color: theme.colorScheme === 'dark' ? 'white' : '#002B67',
-    ref: getRef('label'),
+    color: 'inherit',
+    marginLeft: '12px',
+    letterSpacing: '-0.01em',
+    flex: 1,
   },
+
+  badge: {
+    backgroundColor: 'var(--bg-tertiary)',
+    color: 'var(--text-tertiary)',
+    fontWeight: 600,
+    fontSize: '9px',
+    padding: '4px 6px',
+    height: 'auto',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
+    marginLeft: 'auto',
+  },
+
+  externalIcon: {
+    color: 'var(--text-tertiary)',
+    opacity: 0,
+    transform: 'translateX(-4px)',
+    transition: 'all 0.2s var(--ease-out-quart)',
+    marginLeft: '8px',
+    flexShrink: 0,
+  },
+
+  linkContent: {
+    display: 'flex',
+    alignItems: 'center',
+    flex: 1,
+    minWidth: 0,
+  },
+
+  linkLabel: {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  }
 }));
 
 interface LinksGroupProps {
   icon: TablerIcon;
   label: string;
   initiallyOpened: boolean;
-  links?: { label: string; link: string; comingSoon?: boolean }[];
+  links?: { label: string; link: string; comingSoon?: boolean; external?: boolean }[];
   link?: string;
   disabled?: boolean;
   hideMenu?: () => void;
@@ -94,7 +193,7 @@ export function LinksGroup({
   hideMenu,
   external
 }: LinksGroupProps) {
-  const { classes, theme } = useStyles();
+  const { classes, theme, cx } = useStyles();
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(initiallyOpened);
   const ChevronIcon = theme.dir === 'ltr' ? ChevronRight : ChevronLeft;
@@ -108,23 +207,20 @@ export function LinksGroup({
 
   if (disabled) {
     return (
-      <Tooltip label="Coming soon" style={{ width: '100%' }}>
-        <UnstyledButton
+      <Tooltip label="Coming soon" style={{ width: '100%' }} position="right">
+        <div
           className={classes.control}
-          onClick={hideMenu}
-          style={{ cursor: 'default' }}
+          style={{ cursor: 'not-allowed', opacity: 0.5 }}
         >
-          <Group position="apart" spacing={0}>
-            <Box className={classes.iconWrapper}>
-              <ThemeIcon variant="outline" size={32} className={classes.icon}>
-                <Icon size={22} />
-              </ThemeIcon>
-              <Box ml="md" className={classes.label}>
-                {label}
-              </Box>
+          <Box className={classes.iconWrapper}>
+            <span className={classes.icon}>
+              <Icon size={18} strokeWidth={2} />
+            </span>
+            <Box className={classes.label}>
+              {label}
             </Box>
-          </Group>
-        </UnstyledButton>
+          </Box>
+        </div>
       </Tooltip>
     );
   }
@@ -132,93 +228,98 @@ export function LinksGroup({
   if (!hasLinks && link) {
     if (external) {
       return (
-        <UnstyledButton className={classes.control} onClick={hideMenu}>
-          <a href={link} className="link" target="_blank" rel="noreferrer">
-            <Group position="apart" spacing={0}>
-              <Box className={classes.iconWrapper}>
-                <ThemeIcon variant="outline" size={32} className={classes.icon}>
-                  <Icon size={22} />
-                </ThemeIcon>
-                <Box ml="md" className={classes.label}>
-                  {label}
-                </Box>
-              </Box>
-            </Group>
-          </a>
-        </UnstyledButton>
+        <a 
+          href={link} 
+          target="_blank" 
+          rel="noreferrer" 
+          className={classes.control}
+          onClick={hideMenu}
+        >
+          <Box className={classes.iconWrapper}>
+            <span className={classes.icon}>
+              <Icon size={18} strokeWidth={2} />
+            </span>
+            <Box className={classes.label}>
+              {label}
+            </Box>
+          </Box>
+          <ExternalLink size={14} className={`${classes.externalIcon} external-icon`} style={{ opacity: 0.5 }} />
+        </a>
       );
     } else {
       return (
-        <UnstyledButton className={classes.control} onClick={hideMenu}>
-          <HashLink smooth to={link} className="link">
-            <Group position="apart" spacing={0}>
-              <Box className={classes.iconWrapper}>
-                <ThemeIcon variant="outline" size={32} className={classes.icon}>
-                  <Icon size={22} />
-                </ThemeIcon>
-                <Box ml="md" className={classes.label}>
-                  {label}
-                </Box>
-              </Box>
-            </Group>
-          </HashLink>
-        </UnstyledButton>
+        <HashLink 
+          smooth 
+          to={link} 
+          className={classes.control}
+          onClick={hideMenu}
+        >
+          <Box className={classes.iconWrapper}>
+            <span className={classes.icon}>
+              <Icon size={18} strokeWidth={2} />
+            </span>
+            <Box className={classes.label}>
+              {label}
+            </Box>
+          </Box>
+        </HashLink>
       );
     }
   } else {
     return (
       <>
-        <UnstyledButton onClick={() => setOpened((o) => !o)} className={classes.control}>
-          <Group position="apart" spacing={0}>
-            <Box className={classes.iconWrapper}>
-              <ThemeIcon variant="outline" size={32} className={classes.icon}>
-                <Icon size={22} />
-              </ThemeIcon>
-              <Box ml="md" className={classes.label}>
-                {label}
-              </Box>
+        <button
+          onClick={() => setOpened((o) => !o)}
+          className={cx(classes.control, { [classes.controlActive]: opened })}
+          type="button"
+        >
+          <Box className={classes.iconWrapper}>
+            <span className={classes.icon}>
+              <Icon size={18} strokeWidth={2} />
+            </span>
+            <Box className={classes.label}>
+              {label}
             </Box>
-            {hasLinks && (
-              <ChevronIcon
-                className={classes.chevron}
-                size={18}
-                style={{
-                  transform: opened ? `rotate(${theme.dir === 'rtl' ? -90 : 90}deg)` : 'none',
-                }}
-              />
-            )}
-          </Group>
-        </UnstyledButton>
-        <Collapse in={opened}>{items}</Collapse>
+          </Box>
+          {hasLinks && (
+            <ChevronIcon
+              className={classes.chevron}
+              size={16}
+              style={{
+                transform: opened ? `rotate(${theme.dir === 'rtl' ? -90 : 90}deg)` : 'none',
+              }}
+            />
+          )}
+        </button>
+        <Collapse in={opened} transitionDuration={250} transitionTimingFunction="ease-out">
+          <div style={{ marginTop: 4, marginBottom: 8 }}>
+            {items}
+          </div>
+        </Collapse>
       </>
     );
   }
 }
 
 function MenuSubLink(
-  classes: Record<'control' | 'link' | 'chevron', string>,
+  classes: Record<'control' | 'link' | 'chevron' | 'badge' | 'externalIcon' | 'linkContent' | 'linkLabel', string>,
   link: { label: string; link: string; comingSoon?: boolean; external?: boolean },
   hideMenu?: () => void
 ): JSX.Element {
   const contents = (
-    <Group position="apart">
-      {link.label}
-      {link.comingSoon ? (
-        <Badge
-          size="md"
-          radius="sm"
-          variant="gradient"
-          gradient={{ from: 'violet', to: 'red' }}
-          style={{
-            paddingRight: '8px',
-          }}
-        >
-          🛠️
-        </Badge>
-      ) : (
-        <></>
+    <>
+      <div className={classes.linkContent}>
+        <span className={classes.linkLabel}>{link.label}</span>
+        {link.comingSoon && (
+          <Badge className={classes.badge} variant="filled">
+            Soon
+          </Badge>
+        )}
+      </div>
+      {link.external && (
+        <ExternalLink size={12} className={`${classes.externalIcon} external-icon`} />
       )}
-    </Group>
+    </>
   );
 
   if (link.external) {
@@ -229,6 +330,7 @@ function MenuSubLink(
         target="_blank"
         rel="noreferrer"
         onClick={hideMenu}
+        key={link.label}
       >
         {contents}
       </a>

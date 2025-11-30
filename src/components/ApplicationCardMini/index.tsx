@@ -18,52 +18,51 @@ export interface ApplicationCardMiniProps {
 
 const useStyles = createStyles((theme) => ({
   macOutline: {
-    border: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
-    borderRadius: '8px',
+    border: 'none',
+    borderRadius: '16px',
     textAlign: 'center',
     cursor: 'pointer',
-    background: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
-    '&:after': {
-      background: theme.colorScheme === 'dark' ? 'var(--background) !important' : 'white !important',
-    },
+    background: 'white',
+    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+    color: 'var(--text-secondary)',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     '&:hover': {
-      color: theme.colorScheme === 'dark' ? 'white' : 'black',
+      color: 'var(--text-main)',
+      transform: 'translateY(-4px)',
+      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04)',
     },
-    color: theme.colorScheme === 'dark' ? '#261d2b' : 'var(--grey)',
-    WebkitTransition: '150ms ease-in-out',
-    transition: '150ms ease-in-out'
   },
   macLogo: {
-    marginTop: '34px',
+    marginTop: '32px',
   },
   macTitle: {
     fontFamily: 'var(--font)',
-    fontSize: '22px',
-    fontWeight: 'bold',
-    fontStretch: 'normal',
-    fontStyle: 'normal',
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
+    fontSize: '20px',
+    fontWeight: 700,
     textAlign: 'center',
-    color: theme.colorScheme === 'dark' ? '#fff' : 'black',
-    marginTop: '19px',
+    color: 'var(--text-main)',
+    marginTop: '16px',
+    padding: '0 16px',
   },
   macDivider: {
-    marginTop: '37px',
+    marginTop: '24px',
     width: '100%',
     height: '1px',
-    backgroundColor: theme.colorScheme === 'dark' ? '#261d2b' : 'rgb(153, 153, 153)',
+    backgroundColor: 'var(--border)',
   },
   macTapText: {
     paddingTop: '12px',
-    paddingBottom: '10px',
+    paddingBottom: '12px',
     fontFamily: 'var(--font)',
-    fontSize: '18px',
-    fontWeight: 'normal',
-    fontStretch: 'normal',
-    fontStyle: 'normal',
-    lineHeight: 'normal',
-    letterSpacing: 'normal'
+    fontSize: '14px',
+    fontWeight: 600,
+    color: 'var(--primary)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.5px',
   },
 }));
 
@@ -82,14 +81,18 @@ export const ApplicationCardMini: FC<ApplicationCardMiniProps> = ({
       to={`/apps/${encodeString(appName)}`}
       style={{ ...additionalStyles, textDecoration: 'none' }}
     >
-      <div className={classes.macOutline + " glow-on-hover px18 rise-on-hover-300"}>
-        <Center className={classes.macLogo}>
-          <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
-        </Center>
-        <div className={classes.macTitle}>{appName}</div>
-        <Tag tagColorHex={tagColorHex} tag={tag} />
-        <div className={classes.macDivider} />
-        <div className={classes.macTapText}>Tap to open</div>
+      <div className={classes.macOutline}>
+        <div>
+          <Center className={classes.macLogo}>
+            <Logo logoUrl={logoUrl} altText={`${appName} logo`} />
+          </Center>
+          <div className={classes.macTitle}>{appName}</div>
+          <Tag tagColorHex={tagColorHex} tag={tag} />
+        </div>
+        <div>
+            <div className={classes.macDivider} />
+            <div className={classes.macTapText}>Open App</div>
+        </div>
       </div>
     </Link>
   );
@@ -103,25 +106,22 @@ export interface TagProps {
 
 const useTagStyles = createStyles((theme) => ({
   tag: {
-    marginTop: '20px',
-    color: 'rgb(197, 194, 194)',
+    marginTop: '16px',
     minWidth: '40px',
-    padding: '8px 12px 8px 12px',
-    borderRadius: '6px',
+    padding: '8px 12px',
+    borderRadius: '8px',
     marginLeft: 'auto',
     marginRight: 'auto',
     display: 'inline-flex',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
   },
   tagText: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    fontFamily: 'Poppins',
+    fontFamily: 'var(--font)',
     fontSize: '12px',
-    fontWeight: 'bold',
-    fontStretch: 'normal',
-    fontStyle: 'normal',
+    fontWeight: 700,
     lineHeight: '1',
-    letterSpacing: 'normal',
     textAlign: 'left',
     color: '#fff',
   },

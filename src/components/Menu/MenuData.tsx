@@ -1,4 +1,4 @@
-import { BuildingSkyscraper, Filter, Firetruck, ListDetails, Track } from 'tabler-icons-react';
+import { BuildingSkyscraper, Filter, Firetruck, ListDetails } from 'tabler-icons-react';
 import { appList } from '@solworks/application-registry';
 import { formatCategoryLink } from '../../Common';
 import { Icon } from 'tabler-icons-react';
@@ -58,14 +58,6 @@ export const MenuData: MenuLinkDetails[] = [
       { label: 'Partnership', link: 'https://k722zc9ivtg.typeform.com/to/OHTjdlkb', comingSoon: false, external: true },
     ],
     initiallyOpened: false,
-  },
-  { 
-    label: 'Roadmap', 
-    icon: Track, 
-    link: 'https://solworks.notion.site/Roadmap-2f77e4c1cd864055ab2136b8a8f5b335', 
-    initiallyOpened: false, 
-    disabled: false,
-    external: true
   },
   {
     label: 'Ecosystem',

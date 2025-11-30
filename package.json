@@ -32,7 +32,7 @@
     "webpack": "^4.0.0"
   },
   "scripts": {
-    "storybook": "start-storybook",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook",
     "dev": "npm run storybook",
     "start": "react-scripts start",
     "build": "react-scripts build",

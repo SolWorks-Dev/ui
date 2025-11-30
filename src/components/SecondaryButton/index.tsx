@@ -5,42 +5,35 @@ import '../../common.css';
 
 const useStyles = createStyles((theme) => ({
   secondaryButton: {
-    WebkitTransition: "150ms ease-in-out", 
-    transition: "150ms ease-in-out", 
-    width: "158px", 
-    minWidth: "60px", 
-    height: "48px", 
-    minHeight: "48px", 
-    border: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1.5px solid rgb(153, 153, 153)',
-    display: "flex", 
-    textAlign: "center", 
-    justifyContent: "center", 
-    alignItems: "center", 
-    textDecoration: "none", 
-    borderRadius: "8px",
-    background: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
-    '&:after': {
-      background: theme.colorScheme === 'dark' ? 'var(--background) !important' : 'white !important',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '8px',
+    minWidth: '120px',
+    height: '48px',
+    padding: '0 24px',
+    fontFamily: 'var(--font-body)',
+    fontSize: '14px',
+    fontWeight: 600,
+    color: 'var(--text-primary)',
+    backgroundColor: 'var(--bg-surface)',
+    border: '1px solid var(--border-default)',
+    borderRadius: 'var(--radius-md)',
+    textDecoration: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.25s var(--ease-out-quart)',
+    
+    '&:hover': {
+      backgroundColor: 'var(--bg-secondary)',
+      borderColor: 'var(--text-primary)',
+      transform: 'translateY(-2px)',
+      boxShadow: 'var(--shadow-sm)',
     },
-    "&:hover": {
-      WebkitTransform: "translate(0, -2px)", 
-      MsTransform: "translate(0, -2px)", 
-      transform: "translate(0, -2px)", 
-      cursor: "pointer", 
-      backgroundColor: "rgba(29, 19, 38, 0.6)"
+    
+    '&:active': {
+      transform: 'translateY(0)',
     }
   },
-  secondaryButtonText: {
-    fontFamily: "var(--font)", 
-    fontSize: "18px", 
-    fontWeight: "bold", 
-    fontStretch: "normal", 
-    fontStyle: "normal", 
-    lineHeight: "normal", 
-    letterSpacing: "normal", 
-    textAlign: "left", 
-    color: theme.colorScheme === 'dark' ? "#eae4e4" : 'black'
-  }
 }));
 
 export interface SecondaryButtonProps {
@@ -53,7 +46,7 @@ export interface SecondaryButtonProps {
 
 export const SecondaryButton: FC<SecondaryButtonProps> = ({
   text = '',
-  classname = undefined,
+  classname = '',
   onClick = undefined,
   url = undefined,
   additionalStyles = undefined,
@@ -63,27 +56,28 @@ export const SecondaryButton: FC<SecondaryButtonProps> = ({
   if (url !== undefined) {
     return (
       <Link
-        className={classes.secondaryButton + ' glow-on-hover colors-only ' + classname}
+        className={`${classes.secondaryButton} ${classname}`}
         to={url}
         style={additionalStyles}
       >
-        <div className={classes.secondaryButtonText}>{text.toUpperCase()}</div>
+        {text}
       </Link>
     );
   } else if (onClick) {
     return (
-      <div
-        className={classes.secondaryButton + ' glow-on-hover colors-only ' + classname}
+      <button
+        className={`${classes.secondaryButton} ${classname}`}
         onClick={onClick}
         style={additionalStyles}
+        type="button"
       >
-        <div className={classes.secondaryButtonText}>{text.toUpperCase()}</div>
-      </div>
+        {text}
+      </button>
     );
   } else {
     return (
-      <div className={classes.secondaryButton + '  glow-on-hover colors-only ' + classname} style={additionalStyles}>
-        <div className={classes.secondaryButtonText}>{text.toUpperCase()}</div>
+      <div className={`${classes.secondaryButton} ${classname}`} style={additionalStyles}>
+        {text}
       </div>
     );
   }

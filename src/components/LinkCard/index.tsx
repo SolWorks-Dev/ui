@@ -1,84 +1,91 @@
 import { createStyles } from '@mantine/core';
 import React, { FC, useEffect } from 'react';
+import { Link as LinkIcon, ExternalLink, BrandGithub, World, Rocket } from 'tabler-icons-react';
 import '../../common.css';
 
 const useStyles = createStyles((theme) => ({
-  linkCardOutline: {
-    border: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
-    borderRadius: '8px',
-    maxWidth: '100%',
-    height: '175px',
-    textAlign: 'center',
-    background: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
-    '&:after': {
-      background: theme.colorScheme === 'dark' ? 'var(--background) !important' : 'white !important',
-    },
-    '&:hover': {
-      color: theme.colorScheme === 'dark' ? 'white' : 'black',
-    },
-    color: theme.colorScheme === 'dark' ? '#261d2b' : 'var(--grey)',
-    WebkitTransition: '150ms ease-in-out',
-    transition: '150ms ease-in-out'
-  },
-  linkCardTitle: {
-    fontFamily: 'var(--font)',
-    fontSize: '25px',
-    fontWeight: theme.colorScheme === 'dark' ? 'bold' : 300,
-    fontStretch: 'normal',
-    fontStyle: 'normal',
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-    textAlign: 'center',
-    color: theme.colorScheme === 'dark' ? '#fff' : 'black',
-    marginTop: '20px',
-  },
-  linkCardUrl: {
-    margin: '15px 20px',
-  },
-  linkCardLink: {
-    fontFamily: 'var(--font)',
-    '@media (max-width: 420px)': {
-      fontSize: '16px',
-    },
-    fontSize: '20px',
-    fontWeight: theme.colorScheme === 'dark' ? 'bold' : 500,
-    fontStretch: 'normal',
-    fontStyle: 'normal',
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-    color: theme.colorScheme === 'dark' ? '#e42575' : 'var(--alternative-primary)',
-    marginTop: '26px',
-    wordWrap: 'break-word',
-  },
-  tapWrapper: {
-    position: 'absolute',
-    left: '0',
-    right: '0',
-    bottom: '0',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  divider: {
-    width: '100%',
-    height: '1px',
-    backgroundColor: theme.colorScheme === 'dark' ? '#261d2b' : 'rgb(153, 153, 153)'
-  },
-  tapText: {
-    paddingTop: '12px',
-    paddingBottom: '10px',
-    marginBottom: '0',
-    fontFamily: 'var(--font)',
-    fontSize: '18px',
-    fontWeight: 'normal',
-    fontStretch: 'normal',
-    fontStyle: 'normal',
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-    alignSelf: 'center',
-  },
-  wrapper: {
+  card: {
+    backgroundColor: 'var(--bg-surface)',
+    border: '1px solid var(--border-subtle)',
+    borderRadius: 'var(--radius-lg)',
+    height: '64px',
+    display: 'flex',
+    alignItems: 'center',
+    padding: '0 16px',
     textDecoration: 'none',
+    transition: 'all 0.25s var(--ease-out-quart)',
+    position: 'relative',
+    overflow: 'hidden',
+    width: '100%',
+    gap: '12px',
+
+    '&:hover': {
+      transform: 'translateX(4px)',
+      borderColor: 'var(--color-primary)',
+      background: 'var(--color-primary-subtle)',
+
+      '& .arrow-icon': {
+        opacity: 1,
+        transform: 'translate(0, 0)',
+      },
+
+      '& .icon-wrapper': {
+        backgroundColor: 'var(--color-primary)',
+
+        '& svg': {
+          color: 'white',
+        }
+      }
+    },
   },
+
+  iconWrapper: {
+    width: '36px',
+    height: '36px',
+    borderRadius: 'var(--radius-md)',
+    backgroundColor: 'var(--bg-secondary)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexShrink: 0,
+    transition: 'all 0.25s var(--ease-out-quart)',
+
+    '& svg': {
+      color: 'var(--text-tertiary)',
+      transition: 'color 0.25s var(--ease-out-quart)',
+    }
+  },
+
+  content: {
+    flex: 1,
+    overflow: 'hidden',
+    minWidth: 0,
+  },
+
+  title: {
+    fontFamily: 'var(--font-body)',
+    fontSize: '14px',
+    fontWeight: 600,
+    color: 'var(--text-primary)',
+  },
+
+  url: {
+    fontFamily: 'var(--font-body)',
+    fontSize: '12px',
+    color: 'var(--text-tertiary)',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    marginTop: '2px',
+  },
+
+  arrow: {
+    color: 'var(--text-tertiary)',
+    opacity: 0,
+    transform: 'translate(-4px, 0)',
+    transition: 'all 0.25s var(--ease-out-quart)',
+    flexShrink: 0,
+  }
 }));
 
 export interface LinkCardProps {
@@ -86,6 +93,14 @@ export interface LinkCardProps {
   url: string;
   disabled?: boolean;
 }
+
+const getIcon = (title: string) => {
+  const lowerTitle = title.toLowerCase();
+  if (lowerTitle.includes('github')) return <BrandGithub size={16} strokeWidth={2} />;
+  if (lowerTitle.includes('app') || lowerTitle.includes('launch')) return <Rocket size={16} strokeWidth={2} />;
+  if (lowerTitle.includes('website') || lowerTitle.includes('web')) return <World size={16} strokeWidth={2} />;
+  return <LinkIcon size={16} strokeWidth={2} />;
+};
 
 export const LinkCard: FC<LinkCardProps> = ({ title, url }) => {
   const [displayUrl, setDisplayUrl] = React.useState('');
@@ -97,25 +112,23 @@ export const LinkCard: FC<LinkCardProps> = ({ title, url }) => {
       tempDisplayUrl[tempDisplayUrl.length - 1] === '/'
         ? tempDisplayUrl.slice(0, -1)
         : tempDisplayUrl;
-    tempDisplayUrl =
-      tempDisplayUrl.length > 40 ? `${tempDisplayUrl.substring(0, 40)}...` : tempDisplayUrl;
+    // Truncate long URLs
+    if (tempDisplayUrl.length > 30) {
+      tempDisplayUrl = tempDisplayUrl.substring(0, 30) + '...';
+    }
     setDisplayUrl(tempDisplayUrl);
   }, [url]);
 
   return (
-    <a href={url} target="_blank" rel="noreferrer" className={classes.wrapper}>
-      <div className={classes.linkCardOutline + " glow-on-hover px18"}>
-        <div className={classes.linkCardTitle}>{title}</div>
-        <div className={classes.linkCardUrl}>
-          <a className={classes.linkCardLink} href={url} target="_blank" rel="noreferrer">
-            {displayUrl}
-          </a>
-        </div>
-        <div className={classes.tapWrapper}>
-          <div className={classes.divider}/>
-          <div className={classes.tapText}>Tap to open</div>
-        </div>
+    <a href={url} target="_blank" rel="noreferrer" className={classes.card}>
+      <div className={`${classes.iconWrapper} icon-wrapper`}>
+        {getIcon(title)}
       </div>
+      <div className={classes.content}>
+        <div className={classes.title}>{title}</div>
+        <div className={classes.url}>{displayUrl}</div>
+      </div>
+      <ExternalLink size={14} className={`${classes.arrow} arrow-icon`} />
     </a>
   );
 };

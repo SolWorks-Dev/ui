@@ -1,90 +1,135 @@
-import { createStyles, Grid } from '@mantine/core';
+import { createStyles } from '@mantine/core';
 import React, { FC } from 'react';
+import { BrandTwitter, BrandDiscord, BrandMedium, BrandTelegram, ExternalLink } from 'tabler-icons-react';
 import '../../common.css';
 
 const useStyles = createStyles((theme) => ({
-  scOutline: {
-    border: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
-    borderRadius: '8px',
-    minWidth: '256px',
-    maxWidth: '100%',
+  card: {
+    backgroundColor: 'var(--bg-surface)',
+    border: '1px solid var(--border-subtle)',
+    borderRadius: 'var(--radius-xl)',
+    overflow: 'hidden',
+  },
+
+  emptyState: {
     textAlign: 'center',
-    width: '100%',
-    color: 'white',
-    display: 'flex',
+    padding: '24px',
+    color: 'var(--text-tertiary)',
+    fontFamily: 'var(--font-body)',
+    fontSize: '13px',
   },
-  scWrapper: {
-    margin: '32px 32px 0px 32px',
-    '@media (max-width: 420px)': {
-      margin: '24px 18px 0px 24px',
-    },
-    width: '100%',
-  },
-  scGroupWrapper: {
+
+  item: {
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    color: 'white',
-    marginBottom: '30px',
-  },
-  scFirstRow: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-  },
-  scGroupTitle: {
-    fontFamily: 'var(--font)',
-    '@media (max-width: 420px)': {
-      fontSize: '18px',
-    },
-    fontSize: '20px',
-    fontWeight: 500,
-    fontStretch: 'normal',
-    fontStyle: 'normal',
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-    textAlign: 'left',
-    color: '#7c7c7c',
-  },
-  scGroupFirstLink: {
-    '@media (max-width: 420px)': {
-      fontSize: '16px',
-    },
-    fontSize: '20px',
-    fontWeight: 'normal',
-    fontStretch: 'normal',
-    fontStyle: 'normal',
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-    textAlign: 'left',
-    color: '#e42575',
+    justifyContent: 'space-between',
+    padding: '14px 16px',
+    borderBottom: '1px solid var(--border-subtle)',
+    transition: 'all 0.2s var(--ease-out-quart)',
     textDecoration: 'none',
+    cursor: 'pointer',
+
+    '&:last-child': {
+      borderBottom: 'none',
+    },
+
+    '&:hover': {
+      backgroundColor: 'var(--color-primary-subtle)',
+
+      '& .social-icon': {
+        transform: 'scale(1.1)',
+      },
+
+      '& .social-label': {
+        color: 'var(--color-primary)',
+      },
+
+      '& .social-arrow': {
+        opacity: 1,
+        transform: 'translateX(0)',
+        color: 'var(--color-primary)',
+      },
+
+      '& .social-text': {
+        color: 'var(--color-primary)',
+      }
+    },
+
+    '&:active': {
+      backgroundColor: 'rgba(255, 107, 53, 0.12)',
+    }
   },
-  scAdditionalRow: {
+
+  leftSection: {
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    paddingTop: '20px',
-    textDecoration: 'none',
-    color: '#e42575',
-    fontSize: '20px',
+    alignItems: 'center',
+    gap: '12px',
+    flex: 1,
   },
-  scLink: {
-    fontFamily: 'var(--font)',
-    '@media (max-width: 420px)': {
-      fontSize: '16px',
-    },
-    fontSize: '20px',
-    fontWeight: 'normal',
-    fontStretch: 'normal',
-    fontStyle: 'normal',
-    lineHeight: 'normal',
-    letterSpacing: 'normal',
-    textAlign: 'center',
-    color: theme.colorScheme === 'dark' ? '#e42575' : 'var(--alternative-primary)',
-    textDecoration: 'underline dashed',
+
+  iconWrapper: {
+    width: '36px',
+    height: '36px',
+    borderRadius: 'var(--radius-md)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: 'all 0.2s var(--ease-out-quart)',
+    flexShrink: 0,
   },
+
+  iconTwitter: {
+    backgroundColor: 'rgba(29, 155, 240, 0.1)',
+    color: '#1DA1F2',
+  },
+
+  iconDiscord: {
+    backgroundColor: 'rgba(88, 101, 242, 0.1)',
+    color: '#5865F2',
+  },
+
+  iconMedium: {
+    backgroundColor: 'var(--bg-tertiary)',
+    color: 'var(--text-secondary)',
+  },
+
+  iconTelegram: {
+    backgroundColor: 'rgba(0, 136, 204, 0.1)',
+    color: '#0088CC',
+  },
+
+  textContent: {
+    flex: 1,
+    minWidth: 0,
+  },
+
+  label: {
+    fontSize: '14px',
+    fontWeight: 600,
+    fontFamily: 'var(--font-body)',
+    color: 'var(--text-primary)',
+    transition: 'color 0.2s ease',
+  },
+
+  linkText: {
+    fontSize: '12px',
+    fontFamily: 'var(--font-body)',
+    color: 'var(--text-tertiary)',
+    marginTop: '2px',
+    transition: 'color 0.2s ease',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
+
+  arrow: {
+    color: 'var(--text-tertiary)',
+    opacity: 0,
+    transform: 'translateX(-4px)',
+    transition: 'all 0.2s var(--ease-out-quart)',
+    flexShrink: 0,
+    marginLeft: '8px',
+  }
 }));
 
 export interface SocialsCardProps {
@@ -100,80 +145,92 @@ export const SocialsCard: FC<SocialsCardProps> = ({
   medium = [],
   telegram = [],
 }) => {
-  const { classes } = useStyles();
+  const { classes, cx } = useStyles();
 
-  return (
-    <div className={classes.scOutline}>
-      <div className={classes.scWrapper}>
-        <LinkGroup title="Twitter" urlAndTexts={twitter} />
-        <LinkGroup title="Discord" urlAndTexts={discord} />
-        <LinkGroup title="Medium" urlAndTexts={medium} />
-        <LinkGroup title="Telegram" urlAndTexts={telegram} />
-      </div>
-    </div>
-  );
-};
+  const hasSocials = twitter.length > 0 || discord.length > 0 || medium.length > 0 || telegram.length > 0;
 
-interface LinkGroupProps {
-  title: string;
-  urlAndTexts: { url: string; text: string }[];
-}
-
-const LinkGroup: FC<LinkGroupProps> = ({ title, urlAndTexts }) => {
-  const { classes } = useStyles();
-
-  let additionalLinks: any[] = [];
-  if (urlAndTexts.length > 1) {
-    // skip first
-    for (var x = 1; x < urlAndTexts.length; x++) {
-      const link = <Link text={urlAndTexts[x].text} url={urlAndTexts[x].url} additionalRow />;
-      additionalLinks.push(link);
-    }
-  }
-
-  if (urlAndTexts.length === 0) {
+  if (!hasSocials) {
     return (
-      <div className={classes.scGroupWrapper}>
-        <Grid className={classes.scFirstRow} style={{ margin: 0 }}>
-          <div className={classes.scGroupTitle}>{title}</div>
-          <div className="grey-text">N/A</div>
-        </Grid>
+      <div className={classes.card}>
+        <div className={classes.emptyState}>No community links yet</div>
       </div>
     );
   }
 
   return (
-    <div className={classes.scGroupWrapper}>
-      <Grid className={classes.scFirstRow} style={{ margin: 0 }}>
-        <div className={classes.scGroupTitle}>{title}</div>
-        <Link text={urlAndTexts[0].text} url={urlAndTexts[0].url} />
-      </Grid>
-      {additionalLinks}
+    <div className={classes.card}>
+      {twitter.length > 0 && twitter.slice(0, 1).map((item, i) => (
+        <SocialRow
+          key={`twitter-${i}`}
+          icon={<BrandTwitter size={18} strokeWidth={2} />}
+          label="Twitter"
+          linkText={item.text}
+          url={item.url}
+          iconClass={classes.iconTwitter}
+        />
+      ))}
+      {discord.length > 0 && discord.slice(0, 1).map((item, i) => (
+        <SocialRow
+          key={`discord-${i}`}
+          icon={<BrandDiscord size={18} strokeWidth={2} />}
+          label="Discord"
+          linkText={item.text}
+          url={item.url}
+          iconClass={classes.iconDiscord}
+        />
+      ))}
+      {medium.length > 0 && medium.slice(0, 1).map((item, i) => (
+        <SocialRow
+          key={`medium-${i}`}
+          icon={<BrandMedium size={18} strokeWidth={2} />}
+          label="Blog"
+          linkText={item.text}
+          url={item.url}
+          iconClass={classes.iconMedium}
+        />
+      ))}
+      {telegram.length > 0 && telegram.slice(0, 1).map((item, i) => (
+        <SocialRow
+          key={`telegram-${i}`}
+          icon={<BrandTelegram size={18} strokeWidth={2} />}
+          label="Telegram"
+          linkText={item.text}
+          url={item.url}
+          iconClass={classes.iconTelegram}
+        />
+      ))}
     </div>
   );
 };
 
-interface LinkProps {
-  text: string;
+interface SocialRowProps {
+  icon: React.ReactNode;
+  label: string;
+  linkText: string;
   url: string;
-  additionalRow?: boolean;
+  iconClass: string;
 }
 
-const Link: FC<LinkProps> = ({ text, url, additionalRow = false }) => {
-  const { classes } = useStyles();
+const SocialRow: FC<SocialRowProps> = ({ icon, label, linkText, url, iconClass }) => {
+  const { classes, cx } = useStyles();
 
   return (
-    <a
-      className={
-        additionalRow
-          ? `${classes.scAdditionalRow} ${classes.scLink} link-hover`
-          : `${classes.scLink} link-hover`
-      }
-      href={url}
-      target="_blank"
-      rel="noreferrer"
+    <a 
+      href={url} 
+      target="_blank" 
+      rel="noreferrer" 
+      className={classes.item}
     >
-      {text}
+      <div className={classes.leftSection}>
+        <div className={cx(classes.iconWrapper, iconClass, 'social-icon')}>
+          {icon}
+        </div>
+        <div className={classes.textContent}>
+          <div className={`${classes.label} social-label`}>{label}</div>
+          <div className={`${classes.linkText} social-text`}>{linkText}</div>
+        </div>
+      </div>
+      <ExternalLink size={16} className={`${classes.arrow} social-arrow`} />
     </a>
   );
 };

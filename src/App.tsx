@@ -31,12 +31,21 @@ const queryClient = new QueryClient();
 
 const useStyles = createStyles((theme) => ({
   appShell: {
-    backgroundColor: theme.colorScheme === 'dark' ? 'var(--background)' : 'white',
+    backgroundColor: 'var(--bg-app)',
+    minHeight: '100vh',
     main: {
-      '@media (max-width: 755px)': {
-        paddingTop: '100px',
+      paddingTop: 'calc(var(--header-height) + 24px)',
+      paddingBottom: '100px',
+      paddingLeft: '24px',
+      paddingRight: '24px',
+      width: '100%',
+      
+      '@media (min-width: 1280px)': {
+        marginLeft: '280px',
+        paddingLeft: '48px',
+        paddingRight: '48px',
+        maxWidth: 'calc(100% - 280px)',
       },
-      paddingTop: '125px',
     },
   },
 }));
@@ -69,9 +78,8 @@ const AppContainer = () => {
 };
 
 export default function App() {
-  const [colorScheme, setColorScheme] = React.useState<ColorScheme>('dark');
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+  const [colorScheme] = React.useState<ColorScheme>('light');
+
   const app = initializeApp(firebaseConfig);
   // eslint-disable-next-line
   const analytics = getAnalytics(app);
@@ -79,8 +87,56 @@ export default function App() {
   return (
     <Router>
       <QueryClientProvider client={queryClient}>
-        <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-          <MantineProvider theme={{ colorScheme: colorScheme }} withGlobalStyles withNormalizeCSS>
+        <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={() => {}}>
+          <MantineProvider 
+            theme={{ 
+              colorScheme: 'light',
+              fontFamily: '"Satoshi", -apple-system, BlinkMacSystemFont, sans-serif',
+              headings: {
+                fontFamily: '"Cabinet Grotesk", -apple-system, BlinkMacSystemFont, sans-serif',
+                fontWeight: 800,
+              },
+              colors: {
+                brand: [
+                  '#FFF5F0',
+                  '#FFE5D9',
+                  '#FFD0BE',
+                  '#FFB89E',
+                  '#FF9B76',
+                  '#FF6B35',
+                  '#E85A25',
+                  '#C44A1C',
+                  '#9F3C16',
+                  '#7A2E11'
+                ],
+                dark: [
+                  '#F8F6F3',
+                  '#E8E4DF',
+                  '#D1CBC3',
+                  '#B5ADA3',
+                  '#9A948C',
+                  '#5C5650',
+                  '#3D3935',
+                  '#2D2926',
+                  '#1A1816',
+                  '#0D0C0B'
+                ],
+              },
+              primaryColor: 'brand',
+              defaultRadius: 'md',
+              shadows: {
+                sm: '0 2px 4px rgba(26, 24, 22, 0.04), 0 1px 2px rgba(26, 24, 22, 0.02)',
+                md: '0 8px 24px rgba(26, 24, 22, 0.06), 0 4px 8px rgba(26, 24, 22, 0.03)',
+                lg: '0 24px 48px rgba(26, 24, 22, 0.1), 0 12px 24px rgba(26, 24, 22, 0.05)',
+                xl: '0 32px 64px rgba(26, 24, 22, 0.12), 0 16px 32px rgba(26, 24, 22, 0.06)',
+              },
+              other: {
+                transitionTimingFunction: 'cubic-bezier(0.165, 0.84, 0.44, 1)',
+              }
+            }} 
+            withGlobalStyles 
+            withNormalizeCSS
+          >
             <ScrollToTop />
             <AppContainer />
           </MantineProvider>

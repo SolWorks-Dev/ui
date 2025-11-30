@@ -6,24 +6,24 @@ import { formatNumber } from '../../Common';
 
 const useStyles = createStyles((theme) => ({
   networkStatusBar: {
-    backgroundColor: theme.colorScheme === 'dark' ? 'var(--status-bar-background)' : 'white',
+    backgroundColor: 'transparent',
     height: '32px',
     maxWidth: '100%',
     paddingTop: '6px',
-    borderBottom: theme.colorScheme === 'dark' ? 'solid 1px #261d2b' : '1px solid rgb(153, 153, 153)',
+    borderBottom: '1px solid var(--border)',
   },
   networkBarTitle: {
-    color: theme.colorScheme === 'dark' ? 'var(--grey)' : '#454545',
-    fontFamily: 'Roboto, sans-serif !important',
-    fontWeight: 'bold',
+    color: 'var(--text-secondary)',
+    fontFamily: 'var(--font)',
+    fontWeight: 600,
     fontSize: '14px',
   },
   networkBarItemValue: {
-    color: theme.colorScheme === 'dark' ? 'var(--primary)' : 'var(--alternative-primary)',
+    color: 'var(--primary)',
     fontSize: '14px',
     paddingLeft: '8px',
     fontWeight: 'bold',
-    fontFamily: 'Roboto, sans-serif !important',
+    fontFamily: 'var(--font)',
   },
   networkBarItem: {
     display: 'flex',
@@ -62,7 +62,7 @@ const NetworkStatusBar: FC<NetworkStatusBarProps> = ({
     return (
       <div className={classes.networkStatusBar}>
         <Center>
-          <PacmanLoader size={10} color="#E42575" />
+          <PacmanLoader size={10} color="#FF6B6B" />
         </Center>
       </div>
     );
@@ -106,7 +106,7 @@ const NetworkStatusBarItem: FC<NetworkStatusBarItemProps> = ({
       >
         <div className={classes.networkBarTitle}>{title}:</div>
         {isLoading ? (
-          <PacmanLoader loading={isLoading} size={8} color="#E42575" />
+          <PacmanLoader loading={isLoading} size={8} color="#FF6B6B" />
         ) : (
           <div className={classes.networkBarItemValue}>{value}</div>
         )}

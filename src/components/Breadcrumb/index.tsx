@@ -1,23 +1,104 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import '../../common.css';
-import './Breadcrumb.css';
-import { Box, Breadcrumbs } from '@mantine/core';
+import { createStyles } from '@mantine/core';
 import { formatCategoryLink, formatLink } from '../../Common';
 import { appList } from '@solworks/application-registry';
+import { ChevronRight, Home, Apps } from 'tabler-icons-react';
 
 interface BreadcrumbItem {
   title: string;
   link: string;
   active?: boolean;
-  emoji?: string;
+  isHome?: boolean;
 }
+
+const useStyles = createStyles((theme) => ({
+  wrapper: {
+    marginBottom: '24px',
+  },
+
+  container: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '4px',
+    padding: '6px 8px',
+    background: 'var(--bg-surface)',
+    borderRadius: 'var(--radius-full)',
+    border: '1px solid var(--border-subtle)',
+    boxShadow: 'var(--shadow-xs)',
+  },
+
+  breadcrumbItem: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '6px',
+    padding: '6px 12px',
+    borderRadius: 'var(--radius-full)',
+    textDecoration: 'none',
+    fontSize: '13px',
+    fontWeight: 500,
+    fontFamily: 'var(--font-body)',
+    color: 'var(--text-tertiary)',
+    transition: 'all 0.2s var(--ease-out-quart)',
+    whiteSpace: 'nowrap',
+    
+    '&:hover': {
+      color: 'var(--text-primary)',
+      backgroundColor: 'var(--bg-secondary)',
+    }
+  },
+
+  breadcrumbItemActive: {
+    color: 'var(--text-primary)',
+    fontWeight: 600,
+    backgroundColor: 'var(--bg-secondary)',
+    
+    '&:hover': {
+      backgroundColor: 'var(--bg-tertiary)',
+    }
+  },
+
+  homeItem: {
+    padding: '6px 10px',
+    color: 'var(--text-tertiary)',
+    
+    '&:hover': {
+      color: 'var(--color-primary)',
+      backgroundColor: 'var(--color-primary-subtle)',
+    }
+  },
+
+  separator: {
+    color: 'var(--border-strong)',
+    display: 'flex',
+    alignItems: 'center',
+    padding: '0 2px',
+  },
+
+  icon: {
+    width: '15px',
+    height: '15px',
+    strokeWidth: 2,
+  },
+
+  truncate: {
+    maxWidth: '180px',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    
+    '@media (max-width: 480px)': {
+      maxWidth: '100px',
+    }
+  }
+}));
 
 export const Breadcrumb: FC<{ appName?: string; categoryName?: string }> = ({
   appName,
   categoryName,
 }) => {
-  let items: BreadcrumbItem[] = [{ title: 'Home', link: '/', active: true, emoji: '🏠' }];
+  const { classes, cx } = useStyles();
+  let items: BreadcrumbItem[] = [{ title: 'Home', link: '/', active: false, isHome: true }];
 
   if (categoryName) {
     var category =
@@ -31,58 +112,42 @@ export const Breadcrumb: FC<{ appName?: string; categoryName?: string }> = ({
     items.push({
       title: category.heading_label,
       link: `${formatCategoryLink(category.value)}`,
-      active: true,
-      emoji: undefined,
+      active: !appName,
     });
-    items[0].active = false;
   }
 
   if (appName) {
-    items.push({ title: appName, link: `${formatLink(appName)}`, active: true, emoji: undefined });
-    items[0].active = false;
-
-    if (categoryName) {
-      items[1].active = false;
-    }
+    items.push({ title: appName, link: `${formatLink(appName)}`, active: true });
   }
 
-  let breakcrumbs = items.map((item, index) => (
-    <Box
-      sx={{
-        '@media (max-width: 480px)': {
-          paddingTop: '12px',
-        },
-        paddingTop: 0,
-      }}
-    >
-      <Link
-        to={item.link}
-        key={index}
-        style={{ textDecoration: 'none', color: 'var(--grey)' }}
-        className="rise-on-hover-150"
-      >
-        {item.emoji ? <span className="emoji">{item.emoji} </span> : null}
-        <span style={{ textDecoration: item.active ? 'underline' : 'none' }}>{item.title}</span>
-      </Link>
-    </Box>
-  ));
-
   return (
-    <div className="breadcrumb-wrapper" style={{ fontSize: '18px' }}>
-      <Breadcrumbs
-        separator="→"
-        sx={{ flexWrap: 'wrap' }}
-        styles={{
-          separator: {
-            '@media (max-width: 480px)': {
-              paddingTop: '12px',
-            },
-            paddingTop: 0,
-          },
-        }}
-      >
-        {breakcrumbs}
-      </Breadcrumbs>
-    </div>
+    <nav className={classes.wrapper} aria-label="Breadcrumb">
+      <div className={classes.container}>
+        {items.map((item, index) => (
+          <React.Fragment key={index}>
+            {index > 0 && (
+              <span className={classes.separator} aria-hidden="true">
+                <ChevronRight size={12} />
+              </span>
+            )}
+            <Link
+              to={item.link}
+              className={cx(
+                classes.breadcrumbItem,
+                { [classes.breadcrumbItemActive]: item.active },
+                { [classes.homeItem]: item.isHome }
+              )}
+              aria-current={item.active ? 'page' : undefined}
+            >
+              {item.isHome ? (
+                <Home className={classes.icon} />
+              ) : (
+                <span className={classes.truncate}>{item.title}</span>
+              )}
+            </Link>
+          </React.Fragment>
+        ))}
+      </div>
+    </nav>
   );
 };

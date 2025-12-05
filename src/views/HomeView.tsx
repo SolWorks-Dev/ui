@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Grid, LoadingOverlay, createStyles, keyframes } from '@mantine/core';
 import { appList } from '@solworks/application-registry';
 import { formatCategoryLink } from '../Common';
-import { Helmet } from 'react-helmet';
+import { SEO } from '../components/SEO';
 import { ApplicationCardLargeV2 } from '../components/ApplicationCardLargeV2';
 import { Hero } from '../components/Hero';
 import { SectionHeader } from '../components/SectionHeader';
@@ -33,6 +33,9 @@ export const HomeView = () => {
   const [curatedRowApps, setCuratedRowApps] = useState<JSX.Element[]>();
   const [sections, setSections] = useState<JSX.Element[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const totalApps = appList.apps.length;
+  const categories = appList.categories.map(c => c.heading_label).slice(0, 5);
 
   useEffect(() => {
     const curatedApps = appList.apps
@@ -109,11 +112,54 @@ export const HomeView = () => {
     setIsLoading(false);
   }, [classes.gridItem, classes.section]);
 
+  const homeStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'SolApps – The App Store for Solana',
+    description: `Discover ${totalApps}+ Solana applications. Browse curated DeFi, NFT, gaming, and Web3 apps including ${categories.join(', ')}.`,
+    url: 'https://solapps.dev',
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'SolApps',
+      url: 'https://solapps.dev',
+    },
+    about: {
+      '@type': 'Thing',
+      name: 'Solana Blockchain Applications',
+      description: 'Decentralized applications built on the Solana blockchain',
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      name: 'Solana Applications',
+      numberOfItems: totalApps,
+      itemListOrder: 'https://schema.org/ItemListUnordered',
+    },
+  };
+
   return (
     <div className={classes.wrapper}>
-      <Helmet>
-        <title>SolApps – The App Store for Solana</title>
-      </Helmet>
+      <SEO
+        title="SolApps – The App Store for Solana"
+        description={`Discover ${totalApps}+ Solana applications. Browse curated DeFi, NFT, gaming, and Web3 apps. Find your next favorite crypto app today.`}
+        url="https://solapps.dev"
+        keywords={[
+          'Solana',
+          'Solana apps',
+          'Solana dApps',
+          'DeFi',
+          'NFT',
+          'Web3',
+          'crypto apps',
+          'blockchain apps',
+          'Solana ecosystem',
+          'decentralized finance',
+          'NFT marketplace',
+          'crypto wallet',
+          'Solana gaming',
+          ...categories,
+        ]}
+        structuredData={homeStructuredData}
+      />
 
       <LoadingOverlay
         visible={isLoading}

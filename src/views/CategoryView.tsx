@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { Badge, Title } from '@mantine/core';
 import { ApplicationCardLargeV2 } from '../components/ApplicationCardLargeV2';
 import { Breadcrumb } from '../components/Breadcrumb';
-import { Helmet } from 'react-helmet';
+import { CategorySEO } from '../components/SEO';
 
 const fadeIn = keyframes({
   'from': { opacity: 0, transform: 'translateY(16px)' },
@@ -134,9 +134,13 @@ export const CategoryView = () => {
 
   return (
     <div className={classes.wrapper}>
-      <Helmet>
-        <title>{`${category?.heading_label || ''} | SolApps`}</title>
-      </Helmet>
+      {category && (
+        <CategorySEO
+          categoryName={category.heading_label}
+          categorySlug={category.value}
+          appCount={cards.length}
+        />
+      )}
 
       <Breadcrumb categoryName={category ? category.heading_label : ''} />
 

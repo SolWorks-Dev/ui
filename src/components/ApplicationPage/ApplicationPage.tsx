@@ -7,7 +7,7 @@ import { Breadcrumb } from '../Breadcrumb';
 import { useParams } from 'react-router-dom';
 import { categoryToColorHex, encodeString, formatLink, shuffle } from '../../Common';
 import { App, appList } from '@solworks/application-registry';
-import { Helmet } from 'react-helmet';
+import { AppSEO } from '../SEO';
 import { SectionHeader } from '../SectionHeader';
 import { Logo } from '../Logo';
 import ReactMarkdown from 'react-markdown';
@@ -385,14 +385,14 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
 
   return (
     <div className={classes.wrapper}>
-      <Helmet>
-        <title>{`${data.app.label} | SolApps`}</title>
-        <meta name="description" content={data.description.short} data-react-helmet="true" />
-        <meta property="og:title" content={`${data.app.label} | SolApps`} data-react-helmet="true" />
-        <meta property="og:url" content={`https://solapps.dev${formatLink(data.app.label)}`} data-react-helmet="true" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://solapps.dev/og-image.png" data-react-helmet="true" />
-      </Helmet>
+      <AppSEO
+        appName={data.app.label}
+        appDescription={data.description.short}
+        appUrl={`https://solapps.dev${formatLink(data.app.label)}`}
+        category={category?.heading_label}
+        logoUrl={data.urls.logo}
+        websiteUrl={data.urls.website}
+      />
 
       <Breadcrumb appName={data.app.label} categoryName={category?.heading_label} />
 

@@ -1,6 +1,7 @@
 import { createStyles, Grid, Button, keyframes } from '@mantine/core';
 import { ArrowLeft, Rocket } from 'tabler-icons-react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 
 const float = keyframes({
   '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
@@ -112,6 +113,12 @@ export const FourZeroFourView = () => {
 
   return (
     <div className={classes.wrapper}>
+      <SEO
+        title="Page Not Found"
+        description="The page you're looking for doesn't exist. Explore 500+ Solana apps on SolApps."
+        noindex={true}
+      />
+      
       <div className={classes.content}>
         <div className={classes.iconWrapper}>
           <Rocket size={56} color="white" strokeWidth={1.5} />

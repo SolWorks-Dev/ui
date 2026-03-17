@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { appList } = require('@solworks/application-registry');
 
 const SITE_URL = 'https://solapps.dev';
 
@@ -20,11 +21,9 @@ const categoryRoutes = [
   { slug: 'payments', name: 'Payments' },
 ];
 
-function encodeString(str) {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
+// Must match the encodeString in src/Common.tsx so URLs are consistent
+function encodeString(text) {
+  return text.replace(' ', '_').toLowerCase().replace(/\W/g, '');
 }
 
 function escapeXml(str) {
@@ -59,6 +58,18 @@ function generateSitemap() {
     });
   });
 
+  // Add individual app pages
+  const apps = appList.apps.filter((a) => !a.app.is_deprecated);
+  apps.forEach((a) => {
+    const encoded = encodeString(a.app.label);
+    urls.push({
+      loc: `${SITE_URL}/apps/${encoded}`,
+      lastmod: today,
+      changefreq: 'weekly',
+      priority: 0.6,
+    });
+  });
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -80,15 +91,14 @@ ${urls
   const buildDir = path.join(__dirname, '..', 'build');
 
   fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), xml);
-  console.log('✅ Generated sitemap.xml in public/');
+  console.log('Generated sitemap.xml in public/');
 
   if (fs.existsSync(buildDir)) {
     fs.writeFileSync(path.join(buildDir, 'sitemap.xml'), xml);
-    console.log('✅ Generated sitemap.xml in build/');
+    console.log('Generated sitemap.xml in build/');
   }
 
-  console.log(`📍 Total URLs: ${urls.length}`);
+  console.log(`Total URLs: ${urls.length} (${staticRoutes.length} static + ${categoryRoutes.length} categories + ${apps.length} apps)`);
 }
 
 generateSitemap();
-

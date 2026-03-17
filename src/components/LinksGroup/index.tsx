@@ -24,7 +24,7 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     fontSize: '14px',
     fontFamily: 'var(--font-body)',
     borderRadius: 'var(--radius-md)',
-    transition: 'all 0.25s var(--ease-out-quart)',
+    transition: 'background-color 0.15s ease, color 0.15s ease',
     marginBottom: '2px',
     textDecoration: 'none',
     cursor: 'pointer',
@@ -36,7 +36,6 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 
       [`& .${getRef('icon')}`]: {
         color: 'var(--color-primary)',
-        transform: 'scale(1.1)',
       },
     },
   },
@@ -62,7 +61,7 @@ const useStyles = createStyles((theme, _params, getRef) => ({
     fontSize: '13px',
     color: 'var(--text-secondary)',
     fontFamily: 'var(--font-body)',
-    transition: 'all 0.25s var(--ease-out-quart)',
+    transition: 'background-color 0.15s ease, color 0.15s ease',
     borderRadius: 'var(--radius-md)',
     position: 'relative',
     marginBottom: '2px',
@@ -74,11 +73,11 @@ const useStyles = createStyles((theme, _params, getRef) => ({
       left: '28px',
       top: '50%',
       transform: 'translateY(-50%)',
-      width: '6px',
-      height: '6px',
+      width: '5px',
+      height: '5px',
       borderRadius: '50%',
       backgroundColor: 'var(--border-default)',
-      transition: 'all 0.25s var(--ease-out-quart)',
+      transition: 'background-color 0.15s ease',
     },
 
     '&:hover': {
@@ -88,7 +87,6 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 
       '&::before': {
         backgroundColor: 'var(--color-primary)',
-        transform: 'translateY(-50%) scale(1.2)',
       },
 
       '& .external-icon': {
@@ -116,7 +114,7 @@ const useStyles = createStyles((theme, _params, getRef) => ({
   icon: {
     ref: getRef('icon'),
     color: 'var(--text-tertiary)',
-    transition: 'all 0.25s var(--ease-out-quart)',
+    transition: 'color 0.15s ease',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

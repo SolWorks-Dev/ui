@@ -8,6 +8,7 @@ import {
 import React from 'react';
 import { Header } from './components/Header';
 import { Menu } from './components/Menu';
+import { Footer } from './components/Footer';
 import './common.css';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { fetchTpsStats } from './apis/fetchTpsStats';
@@ -41,10 +42,10 @@ const useStyles = createStyles((theme) => ({
       width: '100%',
       
       '@media (min-width: 1280px)': {
-        marginLeft: '280px',
+        marginLeft: '220px',
         paddingLeft: '48px',
         paddingRight: '48px',
-        maxWidth: 'calc(100% - 280px)',
+        maxWidth: 'calc(100% - 220px)',
       },
     },
   },
@@ -73,6 +74,7 @@ const AppContainer = () => {
       className={classes.appShell}
     >
       <NavigationRouter />
+      <Footer />
     </AppShell>
   );
 };
@@ -125,10 +127,10 @@ export default function App() {
               primaryColor: 'brand',
               defaultRadius: 'md',
               shadows: {
-                sm: '0 2px 4px rgba(26, 24, 22, 0.04), 0 1px 2px rgba(26, 24, 22, 0.02)',
-                md: '0 8px 24px rgba(26, 24, 22, 0.06), 0 4px 8px rgba(26, 24, 22, 0.03)',
-                lg: '0 24px 48px rgba(26, 24, 22, 0.1), 0 12px 24px rgba(26, 24, 22, 0.05)',
-                xl: '0 32px 64px rgba(26, 24, 22, 0.12), 0 16px 32px rgba(26, 24, 22, 0.06)',
+                sm: '0 1px 3px rgba(0, 0, 0, 0.06)',
+                md: '0 2px 8px rgba(0, 0, 0, 0.08)',
+                lg: '0 4px 16px rgba(0, 0, 0, 0.1)',
+                xl: '0 8px 24px rgba(0, 0, 0, 0.12)',
               },
               other: {
                 transitionTimingFunction: 'cubic-bezier(0.165, 0.84, 0.44, 1)',

@@ -13,33 +13,22 @@ const fadeIn = keyframes({
 const useStyles = createStyles((theme) => ({
   navbar: {
     backgroundColor: 'var(--bg-app)',
-    borderRight: 'none',
+    borderRight: '1px solid var(--border-subtle)',
     position: 'fixed',
     top: 'var(--header-height)',
     left: 0,
     height: 'calc(100vh - var(--header-height))',
-    paddingTop: '24px',
+    paddingTop: '20px',
     zIndex: 50,
     overflowY: 'auto',
 
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      width: '1px',
-      height: '100%',
-      background: 'linear-gradient(to bottom, var(--border-subtle), transparent)',
-      pointerEvents: 'none',
-    },
-
     '@media (max-width: 1279px)': {
       backgroundColor: 'var(--bg-surface)',
-      boxShadow: 'var(--shadow-xl)',
+      boxShadow: 'var(--shadow-md)',
     },
 
     '@media (min-width: 1280px)': {
-      width: '280px',
+      width: '220px',
     }
   },
 
@@ -82,10 +71,10 @@ const useStyles = createStyles((theme) => ({
   },
 
   footerContent: {
-    padding: '16px',
-    borderRadius: 'var(--radius-lg)',
+    padding: '14px',
+    borderRadius: 'var(--radius-md)',
     background: 'var(--bg-secondary)',
-    marginBottom: '16px',
+    marginBottom: '12px',
   },
 
   footerTitle: {
@@ -144,15 +133,14 @@ const useStyles = createStyles((theme) => ({
   },
 
   logoIcon: {
-    width: '38px',
-    height: '38px',
-    background: 'linear-gradient(135deg, #FF6B35 0%, #FF8F6B 100%)',
-    borderRadius: '10px',
+    width: '34px',
+    height: '34px',
+    background: 'var(--color-primary)',
+    borderRadius: '8px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     color: 'white',
-    boxShadow: '0 4px 12px rgba(255, 107, 53, 0.25)',
   },
 
   logoTextGroup: {
@@ -198,7 +186,7 @@ export const Menu: FC<{ showNavbar?: boolean; hideMenu?: () => void; isMenuOpen:
 
   return (
     <Navbar
-      width={{ base: 300 }}
+      width={{ base: 220 }}
       p="md"
       className={classes.navbar}
       hidden={!showNavbar}

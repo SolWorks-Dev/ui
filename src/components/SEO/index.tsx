@@ -1,5 +1,10 @@
 import { Helmet } from 'react-helmet';
 
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 interface SEOProps {
   title?: string;
   description?: string;
@@ -12,6 +17,7 @@ interface SEOProps {
   modifiedTime?: string;
   noindex?: boolean;
   structuredData?: Record<string, unknown>;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const DEFAULT_TITLE = 'SolApps – The App Store for Solana';
@@ -44,6 +50,7 @@ export const SEO = ({
   modifiedTime,
   noindex = false,
   structuredData,
+  breadcrumbs,
 }: SEOProps) => {
   const fullTitle = title === DEFAULT_TITLE ? title : `${title} | SolApps`;
   
@@ -69,13 +76,24 @@ export const SEO = ({
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${DEFAULT_URL}/?search={search_term_string}`,
+        urlTemplate: `${DEFAULT_URL}/?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
   };
 
   const jsonLd = structuredData || defaultStructuredData;
+
+  const breadcrumbLd = breadcrumbs && breadcrumbs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  } : null;
 
   return (
     <Helmet>
@@ -85,11 +103,11 @@ export const SEO = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords.join(', ')} />
       <meta name="author" content={author} />
-      
+
       {/* Robots */}
       <meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow'} />
       <meta name="googlebot" content={noindex ? 'noindex,nofollow' : 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1'} />
-      
+
       {/* Canonical URL */}
       <link rel="canonical" href={url} />
 
@@ -105,7 +123,7 @@ export const SEO = ({
       <meta property="og:image:type" content="image/png" />
       <meta property="og:site_name" content="SolApps" />
       <meta property="og:locale" content="en_US" />
-      
+
       {/* Article specific (for blog posts, etc.) */}
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
@@ -124,6 +142,13 @@ export const SEO = ({
       <script type="application/ld+json">
         {JSON.stringify(jsonLd)}
       </script>
+
+      {/* Breadcrumb Structured Data */}
+      {breadcrumbLd && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbLd)}
+        </script>
+      )}
     </Helmet>
   );
 };
@@ -181,6 +206,13 @@ export const AppSEO = ({
     'Web3',
   ];
 
+  const categorySlug = category ? category.toLowerCase().replace(/\s+/g, '_').replace(/\W/g, '') : '';
+  const breadcrumbs: BreadcrumbItem[] = [
+    { name: 'Home', url: DEFAULT_URL },
+    ...(category ? [{ name: category, url: `${DEFAULT_URL}/category/${categorySlug}` }] : []),
+    { name: appName, url: appUrl },
+  ];
+
   return (
     <SEO
       title={appName}
@@ -189,6 +221,7 @@ export const AppSEO = ({
       keywords={keywords}
       type="website"
       structuredData={structuredData}
+      breadcrumbs={breadcrumbs}
     />
   );
 };
@@ -208,12 +241,14 @@ export const CategorySEO = ({
     ? `Browse ${appCount} ${categoryName} apps on Solana. Discover the best ${categoryName.toLowerCase()} projects in the Solana ecosystem.`
     : `Browse ${categoryName} apps on Solana. Discover the best ${categoryName.toLowerCase()} projects in the Solana ecosystem.`;
 
+  const categoryUrl = `${DEFAULT_URL}/category/${categorySlug}`;
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: `${categoryName} Apps on Solana`,
     description,
-    url: `${DEFAULT_URL}/category/${categorySlug}`,
+    url: categoryUrl,
     isPartOf: {
       '@type': 'WebSite',
       name: 'SolApps',
@@ -234,13 +269,19 @@ export const CategorySEO = ({
     'blockchain',
   ];
 
+  const breadcrumbs: BreadcrumbItem[] = [
+    { name: 'Home', url: DEFAULT_URL },
+    { name: categoryName, url: categoryUrl },
+  ];
+
   return (
     <SEO
       title={categoryName}
       description={description}
-      url={`${DEFAULT_URL}/category/${categorySlug}`}
+      url={categoryUrl}
       keywords={keywords}
       structuredData={structuredData}
+      breadcrumbs={breadcrumbs}
     />
   );
 };

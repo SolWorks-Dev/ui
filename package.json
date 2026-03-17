@@ -35,20 +35,9 @@
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook",
     "dev": "npm run storybook",
     "start": "react-scripts start",
-    "build": "react-scripts build && npm run generate-sitemap && npm run postbuild",
+    "build": "react-scripts build && npm run generate-sitemap",
     "generate-sitemap": "node scripts/generate-sitemap.js",
-    "postbuild": "react-snap",
     "pretty": "npx prettier --write ."
-  },
-  "reactSnap": {
-    "source": "build",
-    "inlineCss": true,
-    "crawl": true,
-    "headless": true,
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox"
-    ]
   },
   "eslintConfig": {
     "extends": [
@@ -76,7 +65,6 @@
     "babel-loader": "^8.2.5",
     "prettier": "2.7.1",
     "react-build-sitemap": "^0.2.2",
-    "react-snap": "^1.23.0",
     "storybook-dark-mode": "^1.1.0"
   }
 }

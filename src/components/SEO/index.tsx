@@ -158,6 +158,7 @@ interface AppSEOProps {
   appDescription: string;
   appUrl: string;
   category?: string;
+  categorySlug?: string;
   logoUrl?: string;
   websiteUrl?: string;
 }
@@ -167,6 +168,7 @@ export const AppSEO = ({
   appDescription,
   appUrl,
   category,
+  categorySlug,
   logoUrl,
   websiteUrl,
 }: AppSEOProps) => {
@@ -206,10 +208,10 @@ export const AppSEO = ({
     'Web3',
   ];
 
-  const categorySlug = category ? category.toLowerCase().replace(/\s+/g, '_').replace(/\W/g, '') : '';
+  const resolvedCategorySlug = categorySlug || (category ? category.toLowerCase().replace(/\s+/g, '_').replace(/\W/g, '') : '');
   const breadcrumbs: BreadcrumbItem[] = [
     { name: 'Home', url: DEFAULT_URL },
-    ...(category ? [{ name: category, url: `${DEFAULT_URL}/category/${categorySlug}` }] : []),
+    ...(category ? [{ name: category, url: `${DEFAULT_URL}/category/${resolvedCategorySlug}` }] : []),
     { name: appName, url: appUrl },
   ];
 

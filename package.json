@@ -35,8 +35,9 @@
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook",
     "dev": "npm run storybook",
     "start": "react-scripts start",
-    "build": "react-scripts build && npm run generate-sitemap",
+    "build": "react-scripts build && npm run generate-sitemap && npm run generate-seo-pages",
     "generate-sitemap": "node scripts/generate-sitemap.js",
+    "generate-seo-pages": "node scripts/generate-seo-pages.js",
     "pretty": "npx prettier --write ."
   },
   "eslintConfig": {

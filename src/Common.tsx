@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export function encodeString(text: string) {
-  return text.replace(' ', '_').toLocaleLowerCase().replace(/\W/g, '');
+  return text.trim().replace(/\s+/g, '_').toLowerCase().replace(/\W/g, '');
 }
 
 export function formatLink(appName: string) {

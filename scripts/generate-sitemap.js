@@ -8,22 +8,8 @@ const staticRoutes = [
   { url: '/', priority: 1.0, changefreq: 'daily' },
 ];
 
-const categoryRoutes = [
-  { slug: 'curated', name: 'Curated' },
-  { slug: 'defi', name: 'DeFi' },
-  { slug: 'nft', name: 'NFT' },
-  { slug: 'gaming', name: 'Gaming' },
-  { slug: 'wallet', name: 'Wallet' },
-  { slug: 'dex', name: 'DEX' },
-  { slug: 'tools', name: 'Tools' },
-  { slug: 'social', name: 'Social' },
-  { slug: 'staking', name: 'Staking' },
-  { slug: 'payments', name: 'Payments' },
-];
-
-// Must match the encodeString in src/Common.tsx so URLs are consistent
 function encodeString(text) {
-  return text.replace(' ', '_').toLowerCase().replace(/\W/g, '');
+  return text.trim().replace(/\s+/g, '_').toLowerCase().replace(/\W/g, '');
 }
 
 function escapeXml(str) {
@@ -48,6 +34,13 @@ function generateSitemap() {
       priority: route.priority,
     });
   });
+
+  const categoryRoutes = [
+    { slug: 'curated' },
+    ...appList.categories
+      .filter((category) => category.value !== 'curated')
+      .map((category) => ({ slug: category.value })),
+  ];
 
   categoryRoutes.forEach((category) => {
     urls.push({

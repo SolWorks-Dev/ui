@@ -12,6 +12,7 @@ import { SectionHeader } from '../SectionHeader';
 import { Logo } from '../Logo';
 import ReactMarkdown from 'react-markdown';
 import { ExternalLink, AlertTriangle, ArrowRight } from 'tabler-icons-react';
+import { FourZeroFourView } from '../../views/FourZeroFourView';
 
 export interface ApplicationPageProps {}
 
@@ -324,9 +325,11 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
   const [data, setData] = useState<App>();
   const [linkCards, setLinkCards] = useState<JSX.Element[]>([]);
   const [relatedCards, setRelatedCards] = useState<JSX.Element[]>([]);
+  const [isResolved, setIsResolved] = useState(false);
   const { classes } = useStyles();
 
   useEffect(() => {
+    setIsResolved(false);
     const appData = appList.apps.find((app) => encodeString(app.app.label) === id);
     if (appData) {
       setData(appData as App);
@@ -376,10 +379,15 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
           </Grid.Col>
         ))
       );
+    } else {
+      setData(undefined);
+      setLinkCards([]);
+      setRelatedCards([]);
     }
+    setIsResolved(true);
   }, [id]);
 
-  if (!data) return null;
+  if (!data) return isResolved ? <FourZeroFourView /> : null;
 
   const category = appList.categories.find((cat) => cat.value === data.app.categories[0]);
 
@@ -390,6 +398,7 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
         appDescription={data.description.short}
         appUrl={`https://solapps.dev${formatLink(data.app.label)}`}
         category={category?.heading_label}
+        categorySlug={category?.value}
         logoUrl={data.urls.logo}
         websiteUrl={data.urls.website}
       />
@@ -498,7 +507,7 @@ export const ApplicationPage: FC<ApplicationPageProps> = () => {
               <div className={classes.relatedHeader}>
                 <h2 className={classes.relatedTitle}>Similar Apps</h2>
                 {category && (
-                  <a href={`/categories/${category.value}`} className={classes.viewAllLink}>
+                  <a href={`/category/${category.value}`} className={classes.viewAllLink}>
                     View all {category.heading_label}
                     <ArrowRight size={16} />
                   </a>

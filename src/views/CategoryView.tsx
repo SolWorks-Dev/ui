@@ -6,6 +6,7 @@ import { Badge, Title } from '@mantine/core';
 import { ApplicationCardLargeV2 } from '../components/ApplicationCardLargeV2';
 import { Breadcrumb } from '../components/Breadcrumb';
 import { CategorySEO } from '../components/SEO';
+import { FourZeroFourView } from './FourZeroFourView';
 
 const fadeIn = keyframes({
   'from': { opacity: 0, transform: 'translateY(16px)' },
@@ -82,9 +83,11 @@ export const CategoryView = () => {
   let { id } = useParams();
   const [cards, setCards] = useState<JSX.Element[]>([]);
   const [category, setCategory] = useState<Category>();
+  const [isResolved, setIsResolved] = useState(false);
   const { classes } = useStyles();
 
   useEffect(() => {
+    setIsResolved(false);
     if (id === 'curated') {
       setCategory({
         value: 'curated',
@@ -95,8 +98,11 @@ export const CategoryView = () => {
       const category = appList.categories.find((category) => category.value === id);
       if (category) {
         setCategory(category);
+      } else {
+        setCategory(undefined);
       }
     }
+    setIsResolved(true);
   }, [id]);
 
   useEffect(() => {
@@ -129,8 +135,12 @@ export const CategoryView = () => {
           ))
         );
       }
+    } else {
+      setCards([]);
     }
   }, [category, classes.gridItem]);
+
+  if (!category && isResolved) return <FourZeroFourView />;
 
   return (
     <div className={classes.wrapper}>

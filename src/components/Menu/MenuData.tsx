@@ -1,4 +1,4 @@
-import { BuildingSkyscraper, Filter, Firetruck, ListDetails } from 'tabler-icons-react';
+import { Bolt, BuildingSkyscraper, Filter, Firetruck, ListDetails } from 'tabler-icons-react';
 import { appList } from '@solworks/application-registry';
 import { formatCategoryLink } from '../../Common';
 import { Icon } from 'tabler-icons-react';
@@ -19,6 +19,7 @@ export type MenuLinkDetails = {
 };
 
 export const MenuData: MenuLinkDetails[] = [
+  { label: 'Redesign Preview', icon: Bolt, link: '/redesign-preview', initiallyOpened: false },
   { label: 'Curated', icon: Filter, link: formatCategoryLink('curated'), initiallyOpened: false },
   {
     label: 'Categories',

@@ -13,11 +13,12 @@ import './common.css';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
 import { fetchTpsStats } from './apis/fetchTpsStats';
 import { fetchSolStats } from './apis/fetchSolStats';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import ScrollToTop from './Common';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import NavigationRouter from './NavigationRouter';
+import { ThemePreviewView } from './views/ThemePreviewView';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -51,7 +52,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const AppContainer = () => {
+const MainAppShell = () => {
   const tpsQuery = useQuery(['tps-data'], fetchTpsStats);
   const solQuery = useQuery(['sol-data'], fetchSolStats);
   const { classes } = useStyles();
@@ -77,6 +78,14 @@ const AppContainer = () => {
       <Footer />
     </AppShell>
   );
+};
+
+const AppContainer = () => {
+  const location = useLocation();
+  if (location.pathname.startsWith('/themes')) {
+    return <ThemePreviewView />;
+  }
+  return <MainAppShell />;
 };
 
 export default function App() {
